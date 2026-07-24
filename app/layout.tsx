@@ -30,9 +30,14 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
+        id="top"
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <a className="global-top-button" href="#top" aria-label="Voltar ao topo">
+          <span aria-hidden="true">↑</span>
+          TOPO
+        </a>
       </body>
     </html>
   );
