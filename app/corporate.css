@@ -306,6 +306,7 @@
 .uruguay-event-page .partner-brands-mobile{display:none}
 .uruguay-event-page .original-support img{width:auto;max-width:180px;height:64px;max-height:64px;object-fit:contain}
 .uruguay-event-page .support-logo-row{display:flex;flex:1 0 100%;flex-wrap:wrap;justify-content:center;align-items:center;gap:28px 40px}
+.uruguay-event-page .support-logo-line{display:contents}
 @media(max-width:1200px){
  .uruguay-event-page .benefit-grid{grid-template-columns:repeat(2,1fr)}
  .uruguay-event-page .azimut-feature .section-frame{width:calc(100% - 48px)}
@@ -859,34 +860,48 @@ body.save-date-open{overflow:hidden}
  }
  .uruguay-event-page .partner-brands-mobile{
   display:flex;
-  width:100%;
+  width:min(100%,350px);
   flex-direction:column;
   align-items:center;
   gap:2px;
  }
  .uruguay-event-page .original-brands .partner-brands-mobile img{
   display:block;
-  width:auto;
-  max-width:92%;
-  height:29px;
-  max-height:29px;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  max-height:none;
   object-fit:contain;
  }
  .uruguay-event-page .support-logo-row{
-  grid-template-columns:repeat(6,minmax(0,1fr));
-  gap:5px 8px;
+  display:flex;
+  width:100%;
+  flex-direction:column;
+  gap:4px;
  }
- .uruguay-event-page .support-logo-row img{
-  max-width:112px;
+ .uruguay-event-page .support-logo-line{
+  display:flex;
+  width:min(100%,330px);
+  align-items:center;
+  justify-content:space-between;
+  margin:0 auto;
+ }
+ .uruguay-event-page .support-logo-line-top{
+  gap:20px;
+ }
+ .uruguay-event-page .support-logo-line-bottom{
+  gap:5px;
+ }
+ .uruguay-event-page .support-logo-row .support-logo-line img{
+  width:auto;
+  max-width:46%;
   height:45px;
   max-height:45px;
+  flex:1 1 0;
+  object-fit:contain;
  }
- .uruguay-event-page .support-logo-row img:nth-child(1),
- .uruguay-event-page .support-logo-row img:nth-child(2){
-  grid-column:span 3;
- }
- .uruguay-event-page .support-logo-row img:nth-child(n+3){
-  grid-column:span 2;
+ .uruguay-event-page .support-logo-row .support-logo-line-bottom img{
+  max-width:32%;
  }
 }
 
@@ -897,10 +912,12 @@ body.save-date-open{overflow:hidden}
   font-size:1.5rem;
  }
  .uruguay-event-page .support-logo-row{
-  gap:4px 6px;
+  gap:3px;
  }
- .uruguay-event-page .support-logo-row img{
-  max-width:98px;
+ .uruguay-event-page .support-logo-row .support-logo-line{
+  width:min(100%,305px);
+ }
+ .uruguay-event-page .support-logo-row .support-logo-line img{
   height:40px;
   max-height:40px;
  }
