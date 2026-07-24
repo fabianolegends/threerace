@@ -1445,10 +1445,11 @@ export default function Home() {
           <h2>{t.historyTitle}</h2>
           <p>{t.history}</p>
           <p>{t.historyDetail}</p>
+          <a className="original-about-mobile-link" href="/">{t.discoverMore} +++</a>
         </div>
         <div className="original-about-brand">
           <span><img src={tr3Logo} alt="Threerace Sports" /></span>
-          <a href="/">{t.discoverMore} +++</a>
+          <a className="original-about-desktop-link" href="/">{t.discoverMore} +++</a>
         </div>
       </section>
 
