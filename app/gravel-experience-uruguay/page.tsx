@@ -23,7 +23,7 @@ const supportImages = ["/ministerio-turismo-uruguay.png", "/support-rocha.png", 
 
 const copy = {
   es: {
-    nav: ["EVENTO", "ETAPAS", "INSCRIPCIONES", "INFORMACIÓN", "PREGUNTAS"],
+    nav: ["HOME", "ETAPAS", "INSCRIPCIÓN", "INFORMACIÓN"],
     heroPlace: "ROCHA + LA PALOMA · URUGUAY",
     heroTitle: "GRAVEL",
     heroSubtitle: "EXPERIENCE URUGUAY",
@@ -108,7 +108,7 @@ const copy = {
     close: "Cerrar menú",
   },
   pt: {
-    nav: ["EVENTO", "ETAPAS", "INSCRIÇÕES", "INFORMAÇÕES", "PERGUNTAS"],
+    nav: ["HOME", "ETAPAS", "INSCRIÇÃO", "INFORMAÇÕES"],
     heroPlace: "ROCHA + LA PALOMA · URUGUAI", heroTitle: "GRAVEL", heroSubtitle: "EXPERIENCE URUGUAY",
     actions: [["INSCRIÇÕES", "PLATAFORMA WINDFIT"], ["ETAPAS", "115 KM + 68 KM"], ["REGULAMENTO", "REGULAMENTO 2026"]],
     countdown: ["DIAS", "HORAS", "MINUTOS"], information: "INFORMAÇÕES COMPLETAS",
@@ -159,7 +159,7 @@ const copy = {
     finalTitle: "DUAS ETAPAS. UM URUGUAI PARA DESCOBRIR.", finalCta: "INSCREVER-ME AGORA", menu: "Abrir menu", close: "Fechar menu",
   },
   en: {
-    nav: ["EVENT", "STAGES", "REGISTRATION", "INFORMATION", "QUESTIONS"],
+    nav: ["HOME", "STAGES", "REGISTRATION", "INFORMATION"],
     heroPlace: "ROCHA + LA PALOMA · URUGUAY", heroTitle: "GRAVEL", heroSubtitle: "EXPERIENCE URUGUAY",
     actions: [["REGISTRATION", "WINDFIT PLATFORM"], ["STAGES", "115 KM + 68 KM"], ["RULEBOOK", "2026 RULEBOOK"]],
     countdown: ["DAYS", "HOURS", "MINUTES"], information: "COMPLETE INFORMATION",
@@ -241,7 +241,7 @@ export default function GravelExperienceUruguay() {
             <img className="header-azimut-logo" src={azimutHeaderLogo} alt="Azimut Extremo" />
           </a>
           <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Main navigation">
-            <a href="#information">{t.nav[0]}</a><a href="#stages">{t.nav[1]}</a><a href={registrationUrl}>{t.nav[2]}</a><a href="#information">{t.nav[3]}</a><a href="#contact">{t.nav[4]}</a>
+            <a href="/">{t.nav[0]}</a><a href="#stages">{t.nav[1]}</a><a href={registrationUrl} target="_blank" rel="noreferrer">{t.nav[2]}</a><a href="#information">{t.nav[3]}</a>
           </nav>
           <div className="header-actions"><div className="language-switcher" aria-label="Language selector">{(["es", "pt", "en"] as Language[]).map((code) => <button key={code} className={language === code ? "active" : ""} type="button" onClick={() => { setLanguage(code); saveLanguage(code); }} aria-label={code} aria-pressed={language === code}>{{ es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" }[code]}</button>)}</div><button className="menu-toggle" type="button" aria-label={menuOpen ? t.close : t.menu} onClick={() => setMenuOpen(!menuOpen)}><span/><span/></button></div>
         </header>
