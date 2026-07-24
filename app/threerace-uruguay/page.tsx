@@ -1275,7 +1275,7 @@ function OfficialText({ text }: { text: string }) {
 export default function Home() {
   const [language, setLanguage] = useState<Language>("es");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [guideMode, setGuideMode] = useState<"mtb" | "gravel">("mtb");
   const [openInfo, setOpenInfo] = useState<number | null>(null);
   const t = copy[language];
