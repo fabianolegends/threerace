@@ -9,9 +9,9 @@ type PanelKey = "event" | "registration" | "categories" | "stages" | "schedule" 
 const registrationUrl = "https://event.windfit.app/threerace-uruguay-2026";
 const lodgingUrl = "https://www.escapatearocha.uy/alojamientos?localidad=4&page=4";
 const heroImage = "/gravel-experience-hero-v2.png";
-const tr3HeaderLogo = "/tr3-logo-partners.png";
+const tr3HeaderLogo = "/tr3-logo-new.svg";
 const azimutHeaderLogo = "/azimut-extremo-logo.png";
-const tr3Logo = "/tr3-logo-partners.png";
+const tr3Logo = "/tr3-logo-new.svg";
 const azimutLogo = "/azimut-extremo-logo.png";
 const azimutUrl = "https://www.azimutextremo.com/";
 const galleryImages = [
@@ -288,7 +288,7 @@ export default function GravelExperienceUruguay() {
 
       <section className="original-partners" id="contact">
         <div className="section-frame">
-          <div className="original-organizers"><p>{t.organizers}</p><img src="/tr3-logo-partners.png" alt="Threerace Sports" /><img src="/azimut-extremo-logo.png" alt="Azimut Extremo" /></div>
+          <div className="original-organizers"><p>{t.organizers}</p><img src="/tr3-logo-new.svg" alt="Threerace Sports" /><img src="/azimut-extremo-logo.png" alt="Azimut Extremo" /></div>
           <div className="original-main-sponsor"><p>MAIN SPONSOR</p><img src="/epic-bike-store.png" alt="Epic Bike Store" /></div>
           <div className="original-brands"><p>{language === "pt" ? "MARCAS PARCEIRAS" : language === "en" ? "PARTNER BRANDS" : "MARCAS ASOCIADAS"}</p><img src="/partner-brands-row.png" alt="Orbea, Bioracer, 226ERS, Rudy Project, Shokz, DJI e Insta360" /></div>
           <div className="original-support">
