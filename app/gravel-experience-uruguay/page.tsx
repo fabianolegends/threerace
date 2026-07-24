@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { detectInitialLanguage, saveLanguage } from "../site-language";
+import { getSavedLanguage, saveLanguage } from "../site-language";
 
 type Language = "es" | "pt" | "en";
 type PanelKey = "event" | "registration" | "categories" | "stages" | "schedule" | "rules" | "stay";
@@ -192,6 +192,12 @@ function Icon({ kind }: { kind: "register" | "stages" | "rules" }) {
   return <svg viewBox="0 0 48 48"><path d="M13 5h17l7 7v31H13zM30 5v9h7M19 23h13M19 29h13M19 35h9"/></svg>;
 }
 
+function ActionArrow({ direction }: { direction: "external" | "down" }) {
+  return direction === "external"
+    ? <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
+    : <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 5v22M8 19l8 8 8-8" /></svg>;
+}
+
 function List({ children }: { children: ReactNode }) {
   return <ul className="gravel-clean-list">{children}</ul>;
 }
@@ -209,15 +215,9 @@ export default function GravelExperienceUruguay() {
   }, [now]);
 
   useEffect(() => {
-    let active = true;
-    void detectInitialLanguage("es").then((detected) => {
-      if (!active) return;
-      setLanguage(detected);
-      saveLanguage(detected);
-    });
-    return () => {
-      active = false;
-    };
+    const saved = getSavedLanguage("es");
+    setLanguage(saved);
+    saveLanguage(saved);
   }, []);
 
   useEffect(() => {
@@ -252,7 +252,7 @@ export default function GravelExperienceUruguay() {
           <div className="header-actions"><div className="language-switcher" aria-label="Language selector">{(["es", "pt", "en"] as Language[]).map((code) => <button key={code} className={language === code ? "active" : ""} type="button" onClick={() => { setLanguage(code); saveLanguage(code); }} aria-label={code} aria-pressed={language === code}>{{ es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" }[code]}</button>)}</div><button className="menu-toggle" type="button" aria-label={menuOpen ? t.close : t.menu} onClick={() => setMenuOpen(!menuOpen)}><span/><span/></button></div>
         </header>
         <div className="uruguay-title-block gravel-title-block"><p className="location">{t.heroPlace}</p><h1>{t.heroTitle}<small>{t.heroSubtitle}</small></h1></div>
-        <section className="original-action-cards section-frame" aria-label="Quick access">{t.actions.map(([title, note], index) => <a key={title} href={actionTargets[index]} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}><Icon kind={(["register", "stages", "rules"] as const)[index]} /><b>{title}</b><small>{note}</small><i>{index === 0 ? "↗" : "↓"}</i></a>)}</section>
+        <section className="original-action-cards section-frame" aria-label="Quick access">{t.actions.map(([title, note], index) => <a key={title} href={actionTargets[index]} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}><Icon kind={(["register", "stages", "rules"] as const)[index]} /><b>{title}</b><small>{note}</small><i><ActionArrow direction={index === 0 ? "external" : "down"} /></i></a>)}</section>
       </section>
 
       <section className="countdown-section" aria-label="Countdown"><div className="section-frame countdown-grid">{countdown.map((value, index) => <div className="countdown-unit" key={t.countdown[index]}><b>{String(value).padStart(2, "0")}</b><span>{t.countdown[index]}</span></div>)}</div></section>
