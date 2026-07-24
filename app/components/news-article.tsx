@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getSavedLanguage, saveLanguage, SiteLanguage } from "../site-language";
+import { detectInitialLanguage, saveLanguage, SiteLanguage } from "../site-language";
 
 const logo = "/tr3-logo-new.svg";
 const flags: Record<SiteLanguage, string> = { es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" };
@@ -167,9 +167,15 @@ export default function NewsArticle({ slug }: { slug: keyof typeof articles }) {
   const t = article.translations[language];
 
   useEffect(() => {
-    const saved = getSavedLanguage("pt");
-    setLanguage(saved);
-    saveLanguage(saved);
+    let active = true;
+    void detectInitialLanguage("pt").then((detected) => {
+      if (!active) return;
+      setLanguage(detected);
+      saveLanguage(detected);
+    });
+    return () => {
+      active = false;
+    };
   }, []);
 
   function selectLanguage(next: SiteLanguage) {
