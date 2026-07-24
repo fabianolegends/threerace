@@ -1531,7 +1531,12 @@ export default function Home() {
           <div className="original-support">
             <p>{t.partners[2]}</p>
             <div className="support-logo-row">
-              {supportImages.map((image, index) => <img src={image} alt={`Event supporter ${index + 1}`} key={image} />)}
+              <div className="support-logo-line support-logo-line-top">
+                {supportImages.slice(0, 2).map((image, index) => <img src={image} alt={`Event supporter ${index + 1}`} key={image} />)}
+              </div>
+              <div className="support-logo-line support-logo-line-bottom">
+                {supportImages.slice(2).map((image, index) => <img src={image} alt={`Event supporter ${index + 3}`} key={image} />)}
+              </div>
             </div>
           </div>
         </div>
