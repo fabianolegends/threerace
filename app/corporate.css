@@ -344,11 +344,12 @@
  .uruguay-event-page .original-gallery-count{right:14px;bottom:14px}
  .uruguay-event-page .azimut-feature{padding:38px 0 44px}
  .uruguay-event-page .azimut-feature .section-frame{width:calc(100% - 36px)}
- .uruguay-event-page .azimut-feature a{grid-template-columns:1fr;gap:17px}
- .uruguay-event-page .azimut-feature img{width:148px;max-width:100%;max-height:none}
- .uruguay-event-page .azimut-feature .section-label{margin-bottom:9px;font-size:.58rem}
- .uruguay-event-page .azimut-feature h2{max-width:330px;margin:6px 0 16px;font-size:1.7rem;line-height:.98}
- .uruguay-event-page .azimut-feature span{font-size:.62rem;line-height:1.35}
+ .uruguay-event-page .azimut-feature a{grid-template-columns:1fr;justify-items:center;gap:14px;text-align:center}
+ .uruguay-event-page .azimut-feature img{width:112px;max-width:100%;max-height:none}
+ .uruguay-event-page .azimut-feature div{display:flex;flex-direction:column;align-items:center}
+ .uruguay-event-page .azimut-feature .section-label{margin:0 0 9px;font-size:.54rem;text-align:center}
+ .uruguay-event-page .azimut-feature h2{max-width:310px;margin:6px auto 16px;font-size:1.34rem;line-height:1.02;white-space:normal;text-align:center}
+ .uruguay-event-page .azimut-feature span{justify-content:center;font-size:.58rem;line-height:1.35;text-align:center}
  .uruguay-event-page .original-kit > div > div:first-child{margin-bottom:34px}
  .uruguay-event-page .original-kit h2{font-size:2rem}
  .uruguay-event-page .benefit-grid{grid-template-columns:1fr}
