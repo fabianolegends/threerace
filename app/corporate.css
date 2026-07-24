@@ -248,6 +248,7 @@
 .uruguay-event-page .original-about-brand{display:flex;flex-direction:column;align-items:center;gap:16px}
 .uruguay-event-page .original-about-brand span{box-sizing:border-box;display:grid;width:228px;aspect-ratio:1;place-items:center;padding:0;overflow:hidden;background:transparent}
 .uruguay-event-page .original-about a{display:inline-flex;color:var(--ink);font-size:.72rem;transition:color .2s ease}
+.uruguay-event-page .original-about-mobile-link{display:none}
 .uruguay-event-page .original-about a:hover{color:var(--orange)}
 .uruguay-event-page .original-about img{display:block;width:100%;height:auto;max-width:100%;max-height:100%;object-fit:contain}
 .uruguay-event-page .original-gallery{position:relative;display:block;overflow:hidden;background:#101719}
@@ -329,12 +330,15 @@
  .uruguay-event-page .official-copy p{font-size:.98rem;line-height:1.68}
  .uruguay-event-page .official-copy h4{font-size:1.02rem}
  .uruguay-event-page .original-accordion-content .accordion-action{margin:10px 20px 26px}
- .uruguay-event-page .original-about{grid-template-columns:1fr;gap:20px;padding:30px 18px 34px}
- .uruguay-event-page .original-about h2{margin-bottom:13px;font-size:1.55rem;line-height:1}
- .uruguay-event-page .original-about p{margin-bottom:13px;font-size:.84rem;line-height:1.55}
- .uruguay-event-page .original-about-brand{order:-1;width:100%;align-items:center;gap:10px;text-align:center}
- .uruguay-event-page .original-about-brand span{width:118px;padding:0}
- .uruguay-event-page .original-about a{font-size:.61rem;line-height:1.35}
+ .uruguay-event-page .original-about{grid-template-columns:1fr;justify-items:center;gap:16px;padding:30px 20px 36px;text-align:center}
+ .uruguay-event-page .original-about-copy{display:flex;max-width:360px;flex-direction:column;align-items:center}
+ .uruguay-event-page .original-about h2{margin-bottom:13px;font-size:1.35rem;line-height:1.04;text-align:center}
+ .uruguay-event-page .original-about p{margin-bottom:13px;font-size:.79rem;line-height:1.55;text-align:center}
+ .uruguay-event-page .original-about-brand{order:-1;width:100%;align-items:center;gap:0;text-align:center}
+ .uruguay-event-page .original-about-brand span{width:94px;padding:0}
+ .uruguay-event-page .original-about a{justify-content:center;font-size:.59rem;line-height:1.35;text-align:center}
+ .uruguay-event-page .original-about-desktop-link{display:none}
+ .uruguay-event-page .original-about .original-about-mobile-link{display:inline-flex;margin-top:5px}
  .uruguay-event-page .original-about img{width:100%;justify-self:auto}
  .uruguay-event-page .original-gallery-slide{flex-basis:100%}
  .uruguay-event-page .original-gallery img{height:340px}
