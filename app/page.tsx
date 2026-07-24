@@ -4,7 +4,7 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import { getSavedLanguage, saveLanguage, SiteLanguage } from "./site-language";
 
 const logo = "/tr3-logo-new.svg";
-const azimutMenuLogo = "/azimut-extremo-logo.png";
+const azimutMenuLogo = "/azimut-extremo-logo-white.svg";
 const legendsLogo = "https://www.legendsbikerace.com.br/legends-logo-official.png";
 
 const homeNavigation = {
