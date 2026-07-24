@@ -101,6 +101,13 @@
 .uruguay-event-page .main-nav a{font-size:.97rem;font-weight:720;letter-spacing:.15em;text-transform:uppercase}
 .uruguay-event-page .language-switcher{gap:8px;padding-left:18px}
 .uruguay-event-page .language-switcher button{width:36px;height:34px;font-size:1.46rem}
+@media(min-width:901px){
+ .uruguay-event-page .site-header{position:relative}
+ .uruguay-event-page .main-nav{position:absolute;left:50%;margin:0;transform:translateX(-50%)}
+ .uruguay-event-page .header-actions{margin-left:auto}
+ .uruguay-event-page .language-switcher{gap:10px;padding-left:20px}
+ .uruguay-event-page .language-switcher button{width:72px;height:68px;font-size:2.92rem;line-height:1;display:grid;place-items:center}
+}
 .uruguay-event-page .uruguay-title-block{width:min(1180px,calc(100% - 64px));margin:154px auto 0}
 .uruguay-event-page .uruguay-title-block .location{margin-bottom:16px;color:#fff;font-size:.64rem;font-weight:800;letter-spacing:.22em}
 .uruguay-event-page .uruguay-title-block h1{width:100%;max-width:1040px;font-size:clamp(5.2rem,9vw,8.2rem);line-height:.74;letter-spacing:-.07em;text-shadow:0 12px 35px rgba(0,0,0,.25)}
