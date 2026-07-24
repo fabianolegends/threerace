@@ -10,7 +10,7 @@ const registrationUrl = "https://event.windfit.app/threerace-uruguay-2026";
 const lodgingUrl = "https://www.escapatearocha.uy/alojamientos?localidad=4&page=4";
 const heroImage = "/gravel-experience-hero-v2.png";
 const tr3HeaderLogo = "/tr3-logo-new.svg";
-const azimutHeaderLogo = "/azimut-extremo-logo.png";
+const azimutHeaderLogo = "/azimut-extremo-logo-white.svg";
 const tr3Logo = "/tr3-logo-new.svg";
 const azimutLogo = "/azimut-extremo-logo.png";
 const azimutUrl = "https://www.azimutextremo.com/";
