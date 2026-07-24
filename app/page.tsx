@@ -387,7 +387,9 @@ export default function Home() {
                 <div><b>{String(mtbCountdown.hours).padStart(2, "0")}</b><span>{t.countdown[1]}</span></div>
                 <div><b>{String(mtbCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
               </div>
-              <a className="next-event-link" href="/threerace-uruguay" aria-label="Conhecer Threerace Uruguay"><span aria-hidden="true">↗︎</span></a>
+              <a className="next-event-link" href="/threerace-uruguay" aria-label="Conhecer Threerace Uruguay">
+                <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
+              </a>
             </article>
             <article className="next-event-row">
               <div className="next-event-main">
@@ -410,7 +412,9 @@ export default function Home() {
                 <div><b>{String(gravelCountdown.hours).padStart(2, "0")}</b><span>{t.countdown[1]}</span></div>
                 <div><b>{String(gravelCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
               </div>
-              <a className="next-event-link" href="/gravel-experience-uruguay" aria-label="Conhecer Gravel Experience Uruguay"><span aria-hidden="true">↗︎</span></a>
+              <a className="next-event-link" href="/gravel-experience-uruguay" aria-label="Conhecer Gravel Experience Uruguay">
+                <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
+              </a>
             </article>
           </div>
         </div>
