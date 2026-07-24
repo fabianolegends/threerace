@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   title: "Threerace Sports | Eventos de MTB e Gravel",
   description: "Threerace Sports: eventos de mountain bike e gravel no Brasil e no Uruguai desde 2017.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/tr3-logo-new.svg",
+    shortcut: "/tr3-logo-new.svg",
   },
 };
 
