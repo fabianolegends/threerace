@@ -3,8 +3,8 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { getSavedLanguage, saveLanguage, SiteLanguage } from "./site-language";
 
-const logo = "https://threerace.com/wp-content/uploads/2026/04/logo-frente-300x300.jpg";
-const azimutMenuLogo = "https://threerace.com/wp-content/uploads/2026/05/Logo-Azimut.png";
+const logo = "/tr3-logo-partners.png";
+const azimutMenuLogo = "/azimut-extremo-logo.png";
 const legendsLogo = "https://www.legendsbikerace.com.br/legends-logo-official.png";
 
 const homeNavigation = {
@@ -208,7 +208,7 @@ const news = [
     title: "La Paloma será a base da nova edição internacional da Threerace",
     text: "Rocha recebe três dias de mountain bike, natureza e experiência internacional.",
     href: "/noticias/threerace-uruguay-la-paloma",
-    img: "https://threerace.com/wp-content/uploads/2026/04/Z6P_9940-min-1024x684.jpg",
+    img: "/event-threerace-uruguay.jpeg",
   },
   {
     category: "GRAVEL EXPERIENCE",
@@ -224,7 +224,7 @@ const news = [
     title: "Quatro destinos. Uma travessia pela Serra Gaúcha",
     text: "Canela, São Francisco de Paula, Gramado e Nova Petrópolis conectadas pelo gravel.",
     href: "/noticias/legends-serra-gaucha",
-    img: "https://threerace.com/wp-content/uploads/2026/04/PDL0370-min-1-1024x684.jpg",
+    img: "/event-legends-v3.jpeg",
     external: false,
   },
 ];
