@@ -390,6 +390,16 @@ const supportImages = [
   "/audencia-apart-hotel.svg",
 ];
 const galleryImages = [
+  "/tr3-gallery-01.svg",
+  "/tr3-gallery-02.svg",
+  "/tr3-gallery-03.svg",
+  "/tr3-gallery-04.svg",
+  "/tr3-gallery-05.svg",
+  "/tr3-gallery-06.svg",
+  "/tr3-gallery-07.svg",
+  "/tr3-gallery-08.svg",
+];
+const editorialGalleryImages = [
   "/home-hero-peloton.jpeg",
   "/event-threerace-uruguay.jpeg",
   "/event-threerace-brasil.jpeg",
@@ -1278,6 +1288,8 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [guideMode, setGuideMode] = useState<"mtb" | "gravel">("mtb");
   const [openInfo, setOpenInfo] = useState<number | null>(null);
+  const [galleryIndex, setGalleryIndex] = useState(0);
+  const [galleryVisible, setGalleryVisible] = useState(3);
   const t = copy[language];
   const info = officialInfoByLanguage[language];
   const labels = {
@@ -1295,6 +1307,21 @@ export default function Home() {
     setLanguage(saved);
     saveLanguage(saved);
   }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 900px)");
+    const updateGallery = () => {
+      const visible = media.matches ? 1 : 3;
+      setGalleryVisible(visible);
+      setGalleryIndex((current) => Math.min(current, galleryImages.length - visible));
+    };
+
+    updateGallery();
+    media.addEventListener("change", updateGallery);
+    return () => media.removeEventListener("change", updateGallery);
+  }, []);
+
+  const galleryLastIndex = Math.max(0, galleryImages.length - galleryVisible);
 
   return (
     <main className="uruguay-event-page">
@@ -1425,8 +1452,44 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="original-gallery">
-        {galleryImages.map((image) => <img src={image} alt="Threerace Bike Ultramarathon" key={image} />)}
+      <section className="original-gallery" aria-label="Galeria Threerace Bike Ultramarathon">
+        <div className="original-gallery-viewport">
+          <div
+            className="original-gallery-track"
+            style={{ transform: `translateX(-${galleryIndex * (100 / galleryVisible)}%)` }}
+          >
+            {galleryImages.map((image, index) => (
+              <figure className="original-gallery-slide" key={image}>
+                <img
+                  src={image}
+                  alt={`Threerace Bike Ultramarathon — foto ${index + 1}`}
+                  loading="lazy"
+                />
+              </figure>
+            ))}
+          </div>
+        </div>
+        <button
+          className="original-gallery-control original-gallery-prev"
+          type="button"
+          aria-label={language === "es" ? "Foto anterior" : language === "en" ? "Previous photo" : "Foto anterior"}
+          disabled={galleryIndex === 0}
+          onClick={() => setGalleryIndex((current) => Math.max(0, current - 1))}
+        >
+          ←
+        </button>
+        <button
+          className="original-gallery-control original-gallery-next"
+          type="button"
+          aria-label={language === "es" ? "Foto siguiente" : language === "en" ? "Next photo" : "Próxima foto"}
+          disabled={galleryIndex === galleryLastIndex}
+          onClick={() => setGalleryIndex((current) => Math.min(galleryLastIndex, current + 1))}
+        >
+          →
+        </button>
+        <span className="original-gallery-count" aria-hidden="true">
+          {String(galleryIndex + 1).padStart(2, "0")} / {String(galleryImages.length).padStart(2, "0")}
+        </span>
       </section>
 
       <section className="azimut-feature">
@@ -1521,7 +1584,7 @@ export default function Home() {
 
       <section className="gallery-section" aria-label="Threerace gallery">
         <div className="gallery-grid">
-          {galleryImages.map((image, index) => (
+          {editorialGalleryImages.map((image, index) => (
             <figure className={`gallery-image image-${index + 1}`} key={image}>
               <img src={image} alt="Threerace Bike Ultramarathon" />
             </figure>
