@@ -123,7 +123,9 @@
 .uruguay-event-page .original-action-cards small{color:#77716a;font-size:.61rem;letter-spacing:.16em}
 .uruguay-event-page .original-action-cards a:hover small{color:rgba(255,255,255,.82)}
 .uruguay-event-page .original-action-cards i{right:20px;bottom:18px;color:var(--orange);font-size:1.15rem}
+.uruguay-event-page .original-action-cards i svg{display:block;width:23px;height:23px;margin:0;fill:none;stroke:var(--orange);stroke-width:2;stroke-linecap:square;stroke-linejoin:miter}
 .uruguay-event-page .original-action-cards a:hover i{color:#fff}
+.uruguay-event-page .original-action-cards a:hover i svg{stroke:#fff;transform:none}
 .uruguay-event-page .countdown-section{position:relative;z-index:1;padding-top:108px;color:var(--ink);background:#f5f3ef;box-shadow:0 24px 24px -12px rgba(12,18,21,.34)}
 .uruguay-event-page .countdown-grid{min-height:168px;grid-template-columns:repeat(3,minmax(0,1fr));max-width:920px;margin:0 auto}
 .uruguay-event-page .countdown-grid > div:first-child{display:block}
