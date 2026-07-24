@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { getSavedLanguage, saveLanguage } from "../site-language";
+import { detectInitialLanguage, saveLanguage } from "../site-language";
 
 type Language = "es" | "pt" | "en";
 
@@ -1303,9 +1303,15 @@ export default function Home() {
   const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
-    const saved = getSavedLanguage("es");
-    setLanguage(saved);
-    saveLanguage(saved);
+    let active = true;
+    void detectInitialLanguage("es").then((detected) => {
+      if (!active) return;
+      setLanguage(detected);
+      saveLanguage(detected);
+    });
+    return () => {
+      active = false;
+    };
   }, []);
 
   useEffect(() => {
