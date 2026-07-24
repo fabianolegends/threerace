@@ -198,7 +198,7 @@ function List({ children }: { children: ReactNode }) {
 
 export default function GravelExperienceUruguay() {
   const [language, setLanguage] = useState<Language>("es");
-  const [open, setOpen] = useState<PanelKey | null>("event");
+  const [open, setOpen] = useState<PanelKey | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [now, setNow] = useState(() => Date.now());
   const t = copy[language];
