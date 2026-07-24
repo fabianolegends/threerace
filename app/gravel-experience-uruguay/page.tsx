@@ -19,7 +19,7 @@ const galleryImages = [
   "/event-threerace-uruguay.jpeg",
   "/event-threerace-brasil.jpeg",
 ];
-const supportImages = ["/ministerio-turismo-uruguay.png", "/support-rocha.png", "/support-rocha-deportes.png", "/support-la-paloma.png"];
+const supportImages = ["/ministerio-turismo-uruguay.png", "/support-rocha.png", "/support-rocha-deportes.png", "/support-la-paloma.png", "/audencia-apart-hotel.svg"];
 
 const copy = {
   es: {
