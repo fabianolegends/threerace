@@ -19,7 +19,7 @@
 .next-event-organizers-mobile{display:none}
 .next-countdown{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.next-countdown div{text-align:center;border-left:1px solid #ffffff2b}.next-countdown b{display:block;color:var(--orange);font:600 clamp(2.1rem,3.15vw,3.55rem)/1 var(--display);letter-spacing:-.06em}.next-countdown span{font-size:.56rem;font-weight:800;letter-spacing:.12em}
 .next-event-link{width:54px;height:54px;display:grid;place-items:center;background:var(--orange);font-size:1.3rem}
-.next-event-link span{display:grid;width:100%;height:100%;place-items:center;color:#fff;background:transparent;font-family:Arial,sans-serif;font-weight:400;line-height:1}
+.next-event-link svg{display:block;width:27px;height:27px;fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
 .calendar-section,.journal-section,.athlete-hub,.territory-section,.newsletter-section{padding:120px 0}
 .calendar-section{padding:88px 0;background:#f4efe8}.calendar-heading,.journal-heading{display:grid;grid-template-columns:1fr .65fr;gap:90px;align-items:end;margin-bottom:55px}.calendar-heading{margin-bottom:40px}.calendar-heading h2,.journal-heading h2,.athlete-hub h2,.territory-section h2,.newsletter-section h2{margin:0;font:680 clamp(2.8rem,5.5vw,5.1rem)/.9 var(--display);letter-spacing:-.06em}.calendar-heading h2{font-size:clamp(2.35rem,4.5vw,4.25rem);white-space:nowrap}.calendar-heading>p,.journal-heading>p{max-width:420px;margin:0;color:#5f5d58;line-height:1.65}
 .calendar-list{border-top:1px solid #202020}.calendar-list>a{min-height:88px;display:grid;grid-template-columns:42px 145px 1.2fr 1fr 80px 24px;gap:18px;align-items:center;border-bottom:1px solid var(--line);transition:.2s}.calendar-list>a:hover{padding-inline:12px;color:#fff;background:#202020}.calendar-list>a>span{color:var(--orange);font-size:.56rem;font-weight:800}.calendar-list b{font-size:.73rem;letter-spacing:.06em}.calendar-list b small{display:block;margin-top:4px;color:var(--muted);font-size:.51rem}.calendar-list h3{margin:0;font:650 1.08rem/1 var(--display)}.calendar-list p{margin:0;color:#66625d;font-size:.78rem}.calendar-list em{font-size:.52rem;font-style:normal;font-weight:850;letter-spacing:.12em}.calendar-list i{color:var(--orange);font-style:normal}.calendar-list>a:hover p,.calendar-list>a:hover b small{color:#ffffffa0}
@@ -563,7 +563,7 @@
  .next-events-shell{padding:20px 0}
  .next-event-label{padding-bottom:17px}
  .next-event-row{padding:19px 0}
- .next-event-main{padding-right:54px}
+ .next-event-main{padding-right:64px}
  .next-event-main p{margin-bottom:8px}
  .next-event-main h2{font-size:clamp(1.18rem,5.65vw,1.43rem);line-height:1.03;letter-spacing:-.018em;word-spacing:.08em}
  .next-event-info-line{display:flex;align-items:center;gap:12px;margin-top:12px}
@@ -573,8 +573,8 @@
  .next-event-info-line .next-event-organizers-mobile span{color:#ffffff70;font-size:.5rem}
  .next-event-organizers:not(.next-event-organizers-mobile){display:none}
  .next-event-organizers img{height:29px;max-width:53px}
- .next-event-link{top:19px;width:46px;height:46px;padding:0;font-size:1.75rem;line-height:1}
- .next-event-link span{font-size:1.75rem}
+ .next-event-link{top:19px;width:54px;height:54px;padding:0}
+ .next-event-link svg{width:28px;height:28px}
  .next-countdown{margin-top:10px;padding-top:7px}
  .next-countdown div{min-height:49px;display:flex;flex-direction:column;justify-content:center}
  .next-countdown b{font-size:1.22rem;line-height:.92}
