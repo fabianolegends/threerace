@@ -1,0 +1,844 @@
+.corporate-hero{position:relative;min-height:850px;overflow:hidden;isolation:isolate;color:#fff;background-position:center 48%;background-size:cover}.corporate-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(3,10,14,.94),rgba(3,10,14,.64) 50%,rgba(3,10,14,.16)),linear-gradient(0deg,rgba(3,10,14,.72),transparent 55%)}.corporate-header{width:min(1180px,calc(100% - 64px))}.corporate-header .main-nav{margin:0}.corporate-header .header-tr3-logo{width:91.2px;height:91.2px}.corporate-hero-content{padding-top:145px}.corporate-hero-content h1{max-width:1120px;width:100%;font-size:clamp(2.625rem,5.025vw,4.8rem);line-height:.84}.corporate-hero-content .corporate-title span{color:#fff}.corporate-hero-line{max-width:610px;margin:34px 0 8px;font-family:var(--display);font-size:clamp(1.35rem,2.5vw,2rem);line-height:1.12}.corporate-hero-content>.hero-subtitle{margin-top:34px}.corporate-signature{position:absolute;right:max(32px,calc((100vw - 1180px)/2));bottom:42px;padding:15px 18px;border:1px solid #ffffff59;font-size:.68rem;font-weight:800;letter-spacing:.21em}.corporate-signature b{color:var(--orange)}
+.corporate-hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.corporate-header-actions{display:flex;align-items:center;gap:16px;margin-left:auto}.corporate-header .main-nav{gap:17px}.corporate-header .main-nav a{font-size:.69rem;white-space:nowrap}.corporate-socials{display:flex;align-items:center;gap:11px;padding-left:16px;border-left:1px solid rgba(207,179,122,.38)}.corporate-socials a{display:grid;width:22px;height:22px;place-items:center;color:#fff;opacity:.78;transition:opacity .2s ease,color .2s ease}.corporate-socials a:hover{color:#c57662;opacity:1}.corporate-socials svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.corporate-language-switcher{gap:7px}.corporate-language-switcher button{width:29px;height:25px;font-size:1.14rem}
+.corporate-home .button-primary,.corporate-home .next-event-label b,.corporate-home .next-event-link,.corporate-home .directory-status,.corporate-home .directory-card>i,.corporate-home .footer-newsletter button{background:#a84938}.corporate-home .button-primary:hover{background:#8f3d30}
+.corporate-intro{padding:125px 0 100px;background-color:#f4efe8;background-image:repeating-radial-gradient(ellipse at 8% 22%,transparent 0 38px,rgba(82,68,54,.05) 39px 40px,transparent 41px 59px),repeating-radial-gradient(ellipse at 88% 72%,transparent 0 46px,rgba(82,68,54,.04) 47px 48px,transparent 49px 70px)}.corporate-intro-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:100px;align-items:start}.corporate-intro h2,.corporate-events-heading h2,.corporate-manifesto h2,.detail-title h2,.detail-columns h2,.detail-cta h2{margin:0;font-family:var(--display);font-size:clamp(2.8rem,5.5vw,5.2rem);font-weight:680;line-height:.9;letter-spacing:-.06em}.corporate-intro h2{max-width:720px;font-size:clamp(2.8rem,4.15vw,4.35rem);line-height:.92}.corporate-story{padding-top:34px}.corporate-story p{color:#565550;font-size:1rem;line-height:1.7}.corporate-story p:first-child{color:var(--ink);font-size:1.3rem;font-weight:600;line-height:1.45}.history-numbers{display:grid;grid-template-columns:repeat(4,1fr);margin-top:85px;border-block:1px solid var(--line)}.history-numbers div{min-height:145px;display:flex;flex-direction:column;justify-content:center;padding:22px;border-left:1px solid var(--line)}.history-numbers div:first-child{border-left:0}.history-numbers b{color:var(--orange-deep);font:500 3rem/1 var(--display)}.history-numbers span{margin-top:12px;color:var(--muted);font-size:.58rem;font-weight:800;letter-spacing:.14em}
+.corporate-events{padding:105px 0 100px;color:#fff;background:#071116}.corporate-events-heading{display:grid;grid-template-columns:1.15fr .55fr;gap:24px 82px;align-items:center;margin-bottom:50px}.corporate-events-heading .section-label{grid-column:1/-1;color:var(--lime)}.corporate-events-heading h2{max-width:760px;font-size:clamp(2.24rem,4.4vw,4.16rem);line-height:.94}.corporate-events-heading p:last-child{align-self:center;max-width:430px;color:#ffffffa6;font-size:1rem;line-height:1.65}.event-directory{width:min(1440px,calc(100% - 64px));display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:auto}.directory-card{min-height:565px;position:relative;display:flex;overflow:hidden;padding:24px 20px;color:#fff;border:1px solid #ffffff24;border-radius:7px}.directory-card>img,.directory-overlay{position:absolute;inset:0;width:100%;height:100%}.directory-card>img{object-fit:cover;filter:saturate(.66);transition:.7s}.directory-overlay{background:linear-gradient(0deg,rgba(3,10,14,.98) 0%,rgba(3,10,14,.88) 27%,rgba(3,10,14,.18) 67%,rgba(3,10,14,.04) 100%)}.directory-card:hover>img{transform:scale(1.04);filter:saturate(1)}.directory-number,.directory-copy{position:relative;z-index:1}.directory-number{color:var(--lime);font-size:.56rem;font-weight:800}.directory-copy{width:100%;align-self:end;padding-right:0}.directory-copy p{margin-bottom:9px;color:var(--lime);font-size:.53rem;font-weight:800;letter-spacing:.13em}.directory-copy h3{min-height:3.65em;margin-bottom:10px;font-family:var(--display);font-size:clamp(1.28rem,1.62vw,1.7rem);line-height:.94;letter-spacing:-.045em;text-transform:uppercase}.directory-copy b{display:block;margin-bottom:11px;color:#fff;font-size:1.18rem;line-height:1.1;letter-spacing:.13em}.directory-description{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;padding-top:18px;padding-right:50px;border-top:1px solid #ffffff21}.directory-organizers{display:flex;align-items:center;gap:7px}.directory-organizers img{position:static;display:block;width:auto;height:34px;max-width:67px;object-fit:contain;filter:none}.directory-copy small{display:none}.directory-card>i{position:absolute;right:20px;bottom:20px;z-index:2;width:42px;height:42px;display:grid;place-items:center;background:var(--orange);font-style:normal}.corporate-manifesto{padding:125px 0;background:#dfd4c4}.corporate-manifesto p{color:var(--orange-deep);font-size:.65rem;font-weight:800;letter-spacing:.18em;line-height:1.7}.corporate-manifesto h2{max-width:900px}.corporate-footer{grid-template-columns:1fr 1fr}
+.directory-status{position:absolute;z-index:2;top:16px;right:16px;padding:9px 10px;background:var(--orange);font-size:.5rem;font-weight:850;letter-spacing:.11em}
+.directory-sport{display:block;margin:0;color:#fff;font-size:.54rem;font-weight:800;letter-spacing:.13em}
+
+/* Corporate home — central TR3 portal */
+.next-event{position:relative;z-index:3;color:#fff;background:#202020}
+.next-events-shell{position:relative;display:grid;grid-template-columns:260px 1fr}
+.next-event-label{display:flex;min-height:430px;flex-direction:column;justify-content:center;padding-right:34px;border-right:1px solid #ffffff2b}
+.next-event-label span{color:var(--lime);font-size:.68rem;font-weight:850;letter-spacing:.18em}.next-event-label b{width:fit-content;margin-top:18px;padding:9px 12px;background:var(--orange);font-size:.6rem;letter-spacing:.12em}.next-event-label small{margin-top:42px;color:#ffffff8f;font-size:.61rem;font-weight:750;line-height:1.7;letter-spacing:.12em}
+.next-event-list{display:grid}.next-event-row{min-height:215px;display:grid;grid-template-columns:minmax(340px,1.2fr) 134px .72fr 54px;gap:24px;align-items:center;padding:32px 0 32px 45px;border-bottom:1px solid #ffffff2b}.next-event-row:last-child{border-bottom:0}
+.next-event-main p{margin-bottom:13px;color:var(--lime);font-size:.68rem;font-weight:800;letter-spacing:.17em}.next-event-main h2{margin:0;font:700 clamp(2.25rem,3.7vw,3.6rem)/.9 var(--display);letter-spacing:-.055em}.next-event-meta{display:flex;flex-wrap:wrap;gap:17px;margin-top:22px;color:#ffffffb5;font-size:.67rem;font-weight:750;letter-spacing:.12em}
+.next-event-organizers{display:flex;align-items:center;justify-content:center;gap:8px}.next-event-organizers img{display:block;width:auto;height:44px;max-width:74px;object-fit:contain}.next-event-organizers span{color:#ffffff70;font-size:.68rem}
+.next-event-organizers-mobile{display:none}
+.next-countdown{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.next-countdown div{text-align:center;border-left:1px solid #ffffff2b}.next-countdown b{display:block;color:var(--orange);font:600 clamp(2.1rem,3.15vw,3.55rem)/1 var(--display);letter-spacing:-.06em}.next-countdown span{font-size:.56rem;font-weight:800;letter-spacing:.12em}
+.next-event-link{width:54px;height:54px;display:grid;place-items:center;background:var(--orange);font-size:1.3rem}
+.calendar-section,.journal-section,.athlete-hub,.territory-section,.newsletter-section{padding:120px 0}
+.calendar-section{padding:88px 0;background:#f4efe8}.calendar-heading,.journal-heading{display:grid;grid-template-columns:1fr .65fr;gap:90px;align-items:end;margin-bottom:55px}.calendar-heading{margin-bottom:40px}.calendar-heading h2,.journal-heading h2,.athlete-hub h2,.territory-section h2,.newsletter-section h2{margin:0;font:680 clamp(2.8rem,5.5vw,5.1rem)/.9 var(--display);letter-spacing:-.06em}.calendar-heading h2{font-size:clamp(2.35rem,4.5vw,4.25rem);white-space:nowrap}.calendar-heading>p,.journal-heading>p{max-width:420px;margin:0;color:#5f5d58;line-height:1.65}
+.calendar-list{border-top:1px solid #202020}.calendar-list>a{min-height:88px;display:grid;grid-template-columns:42px 145px 1.2fr 1fr 80px 24px;gap:18px;align-items:center;border-bottom:1px solid var(--line);transition:.2s}.calendar-list>a:hover{padding-inline:12px;color:#fff;background:#202020}.calendar-list>a>span{color:var(--orange);font-size:.56rem;font-weight:800}.calendar-list b{font-size:.73rem;letter-spacing:.06em}.calendar-list b small{display:block;margin-top:4px;color:var(--muted);font-size:.51rem}.calendar-list h3{margin:0;font:650 1.08rem/1 var(--display)}.calendar-list p{margin:0;color:#66625d;font-size:.78rem}.calendar-list em{font-size:.52rem;font-style:normal;font-weight:850;letter-spacing:.12em}.calendar-list i{color:var(--orange);font-style:normal}.calendar-list>a:hover p,.calendar-list>a:hover b small{color:#ffffffa0}
+.journal-section{background:#fff}.journal-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:16px;width:min(100%,1320px);margin-inline:auto}.journal-card{display:grid;grid-template-columns:.9fr 1.1fr;min-height:252px;overflow:hidden;border:1px solid var(--line);background:#f7f6f3}.journal-feature{grid-row:span 2;grid-template-columns:1fr;min-height:520px}.journal-image{min-height:208px;overflow:hidden}.journal-image img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.72);transition:.6s}.journal-card:hover img{transform:scale(1.04);filter:saturate(1)}.journal-copy{display:flex;flex-direction:column;padding:26px}.journal-copy>p{display:flex;justify-content:space-between;gap:20px;color:var(--orange-deep);font-size:.54rem;font-weight:850;letter-spacing:.12em}.journal-copy>p span{color:var(--muted)}.journal-copy h3{margin:auto 0 12px;font:650 clamp(1.45rem,2.5vw,2.5rem)/.96 var(--display);letter-spacing:-.045em}.journal-copy small{color:#67635e;font-size:.82rem;line-height:1.55}.journal-copy b{margin-top:22px;font-size:.56rem;letter-spacing:.12em}.journal-feature .journal-image{min-height:300px}
+.athlete-hub{color:#fff;background:#071116}.athlete-hub-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:90px}.athlete-hub .section-label{color:var(--lime)}.athlete-hub-intro>p:last-child{max-width:390px;margin-top:25px;color:#ffffffa1;line-height:1.6}.athlete-links{border-top:1px solid #ffffff2d}.athlete-links a{min-height:112px;display:grid;grid-template-columns:45px 1fr 1fr 30px;gap:20px;align-items:center;border-bottom:1px solid #ffffff2d;transition:.2s}.athlete-links a:hover{padding-inline:15px;background:#ffffff0c}.athlete-links span{color:var(--orange);font-size:.58rem}.athlete-links h3{margin:0;font:650 1.25rem/1 var(--display)}.athlete-links p{margin:0;color:#ffffff8f;font-size:.8rem}.athlete-links i{color:var(--orange);font-style:normal}
+.territory-section{color:#fff;background:linear-gradient(125deg,#2b2522,#644231 72%,#2b2522)}.territory-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:110px;align-items:end}.territory-section .section-label{color:var(--lime)}.territory-grid>div:last-child>p{max-width:500px;color:#ffffffbc;font-size:1rem;line-height:1.7}.territory-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.newsletter-section{background:#dfd4c4}.newsletter-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:100px}.newsletter-grid>div>p:last-child{max-width:410px;margin-top:22px;color:#5e5a54;line-height:1.6}.newsletter-grid form{display:grid;grid-template-columns:1fr 1fr;gap:14px}.newsletter-grid label{display:grid;gap:8px}.newsletter-grid label:nth-child(3){grid-column:1/-1}.newsletter-grid label span{font-size:.54rem;font-weight:850;letter-spacing:.14em}.newsletter-grid input,.newsletter-grid select{width:100%;height:55px;padding:0 15px;border:1px solid #20202045;border-radius:0;background:#f4efe8;color:#202020;font:inherit}.newsletter-grid form button{grid-column:1/-1;min-height:55px;border:0;color:#fff;background:var(--orange);font-size:.61rem;font-weight:850;letter-spacing:.14em;cursor:pointer}.newsletter-success{grid-column:1/-1;margin:0;color:#335b33;font-size:.8rem;font-weight:700}.footer-nav p{margin-bottom:11px;color:var(--lime);font-size:.59rem;font-weight:700;letter-spacing:.17em}.footer-nav a{display:block;width:fit-content;margin-top:6px;color:#ffffffb5;font-size:.8rem}.corporate-footer{grid-template-columns:1.1fr .65fr 1fr}
+
+.footer-newsletter{border-bottom:1px solid #ffffff2b;background:#101b20}
+.footer-newsletter-grid{display:grid;grid-template-columns:280px 1fr;gap:42px;align-items:end;padding:30px 0}
+.footer-newsletter .section-label{margin:0 0 8px;color:var(--lime)}
+.footer-newsletter h2{margin:0;font:680 1.35rem/1 var(--display);letter-spacing:-.035em}
+.footer-newsletter-grid>div>p:last-child{margin:8px 0 0;color:#ffffff8f;font-size:.72rem;line-height:1.45}
+.footer-newsletter form{display:grid;grid-template-columns:1fr 1fr .9fr auto;gap:8px;align-items:end}
+.footer-newsletter label{display:grid;gap:6px}
+.footer-newsletter label span{color:#ffffff9d;font-size:.48rem;font-weight:850;letter-spacing:.14em}
+.footer-newsletter input,.footer-newsletter select{width:100%;height:46px;padding:0 12px;border:1px solid #ffffff32;border-radius:0;background:#f4efe8;color:#202020;font:inherit;font-size:.82rem}
+.footer-newsletter button{height:46px;padding:0 20px;border:0;color:#fff;background:var(--orange);font-size:.53rem;font-weight:850;letter-spacing:.12em;white-space:nowrap;cursor:pointer}
+.footer-newsletter .newsletter-success{grid-column:1/-1;margin:2px 0 0;color:#b8d99f;font-size:.68rem;font-weight:700}
+.corporate-footer{align-items:start;padding:42px 0 34px}
+.corporate-footer .footer-brand{display:grid;justify-items:start}
+.corporate-footer .footer-logo{width:92px;height:92px;object-fit:cover;object-position:center;filter:none}
+.corporate-footer .footer-brand p{margin-top:13px}
+.corporate-footer .footer-contact,.corporate-footer .footer-nav{padding-top:7px}
+.corporate-footer .footer-contact a{line-height:1.55}
+.event-detail-hero{position:relative;min-height:820px;overflow:hidden;isolation:isolate;color:#fff;background-size:cover;background-position:center}.event-detail-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(3,10,14,.94),rgba(3,10,14,.56) 55%,rgba(3,10,14,.17)),linear-gradient(0deg,rgba(3,10,14,.68),transparent 55%)}.detail-header{height:90px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff47}.detail-home,.detail-header nav a{font-size:.61rem;font-weight:800;letter-spacing:.14em}.detail-header nav{display:flex;gap:28px}.detail-hero-copy{padding-top:135px}.detail-hero-copy h1{font-size:clamp(4.8rem,10vw,9rem)}.detail-edition{margin:18px 0 0;color:var(--lime);font-size:.7rem;font-weight:800;letter-spacing:.22em}.detail-summary{color:#fff;background:#202020}.detail-summary-grid{display:grid;grid-template-columns:repeat(4,1fr)}.detail-summary-grid div{min-height:138px;display:flex;flex-direction:column;justify-content:center;padding:25px;border-left:1px solid #ffffff2e}.detail-summary-grid b{color:var(--lime);font:500 2.3rem/1 var(--display)}.detail-summary-grid span{margin-top:11px;color:#ffffffa6;font-size:.56rem;font-weight:800;letter-spacing:.13em}.detail-section,.detail-dark{padding:120px 0}.detail-section{background:#f4efe8}.detail-title{margin-bottom:50px}.detail-stage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px}.detail-stage-grid.two{grid-template-columns:repeat(2,1fr)}.detail-stage-grid article{min-height:270px;display:flex;flex-direction:column;padding:34px;color:#fff;background:#182126}.detail-stage-grid article span{color:var(--orange);font-size:.6rem;font-weight:800}.detail-stage-grid h3{margin:auto 0 7px;font:650 2.2rem/.95 var(--display)}.detail-stage-grid b{color:var(--lime);font:500 1.5rem/1 var(--display)}.detail-stage-grid p{margin:16px 0 0;color:#ffffffa8;line-height:1.5}.detail-dark{color:#fff;background:#071116}.detail-dark .section-label{color:var(--lime)}.detail-columns{display:grid;grid-template-columns:.9fr 1.1fr;gap:100px}.detail-columns ul{list-style:none;margin:0;padding:0;border-top:1px solid #ffffff40}.detail-columns li{padding:18px 0;border-bottom:1px solid #ffffff40}.detail-organizers{padding:85px 0;background:#fff;text-align:center}.detail-organizers p{color:var(--orange-deep);font-size:.6rem;font-weight:800;letter-spacing:.16em}.detail-organizers div>div{display:flex;align-items:center;justify-content:center;gap:45px;margin-top:28px}.detail-organizers img{width:min(210px,38%);max-height:105px;object-fit:contain}.detail-organizers.solo img{width:210px}.detail-cta{padding:115px 0;color:#fff;background:linear-gradient(125deg,#2c2522,#553a30)}.detail-cta p{color:var(--lime);font-size:.62rem;font-weight:800}.detail-cta h2{max-width:850px;margin-bottom:35px}.story-detail p{color:#575650;font-size:1.05rem;line-height:1.7}.detail-lead{max-width:580px;margin:25px 0 0;color:#ffffffb3;line-height:1.6}
+@media(max-width:1100px){.event-directory{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}.directory-card{min-height:520px}.directory-copy h3{font-size:2.25rem}}
+@media(max-width:900px){.corporate-intro-grid,.corporate-events-heading,.detail-columns{grid-template-columns:1fr;gap:42px}.history-numbers,.detail-summary-grid{grid-template-columns:repeat(2,1fr)}.detail-header nav{display:none}.detail-stage-grid,.detail-stage-grid.two{grid-template-columns:1fr}}
+@media(max-width:580px){.corporate-hero{min-height:730px;background-position:58% center}.corporate-hero-content{padding-top:105px}.corporate-hero-content h1{font-size:clamp(4.2rem,19vw,6rem)}.corporate-signature{right:16px;bottom:24px}.corporate-intro,.corporate-events,.corporate-manifesto,.detail-section,.detail-dark{padding:78px 0}.history-numbers{grid-template-columns:1fr 1fr;margin-top:55px}.history-numbers div{min-height:120px;padding:16px}.history-numbers b{font-size:2.2rem}.directory-card{min-height:460px;padding:25px}.directory-card>i{right:24px;bottom:24px}.directory-copy{padding-right:48px}.directory-copy h3{font-size:2.55rem}.event-detail-hero{min-height:720px}.detail-header{height:74px}.detail-hero-copy{padding-top:100px}.detail-hero-copy h1{font-size:clamp(4rem,18vw,6rem)}.detail-summary-grid{grid-template-columns:1fr 1fr}.detail-summary-grid div{min-height:110px;padding:18px}.detail-summary-grid b{font-size:1.65rem}}
+@media(max-width:900px){
+ .corporate-header{width:calc(100% - 40px)}
+ .corporate-header-actions{gap:12px}.corporate-header .main-nav{gap:20px;padding-bottom:76px}.corporate-header .main-nav a{font-size:1.25rem}.corporate-socials{display:none}.corporate-header-actions:has(.main-nav.is-open) .corporate-socials{position:absolute;top:320px;right:0;left:0;display:flex;justify-content:center;padding:19px 22px;border-top:1px solid #ffffff24;border-left:0;background:var(--ink)}.corporate-header-actions:has(.main-nav.is-open) .corporate-socials a{width:30px;height:30px}.corporate-header-actions:has(.main-nav.is-open) .corporate-socials svg{width:20px;height:20px}
+ .next-events-shell{grid-template-columns:190px 1fr}.next-event-label{min-height:430px}.next-event-row{grid-template-columns:1fr 54px;padding-left:30px}.next-event-organizers{grid-column:1;justify-content:flex-start}.next-countdown{grid-column:1}.next-event-link{grid-column:2;grid-row:1/4;justify-self:end}
+ .calendar-heading,.journal-heading,.athlete-hub-grid,.territory-grid,.newsletter-grid{grid-template-columns:1fr;gap:42px}
+ .calendar-list>a{grid-template-columns:38px 125px 1fr 30px}.calendar-list p,.calendar-list em{display:none}
+ .journal-grid{grid-template-columns:1fr}.journal-feature{grid-row:auto}.journal-card,.journal-feature{grid-template-columns:.9fr 1.1fr;min-height:290px}.journal-feature .journal-image{min-height:230px}
+ .athlete-links a{grid-template-columns:40px 1fr 1fr 25px}.corporate-footer{grid-template-columns:1fr 1fr}.corporate-footer .footer-contact{grid-column:1/-1}
+ .footer-newsletter-grid{grid-template-columns:1fr;gap:22px}
+ .footer-newsletter form{grid-template-columns:1fr 1fr}
+ .footer-newsletter button{grid-column:1/-1}
+}
+@media(max-width:580px){
+ body:has(.corporate-home){padding-bottom:0}
+ .corporate-home{padding-bottom:0}.corporate-header{width:calc(100% - 32px)}.corporate-header .header-tr3-logo{width:58px;height:58px}.corporate-header-actions{gap:10px}.corporate-language-switcher{gap:4px}.corporate-language-switcher button{width:25px;height:23px;font-size:1rem}.corporate-header-actions:has(.main-nav.is-open) .corporate-socials{top:320px}.corporate-hero{min-height:780px}.corporate-hero-content{padding-top:88px}.corporate-hero-content h1{font-size:clamp(2.1375rem,9vw,3.1875rem);line-height:.86}.corporate-hero-line{font-size:1.3rem}.corporate-hero-actions{display:grid}.corporate-hero-actions .button{width:100%}.corporate-signature{display:none}
+ .next-events-shell{display:block;padding:30px 0}
+ .next-event-label{min-height:0;display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:center;padding:0 0 22px;border:0;border-bottom:1px solid #ffffff2b}
+ .next-event-label span{font-size:.6rem}
+ .next-event-label b{grid-column:2;grid-row:1;margin:0;padding:8px 10px;font-size:.52rem}
+ .next-event-label small{grid-column:1/-1;margin-top:6px;font-size:.55rem;line-height:1.45}
+ .next-event-row{position:relative;display:block;min-height:0;padding:28px 0}
+ .next-event-main{padding:0 58px 0 0}
+ .next-event-main p{margin-bottom:10px;font-size:.59rem}
+ .next-event-main h2{font-size:clamp(1.58rem,7.7vw,1.9rem);line-height:.93}
+ .next-event-main h2 br{display:none}
+ .next-event-meta{gap:7px 14px;margin-top:15px;font-size:.56rem;line-height:1.45}
+ .next-event-organizers{justify-content:flex-start;margin-top:19px}
+ .next-event-organizers img{height:32px;max-width:58px}
+ .next-event-organizers span{font-size:.58rem}
+ .next-countdown{margin-top:20px;padding-top:17px;border-top:1px solid #ffffff24}
+ .next-countdown b{font-size:1.55rem}
+ .next-countdown span{font-size:.48rem}
+ .next-event-link{position:absolute;top:28px;right:0;width:44px;height:44px;font-size:1.05rem}
+ .corporate-events{padding:78px 0}.corporate-events-heading h2{font-size:clamp(2.08rem,10.4vw,3.2rem);line-height:.96}.event-directory{width:calc(100% - 32px);grid-template-columns:1fr;gap:10px}.directory-status{top:18px;right:18px}.directory-card{min-height:480px;padding:24px}.directory-copy h3{font-size:2.35rem}.directory-description{padding-right:52px}.directory-sport{margin-bottom:0}
+ .calendar-section,.journal-section,.athlete-hub,.territory-section,.newsletter-section{padding:78px 0}.calendar-section{padding:64px 0}.calendar-heading,.journal-heading{margin-bottom:38px}.calendar-heading h2,.journal-heading h2,.athlete-hub h2,.territory-section h2,.newsletter-section h2{font-size:clamp(2.6rem,13vw,4rem)}.calendar-heading h2{font-size:clamp(2.3rem,11vw,3.4rem);white-space:normal}
+ .calendar-list>a{min-height:96px;grid-template-columns:28px 1fr 24px;gap:12px}.calendar-list b{grid-column:2}.calendar-list h3{grid-column:2;font-size:1rem}.calendar-list>a>span{grid-row:1/3}.calendar-list i{grid-column:3;grid-row:1/3}.calendar-list p,.calendar-list em{display:none}
+ .journal-card,.journal-feature{grid-template-columns:1fr;min-height:0}.journal-image,.journal-feature .journal-image{min-height:245px}.journal-copy{min-height:285px;padding:24px}
+ .athlete-links a{min-height:125px;grid-template-columns:28px 1fr 25px;gap:13px}.athlete-links p{grid-column:2}.athlete-links i{grid-column:3;grid-row:1/3}.newsletter-grid form{grid-template-columns:1fr}.newsletter-grid label:nth-child(3),.newsletter-grid form button,.newsletter-success{grid-column:auto}
+ .territory-actions{display:grid}.territory-actions .button{width:100%}.corporate-footer{grid-template-columns:1fr;padding:34px 0 28px}.corporate-footer .footer-contact{grid-column:auto}.corporate-footer .footer-logo{width:78px;height:78px}.footer-nav{display:block}
+ .footer-newsletter-grid{padding:27px 0}
+ .footer-newsletter form{grid-template-columns:1fr}
+ .footer-newsletter button,.footer-newsletter .newsletter-success{grid-column:auto}
+}
+
+/* Threerace Bike Ultramarathon Uruguay — first viewport */
+.uruguay-event-page .uruguay-event-hero{position:relative;z-index:2;min-height:740px;overflow:visible;background-position:center 44%;}
+.uruguay-event-page .uruguay-event-hero:after{background:linear-gradient(90deg,rgba(2,7,10,.82) 0%,rgba(2,7,10,.49) 48%,rgba(2,7,10,.24) 100%),linear-gradient(0deg,rgba(2,7,10,.66),transparent 56%)}
+.uruguay-event-page .hero-shade{display:none}
+.uruguay-event-page .site-header{width:min(1180px,calc(100% - 64px))}
+.uruguay-event-page .main-nav{gap:31px;margin-right:32px}
+.uruguay-event-page .main-nav a{font-size:.97rem;font-weight:720;letter-spacing:.15em;text-transform:uppercase}
+.uruguay-event-page .language-switcher{gap:8px;padding-left:18px}
+.uruguay-event-page .language-switcher button{width:36px;height:34px;font-size:1.46rem}
+.uruguay-event-page .uruguay-title-block{width:min(1180px,calc(100% - 64px));margin:154px auto 0}
+.uruguay-event-page .uruguay-title-block .location{margin-bottom:16px;color:#fff;font-size:.64rem;font-weight:800;letter-spacing:.22em}
+.uruguay-event-page .uruguay-title-block h1{width:100%;max-width:1040px;font-size:clamp(5.2rem,9vw,8.2rem);line-height:.74;letter-spacing:-.07em;text-shadow:0 12px 35px rgba(0,0,0,.25)}
+.uruguay-event-page .uruguay-title-block h1 small{margin-top:.25em;font-size:.34em;font-weight:700;line-height:.96;letter-spacing:-.012em}
+.uruguay-event-page .original-action-cards{position:absolute;right:0;bottom:-108px;left:0;z-index:14;width:min(1180px,calc(100% - 64px));margin:0 auto;gap:12px}
+.uruguay-event-page .original-action-cards a{min-height:220px;padding:30px 24px 26px;border:1px solid rgba(20,25,28,.08);border-radius:14px;box-shadow:0 24px 55px rgba(0,0,0,.24);transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease}
+.uruguay-event-page .original-action-cards a:hover{transform:translateY(-8px);box-shadow:0 30px 65px rgba(0,0,0,.3)}
+.uruguay-event-page .original-action-cards svg{width:70px;height:70px;margin-bottom:22px;fill:none;stroke:var(--orange);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transition:stroke .25s ease,transform .25s ease}
+.uruguay-event-page .original-action-cards a:hover svg{stroke:#fff;transform:scale(1.04)}
+.uruguay-event-page .original-action-cards b{margin-bottom:8px;font-size:1.28rem;font-weight:760;letter-spacing:.025em}
+.uruguay-event-page .original-action-cards small{color:#77716a;font-size:.61rem;letter-spacing:.16em}
+.uruguay-event-page .original-action-cards a:hover small{color:rgba(255,255,255,.82)}
+.uruguay-event-page .original-action-cards i{right:20px;bottom:18px;color:var(--orange);font-size:1.15rem}
+.uruguay-event-page .original-action-cards a:hover i{color:#fff}
+.uruguay-event-page .countdown-section{position:relative;z-index:1;padding-top:108px;color:var(--ink);background:#f5f3ef;box-shadow:0 24px 24px -12px rgba(12,18,21,.34)}
+.uruguay-event-page .countdown-grid{min-height:168px;grid-template-columns:repeat(3,minmax(0,1fr));max-width:920px;margin:0 auto}
+.uruguay-event-page .countdown-grid > div:first-child{display:block}
+.uruguay-event-page .countdown-unit{border-color:rgba(32,32,32,.16);text-align:center}
+.uruguay-event-page .countdown-unit:first-child{border-left:0;padding-left:0}
+.uruguay-event-page .countdown-unit b{color:var(--orange);font-size:4.2rem;font-weight:560}
+.uruguay-event-page .countdown-unit span{color:var(--orange-deep);font-weight:800}
+.uruguay-event-page .countdown-intro{color:#6a655f}
+
+@media(max-width:900px){
+ .uruguay-event-page .uruguay-event-hero{min-height:650px}
+ .uruguay-event-page .main-nav{margin:0}
+ .uruguay-event-page .main-nav a{font-size:1.09rem}
+ .uruguay-event-page .uruguay-title-block{width:min(100% - 40px,680px);margin-top:118px}
+ .uruguay-event-page .uruguay-title-block h1{font-size:clamp(4.25rem,13vw,6.5rem)}
+ .uruguay-event-page .original-action-cards{bottom:-155px;width:min(100% - 40px,680px);grid-template-columns:repeat(3,1fr);gap:8px}
+ .uruguay-event-page .original-action-cards a{min-height:180px;padding:24px 12px}
+ .uruguay-event-page .original-action-cards svg{width:54px;height:54px;margin-bottom:16px}
+ .uruguay-event-page .original-action-cards b{font-size:.94rem}
+ .uruguay-event-page .original-action-cards small{font-size:.5rem}
+ .uruguay-event-page .countdown-section{padding-top:155px}
+}
+
+/* Gravel Experience Uruguay */
+.gravel-event-page .gravel-event-hero{background-position:center 52%}
+.gravel-event-page .gravel-event-hero:after{background:linear-gradient(90deg,rgba(2,7,10,.88) 0%,rgba(2,7,10,.55) 50%,rgba(2,7,10,.2) 100%),linear-gradient(0deg,rgba(2,7,10,.66),transparent 58%)}
+.gravel-event-page .gravel-title-block h1{font-size:clamp(5rem,9vw,8rem)}
+.gravel-event-page .gravel-title-block h1 small{max-width:980px;font-size:.3em;letter-spacing:.01em}
+.gravel-event-page .official-copy p+p{margin-top:20px!important}
+.gravel-distance-strip{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:12px 20px;align-items:center;margin:34px 0 10px;padding:22px 24px;color:#fff;background:#202020}
+.gravel-distance-strip b{color:var(--orange);font-size:.7rem;letter-spacing:.12em}
+.gravel-distance-strip span{font-size:.82rem;font-weight:700}
+.gravel-lots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 34px}
+.gravel-lots article{display:flex;min-height:150px;flex-direction:column;justify-content:center;padding:24px;border:1px solid rgba(32,32,32,.1);background:#f7f4ef}
+.gravel-lots b{color:var(--orange-deep);font-size:.68rem;letter-spacing:.15em}
+.gravel-lots strong{margin:12px 0 7px;font-family:var(--display);font-size:1.45rem}
+.gravel-lots span{color:#77716a;font-size:.72rem}
+.gravel-two-columns{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:30px}
+.gravel-clean-list{display:grid;gap:10px;margin:12px 0 22px;padding:0;list-style:none}
+.gravel-clean-list li{position:relative;padding-left:20px;color:#5c5b57;font-size:.98rem;line-height:1.55}
+.gravel-clean-list li:before{content:"";position:absolute;top:.65em;left:0;width:7px;height:7px;background:var(--orange)}
+.gravel-category-grid,.gravel-stage-details{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:26px 0}
+.gravel-category-grid article,.gravel-stage-details article{padding:28px;border:1px solid rgba(32,32,32,.1);background:#f7f4ef}
+.gravel-category-grid b{color:var(--orange-deep);font-family:var(--display);font-size:1.8rem}
+.gravel-category-grid p{margin-top:10px!important}
+.gravel-stage-details article h4{margin-top:0;color:var(--orange-deep);font-size:1.4rem}
+.gravel-stage-details article p{margin-top:8px!important;font-size:.94rem}
+.gravel-stage-details article p b{color:#202020}
+.gravel-schedule{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gravel-schedule section{padding:24px;border:1px solid rgba(32,32,32,.1);background:#f7f4ef}
+.gravel-schedule section h4{margin-top:0;color:var(--orange-deep)}
+.gravel-rules>h4:first-child{padding:24px;color:#fff;background:#202020}
+.gravel-rules section{padding:20px 0;border-bottom:1px solid rgba(32,32,32,.12)}
+.gravel-rules section h4{margin:0 0 8px;color:var(--orange-deep)}
+.gravel-rules section p{font-size:.96rem}
+.gravel-story{padding:95px 0;background:#dfd4c4}
+.gravel-story .section-frame{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;align-items:start}
+.gravel-story h2{margin:0;font-family:var(--display);font-size:clamp(2.5rem,4vw,4.2rem);line-height:.92;letter-spacing:-.05em}
+.gravel-story p:last-child{color:#565550;font-size:1.04rem;line-height:1.7}
+.gravel-final-cta{background:linear-gradient(125deg,#1c2323,#564130)}
+
+@media(max-width:900px){
+ .gravel-event-page .gravel-title-block h1{font-size:clamp(4rem,13vw,6rem)}
+ .gravel-lots{grid-template-columns:1fr}
+ .gravel-lots article{min-height:110px}
+ .gravel-story .section-frame{grid-template-columns:1fr;gap:30px}
+}
+
+@media(max-width:580px){
+ .gravel-event-page .gravel-event-hero{background-position:60% center}
+ .gravel-event-page .gravel-title-block h1{font-size:clamp(3.2rem,16vw,4.7rem)}
+ .gravel-distance-strip{grid-template-columns:1fr 1fr}
+ .gravel-two-columns,.gravel-category-grid,.gravel-stage-details,.gravel-schedule{grid-template-columns:1fr}
+ .gravel-story{padding:68px 0}
+}
+
+@media(max-width:580px){
+ .uruguay-event-page{padding-bottom:57px}
+ .uruguay-event-page .uruguay-event-hero{min-height:520px;background-position:58% center}
+ .uruguay-event-page .uruguay-title-block{position:absolute;top:57%;left:16px;width:calc(100% - 32px);margin:0;transform:translateY(-50%);text-align:left}
+ .uruguay-event-page .uruguay-title-block .location{margin-bottom:13px;font-size:.55rem;line-height:1.5;text-align:left}
+ .uruguay-event-page .uruguay-title-block h1{max-width:100%;margin:0;font-size:clamp(3rem,14.5vw,4.35rem);line-height:.8;text-align:left}
+ .uruguay-event-page .uruguay-title-block h1 small{font-size:.29em;line-height:1.08;letter-spacing:.015em}
+ .uruguay-event-page .original-action-cards{bottom:-318px;width:calc(100% - 32px);grid-template-columns:1fr;gap:8px}
+ .uruguay-event-page .original-action-cards a{min-height:98px;display:grid;grid-template-columns:56px 1fr 24px;grid-template-rows:auto auto;column-gap:15px;align-content:center;justify-items:start;padding:15px 18px;text-align:left;border-radius:10px}
+ .uruguay-event-page .original-action-cards svg{grid-row:1/3;width:50px;height:50px;margin:0}
+ .uruguay-event-page .original-action-cards b{align-self:end;margin:0;font-size:.92rem}
+ .uruguay-event-page .original-action-cards small{align-self:start;margin-top:5px;font-size:.48rem}
+ .uruguay-event-page .original-action-cards i{position:static;grid-column:3;grid-row:1/3;align-self:center;justify-self:end}
+ .uruguay-event-page .countdown-section{padding-top:322px}
+ .uruguay-event-page .countdown-grid{min-height:125px;padding:22px 0}
+ .uruguay-event-page .countdown-unit b{font-size:2.45rem}
+}
+
+/* Complete event information accordion */
+.uruguay-event-page .original-information{padding:52px 0 30px;background:#f8f7f4}
+.uruguay-event-page .original-information h2{margin-bottom:42px;font-size:clamp(2.2rem,4vw,3.7rem);letter-spacing:-.045em;text-transform:uppercase}
+.uruguay-event-page .original-accordion{display:grid;gap:8px;border-top:0}
+.uruguay-event-page .original-accordion article{overflow:hidden;border:1px solid rgba(32,32,32,.1);border-radius:8px;background:#fff;box-shadow:0 8px 24px rgba(12,18,21,.07)}
+.uruguay-event-page .accordion-trigger{display:grid;grid-template-columns:76px 1fr 68px;align-items:center;min-height:88px;transition:background .2s ease,color .2s ease}
+.uruguay-event-page .accordion-field-icon{align-self:stretch;display:grid;place-items:center;color:#fff;background:var(--orange)}
+.uruguay-event-page .accordion-field-icon svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.uruguay-event-page .accordion-trigger b{padding-left:26px;font-size:.95rem;letter-spacing:.15em}
+.uruguay-event-page .accordion-trigger button{display:grid;width:44px;height:44px;margin-right:20px;padding:0;place-items:center;justify-self:end;border:0;color:var(--orange);background:transparent;cursor:pointer;transition:color .2s ease}
+.uruguay-event-page .accordion-trigger button:hover{color:var(--orange-deep);background:transparent}
+.uruguay-event-page .accordion-trigger button:focus-visible{color:var(--orange-deep);background:transparent;outline:0;box-shadow:none;transform:scale(1.08)}
+.uruguay-event-page .original-accordion article.open .accordion-trigger button:focus-visible{color:#fff}
+.uruguay-event-page .accordion-trigger button i{font-size:1.75rem;font-style:normal;font-weight:400;line-height:1}
+.uruguay-event-page .original-accordion article.open .accordion-trigger{color:#fff;background:#202020}
+.uruguay-event-page .original-accordion article.open .accordion-trigger button{color:#fff;background:transparent}
+.uruguay-event-page .accordion-panel-inner{min-height:0;overflow:hidden}
+.uruguay-event-page .official-copy{max-width:1040px;padding:34px 54px 12px}
+.uruguay-event-page .official-copy p{overflow:visible!important;margin:0!important;padding:0!important;color:#5c5b57;font-size:1.04rem;line-height:1.72}
+.uruguay-event-page .official-copy h4{margin:26px 0 10px;color:#202020;font-family:var(--display);font-size:1.12rem;font-weight:760;line-height:1.3;letter-spacing:.045em}
+.uruguay-event-page .official-copy h4:first-child{margin-top:0;color:var(--orange-deep);font-size:1.25rem}
+.uruguay-event-page .copy-space{display:block;height:15px}
+.uruguay-event-page .original-accordion-content .accordion-action{display:inline-flex;margin:12px 54px 38px;padding:14px 18px;color:#fff;background:var(--orange);font-size:.66rem;font-weight:800;letter-spacing:.12em;transition:background .2s ease,transform .2s ease}
+.uruguay-event-page .original-accordion-content .accordion-action:hover{background:var(--orange-deep);transform:translateY(-2px)}
+.uruguay-event-page .original-about{grid-template-columns:minmax(0,1fr) 240px;gap:58px;align-items:center;padding:48px 0 50px}
+.uruguay-event-page .original-about-copy{align-self:center}
+.uruguay-event-page .original-about h2{margin:0 0 18px;font-family:var(--display);font-size:clamp(1.9rem,2.65vw,2.65rem);font-weight:740;line-height:1.05;letter-spacing:-.025em}
+.uruguay-event-page .original-about p{max-width:1000px;margin:0 0 19px;color:#696864;font-size:1rem;line-height:1.68}
+.uruguay-event-page .original-about-brand{display:flex;flex-direction:column;align-items:center;gap:16px}
+.uruguay-event-page .original-about-brand span{box-sizing:border-box;display:grid;width:228px;aspect-ratio:1;place-items:center;padding:34px;background:#9a5d49}
+.uruguay-event-page .original-about a{display:inline-flex;color:var(--ink);font-size:.72rem;transition:color .2s ease}
+.uruguay-event-page .original-about a:hover{color:var(--orange)}
+.uruguay-event-page .original-about img{display:block;width:100%;height:auto;max-width:100%;max-height:100%;object-fit:contain}
+.uruguay-event-page .original-gallery{gap:0}
+.uruguay-event-page .original-gallery img{height:360px}
+.uruguay-event-page .azimut-feature{padding:96px 0 104px;background:#fff}
+.uruguay-event-page .azimut-feature .section-frame{width:min(1130px,calc(100% - 96px))}
+.uruguay-event-page .azimut-feature a{display:grid;grid-template-columns:260px max-content;justify-content:center;gap:50px;align-items:center;color:var(--ink)}
+.uruguay-event-page .azimut-feature img{width:230px;max-width:100%;height:auto;max-height:none;justify-self:center;object-fit:contain}
+.uruguay-event-page .azimut-feature h2{max-width:none;margin:10px 0 22px;font-family:var(--display);font-size:clamp(2.4rem,3.25vw,3.75rem);font-weight:720;line-height:.96;letter-spacing:-.045em;white-space:nowrap}
+.uruguay-event-page .azimut-title-break{display:block}
+.uruguay-event-page .azimut-feature span{display:inline-flex;color:var(--orange-deep);font-size:.72rem;font-weight:800;letter-spacing:.14em;transition:transform .2s ease}
+.uruguay-event-page .azimut-feature a:hover span{transform:translateX(5px)}
+.uruguay-event-page .original-kit{padding:88px 0 96px;background:#f6f4ef}
+.uruguay-event-page .benefits-art-wrap{width:min(96vw,1880px);margin:0 auto;padding:28px;border:1px solid rgba(32,32,32,.07);border-radius:24px;background:#fff;box-shadow:0 22px 60px rgba(21,25,27,.08);overflow:hidden}
+.uruguay-event-page .benefits-art{display:block;width:100%;height:auto;border-radius:12px}
+.uruguay-event-page .original-kit > div{display:block}
+.uruguay-event-page .original-kit > div > div:first-child{display:block;margin-bottom:42px;text-align:center}
+.uruguay-event-page .original-kit h2{max-width:none;margin:0;font-size:clamp(2rem,3.4vw,3.35rem);line-height:1.05;color:#2b2a28}
+.uruguay-event-page .benefit-grid{display:grid;grid-template-columns:repeat(5,1fr);max-width:1240px;margin:0 auto;gap:34px 18px}
+.uruguay-event-page .benefit-grid article{display:flex;min-width:0;flex-direction:column;align-items:center;padding:8px;text-align:center}
+.uruguay-event-page .benefit-grid article p{max-width:210px;margin:10px 0 0;color:#393834;font-size:.84rem;font-weight:560;line-height:1.3}
+.uruguay-event-page .benefit-grid article p:before{display:block;width:28px;height:2px;margin:0 auto 12px;background:var(--orange);content:""}
+.uruguay-event-page .benefit-sticker{position:relative;display:grid;width:118px;height:90px;place-items:center;color:#252525;background:transparent}
+.uruguay-event-page .benefit-sticker:after{position:absolute;z-index:0;right:20px;bottom:3px;width:46px;height:4px;border-radius:4px;background:var(--orange);content:""}
+.uruguay-event-page .benefit-grid article:nth-child(even) .benefit-sticker{transform:none}
+.uruguay-event-page .benefit-sticker > svg:first-child{position:relative;z-index:1;width:82px;height:82px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.uruguay-event-page .benefit-sticker svg text{fill:var(--orange);stroke:none;font-family:Arial,sans-serif;font-size:14px;font-weight:900;text-anchor:middle}
+.uruguay-event-page .benefit-plate > svg:first-child{width:108px;height:78px;stroke-width:2}
+.uruguay-event-page .benefit-plate svg text{fill:#222;font-size:27px}
+.uruguay-event-page .benefit-jersey > svg:first-child,.uruguay-event-page .benefit-casual > svg:first-child,.uruguay-event-page .benefit-socks > svg:first-child{width:88px;height:88px;stroke-width:2}
+.uruguay-event-page .benefit-sticker .benefit-detail{position:absolute;z-index:2;right:2px;bottom:4px;width:31px;height:31px;padding:5px;border-radius:50%;color:#fff;background:var(--orange);stroke:currentColor}
+.uruguay-event-page .benefit-2 > svg:first-child{width:88px;height:88px}
+.uruguay-event-page .benefit-4 > svg:first-child{width:108px;height:80px}
+.uruguay-event-page .original-partners{padding:58px 0 62px}
+.uruguay-event-page .original-partners .section-frame{gap:28px}
+.uruguay-event-page .original-partners p{margin:0 0 12px;font-size:.84rem;letter-spacing:.1em}
+.uruguay-event-page .original-organizers,.uruguay-event-page .original-main-sponsor,.uruguay-event-page .original-brands,.uruguay-event-page .original-support{gap:18px}
+.uruguay-event-page .original-organizers img{width:auto;max-width:150px;height:82px;max-height:82px;object-fit:contain}
+.uruguay-event-page .original-organizers img:first-of-type{max-width:128px;height:70px;max-height:70px}
+.uruguay-event-page .original-main-sponsor img{width:auto;max-width:260px;height:104px;max-height:104px;object-fit:contain}
+.uruguay-event-page .original-brands{display:flex;flex-wrap:wrap;justify-content:center;align-items:center}
+.uruguay-event-page .original-brands p{flex-basis:100%}
+.uruguay-event-page .original-brands img{width:min(920px,94%);height:auto;max-height:76px;object-fit:contain}
+.uruguay-event-page .original-support img{width:auto;max-width:210px;height:64px;max-height:64px;object-fit:contain}
+.uruguay-event-page .support-logo-row{display:flex;flex:1 0 100%;justify-content:center;align-items:center;gap:18px}
+@media(max-width:1200px){
+ .uruguay-event-page .benefit-grid{grid-template-columns:repeat(2,1fr)}
+ .uruguay-event-page .azimut-feature .section-frame{width:calc(100% - 48px)}
+ .uruguay-event-page .azimut-feature a{grid-template-columns:220px minmax(0,680px);gap:36px}
+ .uruguay-event-page .azimut-feature img{width:220px}
+ .uruguay-event-page .azimut-feature h2{white-space:normal}
+ .uruguay-event-page .azimut-title-break{display:none}
+}
+
+@media(max-width:900px){
+ .uruguay-event-page .azimut-feature .section-frame{width:min(100% - 40px,680px)}
+ .uruguay-event-page .azimut-feature a{grid-template-columns:1fr;gap:34px}
+ .uruguay-event-page .azimut-feature img{width:220px}
+}
+
+@media(max-width:580px){
+ .uruguay-event-page .original-information{padding:42px 0 24px}
+ .uruguay-event-page .original-information h2{margin-bottom:28px;font-size:2.35rem}
+ .uruguay-event-page .accordion-trigger{grid-template-columns:60px 1fr 54px;min-height:74px}
+ .uruguay-event-page .accordion-field-icon svg{width:28px;height:28px}
+ .uruguay-event-page .accordion-trigger b{padding-left:16px;font-size:.76rem;letter-spacing:.11em}
+ .uruguay-event-page .accordion-trigger button{width:40px;height:40px}
+ .uruguay-event-page .official-copy{padding:25px 20px 10px}
+ .uruguay-event-page .official-copy p{font-size:.98rem;line-height:1.68}
+ .uruguay-event-page .official-copy h4{font-size:1.02rem}
+ .uruguay-event-page .original-accordion-content .accordion-action{margin:10px 20px 26px}
+ .uruguay-event-page .original-about{grid-template-columns:1fr;gap:20px;padding:30px 18px 34px}
+ .uruguay-event-page .original-about h2{margin-bottom:13px;font-size:1.55rem;line-height:1}
+ .uruguay-event-page .original-about p{margin-bottom:13px;font-size:.84rem;line-height:1.55}
+ .uruguay-event-page .original-about-brand{order:-1;width:100%;align-items:center;gap:10px;text-align:center}
+ .uruguay-event-page .original-about-brand span{width:118px;padding:18px}
+ .uruguay-event-page .original-about a{font-size:.61rem;line-height:1.35}
+ .uruguay-event-page .original-about img{width:100%;justify-self:auto}
+ .uruguay-event-page .original-gallery{grid-template-columns:1fr}
+ .uruguay-event-page .original-gallery img{height:260px}
+ .uruguay-event-page .azimut-feature{padding:38px 0 44px}
+ .uruguay-event-page .azimut-feature .section-frame{width:calc(100% - 36px)}
+ .uruguay-event-page .azimut-feature a{grid-template-columns:1fr;gap:17px}
+ .uruguay-event-page .azimut-feature img{width:148px;max-width:100%;max-height:none}
+ .uruguay-event-page .azimut-feature .section-label{margin-bottom:9px;font-size:.58rem}
+ .uruguay-event-page .azimut-feature h2{max-width:330px;margin:6px 0 16px;font-size:1.7rem;line-height:.98}
+ .uruguay-event-page .azimut-feature span{font-size:.62rem;line-height:1.35}
+ .uruguay-event-page .original-kit > div > div:first-child{margin-bottom:34px}
+ .uruguay-event-page .original-kit h2{font-size:2rem}
+ .uruguay-event-page .benefit-grid{grid-template-columns:1fr}
+ .uruguay-event-page .benefit-grid{grid-template-columns:repeat(2,1fr);gap:24px 10px}
+ .uruguay-event-page .benefit-grid article{padding:4px}
+ .uruguay-event-page .benefit-grid article p{font-size:.78rem}
+ .uruguay-event-page .benefit-sticker{width:110px;height:96px}
+ .uruguay-event-page .benefit-sticker > svg:first-child{width:82px;height:82px}
+ .uruguay-event-page .benefit-sticker .benefit-detail{right:7px;bottom:8px;width:32px;height:32px}
+ .uruguay-event-page .original-kit{padding:36px 0 42px}
+ .uruguay-event-page .benefits-art-wrap{box-sizing:border-box;width:calc(100% - 24px);margin:0 auto;padding:7px;border-radius:14px;overflow:hidden}
+ .uruguay-event-page .benefits-art{display:block;width:100%;max-width:100%;height:auto;border-radius:8px;object-fit:contain}
+}
+
+.directory-organizers img.legends-card-logo{max-width:88px}
+
+.corporate-intro{
+ background-image:linear-gradient(rgba(244,239,232,.5),rgba(244,239,232,.5)),url("/threerace-topographic-contours.png");
+ background-size:cover;
+ background-position:center;
+ padding-bottom:0;
+}
+
+.corporate-intro-grid{
+ align-items:center;
+}
+
+.corporate-story{
+ padding-top:0;
+}
+
+.tr3-timeline{
+ width:100vw;
+ max-width:none;
+ margin-top:60px;
+ margin-left:calc(50% - 50vw);
+ padding:54px max(32px,calc((100vw - 1180px)/2)) 68px;
+ color:#fff;
+ border-top:1px solid #ffffff1f;
+ background-color:#202020;
+ background-image:linear-gradient(rgba(32,32,32,.93),rgba(32,32,32,.93)),url("/threerace-topographic-contours.png");
+ background-size:cover;
+ background-position:center;
+}
+
+.tr3-timeline-heading{
+ display:flex;
+ align-items:end;
+ justify-content:space-between;
+ gap:40px;
+}
+
+.tr3-timeline-heading .section-label{
+ margin:0 0 7px;
+}
+
+.tr3-timeline-heading h3{
+ max-width:900px;
+ margin:0;
+ font-family:var(--display);
+ font-size:clamp(2.15rem,3.4vw,3.7rem);
+ font-weight:680;
+ line-height:.92;
+ letter-spacing:-.055em;
+ text-align:right;
+ color:#fff;
+}
+
+.tr3-timeline-list{
+ position:relative;
+ display:grid;
+ grid-template-columns:repeat(9,minmax(0,1fr));
+ min-width:1080px;
+ margin-top:52px;
+}
+
+.tr3-timeline-marquee{
+ display:none;
+}
+
+.tr3-timeline-list:before{
+ content:"";
+ position:absolute;
+ top:55px;
+ right:5.5%;
+ left:5.5%;
+ height:1px;
+ background:var(--orange);
+}
+
+.tr3-timeline-item{
+ position:relative;
+ display:grid;
+ grid-template-rows:30px 48px auto;
+ min-width:0;
+ padding:0 8px;
+ text-align:center;
+}
+
+.tr3-timeline-item time{
+ color:#fff;
+ font:600 1.25rem/1 var(--display);
+ letter-spacing:-.03em;
+}
+
+.tr3-timeline-dot{
+ position:relative;
+ z-index:1;
+ align-self:center;
+ width:14px;
+ height:14px;
+ margin:0 auto;
+ border:4px solid #202020;
+ border-radius:50%;
+ background:var(--orange);
+ box-shadow:0 0 0 2px var(--orange);
+}
+
+.tr3-timeline-item ul{
+ position:relative;
+ display:grid;
+ gap:4px;
+ margin:0;
+ padding:16px 4px 0;
+ list-style:none;
+}
+
+.tr3-timeline-item ul:before{
+ content:"";
+ position:absolute;
+ top:0;
+ left:calc(50% - 25px);
+ width:50px;
+ height:1px;
+ background:#ffffff2b;
+}
+
+.tr3-timeline-item li{
+ padding:0;
+ border:0;
+ background:transparent;
+ color:#f2eee8;
+ font-size:.67rem;
+ font-weight:650;
+ line-height:1.32;
+}
+
+@media(max-width:900px){
+ .tr3-timeline{position:relative;left:50%;box-sizing:border-box;width:100dvw;overflow:hidden;margin-left:0;padding-inline:0;transform:translateX(-50%)}
+ .tr3-timeline-heading{display:block;padding-inline:32px}
+ .tr3-timeline-heading h3{max-width:620px;margin-top:16px;text-align:left}
+ .tr3-timeline-desktop{display:none}
+ .tr3-timeline-marquee{display:block;width:100%;overflow:hidden;margin-top:44px;padding-bottom:16px}
+ .tr3-timeline-marquee-content{display:flex;width:max-content;will-change:transform;animation:tr3-timeline-flow 38s linear infinite}
+ .tr3-timeline-marquee-group{position:relative;display:grid;grid-template-columns:repeat(9,145px);flex:none;width:1305px}
+ .tr3-timeline-marquee-group:before{content:"";position:absolute;top:55px;right:72px;left:72px;height:1px;background:var(--orange)}
+ .tr3-timeline-item{min-width:145px}
+ .tr3-timeline-marquee:active .tr3-timeline-marquee-content{animation-play-state:paused}
+ @keyframes tr3-timeline-flow{to{transform:translateX(-50%)}}
+}
+
+@media(max-width:580px){
+ .tr3-timeline{margin-top:56px;padding-top:42px}
+ .tr3-timeline-heading{padding-inline:22px}
+ .tr3-timeline-heading h3{font-size:2.25rem}
+ .tr3-timeline-marquee{margin-top:34px}
+ .tr3-timeline-marquee-content{animation-duration:34s}
+ .tr3-timeline-marquee-group{grid-template-columns:repeat(9,138px);width:1242px}
+ .tr3-timeline-marquee-group:before{right:69px;left:69px}
+ .tr3-timeline-item{min-width:138px}
+ .tr3-timeline-item li{font-size:.66rem}
+}
+
+/* TR3 Journal — full articles */
+.news-article-page{color:#202020;background:#f4efe8}.news-article-hero{position:relative;min-height:680px;overflow:hidden;isolation:isolate;color:#fff;background-size:cover}.news-article-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(3,10,14,.92),rgba(3,10,14,.62) 58%,rgba(3,10,14,.22)),linear-gradient(0deg,rgba(3,10,14,.82),transparent 62%)}.news-article-header{width:min(1180px,calc(100% - 64px))}.news-article-header .header-tr3-logo{width:78px;height:78px}.news-back-top{margin-left:auto;color:#fff;font-size:.62rem;font-weight:800;letter-spacing:.13em}.news-article-header .language-switcher{margin-left:24px}.news-article-title{padding-top:142px;padding-bottom:68px}.news-article-title>p{display:flex;gap:18px;align-items:center;margin-bottom:24px;color:#c98a76;font-size:.66rem;font-weight:850;letter-spacing:.18em}.news-article-title>p span{padding-left:18px;border-left:1px solid #ffffff42;color:#ffffff9b}.news-article-title h1{max-width:970px;width:100%;font-size:clamp(3.2rem,6vw,6rem);line-height:.9;text-transform:none}.news-article-title strong{display:block;max-width:760px;margin-top:30px;color:#ffffffc5;font-size:1.18rem;font-weight:450;line-height:1.6}.news-article-body{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:110px;align-items:start;padding-top:105px;padding-bottom:120px}.news-article-copy section+section{margin-top:66px;padding-top:58px;border-top:1px solid #d7cfc5}.news-article-copy h2{max-width:720px;margin-bottom:24px;font:650 clamp(2.1rem,3.7vw,3.75rem)/.96 var(--display);letter-spacing:-.05em}.news-article-copy p{max-width:760px;margin-bottom:18px;color:#565550;font-size:1.05rem;line-height:1.82}.news-article-body aside{position:sticky;top:28px;padding:30px;color:#fff;background:#101b20}.news-article-body aside>p{margin-bottom:24px;color:#c98a76;font-size:.58rem;font-weight:850;letter-spacing:.16em}.news-article-body aside>div{display:grid;gap:8px;padding:18px 0;border-top:1px solid #ffffff25}.news-article-body aside span{color:#ffffff76;font-size:.52rem;font-weight:800;letter-spacing:.14em}.news-article-body aside b{font-size:.78rem;letter-spacing:.06em}.news-article-body aside .button{width:100%;margin-top:26px;background:#a84938}.news-article-footer{padding:58px 0;color:#fff;background:#071116}.news-article-footer .section-frame{display:flex;justify-content:space-between;gap:30px;align-items:center}.news-article-footer p{margin:0;color:#c98a76;font-size:.62rem;font-weight:850;letter-spacing:.15em}.news-article-footer a{color:#fff;font-size:.64rem;font-weight:800;letter-spacing:.13em}
+
+@media(max-width:900px){.news-article-hero{min-height:620px}.news-article-title{padding-top:115px}.news-article-body{grid-template-columns:1fr;gap:55px}.news-article-body aside{position:static;display:grid;grid-template-columns:repeat(2,1fr);gap:0 24px}.news-article-body aside>p,.news-article-body aside .button{grid-column:1/-1}.news-article-header{width:calc(100% - 40px)}}
+@media(max-width:580px){.news-article-header{width:calc(100% - 32px)}.news-article-header .header-tr3-logo{width:58px;height:58px}.news-back-top{display:none}.news-article-header .language-switcher{margin-left:auto}.news-article-hero{min-height:580px}.news-article-title{padding-top:105px;padding-bottom:48px}.news-article-title>p{display:block;line-height:1.8}.news-article-title>p span{margin-left:12px}.news-article-title h1{font-size:clamp(2.65rem,12vw,4rem)}.news-article-title strong{font-size:1rem;line-height:1.55}.news-article-body{padding-top:70px;padding-bottom:80px}.news-article-copy section+section{margin-top:45px;padding-top:40px}.news-article-copy h2{font-size:2.3rem}.news-article-copy p{font-size:.98rem;line-height:1.72}.news-article-body aside{grid-template-columns:1fr}.news-article-body aside>p,.news-article-body aside .button{grid-column:auto}.news-article-footer .section-frame{display:grid}.news-article-footer a{line-height:1.5}}
+
+/* Mobile-first refinement — primary access experience */
+@media(max-width:580px){
+ html,body{max-width:100%;overflow-x:hidden}
+ .section-frame,.site-header{width:calc(100% - 32px)}
+ .site-header{height:76px}
+ .language-switcher,.corporate-language-switcher{gap:7px}
+ .language-switcher button,.corporate-language-switcher button,.uruguay-event-page .language-switcher button{width:38px;height:36px;font-size:1.55rem;line-height:1;display:grid;place-items:center;filter:grayscale(.25);opacity:.88}
+ .language-switcher button.active,.corporate-language-switcher button.active{filter:none;opacity:1}
+ .menu-toggle{width:36px;height:36px;padding:5px}
+ .corporate-header-actions{gap:8px}
+
+ .corporate-hero{min-height:700px;background-position:55% center}
+ .corporate-hero-content{padding-top:82px}
+ .corporate-hero-content h1{max-width:345px;font-size:clamp(2.22rem,10.4vw,3.35rem);line-height:.9}
+ .corporate-hero-line{max-width:330px;margin-top:26px;font-size:1.16rem}
+ .corporate-hero-content>.hero-subtitle{max-width:325px;margin-top:22px;font-size:.84rem;line-height:1.55}
+ .corporate-hero-actions{gap:9px;margin-top:26px}
+ .corporate-hero-actions .button{min-height:49px;padding-inline:18px}
+
+ .next-events-shell{padding:20px 0}
+ .next-event-label{padding-bottom:17px}
+ .next-event-row{padding:19px 0}
+ .next-event-main{padding-right:48px}
+ .next-event-main p{margin-bottom:8px}
+ .next-event-main h2{font-size:clamp(1.28rem,6.1vw,1.58rem);line-height:.94}
+ .next-event-info-line{display:flex;align-items:center;gap:12px;margin-top:12px}
+ .next-event-info-line .next-event-meta{margin-top:0}
+ .next-event-info-line .next-event-organizers-mobile{display:flex;flex:none;align-items:center;gap:4px}
+ .next-event-info-line .next-event-organizers-mobile img{display:block;width:auto;height:25px;max-width:42px;object-fit:contain}
+ .next-event-info-line .next-event-organizers-mobile span{color:#ffffff70;font-size:.5rem}
+ .next-event-organizers:not(.next-event-organizers-mobile){display:none}
+ .next-event-organizers img{height:29px;max-width:53px}
+ .next-event-link{top:19px;width:40px;height:40px}
+ .next-countdown{margin-top:10px;padding-top:7px}
+ .next-countdown div{min-height:49px;display:flex;flex-direction:column;justify-content:center}
+ .next-countdown b{font-size:1.22rem;line-height:.92}
+ .next-countdown span{margin-top:4px}
+
+ .corporate-intro,.corporate-events,.corporate-manifesto,.journal-section,.athlete-hub,.territory-section,.newsletter-section{padding:62px 0}
+ .corporate-intro-grid,.corporate-events-heading,.journal-heading,.athlete-hub-grid,.territory-grid,.newsletter-grid{gap:28px}
+ .corporate-intro h2,.corporate-events-heading h2,.journal-heading h2,.athlete-hub h2,.territory-section h2,.newsletter-section h2{font-size:clamp(2.35rem,11.5vw,3.25rem);line-height:.94}
+ .corporate-story{padding-top:0}
+ .corporate-story p:first-child{font-size:1.12rem}
+ .corporate-story p{font-size:.94rem;line-height:1.65}
+
+ .corporate-events-heading{margin-bottom:32px}
+ .corporate-events-heading p:last-child{font-size:.92rem;line-height:1.55}
+ .event-directory{gap:12px}
+ .directory-card{min-height:430px;padding:21px}
+ .directory-status{top:15px;right:15px;padding:9px 11px;font-size:.48rem}
+ .directory-copy{padding-right:44px}
+ .directory-copy p{font-size:.5rem}
+ .directory-copy h3{min-height:0;margin-bottom:16px;font-size:clamp(1.7rem,8.7vw,2.08rem);line-height:.96}
+ .directory-copy b{margin-bottom:12px;font-size:1.08rem;line-height:1.15}
+ .directory-description{margin-top:16px;padding-top:15px;padding-right:43px}
+ .directory-organizers img{height:31px;max-width:61px}
+ .directory-card>i{right:18px;bottom:18px;width:44px;height:44px}
+
+ .journal-heading{margin-bottom:30px}
+ .journal-heading>p{font-size:.92rem;line-height:1.55}
+ .journal-grid{gap:12px}
+ .journal-card,.journal-feature{border-radius:4px}
+ .journal-image,.journal-feature .journal-image{min-height:205px}
+ .journal-copy{min-height:230px;padding:20px}
+ .journal-copy>p{gap:12px;font-size:.5rem;line-height:1.45}
+ .journal-copy h3{margin:auto 0 10px;font-size:clamp(1.55rem,8vw,2rem);line-height:1}
+ .journal-copy small{font-size:.78rem;line-height:1.5}
+ .journal-copy b{margin-top:17px}
+
+ .tr3-timeline{margin-top:46px;padding-top:36px}
+ .section-frame.tr3-timeline{left:50%;width:100dvw;max-width:none;margin-right:0;margin-left:0;transform:translateX(-50%)}
+ .tr3-timeline-heading h3{font-size:2.05rem;line-height:.95}
+ .tr3-timeline-list{margin-top:30px}
+
+ .footer-newsletter-grid{gap:20px;padding:25px 0}
+ .footer-newsletter h2{font-size:1.18rem}
+ .footer-newsletter-grid>div>p:last-child{font-size:.69rem}
+ .footer-newsletter input,.footer-newsletter select,.footer-newsletter button{height:50px}
+ .corporate-footer{gap:25px;padding:30px 0 24px}
+ .corporate-footer .footer-logo{width:74px;height:74px}
+ .corporate-footer .footer-brand p{margin-top:10px}
+ .footer-bottom{padding:16px 0}
+
+ .uruguay-event-page .site-header{width:calc(100% - 32px)}
+ .uruguay-event-page .language-switcher{gap:7px;padding-left:0}
+ .uruguay-event-page .uruguay-title-block{margin-top:0}
+ .uruguay-event-page .uruguay-title-block h1{font-size:clamp(3.15rem,15vw,4.55rem)}
+ .uruguay-event-page .original-information{padding-top:44px}
+ .uruguay-event-page .original-information h2{margin-bottom:30px;font-size:2.15rem}
+ .uruguay-event-page .accordion-trigger{grid-template-columns:62px 1fr 48px;min-height:76px}
+ .uruguay-event-page .accordion-trigger b{padding-left:17px;font-size:.78rem;line-height:1.35}
+ .uruguay-event-page .accordion-field-icon svg{width:29px;height:29px}
+ .original-kit,.original-partners{padding:58px 0}
+ .original-kit h2{font-size:2.25rem}
+
+ .news-article-hero{min-height:540px}
+ .news-article-title{padding-top:88px}
+ .news-article-title h1{font-size:clamp(2.35rem,11vw,3.35rem);line-height:.94}
+ .news-article-title strong{margin-top:22px;font-size:.94rem}
+ .news-article-body{padding-top:58px;padding-bottom:68px}
+ .news-article-copy h2{font-size:2.05rem}
+ .news-article-copy p{font-size:.94rem}
+}
+
+@media(max-width:380px){
+ .corporate-header .header-tr3-logo,.news-article-header .header-tr3-logo{width:52px;height:52px}
+ .language-switcher button,.corporate-language-switcher button,.uruguay-event-page .language-switcher button{width:35px;height:34px;font-size:1.45rem}
+ .corporate-header-actions{gap:5px}
+ .corporate-hero-content h1{font-size:2.2rem}
+ .directory-card{min-height:410px}
+ .directory-copy h3{font-size:1.72rem}
+}
+
+/* São Chico save-the-date overlay and Uruguay tourism logo emphasis */
+.uruguay-event-page .support-logo-row img:first-child{
+ transform:scale(1.25);
+ transform-origin:center;
+}
+body.save-date-open{overflow:hidden}
+.save-date-modal{
+ position:fixed;
+ z-index:1000;
+ inset:0;
+ display:grid;
+ place-items:center;
+ padding:24px;
+ background:rgba(2,8,11,.86);
+ backdrop-filter:blur(8px);
+}
+.save-date-poster{
+ position:relative;
+ width:min(92vw,760px);
+ aspect-ratio:4/5;
+ overflow:hidden;
+ border:1px solid rgba(255,255,255,.25);
+ border-radius:10px;
+ box-shadow:0 30px 90px rgba(0,0,0,.55);
+ color:#fff;
+}
+.save-date-poster>img,.save-date-poster-shade{
+ position:absolute;
+ inset:0;
+ width:100%;
+ height:100%;
+}
+.save-date-poster>img{object-fit:cover;object-position:60% center}
+.save-date-poster-shade{background:linear-gradient(0deg,rgba(3,10,14,.96),rgba(3,10,14,.08) 70%)}
+.save-date-close{
+ position:absolute;
+ z-index:2;
+ top:18px;
+ right:18px;
+ width:48px;
+ height:48px;
+ border:1px solid rgba(255,255,255,.5);
+ border-radius:50%;
+ color:#fff;
+ background:rgba(3,10,14,.55);
+ font-size:2rem;
+ line-height:1;
+ cursor:pointer;
+}
+.save-date-poster-copy{
+ position:absolute;
+ z-index:1;
+ right:0;
+ bottom:0;
+ left:0;
+ padding:clamp(28px,5vw,58px);
+}
+.save-date-poster-copy p,.save-date-poster-copy small{
+ display:block;
+ margin:0;
+ font-size:.68rem;
+ font-weight:850;
+ letter-spacing:.18em;
+}
+.save-date-poster-copy span{
+ display:inline-block;
+ margin:18px 0 14px;
+ padding:10px 14px;
+ background:#a84938;
+ font-size:.65rem;
+ font-weight:850;
+ letter-spacing:.14em;
+}
+.save-date-poster-copy h2{
+ margin:0 0 18px;
+ font-family:var(--display);
+ font-size:clamp(2.3rem,6vw,5rem);
+ line-height:.88;
+ letter-spacing:-.045em;
+}
+.save-date-poster-copy b{
+ display:block;
+ margin-bottom:12px;
+ font-size:clamp(1rem,2vw,1.35rem);
+ letter-spacing:.12em;
+}
+@media(max-width:580px){
+ .save-date-modal{padding:14px}
+ .save-date-poster{width:min(100%,430px);aspect-ratio:4/5.4}
+ .save-date-poster-copy{padding:28px 24px}
+ .save-date-poster-copy h2{font-size:clamp(2.05rem,10vw,3rem)}
+ .save-date-close{top:14px;right:14px;width:42px;height:42px}
+}
+
+/* Language visibility and compact partner wall */
+.corporate-language-switcher button{
+ width:35px;
+ height:32px;
+ font-size:1.4rem;
+}
+
+@media(max-width:900px){
+ .uruguay-event-page .original-partners{
+  padding:38px 0 42px;
+ }
+ .uruguay-event-page .original-partners .section-frame{
+  gap:24px;
+ }
+ .uruguay-event-page .original-partners p{
+  margin-bottom:10px;
+  font-size:.72rem;
+  letter-spacing:.13em;
+ }
+ .uruguay-event-page .original-organizers,
+ .uruguay-event-page .original-main-sponsor,
+ .uruguay-event-page .original-brands{
+  gap:12px;
+ }
+ .uruguay-event-page .original-organizers img{
+  max-width:124px;
+  height:62px;
+  max-height:62px;
+ }
+ .uruguay-event-page .original-organizers img:first-of-type{
+  max-width:104px;
+  height:58px;
+  max-height:58px;
+ }
+ .uruguay-event-page .original-main-sponsor img{
+  max-width:210px;
+  height:78px;
+  max-height:78px;
+ }
+ .uruguay-event-page .original-brands img{
+  width:min(680px,100%);
+  max-height:48px;
+ }
+ .uruguay-event-page .original-support{
+  display:block;
+ }
+ .uruguay-event-page .support-logo-row{
+  display:grid;
+  width:100%;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  align-items:center;
+ }
+ .uruguay-event-page .support-logo-row img{
+  display:block;
+  width:100%;
+  max-width:150px;
+  height:54px;
+  max-height:54px;
+  justify-self:center;
+  object-fit:contain;
+  visibility:visible;
+  opacity:1;
+ }
+}
+
+@media(max-width:580px){
+ .corporate-language-switcher button{
+  width:40px;
+  height:38px;
+  font-size:1.62rem;
+ }
+ .uruguay-event-page .original-partners{
+  padding:28px 0 32px;
+ }
+ .uruguay-event-page .original-partners .section-frame{
+  width:calc(100% - 24px);
+  gap:18px;
+ }
+ .uruguay-event-page .original-partners p{
+  margin-bottom:6px;
+  font-size:.64rem;
+ }
+ .uruguay-event-page .original-organizers p,
+ .uruguay-event-page .original-main-sponsor p{
+  flex-basis:100%;
+ }
+ .uruguay-event-page .original-organizers img{
+  max-width:108px;
+  height:52px;
+  max-height:52px;
+ }
+ .uruguay-event-page .original-organizers img:first-of-type{
+  max-width:90px;
+  height:48px;
+  max-height:48px;
+ }
+ .uruguay-event-page .original-main-sponsor img{
+  max-width:180px;
+  height:64px;
+  max-height:64px;
+ }
+ .uruguay-event-page .original-brands img{
+  max-height:38px;
+ }
+ .uruguay-event-page .support-logo-row{
+  gap:7px;
+ }
+ .uruguay-event-page .support-logo-row img{
+  max-width:116px;
+  height:46px;
+  max-height:46px;
+ }
+}
+
+@media(max-width:380px){
+ .corporate-language-switcher button{
+  width:37px;
+  height:36px;
+  font-size:1.5rem;
+ }
+ .uruguay-event-page .support-logo-row{
+  gap:5px;
+ }
+ .uruguay-event-page .support-logo-row img{
+  max-width:104px;
+  height:42px;
+  max-height:42px;
+ }
+}
