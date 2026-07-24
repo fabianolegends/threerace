@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { getSavedLanguage, saveLanguage, SiteLanguage } from "../site-language";
 
-const logo = "https://threerace.com/wp-content/uploads/2026/04/logo-frente-300x300.jpg";
+const logo = "/tr3-logo-partners.png";
 const flags: Record<SiteLanguage, string> = { es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" };
 
 type ArticleTranslation = {
