@@ -14,7 +14,7 @@ const azimutUrl = "https://www.azimutextremo.com/";
 
 const copy = {
   es: {
-    nav: ["Eventos", "MTB", "Gravel", "Información", "Preguntas"],
+    nav: ["Home", "Etapas", "Inscripción", "Información"],
     menu: "Abrir menú",
     close: "Cerrar menú",
     featured: "INSCRIPCIONES ABIERTAS · URUGUAY 2026",
@@ -134,7 +134,7 @@ const copy = {
     official: "Sitio oficial · Threerace Bike Ultramarathon Uruguay 2026",
   },
   pt: {
-    nav: ["Eventos", "MTB", "Gravel", "Informações", "Dúvidas"],
+    nav: ["Home", "Etapas", "Inscrição", "Informações"],
     menu: "Abrir menu",
     close: "Fechar menu",
     featured: "INSCRIÇÕES ABERTAS · URUGUAI 2026",
@@ -254,7 +254,7 @@ const copy = {
     official: "Site oficial · Threerace Bike Ultramarathon Uruguay 2026",
   },
   en: {
-    nav: ["Events", "MTB", "Gravel", "Info", "FAQ"],
+    nav: ["Home", "Stages", "Registration", "Information"],
     menu: "Open menu",
     close: "Close menu",
     featured: "REGISTRATION OPEN · URUGUAY 2026",
@@ -1286,7 +1286,7 @@ export default function Home() {
     en: { register: "REGISTRATION", registerNote: "WINDFIT PLATFORM", certificate: "CERTIFICATES", certificateNote: "REQUIRED DOCUMENTATION", rulebook: "RULEBOOK", rulebookNote: "2026 RULEBOOK", stay: "ACCOMMODATION", info: "EVENT INFORMATION", program: "SCHEDULE", event: "THE EVENT", stages: "STAGES", categories: "CATEGORIES", open: "Open", close: "Close" },
   }[language];
 
-  const navTargets = ["#information", "#information", "#information", "#information", "#contact"];
+  const navTargets = ["/", "#stages", registrationUrl, "#information"];
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -1308,7 +1308,7 @@ export default function Home() {
 
           <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Main navigation">
             {t.nav.map((item, index) => (
-              <a key={item} href={navTargets[index]} onClick={closeMenu}>
+              <a key={item} href={navTargets[index]} onClick={closeMenu} target={index === 2 ? "_blank" : undefined} rel={index === 2 ? "noreferrer" : undefined}>
                 {item}
               </a>
             ))}
