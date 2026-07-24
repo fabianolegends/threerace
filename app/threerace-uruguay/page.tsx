@@ -376,18 +376,12 @@ const copy = {
 } as const;
 
 const heroImage = "/imagem-hero.webp";
-const gravelImage =
-  "https://threerace.com/wp-content/uploads/2026/06/ChatGPT-Image-24-de-jun.-de-2026-14_48_16-1.jpg";
-const tr3Logo =
-  "https://threerace.com/wp-content/uploads/2026/04/Logo-TR3-2026-BR-1024x627.png";
-const tr3HeaderLogo =
-  "https://threerace.com/wp-content/uploads/2026/04/logo-frente-300x300.jpg";
-const azimutHeaderLogo =
-  "https://threerace.com/wp-content/uploads/2026/05/Logo-Azimut.png";
-const azimutLogo =
-  "https://threerace.com/wp-content/uploads/2026/05/Azimut-Color-1-1.png";
-const mainSponsorImage =
-  "https://threerace.com/wp-content/uploads/2026/06/Main-Sponsor-Site-1536x480.png";
+const gravelImage = "/gravel-experience-hero-v2.png";
+const tr3Logo = "/tr3-logo-partners.png";
+const tr3HeaderLogo = "/tr3-logo-partners.png";
+const azimutHeaderLogo = "/azimut-extremo-logo.png";
+const azimutLogo = "/azimut-extremo-logo.png";
+const mainSponsorImage = "/partner-brands-row.png";
 const supportImages = [
   "/ministerio-turismo-uruguay.png",
   "/support-rocha.png",
@@ -395,9 +389,9 @@ const supportImages = [
   "/support-la-paloma.png",
 ];
 const galleryImages = [
-  "https://threerace.com/wp-content/uploads/2026/04/Z6P_9940-min-1024x684.jpg",
-  "https://threerace.com/wp-content/uploads/2026/05/MAT4645-6338.jpg-1024x684.jpeg",
-  "https://threerace.com/wp-content/uploads/2026/04/PDL0370-min-1-1024x684.jpg",
+  "/home-hero-peloton.jpeg",
+  "/event-threerace-uruguay.jpeg",
+  "/event-threerace-brasil.jpeg",
 ];
 
 const officialInfo = {
