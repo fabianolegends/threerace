@@ -9,15 +9,15 @@ type PanelKey = "event" | "registration" | "categories" | "stages" | "schedule" 
 const registrationUrl = "https://event.windfit.app/threerace-uruguay-2026";
 const lodgingUrl = "https://www.escapatearocha.uy/alojamientos?localidad=4&page=4";
 const heroImage = "/gravel-experience-hero-v2.png";
-const tr3HeaderLogo = "https://threerace.com/wp-content/uploads/2026/04/logo-frente-300x300.jpg";
-const azimutHeaderLogo = "https://threerace.com/wp-content/uploads/2026/05/Logo-Azimut.png";
-const tr3Logo = "https://threerace.com/wp-content/uploads/2026/04/Logo-TR3-2026-BR-1024x627.png";
-const azimutLogo = "https://threerace.com/wp-content/uploads/2026/05/Azimut-Color-1-1.png";
+const tr3HeaderLogo = "/tr3-logo-partners.png";
+const azimutHeaderLogo = "/azimut-extremo-logo.png";
+const tr3Logo = "/tr3-logo-partners.png";
+const azimutLogo = "/azimut-extremo-logo.png";
 const azimutUrl = "https://www.azimutextremo.com/";
 const galleryImages = [
-  "https://threerace.com/wp-content/uploads/2026/04/Z6P_9940-min-1024x684.jpg",
-  "https://threerace.com/wp-content/uploads/2026/05/MAT4645-6338.jpg-1024x684.jpeg",
-  "https://threerace.com/wp-content/uploads/2026/04/PDL0370-min-1-1024x684.jpg",
+  "/home-hero-peloton.jpeg",
+  "/event-threerace-uruguay.jpeg",
+  "/event-threerace-brasil.jpeg",
 ];
 const supportImages = ["/ministerio-turismo-uruguay.png", "/support-rocha.png", "/support-rocha-deportes.png", "/support-la-paloma.png"];
 
