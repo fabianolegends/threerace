@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import { detectInitialLanguage, saveLanguage, SiteLanguage } from "./site-language";
+import { getSavedLanguage, saveLanguage, SiteLanguage } from "./site-language";
 
 const logo = "/tr3-logo-new.svg";
 const azimutMenuLogo = "/azimut-extremo-logo-white.svg";
@@ -283,15 +283,9 @@ export default function Home() {
   }));
 
   useEffect(() => {
-    let active = true;
-    void detectInitialLanguage("pt").then((detected) => {
-      if (!active) return;
-      setLanguage(detected);
-      saveLanguage(detected);
-    });
-    return () => {
-      active = false;
-    };
+    const saved = getSavedLanguage("pt");
+    setLanguage(saved);
+    saveLanguage(saved);
   }, []);
 
   useEffect(() => {
@@ -393,7 +387,7 @@ export default function Home() {
                 <div><b>{String(mtbCountdown.hours).padStart(2, "0")}</b><span>{t.countdown[1]}</span></div>
                 <div><b>{String(mtbCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
               </div>
-              <a className="next-event-link" href="/threerace-uruguay" aria-label="Conhecer Threerace Uruguay">↗</a>
+              <a className="next-event-link" href="/threerace-uruguay" aria-label="Conhecer Threerace Uruguay"><span aria-hidden="true">↗︎</span></a>
             </article>
             <article className="next-event-row">
               <div className="next-event-main">
@@ -416,7 +410,7 @@ export default function Home() {
                 <div><b>{String(gravelCountdown.hours).padStart(2, "0")}</b><span>{t.countdown[1]}</span></div>
                 <div><b>{String(gravelCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
               </div>
-              <a className="next-event-link" href="/gravel-experience-uruguay" aria-label="Conhecer Gravel Experience Uruguay">↗</a>
+              <a className="next-event-link" href="/gravel-experience-uruguay" aria-label="Conhecer Gravel Experience Uruguay"><span aria-hidden="true">↗︎</span></a>
             </article>
           </div>
         </div>
