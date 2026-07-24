@@ -377,8 +377,8 @@ const copy = {
 
 const heroImage = "/imagem-hero.webp";
 const gravelImage = "/gravel-experience-hero-v2.png";
-const tr3Logo = "/tr3-logo-partners.png";
-const tr3HeaderLogo = "/tr3-logo-partners.png";
+const tr3Logo = "/tr3-logo-new.svg";
+const tr3HeaderLogo = "/tr3-logo-new.svg";
 const azimutHeaderLogo = "/azimut-extremo-logo.png";
 const azimutLogo = "/azimut-extremo-logo.png";
 const mainSponsorImage = "/partner-brands-row.png";
@@ -1453,7 +1453,7 @@ export default function Home() {
 
       <section className="original-partners">
         <div className="section-frame">
-          <div className="original-organizers"><p>{t.partners[0]}</p><img src="/tr3-logo-partners.png" alt="Threerace Sports" /><img src="/azimut-extremo-logo.png" alt="Azimut Extremo" /></div>
+          <div className="original-organizers"><p>{t.partners[0]}</p><img src="/tr3-logo-new.svg" alt="Threerace Sports" /><img src="/azimut-extremo-logo.png" alt="Azimut Extremo" /></div>
           <div className="original-main-sponsor"><p>{t.partners[1]}</p><img src="/epic-bike-store.png" alt="Epic Bike Store" /></div>
           <div className="original-brands"><p>{language === "pt" ? "MARCAS PARCEIRAS" : language === "en" ? "PARTNER BRANDS" : "MARCAS ASOCIADAS"}</p><img src="/partner-brands-row.png" alt="Orbea, Bioracer, 226ERS, Rudy Project, Shokz, DJI e Insta360" /></div>
           <div className="original-support">
