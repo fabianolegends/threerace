@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 
 type Language = "es" | "pt" | "en";
@@ -1248,6 +1248,12 @@ function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
+function ActionArrow({ direction }: { direction: "external" | "down" }) {
+  return direction === "external"
+    ? <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
+    : <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 5v22M8 19l8 8 8-8" /></svg>;
+}
+
 function QuickIcon({ type }: { type: "registration" | "certificate" | "rulebook" }) {
   if (type === "registration") {
     return <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="11" y="8" width="42" height="48" rx="5"/><circle cx="26" cy="25" r="7"/><path d="M16 45c2-7 7-10 10-10s8 3 10 10M40 20h7M40 29h7M40 38h7"/></svg>;
@@ -1290,8 +1296,18 @@ export default function Home() {
   const [openInfo, setOpenInfo] = useState<number | null>(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [galleryVisible, setGalleryVisible] = useState(3);
+  const [now, setNow] = useState(() => Date.now());
   const t = copy[language];
   const info = officialInfoByLanguage[language];
+  const countdown = useMemo(() => {
+    const target = new Date("2026-10-30T07:00:00-03:00").getTime();
+    const remaining = Math.max(0, target - now);
+    return [
+      Math.floor(remaining / 86400000),
+      Math.floor((remaining / 3600000) % 24),
+      Math.floor((remaining / 60000) % 60),
+    ];
+  }, [now]);
   const labels = {
     es: { register: "INSCRIPCIONES", registerNote: "PLATAFORMA WINDFIT", certificate: "CERTIFICADOS", certificateNote: "DOCUMENTACIÓN OBLIGATORIA", rulebook: "REGLAMENTO", rulebookNote: "REGLAMENTO 2026", stay: "ALOJAMIENTO", info: "INFORMACIÓN COMPLETA", program: "PROGRAMACIÓN", event: "EL EVENTO", stages: "ETAPAS", categories: "CATEGORÍAS", open: "Abrir", close: "Cerrar" },
     pt: { register: "INSCRIÇÕES", registerNote: "PLATAFORMA WINDFIT", certificate: "CERTIFICADOS", certificateNote: "DOCUMENTAÇÃO OBRIGATÓRIA", rulebook: "REGULAMENTO", rulebookNote: "REGULAMENTO 2026", stay: "HOSPEDAGEM", info: "INFORMAÇÕES COMPLETAS", program: "PROGRAMAÇÃO", event: "O EVENTO", stages: "ETAPAS", categories: "CATEGORIAS", open: "Abrir", close: "Fechar" },
@@ -1306,6 +1322,11 @@ export default function Home() {
     const saved = getSavedLanguage("es");
     setLanguage(saved);
     saveLanguage(saved);
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(Date.now()), 30000);
+    return () => window.clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -1382,22 +1403,22 @@ export default function Home() {
 
         <section className="original-action-cards section-frame" aria-label="Quick access">
         <a href={registrationUrl} target="_blank" rel="noreferrer">
-          <QuickIcon type="registration"/><b>{labels.register}</b><small>{labels.registerNote}</small><i>↗</i>
+          <QuickIcon type="registration"/><b>{labels.register}</b><small>{labels.registerNote}</small><i><ActionArrow direction="external" /></i>
         </a>
         <a href="#information">
-          <QuickIcon type="certificate"/><b>{labels.certificate}</b><small>{labels.certificateNote}</small><i>↓</i>
+          <QuickIcon type="certificate"/><b>{labels.certificate}</b><small>{labels.certificateNote}</small><i><ActionArrow direction="down" /></i>
         </a>
         <a href={rulebookUrl} target="_blank" rel="noreferrer">
-          <QuickIcon type="rulebook"/><b>{labels.rulebook}</b><small>{labels.rulebookNote}</small><i>↗</i>
+          <QuickIcon type="rulebook"/><b>{labels.rulebook}</b><small>{labels.rulebookNote}</small><i><ActionArrow direction="external" /></i>
         </a>
         </section>
       </section>
 
       <section className="countdown-section" aria-label="Countdown">
         <div className="section-frame countdown-grid">
-          {["104", "09", "31"].map((value, index) => (
-            <div className="countdown-unit" key={value}>
-              <b>{value}</b>
+          {countdown.map((value, index) => (
+            <div className="countdown-unit" key={t.countdown[index]}>
+              <b>{String(value).padStart(2, "0")}</b>
               <span>{t.countdown[index]}</span>
             </div>
           ))}
