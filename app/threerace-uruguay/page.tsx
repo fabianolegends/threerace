@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { detectInitialLanguage, saveLanguage } from "../site-language";
+import { getSavedLanguage, saveLanguage } from "../site-language";
 
 type Language = "es" | "pt" | "en";
 
@@ -1303,15 +1303,9 @@ export default function Home() {
   const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
-    let active = true;
-    void detectInitialLanguage("es").then((detected) => {
-      if (!active) return;
-      setLanguage(detected);
-      saveLanguage(detected);
-    });
-    return () => {
-      active = false;
-    };
+    const saved = getSavedLanguage("es");
+    setLanguage(saved);
+    saveLanguage(saved);
   }, []);
 
   useEffect(() => {
@@ -1526,7 +1520,14 @@ export default function Home() {
         <div className="section-frame">
           <div className="original-organizers"><p>{t.partners[0]}</p><img src="/tr3-logo-new.svg" alt="Threerace Sports" /><img src="/azimut-extremo-logo.png" alt="Azimut Extremo" /></div>
           <div className="original-main-sponsor"><p>{t.partners[1]}</p><img src="/epic-bike-store.png" alt="Epic Bike Store" /></div>
-          <div className="original-brands"><p>{language === "pt" ? "MARCAS PARCEIRAS" : language === "en" ? "PARTNER BRANDS" : "MARCAS ASOCIADAS"}</p><img src="/partner-brands-row.png" alt="Orbea, Bioracer, 226ERS, Rudy Project, Shokz, DJI e Insta360" /></div>
+          <div className="original-brands">
+            <p>{language === "pt" ? "MARCAS PARCEIRAS" : language === "en" ? "PARTNER BRANDS" : "MARCAS ASOCIADAS"}</p>
+            <img className="partner-brands-all" src="/partner-brands-row.png" alt="Orbea, Bioracer, 226ERS, Rudy Project, Shokz, DJI e Insta360" />
+            <div className="partner-brands-mobile" aria-hidden="true">
+              <img src="/partner-brands-mobile-1.svg" alt="" />
+              <img src="/partner-brands-mobile-2.svg" alt="" />
+            </div>
+          </div>
           <div className="original-support">
             <p>{t.partners[2]}</p>
             <div className="support-logo-row">
