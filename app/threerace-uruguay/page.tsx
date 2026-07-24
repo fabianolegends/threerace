@@ -387,6 +387,7 @@ const supportImages = [
   "/support-rocha.png",
   "/support-rocha-deportes.png",
   "/support-la-paloma.png",
+  "/audencia-apart-hotel.svg",
 ];
 const galleryImages = [
   "/home-hero-peloton.jpeg",
