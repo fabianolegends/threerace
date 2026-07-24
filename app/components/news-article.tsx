@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { getSavedLanguage, saveLanguage, SiteLanguage } from "../site-language";
 
-const logo = "/tr3-logo-partners.png";
+const logo = "/tr3-logo-new.svg";
 const flags: Record<SiteLanguage, string> = { es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" };
 
 type ArticleTranslation = {
