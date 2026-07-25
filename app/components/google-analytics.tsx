@@ -4,6 +4,7 @@ import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+// Threerace GA4 production property
 const GOOGLE_ANALYTICS_ID = "G-6DQQNX5CRQ";
 
 type GtagWindow = Window & {
