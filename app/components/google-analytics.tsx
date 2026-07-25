@@ -4,7 +4,7 @@ import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const GOOGLE_ANALYTICS_ID = "G-HD7JY3MSNR";
+const GOOGLE_ANALYTICS_ID = "G-6DQQNX5CRQ";
 
 type GtagWindow = Window & {
   gtag?: (...args: unknown[]) => void;
