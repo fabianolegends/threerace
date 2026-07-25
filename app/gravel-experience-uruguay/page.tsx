@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { getSavedLanguage, saveLanguage } from "../site-language";
+import LodgingDirectory from "../lodging-directory";
 
 type Language = "es" | "pt" | "en";
 type PanelKey = "event" | "registration" | "categories" | "stages" | "schedule" | "rules" | "stay";
@@ -235,7 +236,7 @@ export default function GravelExperienceUruguay() {
     if (key === "stages") return <div className="official-copy"><div className="gravel-stage-details">{t.stages.map((stage) => <article key={stage.name}><h4>{stage.name}</h4>{[stage.date, stage.start, stage.distance, stage.elevation, stage.surface, stage.limit].map((value, index) => <p key={t.stageLabels[index]}><b>{t.stageLabels[index]}:</b> {value}</p>)}</article>)}</div></div>;
     if (key === "schedule") return <div className="official-copy gravel-schedule">{t.schedule.map(([day, entries]) => <section key={day as string}><h4>{day}</h4><List>{(entries as readonly string[]).map((item) => <li key={item}>{item}</li>)}</List></section>)}</div>;
     if (key === "rules") return <div className="official-copy gravel-rules"><h4>{t.rulesTitle}</h4>{t.rules.map(([title, text]) => <section key={title}><h4>{title}</h4><p>{text}</p></section>)}</div>;
-    return <div className="official-copy"><h4>{t.stayTitle}</h4><p>{t.stayText}</p><a className="button button-primary accordion-action" href={lodgingUrl} target="_blank" rel="noreferrer">{t.stayCta} ↗</a></div>;
+    return <div className="official-copy"><LodgingDirectory language={language} /></div>;
   };
 
   return (
