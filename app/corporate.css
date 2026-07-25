@@ -924,3 +924,41 @@ body.save-date-open{overflow:hidden}
   max-height:40px;
  }
 }
+/* Partner accommodation directory */
+.uruguay-event-page .lodging-directory{width:100%;max-width:1120px;padding-bottom:18px}
+.uruguay-event-page .lodging-intro span{color:var(--orange-deep);font-size:.7rem;font-weight:800;letter-spacing:.2em}
+.uruguay-event-page .lodging-intro h4{margin:8px 0 4px!important;color:#202020!important;font-size:1.55rem!important;letter-spacing:-.02em!important}
+.uruguay-event-page .lodging-intro p{max-width:680px}
+.uruguay-event-page .lodging-filters{display:flex;gap:8px;margin:22px 0 10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.uruguay-event-page .lodging-filters::-webkit-scrollbar{display:none}
+.uruguay-event-page .lodging-filters button{flex:0 0 auto;border:1px solid #d8d5ce;border-radius:999px;background:#fff;padding:9px 14px;color:#333;font:750 .7rem/1 var(--body);letter-spacing:.04em;cursor:pointer}
+.uruguay-event-page .lodging-filters button.active{border-color:var(--orange);background:var(--orange);color:#fff}
+.uruguay-event-page .lodging-count{margin:0 0 12px;color:#777;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.uruguay-event-page .lodging-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.uruguay-event-page .lodging-card{position:relative;border:1px solid #dfddd7;border-radius:10px;background:#fff;padding:20px;box-shadow:0 8px 25px rgba(24,24,24,.055)}
+.uruguay-event-page .lodging-card-official{border-color:var(--orange);box-shadow:inset 4px 0 0 var(--orange),0 8px 25px rgba(24,24,24,.07)}
+.uruguay-event-page .lodging-card h5{margin:4px 0;color:#202020;font:760 1.06rem/1.25 var(--display)}
+.uruguay-event-page .lodging-card small{color:#777;font-size:.72rem}
+.uruguay-event-page .lodging-official{display:inline-flex;border-radius:3px;background:var(--orange);padding:5px 7px;color:#fff;font-size:.58rem;font-weight:850;letter-spacing:.14em}
+.uruguay-event-page .lodging-offer{display:block;margin:16px 0 12px;color:var(--orange-deep);font-size:.9rem;line-height:1.35}
+.uruguay-event-page .lodging-features{display:flex;flex-wrap:wrap;gap:6px}
+.uruguay-event-page .lodging-features span{border-radius:999px;background:#f1efeb;padding:6px 9px;color:#54524e;font-size:.65rem;font-weight:700}
+.uruguay-event-page .lodging-actions{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:18px}
+.uruguay-event-page .lodging-actions a,.uruguay-event-page .lodging-actions button{display:flex;min-height:42px;align-items:center;justify-content:center;border:1px solid var(--orange);padding:9px 12px;text-align:center;font:800 .65rem/1.2 var(--body);letter-spacing:.06em;text-decoration:none;cursor:pointer}
+.uruguay-event-page .lodging-actions a{background:var(--orange);color:#fff}
+.uruguay-event-page .lodging-actions button{min-width:112px;background:#fff;color:var(--orange-deep)}
+.uruguay-event-page .lodging-details{margin-top:15px;border-top:1px solid #e4e2dd;padding-top:14px}
+.uruguay-event-page .lodging-details p{font-size:.82rem!important;line-height:1.55!important}
+.uruguay-event-page .lodging-details p+p{margin-top:7px!important}
+.uruguay-event-page .lodging-details nav{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.uruguay-event-page .lodging-details nav a{color:#252525;font-size:.7rem;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.uruguay-event-page .lodging-note{margin-top:16px!important;color:#777!important;font-size:.75rem!important}
+
+@media(max-width:760px){
+ .uruguay-event-page .lodging-intro h4{font-size:1.3rem!important}
+ .uruguay-event-page .lodging-grid{grid-template-columns:1fr}
+ .uruguay-event-page .lodging-card{padding:17px}
+ .uruguay-event-page .lodging-filters{margin:18px -2px 10px}
+ .uruguay-event-page .lodging-actions{grid-template-columns:1fr}
+ .uruguay-event-page .lodging-actions button{min-width:0}
+}
