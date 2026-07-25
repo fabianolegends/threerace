@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { getSavedLanguage, saveLanguage } from "../site-language";
+import LodgingDirectory from "../lodging-directory";
 
 type Language = "es" | "pt" | "en";
 
@@ -1450,8 +1451,8 @@ export default function Home() {
                   </div>
                   <div className="original-accordion-content" id={`event-info-${index}`}>
                     <div className="accordion-panel-inner">
-                      <OfficialText text={text} />
-                      {href && <a className="accordion-action" href={href} target="_blank" rel="noreferrer">{action} ↗</a>}
+                      {icon === "lodging" ? <LodgingDirectory language={language} /> : <OfficialText text={text} />}
+                      {href && icon !== "lodging" && <a className="accordion-action" href={href} target="_blank" rel="noreferrer">{action} ↗</a>}
                     </div>
                   </div>
                 </article>
