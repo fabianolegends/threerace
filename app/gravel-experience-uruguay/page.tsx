@@ -396,6 +396,10 @@ export default function GravelExperienceUruguay() {
           </div>
         </div>
       </section>
+
+      <a className="mobile-register" href={registrationUrl} target="_blank" rel="noreferrer">
+        {t.finalCta} <ActionArrow direction="external" />
+      </a>
     </main>
   );
 }
