@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import {
   getSavedLanguage,
   SITE_LANGUAGE_CHANGE_EVENT,
@@ -68,10 +67,7 @@ const footerCopy = {
   },
 } satisfies Record<SiteLanguage, Record<string, string>>;
 
-const pagesWithOwnFooter = new Set(["/", "/threerace-uruguay"]);
-
 export function GlobalSiteFooter() {
-  const pathname = usePathname();
   const [language, setLanguage] = useState<SiteLanguage>("pt");
   const [sent, setSent] = useState(false);
 
@@ -83,9 +79,7 @@ export function GlobalSiteFooter() {
     window.addEventListener(SITE_LANGUAGE_CHANGE_EVENT, updateLanguage);
     return () =>
       window.removeEventListener(SITE_LANGUAGE_CHANGE_EVENT, updateLanguage);
-  }, [pathname]);
-
-  if (pagesWithOwnFooter.has(pathname)) return null;
+  }, []);
 
   const t = footerCopy[language];
 
