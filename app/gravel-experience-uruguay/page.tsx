@@ -398,7 +398,7 @@ export default function GravelExperienceUruguay() {
       </section>
 
       <a className="mobile-register" href={registrationUrl} target="_blank" rel="noreferrer">
-        {t.finalCta} <ActionArrow direction="external" />
+        {t.finalCta} <span aria-hidden="true">↗</span>
       </a>
     </main>
   );
