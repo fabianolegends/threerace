@@ -1788,27 +1788,6 @@ export default function Home() {
         </div>
       </section>
 
-      <footer id="contact">
-        <div className="section-frame footer-top">
-          <div className="footer-brand">
-            <img className="footer-logo" src={tr3Logo} alt="Threerace Sports" />
-            <p>{t.footer}</p>
-          </div>
-          <div className="footer-contact">
-            <p>{t.contact}</p>
-            <a href={whatsappUrl} target="_blank" rel="noreferrer">+55 54 99247-6721</a>
-            <a href={`mailto:${t.email}`}>{t.email}</a>
-          </div>
-          <a className="button button-primary footer-cta" href={registrationUrl} target="_blank" rel="noreferrer">
-            {t.register} <Arrow />
-          </a>
-        </div>
-        <div className="section-frame footer-bottom">
-          <span>© 2026 THREERACE SPORTS</span>
-          <span>{t.official}</span>
-        </div>
-      </footer>
-
       <a className="mobile-register" href={registrationUrl} target="_blank" rel="noreferrer">
         {t.register} <Arrow />
       </a>
