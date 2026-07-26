@@ -1,6 +1,7 @@
 export type SiteLanguage = "es" | "pt" | "en";
 
 export const SITE_LANGUAGE_KEY = "threerace-language";
+export const SITE_LANGUAGE_CHANGE_EVENT = "threerace-language-change";
 
 const SPANISH_SPEAKING_COUNTRIES = new Set([
   "AR",
@@ -87,4 +88,9 @@ export async function detectInitialLanguage(
 export function saveLanguage(language: SiteLanguage) {
   window.localStorage.setItem(SITE_LANGUAGE_KEY, language);
   document.documentElement.lang = language === "pt" ? "pt-BR" : language;
+  window.dispatchEvent(
+    new CustomEvent<SiteLanguage>(SITE_LANGUAGE_CHANGE_EVENT, {
+      detail: language,
+    })
+  );
 }
