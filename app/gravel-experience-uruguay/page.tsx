@@ -47,9 +47,9 @@ const copy = {
     format: "FORMATO DEL EVENTO",
     formatText: "Dos etapas con desafío físico, navegación, resistencia y contacto directo con la naturaleza.",
     lots: [
-      ["LOTE 01", "USD 149 + 10% de tasas", "25/06/2026 — 25/07/2026"],
-      ["LOTE 02", "USD 179 + 10% de tasas", "26/07/2026 — 25/08/2026"],
-      ["LOTE 03", "USD 199 + 10% de tasas", "26/08/2026 — 20/10/2026"],
+      ["LOTE 01", "USD 149 + 10% de tasas", "25/06/2026 — 05/08/2026"],
+      ["LOTE 02", "USD 179 + 10% de tasas", "06/08/2026 — 05/09/2026"],
+      ["LOTE 03", "USD 199 + 10% de tasas", "06/09/2026 — 15/10/2026"],
     ],
     registrationNotes: [
       "Equipos con más de 10 integrantes deberán consultar condiciones especiales por el e-mail inscricoes@threerace.com.br.",
@@ -123,7 +123,7 @@ const copy = {
       "Mais que uma prova, é um convite para descobrir o Uruguai sobre duas rodas: não apenas competir, mas viver o caminho.",
     ],
     format: "FORMATO DO EVENTO", formatText: "Duas etapas com desafio físico, navegação, resistência e contato direto com a natureza.",
-    lots: [["LOTE 01", "USD 149 + 10% de taxas", "25/06/2026 — 25/07/2026"], ["LOTE 02", "USD 179 + 10% de taxas", "26/07/2026 — 25/08/2026"], ["LOTE 03", "USD 199 + 10% de taxas", "26/08/2026 — 20/10/2026"]],
+    lots: [["LOTE 01", "USD 149 + 10% de taxas", "25/06/2026 — 05/08/2026"], ["LOTE 02", "USD 179 + 10% de taxas", "06/08/2026 — 05/09/2026"], ["LOTE 03", "USD 199 + 10% de taxas", "06/09/2026 — 15/10/2026"]],
     registrationNotes: ["Equipes com mais de 10 integrantes devem consultar condições especiais pelo e-mail inscricoes@threerace.com.br.", "O valor e a data da inscrição serão considerados após a confirmação do pagamento, que pode levar até 5 dias.", "O comprovante poderá ser solicitado na Secretaria de Prova."],
     includedTitle: "INCLUÍDO NA INSCRIÇÃO", included: ["Jersey de ciclismo BIORACER", "Camiseta casual do evento", "Cap de ciclismo", "Medalha Finisher ao completar ao menos 75% do evento", "Placa personalizada", "Seguro do atleta", "Pontos de hidratação", "Serviços médicos no percurso e arena", "Mecânica básica", "Bike Wash"],
     excludedTitle: "NÃO INCLUÍDO", excluded: ["Recuperação muscular", "Mecânica completa", "Hospedagem ou alimentação não descritas", "Traslados ou transfer", "Fotografia"],
