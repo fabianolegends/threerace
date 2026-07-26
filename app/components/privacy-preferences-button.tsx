@@ -1,0 +1,29 @@
+"use client";
+
+type PrivacyPreferencesButtonProps = {
+  label: string;
+};
+
+export function PrivacyPreferencesButton({
+  label,
+}: PrivacyPreferencesButtonProps) {
+  return (
+    <button
+      type="button"
+      onClick={() =>
+        window.dispatchEvent(new Event("threerace:open-privacy"))
+      }
+      style={{
+        padding: 0,
+        color: "inherit",
+        background: "transparent",
+        border: 0,
+        font: "inherit",
+        cursor: "pointer",
+        opacity: 0.82,
+      }}
+    >
+      {label}
+    </button>
+  );
+}
