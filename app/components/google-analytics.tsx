@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 // Google tag assigned by GA4 to the Threerace production web stream.
-const GOOGLE_ANALYTICS_ID = "G-HD7JY3MSNR";
+const GOOGLE_ANALYTICS_ID = "G-6DQQNX5CRQ";
 
 type GtagWindow = Window & {
   gtag?: (...args: unknown[]) => void;
