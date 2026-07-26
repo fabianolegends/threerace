@@ -7,7 +7,7 @@ import LodgingDirectory from "../lodging-directory";
 type Language = "es" | "pt" | "en";
 type PanelKey = "event" | "registration" | "categories" | "stages" | "schedule" | "rules" | "stay";
 
-const registrationUrl = "https://event.windfit.app/threerace-uruguay-2026";
+const registrationUrl = "https://event.windfit.app/threerace-gravel-experience-uruguay-2026";
 const lodgingUrl = "https://www.escapatearocha.uy/alojamientos?localidad=4&page=4";
 const heroImage = "/gravel-experience-hero-v2.png";
 const tr3HeaderLogo = "/tr3-logo-new.svg";
