@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { GoogleAnalytics } from "./components/google-analytics";
+import { CookieConsent } from "./components/cookie-consent";
 import { GlobalSiteFooter } from "./components/global-site-footer";
 import "./globals.css";
 import "./corporate.css";
@@ -116,7 +116,6 @@ export default function RootLayout({
         id="top"
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GoogleAnalytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -125,6 +124,7 @@ export default function RootLayout({
         />
         {children}
         <GlobalSiteFooter />
+        <CookieConsent />
         <a className="global-top-button" href="#top" aria-label="Voltar ao topo">
           <span aria-hidden="true">↑</span>
           TOPO
