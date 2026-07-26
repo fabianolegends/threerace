@@ -16,9 +16,14 @@ const tr3Logo = "/tr3-logo-new.svg";
 const azimutLogo = "/azimut-extremo-logo.png";
 const azimutUrl = "https://www.azimutextremo.com/";
 const galleryImages = [
-  "/home-hero-peloton.jpeg",
-  "/event-threerace-uruguay.jpeg",
-  "/event-threerace-brasil.jpeg",
+  "/tr3-gallery-01.svg",
+  "/tr3-gallery-02.svg",
+  "/tr3-gallery-03.svg",
+  "/tr3-gallery-04.svg",
+  "/tr3-gallery-05.svg",
+  "/tr3-gallery-06.svg",
+  "/tr3-gallery-07.svg",
+  "/tr3-gallery-08.svg",
 ];
 const supportImages = ["/ministerio-turismo-uruguay.png", "/support-rocha.png", "/support-rocha-deportes.png", "/support-la-paloma.png", "/audencia-apart-hotel.svg"];
 
@@ -207,6 +212,8 @@ export default function GravelExperienceUruguay() {
   const [language, setLanguage] = useState<Language>("es");
   const [open, setOpen] = useState<PanelKey | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
+  const [galleryVisible, setGalleryVisible] = useState(3);
   const [now, setNow] = useState(() => Date.now());
   const t = copy[language];
   const countdown = useMemo(() => {
@@ -225,6 +232,26 @@ export default function GravelExperienceUruguay() {
     const timer = window.setInterval(() => setNow(Date.now()), 30000);
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 900px)");
+    const updateGallery = () => {
+      const visible = media.matches ? 1 : 3;
+      setGalleryVisible(visible);
+      setGalleryIndex((current) =>
+        Math.min(current, galleryImages.length - visible)
+      );
+    };
+
+    updateGallery();
+    media.addEventListener("change", updateGallery);
+    return () => media.removeEventListener("change", updateGallery);
+  }, []);
+
+  const galleryLastIndex = Math.max(
+    0,
+    galleryImages.length - galleryVisible
+  );
 
   const panelKeys: PanelKey[] = ["event", "registration", "categories", "stages", "schedule", "rules", "stay"];
   const actionTargets = [registrationUrl, "#stages", "#rules"];
@@ -272,8 +299,59 @@ export default function GravelExperienceUruguay() {
         </div>
       </section>
 
-      <section className="original-gallery">
-        {galleryImages.map((image) => <img src={image} alt="Threerace Sports" key={image} />)}
+      <section className="original-gallery" aria-label="Galeria Gravel Experience Uruguay">
+        <div className="original-gallery-viewport">
+          <div
+            className="original-gallery-track"
+            style={{
+              transform: `translateX(-${galleryIndex * (100 / galleryVisible)}%)`,
+            }}
+          >
+            {galleryImages.map((image, index) => (
+              <figure className="original-gallery-slide" key={image}>
+                <img
+                  src={image}
+                  alt={`Gravel Experience Uruguay — foto ${index + 1}`}
+                  loading="lazy"
+                />
+              </figure>
+            ))}
+          </div>
+        </div>
+        <button
+          className="original-gallery-control original-gallery-prev"
+          type="button"
+          aria-label={language === "en" ? "Previous photo" : "Foto anterior"}
+          disabled={galleryIndex === 0}
+          onClick={() =>
+            setGalleryIndex((current) => Math.max(0, current - 1))
+          }
+        >
+          ←
+        </button>
+        <button
+          className="original-gallery-control original-gallery-next"
+          type="button"
+          aria-label={
+            language === "es"
+              ? "Foto siguiente"
+              : language === "en"
+                ? "Next photo"
+                : "Próxima foto"
+          }
+          disabled={galleryIndex === galleryLastIndex}
+          onClick={() =>
+            setGalleryIndex((current) =>
+              Math.min(galleryLastIndex, current + 1)
+            )
+          }
+        >
+          →
+        </button>
+        <span className="original-gallery-count" aria-hidden="true">
+          {String(galleryIndex + 1).padStart(2, "0")} /{" "}
+          {String(galleryImages.length).padStart(2, "0")}
+        </span>
       </section>
 
       <section className="azimut-feature">
