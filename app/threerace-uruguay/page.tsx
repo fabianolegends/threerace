@@ -43,7 +43,7 @@ const copy = {
       "Dos etapas de gravel y una travesía auténtica por los caminos de Rocha y La Paloma.",
     gravelMeta: ["31 OCT — 01 NOV", "2 ETAPAS", "173 KM"],
     gravelPrice: "USD 149 + 10%",
-    gravelPriceNote: "Lote 01 hasta el 25/07 · solo 120 cupos",
+    gravelPriceNote: "Lote 01 hasta el 05/08 · solo 120 cupos",
     discover: "CONOCER EL EVENTO",
     information: "Todo lo que necesitas saber",
     informationText:
@@ -163,7 +163,7 @@ const copy = {
       "Duas etapas de gravel e uma travessia autêntica pelos caminhos de Rocha e La Paloma.",
     gravelMeta: ["31 OUT — 01 NOV", "2 ETAPAS", "173 KM"],
     gravelPrice: "USD 149 + 10%",
-    gravelPriceNote: "Lote 01 até 25/07 · somente 120 vagas",
+    gravelPriceNote: "Lote 01 até 05/08 · somente 120 vagas",
     discover: "CONHECER O EVENTO",
     information: "Tudo o que você precisa saber",
     informationText:
