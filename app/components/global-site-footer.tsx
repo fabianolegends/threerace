@@ -6,6 +6,7 @@ import {
   SITE_LANGUAGE_CHANGE_EVENT,
   type SiteLanguage,
 } from "../site-language";
+import { PrivacyPreferencesButton } from "./privacy-preferences-button";
 
 const footerCopy = {
   pt: {
@@ -26,6 +27,7 @@ const footerCopy = {
     about: "Sobre a TR3",
     contact: "FALE COM A THREERACE",
     region: "BRASIL · URUGUAI · AMÉRICA DO SUL",
+    privacy: "Privacidade",
   },
   es: {
     community: "COMUNIDAD THREERACE",
@@ -45,6 +47,7 @@ const footerCopy = {
     about: "Sobre TR3",
     contact: "HABLA CON THREERACE",
     region: "BRASIL · URUGUAY · AMÉRICA DEL SUR",
+    privacy: "Privacidad",
   },
   en: {
     community: "THREERACE COMMUNITY",
@@ -64,6 +67,7 @@ const footerCopy = {
     about: "About TR3",
     contact: "CONTACT THREERACE",
     region: "BRAZIL · URUGUAY · SOUTH AMERICA",
+    privacy: "Privacy",
   },
 } satisfies Record<SiteLanguage, Record<string, string>>;
 
@@ -171,7 +175,9 @@ export function GlobalSiteFooter() {
       </div>
       <div className="section-frame footer-bottom">
         <span>THREERACE SPORTS © 2026</span>
-        <span>{t.region}</span>
+        <span>
+          {t.region} · <PrivacyPreferencesButton label={t.privacy} />
+        </span>
       </div>
     </footer>
   );
