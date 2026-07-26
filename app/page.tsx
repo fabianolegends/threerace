@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getSavedLanguage, saveLanguage, SiteLanguage } from "./site-language";
 
 const logo = "/tr3-logo-new.svg";
@@ -262,7 +262,6 @@ function useCountdown(targetDate: string) {
 
 export default function Home() {
   const [menu, setMenu] = useState(false);
-  const [sent, setSent] = useState(false);
   const [saveDateOpen, setSaveDateOpen] = useState(false);
   const [language, setLanguage] = useState<SiteLanguage>("pt");
   const mtbCountdown = useCountdown("2026-10-30T08:00:00-03:00");
@@ -304,17 +303,6 @@ export default function Home() {
   function chooseLanguage(nextLanguage: SiteLanguage) {
     setLanguage(nextLanguage);
     saveLanguage(nextLanguage);
-  }
-
-  function submitNewsletter(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(t.community);
-    const body = encodeURIComponent(
-      `${t.name}: ${form.get("name")}\nE-mail: ${form.get("email")}\n${t.interest}: ${form.get("interest")}`
-    );
-    window.location.href = `mailto:inscricoes@threerace.com.br?subject=${subject}&body=${body}`;
-    setSent(true);
   }
 
   return (
@@ -538,30 +526,6 @@ export default function Home() {
 
       <section className="corporate-manifesto"><div className="section-frame"><p>{t.manifestoTop[0]}<br />{t.manifestoTop[1]}</p><h2>{t.manifesto[0]}<br />{t.manifesto[1]}</h2></div></section>
 
-      <footer id="contato">
-        <div className="footer-newsletter" id="comunidade">
-          <div className="section-frame footer-newsletter-grid">
-            <div>
-              <p className="section-label">{t.community}</p>
-              <h2>{t.communityTitle}</h2>
-              <p>{t.communityText}</p>
-            </div>
-            <form onSubmit={submitNewsletter}>
-              <label><span>{t.name}</span><input name="name" type="text" placeholder={t.namePlaceholder} required /></label>
-              <label><span>E-MAIL</span><input name="email" type="email" placeholder="voce@email.com" required /></label>
-              <label><span>{t.interest}</span><select key={language} name="interest" defaultValue={t.allEvents}><option>{t.allEvents}</option><option>Mountain bike</option><option>Gravel</option><option>{t.partnerships}</option></select></label>
-              <button type="submit">{t.subscribe}</button>
-              {sent && <p className="newsletter-success" role="status">{t.sent}</p>}
-            </form>
-          </div>
-        </div>
-        <div className="section-frame footer-top corporate-footer">
-          <div className="footer-brand"><img className="footer-logo" src={logo} alt="Threerace Sports" /><p>{t.footerBrand}</p></div>
-          <div className="footer-nav"><p>{t.explore}</p><a href="#eventos">{t.footerEvents}</a><a href="#historias">TR3 Journal</a><a href="#sobre">{t.footerAbout}</a></div>
-          <div className="footer-contact"><p>{t.contact}</p><a href="mailto:inscricoes@threerace.com.br">inscricoes@threerace.com.br</a><a href="https://wa.me/5554992476721" target="_blank" rel="noreferrer">WhatsApp +55 54 99247-6721</a></div>
-        </div>
-        <div className="section-frame footer-bottom"><span>THREERACE SPORTS © 2026</span><span>{t.region}</span></div>
-      </footer>
     </main>
   );
 }
