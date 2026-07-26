@@ -390,6 +390,12 @@
  padding-top:0;
 }
 
+@media(min-width:901px){
+ .corporate-story{
+  text-align:center;
+ }
+}
+
 .tr3-timeline{
  width:100vw;
  max-width:none;
