@@ -374,12 +374,24 @@ export default function GravelExperienceUruguay() {
       <section className="original-partners" id="contact">
         <div className="section-frame">
           <div className="original-organizers"><p>{t.organizers}</p><img src="/tr3-logo-new.svg" alt="Threerace Sports" /><img src="/azimut-extremo-logo.png" alt="Azimut Extremo" /></div>
-          <div className="original-main-sponsor"><p>MAIN SPONSOR</p><img src="/epic-bike-store.png" alt="Epic Bike Store" /></div>
-          <div className="original-brands"><p>{language === "pt" ? "MARCAS PARCEIRAS" : language === "en" ? "PARTNER BRANDS" : "MARCAS ASOCIADAS"}</p><img src="/partner-brands-row.png" alt="Orbea, Bioracer, 226ERS, Rudy Project, Shokz, DJI e Insta360" /></div>
+          <div className="original-main-sponsor"><p>OFFICIAL SPONSOR</p><img src="/epic-bike-store.png" alt="Epic Bike Store" /></div>
+          <div className="original-brands">
+            <p>{language === "pt" ? "MARCAS PARCEIRAS" : language === "en" ? "PARTNER BRANDS" : "MARCAS ASOCIADAS"}</p>
+            <img className="partner-brands-all" src="/partner-brands-row.png" alt="Orbea, Bioracer, 226ERS, Rudy Project, Shokz, DJI e Insta360" />
+            <div className="partner-brands-mobile" aria-hidden="true">
+              <img src="/partner-brands-mobile-1.svg" alt="" />
+              <img src="/partner-brands-mobile-2.svg" alt="" />
+            </div>
+          </div>
           <div className="original-support">
-            <p>{language === "pt" ? "APOIAM" : language === "en" ? "SUPPORTED BY" : "APOYAN"}</p>
+            <p>{language === "pt" ? "APOIO" : language === "en" ? "SUPPORTERS" : "APOYAN"}</p>
             <div className="support-logo-row">
-              {supportImages.map((image, index) => <img src={image} alt={`Event supporter ${index + 1}`} key={image} />)}
+              <div className="support-logo-line support-logo-line-top">
+                {supportImages.slice(0, 2).map((image, index) => <img src={image} alt={`Event supporter ${index + 1}`} key={image} />)}
+              </div>
+              <div className="support-logo-line support-logo-line-bottom">
+                {supportImages.slice(2).map((image, index) => <img src={image} alt={`Event supporter ${index + 3}`} key={image} />)}
+              </div>
             </div>
           </div>
         </div>
