@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         name,
         email,
-        tags: ["Comunidade Threerace"],
+        tags: ["comunidade-threerace"],
         fields: [
           { key: "interesse", value: interest },
           { key: "idioma", value: language },
