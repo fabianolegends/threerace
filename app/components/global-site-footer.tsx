@@ -20,7 +20,9 @@ const footerCopy = {
     allEvents: "Todos os eventos",
     partnerships: "Parcerias",
     subscribe: "QUERO RECEBER",
-    sent: "Conclua o envio no seu aplicativo de e-mail.",
+    sent: "Cadastro realizado! Você agora faz parte da Comunidade Threerace.",
+    error: "Não foi possível concluir. Tente novamente em alguns instantes.",
+    sending: "ENVIANDO...",
     footerBrand: "EVENTOS, ESPORTE E EXPERIÊNCIAS QUE VÃO MAIS LONGE.",
     explore: "EXPLORE",
     events: "Eventos",
@@ -40,7 +42,9 @@ const footerCopy = {
     allEvents: "Todos los eventos",
     partnerships: "Alianzas",
     subscribe: "QUIERO RECIBIR",
-    sent: "Completa el envío en tu aplicación de correo.",
+    sent: "¡Registro realizado! Ya formas parte de la Comunidad Threerace.",
+    error: "No fue posible completar el registro. Inténtalo de nuevo.",
+    sending: "ENVIANDO...",
     footerBrand: "EVENTOS, DEPORTE Y EXPERIENCIAS QUE LLEGAN MÁS LEJOS.",
     explore: "EXPLORA",
     events: "Eventos",
@@ -60,7 +64,9 @@ const footerCopy = {
     allEvents: "All events",
     partnerships: "Partnerships",
     subscribe: "KEEP ME POSTED",
-    sent: "Complete the message in your email app.",
+    sent: "Registration complete! You are now part of the Threerace Community.",
+    error: "We could not complete your registration. Please try again.",
+    sending: "SENDING...",
     footerBrand: "EVENTS, SPORT AND EXPERIENCES THAT GO FURTHER.",
     explore: "EXPLORE",
     events: "Events",
@@ -73,7 +79,7 @@ const footerCopy = {
 
 export function GlobalSiteFooter() {
   const [language, setLanguage] = useState<SiteLanguage>("pt");
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   useEffect(() => {
     setLanguage(getSavedLanguage("pt"));
@@ -87,15 +93,31 @@ export function GlobalSiteFooter() {
 
   const t = footerCopy[language];
 
-  function submitNewsletter(event: FormEvent<HTMLFormElement>) {
+  async function submitNewsletter(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(t.community);
-    const body = encodeURIComponent(
-      `${t.name}: ${form.get("name")}\nE-mail: ${form.get("email")}\n${t.interest}: ${form.get("interest")}`
-    );
-    window.location.href = `mailto:inscricoes@threerace.com.br?subject=${subject}&body=${body}`;
-    setSent(true);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/api/community", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.get("name"),
+          email: form.get("email"),
+          interest: form.get("interest"),
+          language,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Registration failed");
+
+      formElement.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -135,10 +157,17 @@ export function GlobalSiteFooter() {
                 <option>{t.partnerships}</option>
               </select>
             </label>
-            <button type="submit">{t.subscribe}</button>
-            {sent && (
+            <button type="submit" disabled={status === "sending"}>
+              {status === "sending" ? t.sending : t.subscribe}
+            </button>
+            {status === "sent" && (
               <p className="newsletter-success" role="status">
                 {t.sent}
+              </p>
+            )}
+            {status === "error" && (
+              <p className="newsletter-success" role="alert">
+                {t.error}
               </p>
             )}
           </form>
