@@ -12,6 +12,8 @@ const rulebookUrl =
   "https://drive.google.com/file/d/1dh3hxzVGxUYNoZLJfVRL6HxXr_CCEUVG/view?usp=sharing";
 const certificatePtUrl =
   "https://drive.google.com/file/d/1ZZNWg5WqxTDiDVbQmZC3kU9fmk39PWr_/view?usp=sharing";
+const certificateEsEnUrl =
+  "https://drive.google.com/file/d/1l5XyfEghTAngYehR4Eeq4ULxpYBjFKel/view?usp=drive_link";
 const lodgingUrl = "https://www.escapatearocha.uy/alojamientos?localidad=4&page=4";
 const azimutUrl = "https://www.azimutextremo.com/";
 
@@ -1409,11 +1411,11 @@ export default function Home() {
           <QuickIcon type="registration"/><b>{labels.register}</b><small>{labels.registerNote}</small><i><ActionArrow direction="external" /></i>
         </a>
         <a
-          href={language === "pt" ? certificatePtUrl : "#information"}
-          target={language === "pt" ? "_blank" : undefined}
-          rel={language === "pt" ? "noreferrer" : undefined}
+          href={language === "pt" ? certificatePtUrl : certificateEsEnUrl}
+          target="_blank"
+          rel="noreferrer"
         >
-          <QuickIcon type="certificate"/><b>{labels.certificate}</b><small>{labels.certificateNote}</small><i><ActionArrow direction={language === "pt" ? "external" : "down"} /></i>
+          <QuickIcon type="certificate"/><b>{labels.certificate}</b><small>{labels.certificateNote}</small><i><ActionArrow direction="external" /></i>
         </a>
         <a href={rulebookUrl} target="_blank" rel="noreferrer">
           <QuickIcon type="rulebook"/><b>{labels.rulebook}</b><small>{labels.rulebookNote}</small><i><ActionArrow direction="external" /></i>
