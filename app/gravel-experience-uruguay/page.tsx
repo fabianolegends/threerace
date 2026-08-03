@@ -1,10 +1,15 @@
 "use client";
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 import LodgingDirectory from "../lodging-directory";
 
 type Language = "es" | "pt" | "en";
+type GravelExperienceUruguayPageProps = {
+  initialLanguage?: Language;
+  localized?: boolean;
+};
 type PanelKey = "event" | "registration" | "categories" | "stages" | "schedule" | "rules" | "stay";
 
 const registrationUrl = "https://event.windfit.app/threerace-gravel-experience-uruguay-2026";
@@ -208,8 +213,12 @@ function List({ children }: { children: ReactNode }) {
   return <ul className="gravel-clean-list">{children}</ul>;
 }
 
-export default function GravelExperienceUruguay() {
-  const [language, setLanguage] = useState<Language>("es");
+export function GravelExperienceUruguayPage({
+  initialLanguage = "es",
+  localized = false,
+}: GravelExperienceUruguayPageProps) {
+  const router = useRouter();
+  const [language, setLanguage] = useState<Language>(initialLanguage);
   const [open, setOpen] = useState<PanelKey | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [galleryIndex, setGalleryIndex] = useState(0);
@@ -222,11 +231,17 @@ export default function GravelExperienceUruguay() {
     return [Math.floor(remaining / 86400000), Math.floor((remaining / 3600000) % 24), Math.floor((remaining / 60000) % 60)];
   }, [now]);
 
+  const selectLanguage = (code: Language) => {
+    setLanguage(code);
+    saveLanguage(code);
+    if (localized) router.push(`/${code}/gravel-experience-uruguay`);
+  };
+
   useEffect(() => {
-    const saved = getSavedLanguage("es");
-    setLanguage(saved);
-    saveLanguage(saved);
-  }, []);
+    const selected = localized ? initialLanguage : getSavedLanguage(initialLanguage);
+    setLanguage(selected);
+    saveLanguage(selected);
+  }, [initialLanguage, localized]);
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(Date.now()), 30000);
@@ -267,7 +282,10 @@ export default function GravelExperienceUruguay() {
   };
 
   return (
-    <main className="uruguay-event-page gravel-event-page">
+    <main
+      className="uruguay-event-page gravel-event-page"
+      lang={{ es: "es-UY", pt: "pt-BR", en: "en" }[language]}
+    >
       <section className="hero uruguay-event-hero gravel-event-hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <header className="site-header">
           <a className="brand" href="/" aria-label="Threerace Sports">
@@ -277,7 +295,7 @@ export default function GravelExperienceUruguay() {
           <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Main navigation">
             <a href="/">{t.nav[0]}</a><a href="#stages">{t.nav[1]}</a><a href={registrationUrl} target="_blank" rel="noreferrer">{t.nav[2]}</a><a href="#information">{t.nav[3]}</a>
           </nav>
-          <div className="header-actions"><div className="language-switcher" aria-label="Language selector">{(["es", "pt", "en"] as Language[]).map((code) => <button key={code} className={language === code ? "active" : ""} type="button" onClick={() => { setLanguage(code); saveLanguage(code); }} aria-label={code} aria-pressed={language === code}>{{ es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" }[code]}</button>)}</div><button className="menu-toggle" type="button" aria-label={menuOpen ? t.close : t.menu} onClick={() => setMenuOpen(!menuOpen)}><span/><span/></button></div>
+          <div className="header-actions"><div className="language-switcher" aria-label="Language selector">{(["es", "pt", "en"] as Language[]).map((code) => <button key={code} className={language === code ? "active" : ""} type="button" onClick={() => selectLanguage(code)} aria-label={code} aria-pressed={language === code}>{{ es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" }[code]}</button>)}</div><button className="menu-toggle" type="button" aria-label={menuOpen ? t.close : t.menu} onClick={() => setMenuOpen(!menuOpen)}><span/><span/></button></div>
         </header>
         <div className="uruguay-title-block gravel-title-block"><p className="location">{t.heroPlace}</p><h1>{t.heroTitle}<small>{t.heroSubtitle}</small></h1></div>
         <section className="original-action-cards section-frame" aria-label="Quick access">{t.actions.map(([title, note], index) => <a key={title} href={actionTargets[index]} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}><Icon kind={(["register", "stages", "rules"] as const)[index]} /><b>{title}</b><small>{note}</small><i><ActionArrow direction={index === 0 ? "external" : "down"} /></i></a>)}</section>
@@ -402,4 +420,8 @@ export default function GravelExperienceUruguay() {
       </a>
     </main>
   );
+}
+
+export default function GravelExperienceUruguay() {
+  return <GravelExperienceUruguayPage />;
 }

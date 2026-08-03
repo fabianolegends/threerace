@@ -99,8 +99,8 @@ const organizationJsonLd = {
   foundingDate: "2017",
   email: "inscricoes@threerace.com.br",
   sameAs: [
-    "https://www.instagram.com/threeracesports/",
-    "https://www.facebook.com/threeracesports/",
+    "https://www.instagram.com/threerace_sports/",
+    "https://www.facebook.com/threerace/",
     "https://www.youtube.com/@threeracesports",
   ],
 };
