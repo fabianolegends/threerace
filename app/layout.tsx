@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { CookieConsent } from "./components/cookie-consent";
 import { GlobalSiteFooter } from "./components/global-site-footer";
-import { GoogleAnalytics } from "./components/google-analytics";
 import "./globals.css";
 import "./corporate.css";
 
@@ -117,7 +116,6 @@ export default function RootLayout({
         id="top"
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GoogleAnalytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
