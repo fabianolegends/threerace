@@ -11,7 +11,7 @@ const whatsappUrl = "https://wa.me/5554992476721";
 const rulebookUrl =
   "https://drive.google.com/file/d/1dh3hxzVGxUYNoZLJfVRL6HxXr_CCEUVG/view?usp=sharing";
 const certificatePtUrl =
-  "https://drive.google.com/file/d/1nuGs03DI701-xhgBBbjSq5DmRH88CYSP/view?usp=drive_link";
+  "https://drive.google.com/file/d/1ZZNWg5WqxTDiDVbQmZC3kU9fmk39PWr_/view?usp=sharing";
 const lodgingUrl = "https://www.escapatearocha.uy/alojamientos?localidad=4&page=4";
 const azimutUrl = "https://www.azimutextremo.com/";
 
