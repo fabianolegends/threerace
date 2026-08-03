@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { eventAlternates } from "../event-localization";
 import SeoJsonLd from "../seo-json-ld";
 
 const url = "https://www.threerace.com/threerace-uruguay";
@@ -7,7 +8,10 @@ export const metadata: Metadata = {
   title: "Threerace Bike Ultramarathon Uruguay 2026",
   description:
     "MTB Stage Race de três dias e mais de 140 km em La Paloma e Rocha, Uruguai, de 30 de outubro a 1º de novembro de 2026.",
-  alternates: { canonical: "/threerace-uruguay" },
+  alternates: {
+    canonical: "/threerace-uruguay",
+    languages: eventAlternates("threerace-uruguay"),
+  },
   openGraph: {
     type: "website",
     url,

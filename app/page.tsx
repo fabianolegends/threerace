@@ -322,8 +322,8 @@ export default function Home() {
               ))}
             </nav>
             <div className="corporate-socials" aria-label="Social media">
-              <a href="https://www.instagram.com/threeracesports/" target="_blank" rel="noreferrer" aria-label="Instagram"><SocialIcon network="instagram" /></a>
-              <a href="https://www.facebook.com/threeracesports/" target="_blank" rel="noreferrer" aria-label="Facebook"><SocialIcon network="facebook" /></a>
+              <a href="https://www.instagram.com/threerace_sports/" target="_blank" rel="noreferrer" aria-label="Instagram"><SocialIcon network="instagram" /></a>
+              <a href="https://www.facebook.com/threerace/" target="_blank" rel="noreferrer" aria-label="Facebook"><SocialIcon network="facebook" /></a>
               <a href="https://www.youtube.com/@threeracesports" target="_blank" rel="noreferrer" aria-label="YouTube"><SocialIcon network="youtube" /></a>
               <a href="https://wa.me/5554992476721" target="_blank" rel="noreferrer" aria-label="WhatsApp"><SocialIcon network="whatsapp" /></a>
             </div>

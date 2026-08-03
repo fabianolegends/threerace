@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { eventAlternates } from "../event-localization";
 import SeoJsonLd from "../seo-json-ld";
 
 const url = "https://www.threerace.com/gravel-experience-uruguay";
@@ -7,7 +8,10 @@ export const metadata: Metadata = {
   title: "Gravel Experience Uruguay 2026",
   description:
     "Gravel Stage Race de duas etapas e 183 km em La Paloma e Rocha, Uruguai, nos dias 31 de outubro e 1º de novembro de 2026.",
-  alternates: { canonical: "/gravel-experience-uruguay" },
+  alternates: {
+    canonical: "/gravel-experience-uruguay",
+    languages: eventAlternates("gravel-experience-uruguay"),
+  },
   openGraph: {
     type: "website",
     url,
@@ -66,7 +70,7 @@ const eventJsonLd = {
   ],
   offers: {
     "@type": "Offer",
-    url: "https://event.windfit.app/threerace-uruguay-2026",
+    url: "https://event.windfit.app/threerace-gravel-experience-uruguay-2026",
     price: "149",
     priceCurrency: "USD",
     availability: "https://schema.org/InStock",

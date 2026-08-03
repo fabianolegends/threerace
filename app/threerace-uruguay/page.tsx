@@ -1,10 +1,16 @@
 "use client";
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 import LodgingDirectory from "../lodging-directory";
 
 type Language = "es" | "pt" | "en";
+
+type ThreeraceUruguayPageProps = {
+  initialLanguage?: Language;
+  localized?: boolean;
+};
 
 const registrationUrl = "https://event.windfit.app/threerace-uruguay-2026";
 const whatsappUrl = "https://wa.me/5554992476721";
@@ -1293,8 +1299,12 @@ function OfficialText({ text }: { text: string }) {
   })}</div>;
 }
 
-export default function Home() {
-  const [language, setLanguage] = useState<Language>("es");
+export function ThreeraceUruguayPage({
+  initialLanguage = "es",
+  localized = false,
+}: ThreeraceUruguayPageProps) {
+  const router = useRouter();
+  const [language, setLanguage] = useState<Language>(initialLanguage);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [guideMode, setGuideMode] = useState<"mtb" | "gravel">("mtb");
@@ -1323,11 +1333,17 @@ export default function Home() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  const selectLanguage = (code: Language) => {
+    setLanguage(code);
+    saveLanguage(code);
+    if (localized) router.push(`/${code}/threerace-uruguay`);
+  };
+
   useEffect(() => {
-    const saved = getSavedLanguage("es");
-    setLanguage(saved);
-    saveLanguage(saved);
-  }, []);
+    const selected = localized ? initialLanguage : getSavedLanguage(initialLanguage);
+    setLanguage(selected);
+    saveLanguage(selected);
+  }, [initialLanguage, localized]);
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(Date.now()), 30000);
@@ -1350,7 +1366,10 @@ export default function Home() {
   const galleryLastIndex = Math.max(0, galleryImages.length - galleryVisible);
 
   return (
-    <main className="uruguay-event-page">
+    <main
+      className="uruguay-event-page"
+      lang={{ es: "es-UY", pt: "pt-BR", en: "en" }[language]}
+    >
       <section className="hero uruguay-event-hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <div className="hero-shade" />
         <header className="site-header">
@@ -1377,7 +1396,7 @@ export default function Home() {
                   key={code}
                   className={language === code ? "active" : ""}
                   type="button"
-                  onClick={() => { setLanguage(code); saveLanguage(code); }}
+                  onClick={() => selectLanguage(code)}
                   aria-label={{ es: "Español", pt: "Português", en: "English" }[code]}
                   aria-pressed={language === code}
                 >
@@ -1801,4 +1820,8 @@ export default function Home() {
       </a>
     </main>
   );
+}
+
+export default function Home() {
+  return <ThreeraceUruguayPage />;
 }
