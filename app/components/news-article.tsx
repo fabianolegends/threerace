@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { detectInitialLanguage, saveLanguage, SiteLanguage } from "../site-language";
 
-const logo = "/tr3-logo-new.svg";
+const logo = "/tr3-logo-display.webp";
 const flags: Record<SiteLanguage, string> = { es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" };
 
 type ArticleTranslation = {
@@ -28,7 +28,7 @@ type Article = {
 
 const articles: Record<string, Article> = {
   "threerace-uruguay-la-paloma": {
-    image: "/home-hero-peloton.jpeg",
+    image: "/home-hero-peloton.webp",
     imagePosition: "center 42%",
     eventHref: "/threerace-uruguay",
     translations: {
@@ -71,7 +71,7 @@ const articles: Record<string, Article> = {
     },
   },
   "gravel-experience-uruguay": {
-    image: "/gravel-experience-hero-v2.png",
+    image: "/gravel-experience-hero-v2.webp",
     imagePosition: "72% center",
     eventHref: "/gravel-experience-uruguay",
     translations: {
@@ -114,7 +114,7 @@ const articles: Record<string, Article> = {
     },
   },
   "legends-serra-gaucha": {
-    image: "/event-legends-v3.jpeg",
+    image: "/event-legends-v3.webp",
     imagePosition: "center 40%",
     eventHref: "https://www.legendsbikerace.com.br",
     translations: {

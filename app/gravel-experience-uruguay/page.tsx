@@ -14,10 +14,10 @@ type PanelKey = "event" | "registration" | "categories" | "stages" | "schedule" 
 
 const registrationUrl = "https://event.windfit.app/threerace-gravel-experience-uruguay-2026";
 const lodgingUrl = "https://www.escapatearocha.uy/alojamientos?localidad=4&page=4";
-const heroImage = "/gravel-experience-hero-v2.png";
-const tr3HeaderLogo = "/tr3-logo-new.svg";
+const heroImage = "/gravel-experience-hero-v2.webp";
+const tr3HeaderLogo = "/tr3-logo-display.webp";
 const azimutHeaderLogo = "/azimut-extremo-logo-white.svg";
-const tr3Logo = "/tr3-logo-new.svg";
+const tr3Logo = "/tr3-logo-display.webp";
 const azimutLogo = "/azimut-extremo-logo.png";
 const azimutUrl = "https://www.azimutextremo.com/";
 const galleryImages = [
@@ -385,13 +385,13 @@ export function GravelExperienceUruguayPage({
 
       <section className="original-kit">
         <div className="benefits-art-wrap">
-          <img className="benefits-art" src="/threerace-benefits-gravel-cap.png" alt={t.includedTitle} />
+          <img className="benefits-art" src="/threerace-benefits-gravel-cap.webp" alt={t.includedTitle} />
         </div>
       </section>
 
       <section className="original-partners" id="contact">
         <div className="section-frame">
-          <div className="original-organizers"><p>{t.organizers}</p><img src="/tr3-logo-new.svg" alt="Threerace Sports" /><img src="/azimut-extremo-logo.png" alt="Azimut Extremo" /></div>
+          <div className="original-organizers"><p>{t.organizers}</p><img src="/tr3-logo-display.webp" alt="Threerace Sports" /><img src="/azimut-extremo-logo.png" alt="Azimut Extremo" /></div>
           <div className="original-main-sponsor"><p>OFFICIAL SPONSOR</p><img src="/epic-bike-store.png" alt="Epic Bike Store" /></div>
           <div className="original-brands">
             <p>{language === "pt" ? "MARCAS PARCEIRAS" : language === "en" ? "PARTNER BRANDS" : "MARCAS ASOCIADAS"}</p>

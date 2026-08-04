@@ -177,8 +177,12 @@ export function GlobalSiteFooter() {
         <div className="footer-brand">
           <img
             className="footer-logo"
-            src="/tr3-logo-new.svg"
+            src="/tr3-logo-display.webp"
+            width="512"
+            height="512"
             alt="Threerace Sports"
+            loading="lazy"
+            decoding="async"
           />
           <p>{t.footerBrand}</p>
         </div>

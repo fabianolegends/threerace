@@ -387,9 +387,9 @@ const copy = {
 } as const;
 
 const heroImage = "/imagem-hero.webp";
-const gravelImage = "/gravel-experience-hero-v2.png";
-const tr3Logo = "/tr3-logo-new.svg";
-const tr3HeaderLogo = "/tr3-logo-new.svg";
+const gravelImage = "/gravel-experience-hero-v2.webp";
+const tr3Logo = "/tr3-logo-display.webp";
+const tr3HeaderLogo = "/tr3-logo-display.webp";
 const azimutHeaderLogo = "/azimut-extremo-logo-white.svg";
 const azimutLogo = "/azimut-extremo-logo.png";
 const mainSponsorImage = "/partner-brands-row.png";
@@ -411,8 +411,8 @@ const galleryImages = [
   "/tr3-gallery-08.svg",
 ];
 const editorialGalleryImages = [
-  "/home-hero-peloton.jpeg",
-  "/event-threerace-uruguay.jpeg",
+  "/home-hero-peloton.webp",
+  "/event-threerace-uruguay.webp",
   "/event-threerace-brasil.jpeg",
 ];
 
@@ -1559,7 +1559,7 @@ export function ThreeraceUruguayPage({
         <div className="benefits-art-wrap">
           <img
             className="benefits-art"
-            src="/threerace-benefits-vetor-premium-wide.png"
+            src="/threerace-benefits-vetor-premium-wide.webp"
             alt="¿Qué incluye tu inscripción? Jersey Bioracer, camiseta casual, medias Threerace, medalla Finisher, placa personalizada, seguro, hidratación, servicios médicos, mecánica básica y bike wash."
           />
         </div>
@@ -1567,7 +1567,7 @@ export function ThreeraceUruguayPage({
 
       <section className="original-partners">
         <div className="section-frame">
-          <div className="original-organizers"><p>{t.partners[0]}</p><img src="/tr3-logo-new.svg" alt="Threerace Sports" /><img src="/azimut-extremo-logo.png" alt="Azimut Extremo" /></div>
+          <div className="original-organizers"><p>{t.partners[0]}</p><img src="/tr3-logo-display.webp" alt="Threerace Sports" /><img src="/azimut-extremo-logo.png" alt="Azimut Extremo" /></div>
           <div className="original-main-sponsor"><p>{t.partners[1]}</p><img src="/epic-bike-store.png" alt="Epic Bike Store" /></div>
           <div className="original-brands">
             <p>{language === "pt" ? "MARCAS PARCEIRAS" : language === "en" ? "PARTNER BRANDS" : "MARCAS ASOCIADAS"}</p>

@@ -968,3 +968,20 @@ body.save-date-open{overflow:hidden}
  .uruguay-event-page .lodging-actions{grid-template-columns:1fr}
  .uruguay-event-page .lodging-actions button{min-width:0}
 }
+
+/* Optimized image delivery */
+.corporate-hero{
+ background-image:url("/home-hero-peloton.webp");
+}
+
+.corporate-intro{
+ background-image:linear-gradient(rgba(244,239,232,.5),rgba(244,239,232,.5)),url("/threerace-topographic-contours.webp");
+}
+
+.tr3-timeline{
+ background-image:linear-gradient(rgba(32,32,32,.93),rgba(32,32,32,.93)),url("/threerace-topographic-contours.webp");
+}
+
+@media(max-width:900px){
+ .corporate-hero{background-image:url("/home-hero-peloton-mobile.webp")}
+}
