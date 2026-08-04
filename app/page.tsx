@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { preload } from "react-dom";
 import { getSavedLanguage, saveLanguage, SiteLanguage } from "./site-language";
 
-const logo = "/tr3-logo-new.svg";
+const logo = "/tr3-logo-display.webp";
 const azimutMenuLogo = "/azimut-extremo-logo-white.svg";
-const legendsLogo = "https://www.legendsbikerace.com.br/legends-logo-official.png";
+const legendsLogo = "/legends-logo-card.webp";
 
 const homeNavigation = {
   pt: ["EVENTOS", "NOSSA HISTÓRIA", "NOTÍCIAS", "COMUNIDADE TR3", "CONTATO"],
@@ -155,7 +156,9 @@ const events = [
     status: "INSCRIÇÕES ABERTAS",
     text: "Três dias de mountain bike entre estradas rurais, natureza e o Atlântico uruguaio.",
     href: "/threerace-uruguay",
-    img: "/event-threerace-uruguay.jpeg",
+    img: "/event-threerace-uruguay-card.webp",
+    width: 960,
+    height: 640,
     position: "50% 44%",
     shared: true,
   },
@@ -168,7 +171,9 @@ const events = [
     status: "INSCRIÇÕES ABERTAS",
     text: "Duas etapas e 183 quilômetros para descobrir o Uruguai por caminhos que só o gravel conecta.",
     href: "/gravel-experience-uruguay",
-    img: "/gravel-experience-hero-v2.png?v=20260724",
+    img: "/gravel-experience-card.webp",
+    width: 960,
+    height: 540,
     position: "78% center",
     shared: true,
   },
@@ -181,7 +186,9 @@ const events = [
     status: "SAVE THE DATE",
     text: "A história continua onde começou: mountain bike, natureza e uma comunidade internacional.",
     href: "/threerace-brasil",
-    img: "/event-threerace-brasil.jpeg",
+    img: "/event-threerace-brasil-card.webp",
+    width: 640,
+    height: 959,
     position: "60% center",
     saveDate: true,
   },
@@ -194,7 +201,9 @@ const events = [
     status: "LANÇAMENTO EM BREVE",
     text: "Uma travessia por quatro destinos, criada para transformar o gravel em uma jornada pelo território.",
     href: "https://www.legendsbikerace.com.br",
-    img: "/event-legends-v3.jpeg",
+    img: "/event-legends-card.webp",
+    width: 960,
+    height: 720,
     position: "34% center",
     external: true,
     legends: true,
@@ -208,7 +217,9 @@ const news = [
     title: "La Paloma será a base da nova edição internacional da Threerace",
     text: "Rocha recebe três dias de mountain bike, natureza e experiência internacional.",
     href: "/noticias/threerace-uruguay-la-paloma",
-    img: "/event-threerace-uruguay.jpeg",
+    img: "/event-threerace-uruguay-card.webp",
+    width: 960,
+    height: 640,
   },
   {
     category: "GRAVEL EXPERIENCE",
@@ -216,7 +227,9 @@ const news = [
     title: "Dois dias para descobrir o Uruguai por novas linhas",
     text: "Uma experiência de 183 km entre estradas rurais, vento, campos e litoral.",
     href: "/noticias/gravel-experience-uruguay",
-    img: "/gravel-experience-hero-v2.png",
+    img: "/gravel-experience-card.webp",
+    width: 960,
+    height: 540,
   },
   {
     category: "LEGENDS",
@@ -224,7 +237,9 @@ const news = [
     title: "Quatro destinos. Uma travessia pela Serra Gaúcha",
     text: "Canela, São Francisco de Paula, Gramado e Nova Petrópolis conectadas pelo gravel.",
     href: "/noticias/legends-serra-gaucha",
-    img: "/event-legends-v3.jpeg",
+    img: "/event-legends-card.webp",
+    width: 960,
+    height: 720,
     external: false,
   },
 ];
@@ -261,6 +276,16 @@ function useCountdown(targetDate: string) {
 }
 
 export default function Home() {
+  preload("/home-hero-peloton.webp", {
+    as: "image",
+    fetchPriority: "high",
+    media: "(min-width: 901px)",
+  });
+  preload("/home-hero-peloton-mobile.webp", {
+    as: "image",
+    fetchPriority: "high",
+    media: "(max-width: 900px)",
+  });
   const [menu, setMenu] = useState(false);
   const [saveDateOpen, setSaveDateOpen] = useState(false);
   const [language, setLanguage] = useState<SiteLanguage>("pt");
@@ -307,13 +332,10 @@ export default function Home() {
 
   return (
     <main className="corporate-home">
-      <section
-        className="corporate-hero"
-        style={{ backgroundImage: "url(/home-hero-peloton.jpeg)" }}
-      >
+      <section className="corporate-hero">
         <header className="site-header corporate-header">
           <a className="brand" href="#top" aria-label="Threerace Sports">
-            <img className="header-tr3-logo" src={logo} alt="Threerace Sports" />
+            <img className="header-tr3-logo" src={logo} width="512" height="512" alt="Threerace Sports" />
           </a>
           <div className="corporate-header-actions">
             <nav className={menu ? "main-nav is-open" : "main-nav"} aria-label={homeNavigation[language].join(", ")}>
@@ -360,15 +382,15 @@ export default function Home() {
                 <h2>THREERACE BIKE<br />ULTRAMARATHON URUGUAY</h2>
                 <div className="next-event-info-line">
                   <div className="next-event-organizers-mobile" aria-hidden="true">
-                    <img src={logo} alt="" /><span>+</span><img src={azimutMenuLogo} alt="" />
+                    <img src={logo} width="512" height="512" alt="" /><span>+</span><img src={azimutMenuLogo} width="363" height="354" alt="" />
                   </div>
                   <div className="next-event-meta"><span>{t.mtbDate}</span><span>MTB STAGE RACE</span></div>
                 </div>
               </div>
               <div className="next-event-organizers" aria-label={t.sharedBy}>
-                <img src={logo} alt="TR3" />
+                <img src={logo} width="512" height="512" alt="TR3" />
                 <span>+</span>
-                <img src={azimutMenuLogo} alt="Azimut Extremo" />
+                <img src={azimutMenuLogo} width="363" height="354" alt="Azimut Extremo" />
               </div>
               <div className="next-countdown" aria-label="Contagem regressiva Threerace Uruguay">
                 <div><b>{mtbCountdown.days}</b><span>{t.countdown[0]}</span></div>
@@ -385,15 +407,15 @@ export default function Home() {
                 <h2>GRAVEL<br />EXPERIENCE URUGUAY</h2>
                 <div className="next-event-info-line">
                   <div className="next-event-organizers-mobile" aria-hidden="true">
-                    <img src={logo} alt="" /><span>+</span><img src={azimutMenuLogo} alt="" />
+                    <img src={logo} width="512" height="512" alt="" /><span>+</span><img src={azimutMenuLogo} width="363" height="354" alt="" />
                   </div>
                   <div className="next-event-meta"><span>{t.gravelDate}</span><span>183 KM</span></div>
                 </div>
               </div>
               <div className="next-event-organizers" aria-label={t.sharedBy}>
-                <img src={logo} alt="TR3" />
+                <img src={logo} width="512" height="512" alt="TR3" />
                 <span>+</span>
-                <img src={azimutMenuLogo} alt="Azimut Extremo" />
+                <img src={azimutMenuLogo} width="363" height="354" alt="Azimut Extremo" />
               </div>
               <div className="next-countdown" aria-label="Contagem regressiva Gravel Experience Uruguay">
                 <div><b>{gravelCountdown.days}</b><span>{t.countdown[0]}</span></div>
@@ -422,10 +444,9 @@ export default function Home() {
               target={!event.saveDate && event.external ? "_blank" : undefined}
               rel={!event.saveDate && event.external ? "noreferrer" : undefined}
               onClick={event.saveDate ? (click) => { click.preventDefault(); setSaveDateOpen(true); } : undefined}
-              aria-label={event.saveDate ? `${event.status}: ${event.name}` : undefined}
               key={event.name}
             >
-              <img src={event.img} alt="" style={{ objectPosition: event.position }} />
+              <img src={event.img} width={event.width} height={event.height} alt="" loading="lazy" decoding="async" style={{ objectPosition: event.position }} />
               <div className="directory-overlay" />
               <span className="directory-number">{event.n}</span>
               <span className="directory-status">{event.status}</span>
@@ -436,9 +457,9 @@ export default function Home() {
                 <span className="directory-sport">{event.sport}</span>
                 <div className="directory-description">
                   <div className="directory-organizers" aria-label={event.shared ? "Organização Threerace Sports e Azimut Extremo" : event.legends ? "Organização Threerace Sports e Legends Ultimate Gravel Race" : "Organização Threerace Sports"}>
-                    <img src={logo} alt="TR3" />
-                    {event.shared && <img src={azimutMenuLogo} alt="Azimut Extremo" />}
-                    {event.legends && <img className="legends-card-logo" src={legendsLogo} alt="Legends Ultimate Gravel Race" />}
+                    <img src={logo} width="512" height="512" alt="TR3" loading="lazy" decoding="async" />
+                    {event.shared && <img src={azimutMenuLogo} width="363" height="354" alt="Azimut Extremo" loading="lazy" decoding="async" />}
+                    {event.legends && <img className="legends-card-logo" src={legendsLogo} width="96" height="137" alt="Legends Ultimate Gravel Race" loading="lazy" decoding="async" />}
                   </div>
                   <small>{event.text}</small>
                 </div>
@@ -452,7 +473,7 @@ export default function Home() {
       {saveDateOpen && (
         <div className="save-date-modal" role="dialog" aria-modal="true" aria-label="Save the Date — Threerace São Chico" onClick={() => setSaveDateOpen(false)}>
           <div className="save-date-poster" onClick={(event) => event.stopPropagation()}>
-            <img src="/event-threerace-brasil.jpeg" alt="Threerace Bike Ultramarathon Brasil em São Francisco de Paula" />
+            <img src="/event-threerace-brasil.jpeg" width="854" height="1280" alt="Threerace Bike Ultramarathon Brasil em São Francisco de Paula" decoding="async" />
             <div className="save-date-poster-shade" />
             <button type="button" className="save-date-close" onClick={() => setSaveDateOpen(false)} aria-label={t.menuClose}>×</button>
             <div className="save-date-poster-copy">
@@ -517,7 +538,7 @@ export default function Home() {
         <div className="section-frame journal-grid">
           {localizedNews.map((item, index) => (
             <a className={index === 0 ? "journal-card journal-feature" : "journal-card"} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noreferrer" : undefined} key={item.title}>
-              <div className="journal-image"><img src={item.img} alt="" /></div>
+              <div className="journal-image"><img src={item.img} width={item.width} height={item.height} alt="" loading="lazy" decoding="async" /></div>
               <div className="journal-copy"><p>{item.category}<span>{item.date}</span></p><h3>{item.title}</h3><small>{item.text}</small><b>{t.readStory}</b></div>
             </a>
           ))}
