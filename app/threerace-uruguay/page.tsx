@@ -94,7 +94,7 @@ const copy = {
     includedText:
       "Cada detalle fue pensado para que llegues a la salida concentrado en vivir la experiencia.",
     includes: [
-      "Jersey Bioracer",
+      "Jersey de ciclismo Bioracer (para inscripciones realizadas hasta el 05/09)",
       "Camiseta casual",
       "Medias Threerace",
       "Medalla de FINISHER al completar el 75% del evento",
@@ -214,7 +214,7 @@ const copy = {
     includedText:
       "Cada detalhe foi pensado para que você chegue à largada concentrado em viver a experiência.",
     includes: [
-      "Jersey Bioracer",
+      "Jersey de ciclismo Bioracer (inscrições feitas até dia 05/09)",
       "Camiseta casual",
       "Meias Threerace",
       "Medalha FINISHER ao completar 75% do evento",
@@ -334,7 +334,7 @@ const copy = {
     includedText:
       "Every detail is designed to let you arrive focused on the experience.",
     includes: [
-      "Bioracer jersey",
+      "Bioracer cycling jersey (for registrations completed by September 5)",
       "Casual T-shirt",
       "Threerace socks",
       "FINISHER medal upon completing 75% of the event",
@@ -461,6 +461,7 @@ Equipos con más de 10 integrantes deberán consultar condiciones especiales por
 El valor y la fecha de la inscripción serán considerados a partir de la fecha de confirmación del pago, que puede variar hasta 5 días después del pago, y no desde la fecha de registro. El comprobante de pago es un documento único y, en caso de duda, deberá ser presentado en la Secretaría de Carrera para el retiro del kit del atleta.
 
 INCLUIDO EN LA INSCRIPCIÓN
+• Jersey de ciclismo Bioracer (para inscripciones realizadas hasta el 05/09);
 • Camiseta casual alusiva al evento;
 • Medias Threerace;
 • Medalla de FINISHER, en caso de completar el 75% del evento;
@@ -472,7 +473,6 @@ INCLUIDO EN LA INSCRIPCIÓN
 • Bike wash.
 
 NO INCLUIDO EN LA INSCRIPCIÓN
-• Jersey de ciclismo Threerace;
 • Servicio de recuperación muscular;
 • Servicio mecánico completo;
 • Hospedaje o alimentación no descritos;
@@ -782,6 +782,7 @@ Equipes com mais de 10 integrantes deverão consultar condições especiais pelo
 O valor e a data da inscrição serão considerados a partir da confirmação do pagamento, que pode ocorrer até 5 dias depois do pagamento, e não da data do cadastro. O comprovante de pagamento é um documento único e, em caso de dúvida, deverá ser apresentado na Secretaria de Prova para a retirada do kit do atleta.
 
 INCLUSO NA INSCRIÇÃO
+• Jersey de ciclismo Bioracer (inscrições feitas até dia 05/09);
 • Camiseta casual alusiva ao evento;
 • Meias Threerace;
 • Medalha FINISHER, caso complete 75% do evento;
@@ -793,7 +794,6 @@ INCLUSO NA INSCRIÇÃO
 • Bike wash.
 
 NÃO INCLUSO NA INSCRIÇÃO
-• Jersey de ciclismo Threerace;
 • Serviço de recuperação muscular;
 • Serviço mecânico completo;
 • Hospedagem ou alimentação não descritas;
@@ -1039,6 +1039,7 @@ Teams with more than 10 members should request special conditions at inscricoes@
 The registration price and date are based on payment confirmation, which may occur up to 5 days after payment, not on the sign-up date. The payment receipt is unique proof and may be requested at Race Office during kit collection.
 
 INCLUDED IN REGISTRATION
+• Bioracer cycling jersey (for registrations completed by September 5);
 • Event casual T-shirt;
 • Threerace socks;
 • FINISHER medal upon completing 75% of the event;
@@ -1050,7 +1051,6 @@ INCLUDED IN REGISTRATION
 • Bike wash.
 
 NOT INCLUDED IN REGISTRATION
-• Threerace cycling jersey;
 • Muscle recovery service;
 • Full mechanical service;
 • Accommodation or meals not described;
@@ -1560,7 +1560,7 @@ export function ThreeraceUruguayPage({
           <img
             className="benefits-art"
             src="/threerace-benefits-vetor-premium-wide.webp"
-            alt="¿Qué incluye tu inscripción? Jersey Bioracer, camiseta casual, medias Threerace, medalla Finisher, placa personalizada, seguro, hidratación, servicios médicos, mecánica básica y bike wash."
+            alt="¿Qué incluye tu inscripción? Jersey de ciclismo Bioracer para inscripciones realizadas hasta el 05/09, camiseta casual, medias Threerace, medalla Finisher, placa personalizada, seguro, hidratación, servicios médicos, mecánica básica y bike wash."
           />
         </div>
       </section>
