@@ -28,7 +28,7 @@ const homeCopy = {
     countdown: ["DIAS", "HORAS", "MIN"], sharedBy: "Organização compartilhada por Threerace Sports e Azimut Extremo",
     ecosystem: "ECOSSISTEMA THREERACE", calendar: ["UM CALENDÁRIO.", "DIFERENTES TERRITÓRIOS."],
     calendarText: "Projetos com identidades próprias, unidos pela mesma forma de criar esporte, comunidade e experiência.",
-    eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "SAVE THE DATE", "LANÇAMENTO EM BREVE"],
+    eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "SAVE THE DATE", "INSCRIÇÕES ABERTAS"],
     eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "03 — 05 ABR · 2027", "29 ABR — 02 MAI · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguai", "Rocha + La Paloma · Uruguai", "São Francisco de Paula · Brasil", "Serra Gaúcha · Brasil"],
     eventTexts: [
@@ -67,7 +67,7 @@ const homeCopy = {
     countdown: ["DÍAS", "HORAS", "MIN"], sharedBy: "Organización compartida por Threerace Sports y Azimut Extremo",
     ecosystem: "ECOSISTEMA THREERACE", calendar: ["UN CALENDARIO.", "DIFERENTES TERRITORIOS."],
     calendarText: "Proyectos con identidades propias, unidos por una misma forma de crear deporte, comunidad y experiencia.",
-    eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "RESERVA LA FECHA", "PRÓXIMAMENTE"],
+    eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "RESERVA LA FECHA", "INSCRIPCIONES ABIERTAS"],
     eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "03 — 05 ABR · 2027", "29 ABR — 02 MAY · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "São Francisco de Paula · Brasil", "Serra Gaúcha · Brasil"],
     eventTexts: [
@@ -106,7 +106,7 @@ const homeCopy = {
     countdown: ["DAYS", "HOURS", "MIN"], sharedBy: "Jointly organized by Threerace Sports and Azimut Extremo",
     ecosystem: "THREERACE ECOSYSTEM", calendar: ["ONE CALENDAR.", "DIFFERENT TERRITORIES."],
     calendarText: "Projects with their own identities, united by the same way of creating sport, community and experience.",
-    eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "SAVE THE DATE", "COMING SOON"],
+    eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "SAVE THE DATE", "REGISTRATION OPEN"],
     eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "03 — 05 APR · 2027", "29 APR — 02 MAY · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "São Francisco de Paula · Brazil", "Serra Gaúcha · Brazil"],
     eventTexts: [
@@ -198,7 +198,7 @@ const events = [
     place: "Serra Gaúcha · Brasil",
     date: "29 ABR — 02 MAI · 2027",
     sport: "GRAVEL STAGE RACE",
-    status: "LANÇAMENTO EM BREVE",
+    status: "INSCRIÇÕES ABERTAS",
     text: "Uma travessia por quatro destinos, criada para transformar o gravel em uma jornada pelo território.",
     href: "https://www.legendsbikerace.com.br",
     img: "/event-legends-card.webp",
