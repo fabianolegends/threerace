@@ -29,7 +29,7 @@ const homeCopy = {
     ecosystem: "ECOSSISTEMA THREERACE", calendar: ["UM CALENDÁRIO.", "DIFERENTES TERRITÓRIOS."],
     calendarText: "Projetos com identidades próprias, unidos pela mesma forma de criar esporte, comunidade e experiência.",
     eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "SAVE THE DATE", "LANÇAMENTO EM BREVE"],
-    eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "03 — 05 ABR · 2027", "EM DEFINIÇÃO"],
+    eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "03 — 05 ABR · 2027", "29 ABR — 02 MAI · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguai", "Rocha + La Paloma · Uruguai", "São Francisco de Paula · Brasil", "Serra Gaúcha · Brasil"],
     eventTexts: [
       "Três dias de mountain bike entre estradas rurais, natureza e o Atlântico uruguaio.",
@@ -68,7 +68,7 @@ const homeCopy = {
     ecosystem: "ECOSISTEMA THREERACE", calendar: ["UN CALENDARIO.", "DIFERENTES TERRITORIOS."],
     calendarText: "Proyectos con identidades propias, unidos por una misma forma de crear deporte, comunidad y experiencia.",
     eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "RESERVA LA FECHA", "PRÓXIMAMENTE"],
-    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "03 — 05 ABR · 2027", "FECHA POR DEFINIR"],
+    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "03 — 05 ABR · 2027", "29 ABR — 02 MAY · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "São Francisco de Paula · Brasil", "Serra Gaúcha · Brasil"],
     eventTexts: [
       "Tres días de mountain bike entre caminos rurales, naturaleza y el Atlántico uruguayo.",
@@ -107,7 +107,7 @@ const homeCopy = {
     ecosystem: "THREERACE ECOSYSTEM", calendar: ["ONE CALENDAR.", "DIFFERENT TERRITORIES."],
     calendarText: "Projects with their own identities, united by the same way of creating sport, community and experience.",
     eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "SAVE THE DATE", "COMING SOON"],
-    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "03 — 05 APR · 2027", "DATE TO BE ANNOUNCED"],
+    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "03 — 05 APR · 2027", "29 APR — 02 MAY · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "São Francisco de Paula · Brazil", "Serra Gaúcha · Brazil"],
     eventTexts: [
       "Three days of mountain biking through rural roads, nature and Uruguay's Atlantic coast.",
@@ -196,7 +196,7 @@ const events = [
     n: "04",
     name: "Legends Ultimate Gravel Race",
     place: "Serra Gaúcha · Brasil",
-    date: "EM DEFINIÇÃO",
+    date: "29 ABR — 02 MAI · 2027",
     sport: "GRAVEL STAGE RACE",
     status: "LANÇAMENTO EM BREVE",
     text: "Uma travessia por quatro destinos, criada para transformar o gravel em uma jornada pelo território.",
