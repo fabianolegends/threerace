@@ -1005,6 +1005,36 @@ body.save-date-open{overflow:hidden}
 .short-event-page .short-title-block h1 small{
  max-width:760px;
 }
+.short-event-page .short-hero-tagline{
+ display:flex;
+ width:max-content;
+ align-items:center;
+ gap:.55em;
+ margin:22px 0 0;
+ color:#fff;
+ font-family:var(--font-geist-mono),monospace;
+ font-size:clamp(.75rem,1.15vw,1rem);
+ font-style:italic;
+ font-weight:800;
+ line-height:1;
+ letter-spacing:.2em;
+ text-transform:uppercase;
+ transform:skewX(-8deg);
+ text-shadow:0 4px 18px rgba(0,0,0,.42);
+}
+.short-event-page .short-hero-tagline span{
+ color:var(--orange);
+ font-size:1.18em;
+ font-style:normal;
+}
+.short-event-page .short-hero-tagline:after{
+ width:42px;
+ height:2px;
+ margin-left:4px;
+ background:var(--orange);
+ box-shadow:14px 0 0 rgba(255,255,255,.82);
+ content:"";
+}
 @media(min-width:1001px){
  .short-event-page .azimut-feature a{
   grid-template-columns:260px minmax(0,1fr);
@@ -1272,6 +1302,16 @@ body.save-date-open{overflow:hidden}
  .short-event-page .short-title-block h1 small{
   max-width:280px;
   font-size:.32em;
+ }
+ .short-event-page .short-hero-tagline{
+  gap:.42em;
+  margin-top:16px;
+  font-size:.68rem;
+  letter-spacing:.14em;
+ }
+ .short-event-page .short-hero-tagline:after{
+  width:26px;
+  box-shadow:9px 0 0 rgba(255,255,255,.82);
  }
  .short-event-page .short-facts-grid{
   gap:7px;

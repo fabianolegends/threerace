@@ -44,7 +44,7 @@ const supportImages = [
 const copy = {
   es: {
     nav: ["HOME", "RECORRIDO", "PROGRAMACIÓN", "INFORMACIÓN"],
-    heroPlace: "LA PEDRERA · ROCHA · URUGUAY",
+    heroPlace: "LA PALOMA · ROCHA · URUGUAY",
     heroTitle: "THREERACE",
     heroSubtitle: "SHORT URUGUAY",
     actions: [
@@ -143,7 +143,7 @@ const copy = {
   },
   pt: {
     nav: ["HOME", "PERCURSO", "PROGRAMAÇÃO", "INFORMAÇÕES"],
-    heroPlace: "LA PEDRERA · ROCHA · URUGUAI",
+    heroPlace: "LA PALOMA · ROCHA · URUGUAI",
     heroTitle: "THREERACE",
     heroSubtitle: "SHORT URUGUAY",
     actions: [
@@ -242,7 +242,7 @@ const copy = {
   },
   en: {
     nav: ["HOME", "COURSE", "SCHEDULE", "INFORMATION"],
-    heroPlace: "LA PEDRERA · ROCHA · URUGUAY",
+    heroPlace: "LA PALOMA · ROCHA · URUGUAY",
     heroTitle: "THREERACE",
     heroSubtitle: "SHORT URUGUAY",
     actions: [
@@ -585,6 +585,7 @@ export function ThreeraceShortUruguayPage({
         <div className="uruguay-title-block short-title-block" id="top">
           <p className="location">{t.heroPlace}</p>
           <h1>{t.heroTitle}<small>{t.heroSubtitle}</small></h1>
+          <p className="short-hero-tagline">ONE DAY <span aria-hidden="true">—</span> ONE RIDE</p>
         </div>
 
         <section className="original-action-cards section-frame" aria-label={t.highlightsLabel}>
