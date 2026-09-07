@@ -985,3 +985,266 @@ body.save-date-open{overflow:hidden}
 @media(max-width:900px){
  .corporate-hero{background-image:url("/home-hero-peloton-mobile.webp")}
 }
+
+/* Threerace Short Uruguay */
+.short-event-page .short-event-hero{
+ background-image:none;
+}
+.short-event-page .short-hero-background{
+ position:absolute;
+ inset:0;
+ z-index:-2;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ object-position:center 44%;
+}
+.short-event-page .short-title-block h1{
+ max-width:980px;
+}
+.short-event-page .short-title-block h1 small{
+ max-width:760px;
+}
+.short-event-page .short-facts-grid{
+ display:grid;
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:10px;
+ margin:30px 0 22px;
+}
+.short-event-page .accordion-trigger button:focus-visible,
+.short-event-page .original-accordion article.open .accordion-trigger button:focus-visible{
+ outline:2px solid currentColor;
+ outline-offset:3px;
+ box-shadow:none;
+}
+.short-event-page .short-facts-grid article{
+ min-height:122px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ padding:22px;
+ border:1px solid rgba(32,32,32,.1);
+ background:#f7f4ef;
+}
+.short-event-page .short-facts-grid span,
+.short-event-page .short-course-card span{
+ color:var(--orange-deep);
+ font-size:.62rem;
+ font-weight:850;
+ letter-spacing:.16em;
+}
+.short-event-page .short-facts-grid strong{
+ margin-top:12px;
+ color:#202020;
+ font-family:var(--display);
+ font-size:1.28rem;
+ line-height:1.08;
+}
+.short-event-page .short-course-card{
+ display:grid;
+ grid-template-columns:repeat(5,minmax(0,1fr));
+ margin:28px 0 20px;
+ border:1px solid rgba(32,32,32,.11);
+ background:#202020;
+}
+.short-event-page .short-course-card div{
+ min-height:128px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ padding:22px 18px;
+ border-right:1px solid rgba(255,255,255,.13);
+}
+.short-event-page .short-course-card div:last-child{
+ border-right:0;
+}
+.short-event-page .short-course-card span{
+ color:#ff7b35;
+}
+.short-event-page .short-course-card strong{
+ margin-top:11px;
+ color:#fff;
+ font-size:.94rem;
+ line-height:1.35;
+}
+.short-event-page .short-information-note{
+ padding:16px 18px!important;
+ border-left:3px solid var(--orange);
+ background:#f2eee8;
+ font-size:.88rem!important;
+}
+.short-event-page .short-schedule-card{
+ margin-bottom:20px;
+ padding:30px;
+ border:1px solid rgba(32,32,32,.1);
+ background:#f7f4ef;
+}
+.short-event-page .short-schedule-card h4{
+ margin-top:0;
+ color:var(--orange-deep);
+}
+.short-event-page .short-kit-columns{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:18px;
+ margin-top:26px;
+}
+.short-event-page .short-kit-columns section{
+ padding:26px;
+ border:1px solid rgba(32,32,32,.1);
+ background:#f7f4ef;
+}
+.short-event-page .short-kit-columns section:last-child{
+ background:#eeeae4;
+}
+.short-event-page .short-kit-columns h4{
+ margin-top:0;
+}
+.short-event-page .short-kit-section{
+ color:#fff;
+ background:#101719;
+}
+.short-event-page .short-kit-showcase{
+ padding:0;
+}
+.short-event-page .short-kit-heading{
+ max-width:760px;
+ margin:0 auto 44px!important;
+ text-align:center;
+}
+.short-event-page .short-kit-heading .section-label{
+ margin-bottom:12px;
+ color:#ff7b35;
+}
+.short-event-page .short-kit-heading h2{
+ color:#fff;
+}
+.short-event-page .short-kit-heading>p:last-child{
+ margin:15px 0 0;
+ color:rgba(255,255,255,.68);
+ font-size:1rem;
+ line-height:1.6;
+}
+.short-event-page .short-kit-grid{
+ display:grid;
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:10px;
+}
+.short-event-page .short-kit-grid article{
+ min-height:165px;
+ display:flex;
+ flex-direction:column;
+ justify-content:space-between;
+ padding:25px;
+ border:1px solid rgba(255,255,255,.13);
+ background:rgba(255,255,255,.045);
+}
+.short-event-page .short-kit-grid article span{
+ color:#ff7b35;
+ font-size:.65rem;
+ font-weight:850;
+ letter-spacing:.15em;
+}
+.short-event-page .short-kit-grid article p{
+ margin:35px 0 0;
+ color:#fff;
+ font-size:.96rem;
+ font-weight:650;
+ line-height:1.35;
+}
+.short-event-page .short-kit-exclusion{
+ margin:22px 0 0;
+ padding:18px 20px;
+ border:1px solid rgba(255,123,53,.42);
+ color:#fff;
+ background:rgba(255,90,0,.12);
+ font-size:.9rem;
+ line-height:1.5;
+ text-align:center;
+}
+
+@media(max-width:1000px){
+ .short-event-page .short-course-card{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+ }
+ .short-event-page .short-course-card div{
+  border-bottom:1px solid rgba(255,255,255,.13);
+ }
+ .short-event-page .short-course-card div:nth-child(even){
+  border-right:0;
+ }
+ .short-event-page .short-course-card div:last-child{
+  grid-column:1/-1;
+  border-bottom:0;
+ }
+ .short-event-page .short-kit-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+ }
+}
+
+@media(max-width:760px){
+ .short-event-page .short-facts-grid,
+ .short-event-page .short-kit-columns{
+  grid-template-columns:1fr 1fr;
+ }
+}
+
+@media(max-width:580px){
+ .short-event-page .short-hero-background{
+  object-position:58% center;
+ }
+ .short-event-page .short-title-block h1{
+  font-size:clamp(3rem,14.5vw,4.35rem);
+ }
+ .short-event-page .short-title-block h1 small{
+  max-width:280px;
+  font-size:.32em;
+ }
+ .short-event-page .short-facts-grid{
+  gap:7px;
+ }
+ .short-event-page .short-facts-grid article{
+  min-height:104px;
+  padding:16px;
+ }
+ .short-event-page .short-facts-grid strong{
+  font-size:1.02rem;
+ }
+ .short-event-page .short-course-card{
+  grid-template-columns:1fr;
+ }
+ .short-event-page .short-course-card div,
+ .short-event-page .short-course-card div:nth-child(even),
+ .short-event-page .short-course-card div:last-child{
+  grid-column:auto;
+  min-height:96px;
+  border-right:0;
+  border-bottom:1px solid rgba(255,255,255,.13);
+ }
+ .short-event-page .short-course-card div:last-child{
+  border-bottom:0;
+ }
+ .short-event-page .short-schedule-card,
+ .short-event-page .short-kit-columns section{
+  padding:20px;
+ }
+ .short-event-page .short-kit-grid{
+  gap:8px;
+ }
+ .short-event-page .short-kit-grid article{
+  min-height:142px;
+  padding:19px;
+ }
+ .short-event-page .short-kit-grid article p{
+  margin-top:25px;
+  font-size:.84rem;
+ }
+}
+
+@media(max-width:360px){
+ .short-event-page .short-facts-grid,
+ .short-event-page .short-kit-grid,
+ .short-event-page .short-kit-columns{
+  grid-template-columns:1fr;
+ }
+}

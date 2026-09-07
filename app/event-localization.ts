@@ -5,7 +5,8 @@ export const eventLocales = ["pt", "es", "en"] as const;
 export type EventLocale = (typeof eventLocales)[number];
 export type EventSlug =
   | "threerace-uruguay"
-  | "gravel-experience-uruguay";
+  | "gravel-experience-uruguay"
+  | "threerace-short-uruguay";
 
 type LocalizedCopy = {
   title: string;
@@ -18,10 +19,11 @@ type LocalizedCopy = {
 type EventConfig = {
   image: string;
   startDate: string;
-  endDate: string;
-  registrationUrl: string;
-  price: string;
-  validFrom: string;
+  endDate?: string;
+  registrationUrl?: string;
+  price?: string;
+  validFrom?: string;
+  addressLocality: string;
   copy: Record<EventLocale, LocalizedCopy>;
 };
 
@@ -44,6 +46,7 @@ const events: Record<EventSlug, EventConfig> = {
     image: "/event-threerace-uruguay.jpeg",
     startDate: "2026-10-30T07:00:00-03:00",
     endDate: "2026-11-01T15:00:00-03:00",
+    addressLocality: "La Paloma",
     registrationUrl: "https://event.windfit.app/threerace-uruguay-2026",
     price: "220",
     validFrom: "2026-05-20",
@@ -78,6 +81,7 @@ const events: Record<EventSlug, EventConfig> = {
     image: "/gravel-experience-hero-v2.png",
     startDate: "2026-10-31T07:00:00-03:00",
     endDate: "2026-11-01T15:00:00-03:00",
+    addressLocality: "La Paloma",
     registrationUrl:
       "https://event.windfit.app/threerace-gravel-experience-uruguay-2026",
     price: "149",
@@ -106,6 +110,37 @@ const events: Record<EventSlug, EventConfig> = {
           "Two-stage gravel race in La Paloma and Rocha, Uruguay, on October 31 and November 1, 2026.",
         imageAlt: "Rider at Gravel Experience Uruguay",
         place: "La Paloma and Rocha",
+      },
+    },
+  },
+  "threerace-short-uruguay": {
+    image: "/event-threerace-uruguay.jpeg",
+    startDate: "2026-11-01T08:30:00-03:00",
+    addressLocality: "La Pedrera",
+    copy: {
+      pt: {
+        title: "Threerace Short Uruguay 2026",
+        socialTitle: "Threerace Short Uruguay 2026",
+        description:
+          "Prova de mountain bike de 61 km e 630 m de elevação acumulada, com largada às 8h30 em La Pedrera, Uruguai, em 1º de novembro de 2026.",
+        imageAlt: "Ciclistas na Threerace Short Uruguay",
+        place: "La Pedrera, Rocha",
+      },
+      es: {
+        title: "Threerace Short Uruguay 2026",
+        socialTitle: "Threerace Short Uruguay 2026",
+        description:
+          "Carrera de mountain bike de 61 km y 630 m de desnivel positivo, con salida a las 8:30 en La Pedrera, Uruguay, el 1 de noviembre de 2026.",
+        imageAlt: "Ciclistas en Threerace Short Uruguay",
+        place: "La Pedrera, Rocha",
+      },
+      en: {
+        title: "Threerace Short Uruguay 2026",
+        socialTitle: "Threerace Short Uruguay 2026",
+        description:
+          "One-day 61 km mountain bike race with 630 m of elevation gain, starting at 8:30 a.m. in La Pedrera, Uruguay, on November 1, 2026.",
+        imageAlt: "Riders at Threerace Short Uruguay",
+        place: "La Pedrera, Rocha",
       },
     },
   },
@@ -177,7 +212,7 @@ export function buildLocalizedEventJsonLd(
   const copy = event.copy[locale];
   const url = `${siteUrl}${localizedEventPath(slug, locale)}`;
 
-  return {
+  const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     "@id": `${url}/#event`,
@@ -187,7 +222,7 @@ export function buildLocalizedEventJsonLd(
     url,
     image: [`${siteUrl}${event.image}`],
     startDate: event.startDate,
-    endDate: event.endDate,
+    ...(event.endDate ? { endDate: event.endDate } : {}),
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: {
@@ -195,7 +230,7 @@ export function buildLocalizedEventJsonLd(
       name: copy.place,
       address: {
         "@type": "PostalAddress",
-        addressLocality: "La Paloma",
+        addressLocality: event.addressLocality,
         addressRegion: "Rocha",
         addressCountry: "UY",
       },
@@ -212,13 +247,21 @@ export function buildLocalizedEventJsonLd(
         url: "https://www.azimutextremo.com/",
       },
     ],
-    offers: {
-      "@type": "Offer",
-      url: event.registrationUrl,
-      price: event.price,
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      validFrom: event.validFrom,
-    },
   };
+
+  if (event.registrationUrl && event.price && event.validFrom) {
+    return {
+      ...jsonLd,
+      offers: {
+        "@type": "Offer",
+        url: event.registrationUrl,
+        price: event.price,
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        validFrom: event.validFrom,
+      },
+    };
+  }
+
+  return jsonLd;
 }
