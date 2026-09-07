@@ -23,17 +23,18 @@ const homeCopy = {
     heroText: "Esporte, território e experiência conectados em projetos autorais no Brasil e na América do Sul.",
     eventsCta: "CONHEÇA NOSSOS EVENTOS ↓", aboutCta: "CONHEÇA A THREERACE",
     next: "PRÓXIMOS DESAFIOS", open: "INSCRIÇÕES ABERTAS", placeUy: "ROCHA + LA PALOMA", countryUy: "URUGUAI · 2026",
-    mtbDays: "MOUNTAIN BIKE · 3 DIAS", gravelStages: "GRAVEL · 2 ETAPAS",
-    mtbDate: "30 OUT — 01 NOV · 2026", gravelDate: "31 OUT — 01 NOV · 2026",
+    mtbDays: "MOUNTAIN BIKE · 3 DIAS", gravelStages: "GRAVEL · 2 ETAPAS", shortDay: "MOUNTAIN BIKE · 1 DIA",
+    mtbDate: "30 OUT — 01 NOV · 2026", gravelDate: "31 OUT — 01 NOV · 2026", shortDate: "01 NOV · 2026",
     countdown: ["DIAS", "HORAS", "MIN"], sharedBy: "Organização compartilhada por Threerace Sports e Azimut Extremo",
     ecosystem: "ECOSSISTEMA THREERACE", calendar: ["UM CALENDÁRIO.", "DIFERENTES TERRITÓRIOS."],
     calendarText: "Projetos com identidades próprias, unidos pela mesma forma de criar esporte, comunidade e experiência.",
-    eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "SAVE THE DATE", "INSCRIÇÕES ABERTAS"],
-    eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "03 — 05 ABR · 2027", "29 ABR — 02 MAI · 2027"],
-    eventPlaces: ["Rocha + La Paloma · Uruguai", "Rocha + La Paloma · Uruguai", "São Francisco de Paula · Brasil", "Serra Gaúcha · Brasil"],
+    eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "SAVE THE DATE", "INSCRIÇÕES ABERTAS"],
+    eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "01 NOV · 2026", "03 — 05 ABR · 2027", "29 ABR — 02 MAI · 2027"],
+    eventPlaces: ["Rocha + La Paloma · Uruguai", "Rocha + La Paloma · Uruguai", "La Paloma · Rocha · Uruguai", "São Francisco de Paula · Brasil", "Serra Gaúcha · Brasil"],
     eventTexts: [
       "Três dias de mountain bike entre estradas rurais, natureza e o Atlântico uruguaio.",
       "Duas etapas e 183 quilômetros para descobrir o Uruguai por caminhos que só o gravel conecta.",
+      "Um dia, 63 quilômetros e 630 metros de elevação para viver a grande chegada da Threerace no Uruguai.",
       "A história continua onde começou: mountain bike, natureza e uma comunidade internacional.",
       "Uma travessia por quatro destinos, criada para transformar o gravel em uma jornada pelo território.",
     ],
@@ -62,17 +63,18 @@ const homeCopy = {
     heroText: "Deporte, territorio y experiencia conectados en proyectos propios en Brasil y América del Sur.",
     eventsCta: "CONOCE NUESTROS EVENTOS ↓", aboutCta: "CONOCE THREERACE",
     next: "PRÓXIMOS DESAFÍOS", open: "INSCRIPCIONES ABIERTAS", placeUy: "ROCHA + LA PALOMA", countryUy: "URUGUAY · 2026",
-    mtbDays: "MOUNTAIN BIKE · 3 DÍAS", gravelStages: "GRAVEL · 2 ETAPAS",
-    mtbDate: "30 OCT — 01 NOV · 2026", gravelDate: "31 OCT — 01 NOV · 2026",
+    mtbDays: "MOUNTAIN BIKE · 3 DÍAS", gravelStages: "GRAVEL · 2 ETAPAS", shortDay: "MOUNTAIN BIKE · 1 DÍA",
+    mtbDate: "30 OCT — 01 NOV · 2026", gravelDate: "31 OCT — 01 NOV · 2026", shortDate: "01 NOV · 2026",
     countdown: ["DÍAS", "HORAS", "MIN"], sharedBy: "Organización compartida por Threerace Sports y Azimut Extremo",
     ecosystem: "ECOSISTEMA THREERACE", calendar: ["UN CALENDARIO.", "DIFERENTES TERRITORIOS."],
     calendarText: "Proyectos con identidades propias, unidos por una misma forma de crear deporte, comunidad y experiencia.",
-    eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "RESERVA LA FECHA", "INSCRIPCIONES ABIERTAS"],
-    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "03 — 05 ABR · 2027", "29 ABR — 02 MAY · 2027"],
-    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "São Francisco de Paula · Brasil", "Serra Gaúcha · Brasil"],
+    eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "RESERVA LA FECHA", "INSCRIPCIONES ABIERTAS"],
+    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "03 — 05 ABR · 2027", "29 ABR — 02 MAY · 2027"],
+    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "São Francisco de Paula · Brasil", "Serra Gaúcha · Brasil"],
     eventTexts: [
       "Tres días de mountain bike entre caminos rurales, naturaleza y el Atlántico uruguayo.",
       "Dos etapas y 183 kilómetros para descubrir Uruguay por caminos que solo el gravel conecta.",
+      "Un día, 63 kilómetros y 630 metros de desnivel para vivir la gran llegada de Threerace en Uruguay.",
       "La historia continúa donde comenzó: mountain bike, naturaleza y una comunidad internacional.",
       "Una travesía por cuatro destinos, creada para transformar el gravel en un viaje por el territorio.",
     ],
@@ -101,17 +103,18 @@ const homeCopy = {
     heroText: "Sport, territory and experience connected through original projects in Brazil and South America.",
     eventsCta: "DISCOVER OUR EVENTS ↓", aboutCta: "DISCOVER THREERACE",
     next: "NEXT CHALLENGES", open: "REGISTRATION OPEN", placeUy: "ROCHA + LA PALOMA", countryUy: "URUGUAY · 2026",
-    mtbDays: "MOUNTAIN BIKE · 3 DAYS", gravelStages: "GRAVEL · 2 STAGES",
-    mtbDate: "30 OCT — 01 NOV · 2026", gravelDate: "31 OCT — 01 NOV · 2026",
+    mtbDays: "MOUNTAIN BIKE · 3 DAYS", gravelStages: "GRAVEL · 2 STAGES", shortDay: "MOUNTAIN BIKE · 1 DAY",
+    mtbDate: "30 OCT — 01 NOV · 2026", gravelDate: "31 OCT — 01 NOV · 2026", shortDate: "01 NOV · 2026",
     countdown: ["DAYS", "HOURS", "MIN"], sharedBy: "Jointly organized by Threerace Sports and Azimut Extremo",
     ecosystem: "THREERACE ECOSYSTEM", calendar: ["ONE CALENDAR.", "DIFFERENT TERRITORIES."],
     calendarText: "Projects with their own identities, united by the same way of creating sport, community and experience.",
-    eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "SAVE THE DATE", "REGISTRATION OPEN"],
-    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "03 — 05 APR · 2027", "29 APR — 02 MAY · 2027"],
-    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "São Francisco de Paula · Brazil", "Serra Gaúcha · Brazil"],
+    eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPEN", "SAVE THE DATE", "REGISTRATION OPEN"],
+    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "03 — 05 APR · 2027", "29 APR — 02 MAY · 2027"],
+    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "São Francisco de Paula · Brazil", "Serra Gaúcha · Brazil"],
     eventTexts: [
       "Three days of mountain biking through rural roads, nature and Uruguay's Atlantic coast.",
       "Two stages and 183 kilometers to discover Uruguay along roads only gravel can connect.",
+      "One day, 63 kilometers and 630 meters of elevation to experience Threerace's grand finish in Uruguay.",
       "The story continues where it began: mountain bike, nature and an international community.",
       "A journey through four destinations, created to turn gravel into an experience across the territory.",
     ],
@@ -179,6 +182,21 @@ const events = [
   },
   {
     n: "03",
+    name: "Threerace Short Uruguay",
+    place: "La Paloma · Rocha · Uruguay",
+    date: "01 NOV · 2026",
+    sport: "MTB · 63 KM · +630 M",
+    status: "INSCRIÇÕES ABERTAS",
+    text: "Um dia, 63 quilômetros e 630 metros de elevação para viver a grande chegada da Threerace no Uruguai.",
+    href: "/threerace-short-uruguay",
+    img: "/imagem-hero.webp",
+    width: 1680,
+    height: 945,
+    position: "58% center",
+    shared: true,
+  },
+  {
+    n: "04",
     name: "Threerace Bike Ultramarathon Brasil",
     place: "São Francisco de Paula · Brasil",
     date: "03 — 05 ABR · 2027",
@@ -193,7 +211,7 @@ const events = [
     saveDate: true,
   },
   {
-    n: "04",
+    n: "05",
     name: "Legends Ultimate Gravel Race",
     place: "Serra Gaúcha · Brasil",
     date: "29 ABR — 02 MAI · 2027",
@@ -291,6 +309,7 @@ export default function Home() {
   const [language, setLanguage] = useState<SiteLanguage>("pt");
   const mtbCountdown = useCountdown("2026-10-30T08:00:00-03:00");
   const gravelCountdown = useCountdown("2026-10-31T08:00:00-03:00");
+  const shortCountdown = useCountdown("2026-11-01T08:30:00-03:00");
   const t = homeCopy[language];
   const localizedEvents = events.map((event, index) => ({
     ...event,
@@ -426,6 +445,31 @@ export default function Home() {
                 <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
               </a>
             </article>
+            <article className="next-event-row">
+              <div className="next-event-main">
+                <p>{t.shortDay}</p>
+                <h2>THREERACE<br />SHORT URUGUAY</h2>
+                <div className="next-event-info-line">
+                  <div className="next-event-organizers-mobile" aria-hidden="true">
+                    <img src={logo} width="512" height="512" alt="" /><span>+</span><img src={azimutMenuLogo} width="363" height="354" alt="" />
+                  </div>
+                  <div className="next-event-meta"><span>{t.shortDate}</span><span>63 KM · +630 M</span></div>
+                </div>
+              </div>
+              <div className="next-event-organizers" aria-label={t.sharedBy}>
+                <img src={logo} width="512" height="512" alt="TR3" />
+                <span>+</span>
+                <img src={azimutMenuLogo} width="363" height="354" alt="Azimut Extremo" />
+              </div>
+              <div className="next-countdown" aria-label="Contagem regressiva Threerace Short Uruguay">
+                <div><b>{shortCountdown.days}</b><span>{t.countdown[0]}</span></div>
+                <div><b>{String(shortCountdown.hours).padStart(2, "0")}</b><span>{t.countdown[1]}</span></div>
+                <div><b>{String(shortCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
+              </div>
+              <a className="next-event-link" href="/threerace-short-uruguay" aria-label="Conhecer Threerace Short Uruguay">
+                <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
+              </a>
+            </article>
           </div>
         </div>
       </section>
@@ -478,9 +522,9 @@ export default function Home() {
             <button type="button" className="save-date-close" onClick={() => setSaveDateOpen(false)} aria-label={t.menuClose}>×</button>
             <div className="save-date-poster-copy">
               <p>SÃO FRANCISCO DE PAULA · BRASIL</p>
-              <span>{t.eventStatus[2]}</span>
+              <span>{t.eventStatus[3]}</span>
               <h2>THREERACE BIKE<br />ULTRAMARATHON BRASIL</h2>
-              <b>{t.eventDates[2]}</b>
+              <b>{t.eventDates[3]}</b>
               <small>MTB STAGE RACE</small>
             </div>
           </div>
