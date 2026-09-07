@@ -7,7 +7,7 @@ const url = "https://www.threerace.com/threerace-short-uruguay";
 export const metadata: Metadata = {
   title: "Threerace Short Uruguay 2026",
   description:
-    "Prova de mountain bike de 61 km e 630 m de elevação acumulada, com largada às 8h30 em La Pedrera, Uruguai, em 1º de novembro de 2026.",
+    "Prova de mountain bike de 63 km e 630 m de elevação acumulada, com largada às 8h30 em La Pedrera, Uruguai, em 1º de novembro de 2026.",
   alternates: {
     canonical: "/threerace-short-uruguay",
     languages: eventAlternates("threerace-short-uruguay"),
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url,
     title: "Threerace Short Uruguay 2026",
     description:
-      "Uma prova de MTB em etapa única: 61 km e 630 m+ com largada em La Pedrera.",
+      "Uma prova de MTB em etapa única: 63 km e 630 m+ com largada em La Pedrera.",
     images: [
       {
         url: "/event-threerace-uruguay.jpeg",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Threerace Short Uruguay 2026",
     description:
-      "MTB em etapa única com 61 km e 630 m+ em La Pedrera, Uruguai.",
+      "MTB em etapa única com 63 km e 630 m+ em La Pedrera, Uruguai.",
     images: ["/event-threerace-uruguay.jpeg"],
   },
 };
@@ -40,7 +40,7 @@ const eventJsonLd = {
   "@id": `${url}/#event`,
   name: "Threerace Short Uruguay 2026",
   description:
-    "Prova de mountain bike em etapa única com 61 km e 630 metros de elevação acumulada, realizada em La Pedrera, Rocha, Uruguai.",
+    "Prova de mountain bike em etapa única com 63 km e 630 metros de elevação acumulada, realizada em La Pedrera, Rocha, Uruguai.",
   url,
   image: ["https://www.threerace.com/event-threerace-uruguay.jpeg"],
   startDate: "2026-11-01T08:30:00-03:00",

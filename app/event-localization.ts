@@ -122,7 +122,7 @@ const events: Record<EventSlug, EventConfig> = {
         title: "Threerace Short Uruguay 2026",
         socialTitle: "Threerace Short Uruguay 2026",
         description:
-          "Prova de mountain bike de 61 km e 630 m de elevação acumulada, com largada às 8h30 em La Pedrera, Uruguai, em 1º de novembro de 2026.",
+          "Prova de mountain bike de 63 km e 630 m de elevação acumulada, com largada às 8h30 em La Pedrera, Uruguai, em 1º de novembro de 2026.",
         imageAlt: "Ciclistas na Threerace Short Uruguay",
         place: "La Pedrera, Rocha",
       },
@@ -130,7 +130,7 @@ const events: Record<EventSlug, EventConfig> = {
         title: "Threerace Short Uruguay 2026",
         socialTitle: "Threerace Short Uruguay 2026",
         description:
-          "Carrera de mountain bike de 61 km y 630 m de desnivel positivo, con salida a las 8:30 en La Pedrera, Uruguay, el 1 de noviembre de 2026.",
+          "Carrera de mountain bike de 63 km y 630 m de desnivel positivo, con salida a las 8:30 en La Pedrera, Uruguay, el 1 de noviembre de 2026.",
         imageAlt: "Ciclistas en Threerace Short Uruguay",
         place: "La Pedrera, Rocha",
       },
@@ -138,7 +138,7 @@ const events: Record<EventSlug, EventConfig> = {
         title: "Threerace Short Uruguay 2026",
         socialTitle: "Threerace Short Uruguay 2026",
         description:
-          "One-day 61 km mountain bike race with 630 m of elevation gain, starting at 8:30 a.m. in La Pedrera, Uruguay, on November 1, 2026.",
+          "One-day 63 km mountain bike race with 630 m of elevation gain, starting at 8:30 a.m. in La Pedrera, Uruguay, on November 1, 2026.",
         imageAlt: "Riders at Threerace Short Uruguay",
         place: "La Pedrera, Rocha",
       },
