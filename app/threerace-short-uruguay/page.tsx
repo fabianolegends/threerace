@@ -8,8 +8,8 @@ import LodgingDirectory from "../lodging-directory";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 
 type Language = "es" | "pt" | "en";
-type PanelKey = "event" | "course" | "schedule" | "categories" | "kit" | "stay";
-type IconKind = "event" | "course" | "elevation" | "start" | "schedule" | "categories" | "kit" | "stay";
+type PanelKey = "event" | "registration" | "course" | "schedule" | "categories" | "kit" | "stay";
+type IconKind = "event" | "registration" | "course" | "elevation" | "start" | "schedule" | "categories" | "kit" | "stay";
 
 type ThreeraceShortUruguayPageProps = {
   initialLanguage?: Language;
@@ -56,6 +56,7 @@ const copy = {
     information: "INFORMACIÓN COMPLETA",
     panels: {
       event: "EL EVENTO",
+      registration: "INSCRIPCIONES",
       course: "RECORRIDO",
       schedule: "PROGRAMACIÓN",
       categories: "CATEGORÍAS Y PREMIACIÓN",
@@ -68,6 +69,9 @@ const copy = {
       "La prueba se realizará el domingo 1.º de noviembre de 2026, junto a la programación de la tercera y última etapa de Threerace Bike Ultramarathon Uruguay, con salida en La Pedrera.",
       "Serán 63 kilómetros y 630 metros de desnivel positivo por los paisajes del departamento de Rocha. La Short tiene distancia, recorrido y salida propios dentro de la gran jornada final del evento.",
     ],
+    registrationTitle: "INSCRIPCIONES",
+    registrationLot: "LOTE 01",
+    registrationPrice: "USD 49",
     factLabels: ["FECHA", "FORMATO", "DISTANCIA", "DESNIVEL"],
     factValues: ["01 NOV 2026", "MTB · ETAPA ÚNICA", "63 KM", "630 M+"],
     courseTitle: "UNA JORNADA. TODA LA EXPERIENCIA THREERACE.",
@@ -94,20 +98,21 @@ const copy = {
     includedTitle: "INCLUIDO EN LA INSCRIPCIÓN",
     included: [
       "Camiseta casual alusiva al evento",
-      "Medias Threerace",
       "Medalla Finisher",
       "Placa personalizada",
       "Seguro del atleta",
       "Puntos de hidratación durante el recorrido",
-      "Servicios médicos en el recorrido y atención básica en la arena",
-      "Servicio mecánico básico",
+      "Servicios médicos en el recorrido y atención básica gratuita en la arena",
+      "Servicio mecánico básico: regulación e identificación de problemas",
       "Bike Wash",
     ],
-    excludedTitle: "NO INCLUIDO EN LA MODALIDAD SHORT",
+    excludedTitle: "NO INCLUIDO EN LA INSCRIPCIÓN",
     excluded: [
-      "Jersey de ciclismo",
+      "Servicio de recuperación muscular",
       "Servicio mecánico completo",
-      "Hospedaje, alimentación, traslados o servicio de fotografía",
+      "Hospedaje o alimentación no descritos",
+      "Cualquier desplazamiento o transfer",
+      "Servicio de fotografía",
     ],
     kitNote:
       "La modalidad Short recibe los mismos servicios esenciales de la Ultramarathon, excepto el jersey de ciclismo.",
@@ -155,6 +160,7 @@ const copy = {
     information: "INFORMAÇÕES COMPLETAS",
     panels: {
       event: "O EVENTO",
+      registration: "INSCRIÇÕES",
       course: "PERCURSO",
       schedule: "PROGRAMAÇÃO",
       categories: "CATEGORIAS E PREMIAÇÃO",
@@ -167,6 +173,9 @@ const copy = {
       "A prova acontecerá no domingo, 1º de novembro de 2026, junto à programação da terceira e última etapa da Threerace Bike Ultramarathon Uruguay, com largada em La Pedrera.",
       "Serão 63 quilômetros e 630 metros de elevação acumulada pelos cenários do departamento de Rocha. A Short terá distância, percurso e largada próprios dentro do grande dia final do evento.",
     ],
+    registrationTitle: "INSCRIÇÕES",
+    registrationLot: "LOTE 01",
+    registrationPrice: "USD 49",
     factLabels: ["DATA", "FORMATO", "DISTÂNCIA", "ELEVAÇÃO"],
     factValues: ["01 NOV 2026", "MTB · ETAPA ÚNICA", "63 KM", "630 M+"],
     courseTitle: "UM DIA. TODA A EXPERIÊNCIA THREERACE.",
@@ -193,20 +202,21 @@ const copy = {
     includedTitle: "INCLUÍDO NA INSCRIÇÃO",
     included: [
       "Camiseta casual alusiva ao evento",
-      "Meias Threerace",
       "Medalha Finisher",
       "Placa personalizada",
       "Seguro do atleta",
       "Pontos de hidratação durante o percurso",
-      "Serviços médicos no percurso e atendimento básico na arena",
-      "Serviço mecânico básico",
+      "Serviços médicos no percurso e atendimento básico gratuito na arena",
+      "Serviço mecânico básico: regulagem e identificação de problemas",
       "Bike Wash",
     ],
-    excludedTitle: "NÃO INCLUÍDO NA MODALIDADE SHORT",
+    excludedTitle: "NÃO INCLUSO NA INSCRIÇÃO",
     excluded: [
-      "Jersey de ciclismo",
+      "Serviço de recuperação muscular",
       "Serviço mecânico completo",
-      "Hospedagem, alimentação, traslados ou serviço de fotografia",
+      "Hospedagem ou alimentação não descritas",
+      "Qualquer deslocamento ou transfer",
+      "Serviço de fotografia",
     ],
     kitNote:
       "A modalidade Short recebe os mesmos serviços essenciais da Ultramarathon, exceto o jersey de ciclismo.",
@@ -254,6 +264,7 @@ const copy = {
     information: "COMPLETE INFORMATION",
     panels: {
       event: "THE EVENT",
+      registration: "REGISTRATION",
       course: "COURSE",
       schedule: "SCHEDULE",
       categories: "CATEGORIES AND AWARDS",
@@ -266,6 +277,9 @@ const copy = {
       "The race takes place on Sunday, November 1, 2026, alongside the third and final stage of Threerace Bike Ultramarathon Uruguay, starting in La Pedrera.",
       "The route covers 63 kilometres with 630 metres of elevation gain across the landscapes of Rocha. The Short has its own distance, course and start within the event's final day.",
     ],
+    registrationTitle: "REGISTRATION",
+    registrationLot: "BATCH 01",
+    registrationPrice: "USD 49",
     factLabels: ["DATE", "FORMAT", "DISTANCE", "ELEVATION"],
     factValues: ["01 NOV 2026", "MTB · SINGLE STAGE", "63 KM", "630 M+"],
     courseTitle: "ONE DAY. THE FULL THREERACE EXPERIENCE.",
@@ -292,20 +306,21 @@ const copy = {
     includedTitle: "INCLUDED WITH REGISTRATION",
     included: [
       "Event casual shirt",
-      "Threerace socks",
       "Finisher medal",
       "Personalised number plate",
       "Athlete insurance",
       "Hydration points along the course",
-      "Medical services on course and basic care at the event arena",
-      "Basic mechanical service",
+      "Medical services on course and free basic care at the event arena",
+      "Basic mechanical service: adjustments and problem identification",
       "Bike Wash",
     ],
-    excludedTitle: "NOT INCLUDED IN THE SHORT FORMAT",
+    excludedTitle: "NOT INCLUDED WITH REGISTRATION",
     excluded: [
-      "Cycling jersey",
+      "Muscle recovery service",
       "Full mechanical service",
-      "Accommodation, meals, transfers or photography",
+      "Accommodation or meals not described",
+      "Any transportation or transfer",
+      "Photography service",
     ],
     kitNote:
       "The Short format receives the Ultramarathon's essential services, except for the cycling jersey.",
@@ -341,13 +356,14 @@ const copy = {
   },
 } as const;
 
-const panelKeys: PanelKey[] = ["event", "course", "schedule", "categories", "kit", "stay"];
+const panelKeys: PanelKey[] = ["event", "registration", "course", "schedule", "categories", "kit", "stay"];
 const actionPanels: PanelKey[] = ["course", "course", "schedule"];
 const actionIcons: IconKind[] = ["course", "elevation", "start"];
 
 function Icon({ kind }: { kind: IconKind }) {
   const paths: Record<IconKind, ReactNode> = {
     event: <><circle cx="24" cy="24" r="15" /><path d="M15 29c4-1 6-3 9-8 3 5 6 7 10 8M19 16l3-6M29 16l-3-6" /></>,
+    registration: <><path d="M10 12h28v24H10zM16 18h16M16 24h10M16 30h7" /><path d="M14 8h20M14 40h20" /></>,
     course: <><path d="M8 35 17 9l9 26 6-18 8 18" /><circle cx="17" cy="9" r="3" /><circle cx="40" cy="35" r="3" /></>,
     elevation: <><path d="M6 38h36M10 34l9-15 7 9 8-17 6 23" /><path d="m33 9 2-5 4 4" /></>,
     start: <><path d="M10 41V8M10 10h25l-5 8 5 8H10" /><circle cx="10" cy="41" r="3" /></>,
@@ -485,6 +501,22 @@ export function ThreeraceShortUruguayPage({
             ))}
           </div>
           <p className="short-information-note">{t.courseNote}</p>
+        </div>
+      );
+    }
+
+    if (key === "registration") {
+      return (
+        <div className="official-copy short-registration-copy">
+          <h4>{t.registrationTitle}</h4>
+          <div className="short-registration-price">
+            <span>{t.registrationLot}</span>
+            <strong>{t.registrationPrice}</strong>
+          </div>
+          <div className="short-kit-columns">
+            <section><h4>{t.includedTitle}</h4><CleanList>{t.included.map((item) => <li key={item}>{item}</li>)}</CleanList></section>
+            <section><h4>{t.excludedTitle}</h4><CleanList>{t.excluded.map((item) => <li key={item}>{item}</li>)}</CleanList></section>
+          </div>
         </div>
       );
     }
