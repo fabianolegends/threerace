@@ -1005,6 +1005,15 @@ body.save-date-open{overflow:hidden}
 .short-event-page .short-title-block h1 small{
  max-width:760px;
 }
+@media(min-width:1001px){
+ .short-event-page .azimut-feature a{
+  grid-template-columns:260px minmax(0,1fr);
+ }
+ .short-event-page .azimut-feature h2{
+  max-width:820px;
+  white-space:normal;
+ }
+}
 .short-event-page .short-facts-grid{
  display:grid;
  grid-template-columns:repeat(4,minmax(0,1fr));
