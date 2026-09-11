@@ -701,6 +701,9 @@ export function ThreeraceShortUruguayPage({
       <section className="original-kit short-kit-section" id="kit-showcase">
         <div className="section-frame short-kit-showcase">
           <div className="short-kit-heading"><p className="section-label">KIT SHORT</p><h2>{t.kitShowcaseTitle}</h2><p>{t.kitShowcaseText}</p></div>
+          <figure className="short-kit-shirt">
+            <Image src="/threerace-short-tshirt.webp" alt="Camiseta oficial Threerace Short Uruguay 2026 — frente e costas" width={1080} height={1920} sizes="(max-width: 580px) calc(100vw - 32px), 520px" />
+          </figure>
           <div className="short-kit-grid">
             {t.included.map((item, index) => <article key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></article>)}
           </div>

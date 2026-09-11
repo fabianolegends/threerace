@@ -1254,6 +1254,18 @@ body.save-date-open{overflow:hidden}
  font-size:1rem;
  line-height:1.6;
 }
+.short-event-page .short-kit-shirt{
+ width:min(100%,520px);
+ margin:0 auto 44px;
+ overflow:hidden;
+ border:1px solid rgba(255,255,255,.16);
+ box-shadow:0 24px 70px rgba(0,0,0,.28);
+}
+.short-event-page .short-kit-shirt img{
+ display:block;
+ width:100%;
+ height:auto;
+}
 .short-event-page .short-kit-grid{
  display:grid;
  grid-template-columns:repeat(3,minmax(0,1fr));
@@ -1385,6 +1397,9 @@ body.save-date-open{overflow:hidden}
  }
  .short-event-page .short-kit-grid{
   gap:8px;
+ }
+ .short-event-page .short-kit-shirt{
+  margin-bottom:30px;
  }
  .short-event-page .short-kit-grid article{
   min-height:142px;
