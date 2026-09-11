@@ -990,6 +990,9 @@ body.save-date-open{overflow:hidden}
 .short-event-page .short-event-hero{
  background-image:none;
 }
+.short-event-page .original-action-cards{
+ grid-template-columns:repeat(2,minmax(0,1fr));
+}
 .short-event-page .short-hero-background{
  position:absolute;
  inset:0;
@@ -1319,6 +1322,13 @@ body.save-date-open{overflow:hidden}
 }
 
 @media(max-width:580px){
+ .short-event-page .original-action-cards{
+  bottom:-212px;
+  grid-template-columns:1fr;
+ }
+ .short-event-page .countdown-section{
+  padding-top:216px;
+ }
  .short-event-page .short-hero-background{
   object-position:58% center;
  }
