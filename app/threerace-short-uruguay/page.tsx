@@ -21,6 +21,7 @@ const tr3HeaderLogo = "/tr3-logo-display.webp";
 const azimutHeaderLogo = "/azimut-extremo-logo-white.svg";
 const tr3Logo = "/tr3-logo-display.webp";
 const azimutUrl = "https://www.azimutextremo.com/";
+const registrationUrl = "https://lolograste.uy/threerace-short-uruguay";
 const whatsappUrl = "https://wa.me/5554992476721";
 const eventStartTime = "2026-11-01T08:30:00-03:00";
 const galleryImages = [
@@ -48,9 +49,8 @@ const copy = {
     heroTitle: "THREERACE",
     heroSubtitle: "SHORT URUGUAY",
     actions: [
-      ["RECORRIDO", "63 KM"],
-      ["DESNIVEL", "+630 M"],
-      ["SALIDA", "08:30 · LA PEDRERA"],
+      ["INSCRIPCIONES", "LOTE 01 · USD 49"],
+      ["RECORRIDO + DESNIVEL", "63 KM · +630 M"],
     ],
     countdown: ["DÍAS", "HORAS", "MINUTOS"],
     information: "INFORMACIÓN COMPLETA",
@@ -152,9 +152,8 @@ const copy = {
     heroTitle: "THREERACE",
     heroSubtitle: "SHORT URUGUAY",
     actions: [
-      ["PERCURSO", "63 KM"],
-      ["ELEVAÇÃO", "+630 M"],
-      ["LARGADA", "08:30 · LA PEDRERA"],
+      ["INSCRIÇÕES", "LOTE 01 · USD 49"],
+      ["PERCURSO + ELEVAÇÃO", "63 KM · +630 M"],
     ],
     countdown: ["DIAS", "HORAS", "MINUTOS"],
     information: "INFORMAÇÕES COMPLETAS",
@@ -256,9 +255,8 @@ const copy = {
     heroTitle: "THREERACE",
     heroSubtitle: "SHORT URUGUAY",
     actions: [
-      ["COURSE", "63 KM"],
-      ["ELEVATION", "+630 M"],
-      ["START", "08:30 · LA PEDRERA"],
+      ["REGISTRATION", "LOT 01 · USD 49"],
+      ["COURSE + ELEVATION", "63 KM · +630 M"],
     ],
     countdown: ["DAYS", "HOURS", "MINUTES"],
     information: "COMPLETE INFORMATION",
@@ -357,8 +355,7 @@ const copy = {
 } as const;
 
 const panelKeys: PanelKey[] = ["event", "registration", "course", "schedule", "categories", "kit", "stay"];
-const actionPanels: PanelKey[] = ["course", "course", "schedule"];
-const actionIcons: IconKind[] = ["course", "elevation", "start"];
+const actionIcons: IconKind[] = ["registration", "course"];
 
 function Icon({ kind }: { kind: IconKind }) {
   const paths: Record<IconKind, ReactNode> = {
@@ -622,7 +619,13 @@ export function ThreeraceShortUruguayPage({
 
         <section className="original-action-cards section-frame" aria-label={t.highlightsLabel}>
           {t.actions.map(([title, note], index) => (
-            <a key={title} href={`#${actionPanels[index]}`} onClick={() => openInformationPanel(actionPanels[index])}>
+            <a
+              key={title}
+              href={index === 0 ? registrationUrl : "#course"}
+              target={index === 0 ? "_blank" : undefined}
+              rel={index === 0 ? "noreferrer" : undefined}
+              onClick={index === 0 ? undefined : () => openInformationPanel("course")}
+            >
               <Icon kind={actionIcons[index]} />
               <b>{title}</b>
               <small>{note}</small>
