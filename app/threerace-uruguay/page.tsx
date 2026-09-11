@@ -73,7 +73,7 @@ const copy = {
     mtbStages: [
       ["ETAPA 01", "30 OCT · XCC", "ROCHA", "2 KM · 3 VUELTAS"],
       ["ETAPA 02", "31 OCT · XCM", "ROCHA", "82 KM · +1.600 M"],
-      ["ETAPA 03", "01 NOV · XCM", "LA PALOMA", "45 KM · +600 M"],
+      ["ETAPA 03", "01 NOV · XCM", "LA PEDRERA", "63 KM · +630 M"],
     ],
     gravelStages: [
       ["ETAPA 01", "31 OCT · GRAVEL", "SALIDA ROCHA", "105 KM · LÍMITE 7 H"],
@@ -193,7 +193,7 @@ const copy = {
     mtbStages: [
       ["ETAPA 01", "30 OUT · XCC", "ROCHA", "2 KM · 3 VOLTAS"],
       ["ETAPA 02", "31 OUT · XCM", "ROCHA", "82 KM · +1.600 M"],
-      ["ETAPA 03", "01 NOV · XCM", "LA PALOMA", "45 KM · +600 M"],
+      ["ETAPA 03", "01 NOV · XCM", "LA PEDRERA", "63 KM · +630 M"],
     ],
     gravelStages: [
       ["ETAPA 01", "31 OUT · GRAVEL", "LARGADA EM ROCHA", "105 KM · LIMITE 7 H"],
@@ -313,7 +313,7 @@ const copy = {
     mtbStages: [
       ["STAGE 01", "30 OCT · XCC", "ROCHA", "2 KM · 3 LAPS"],
       ["STAGE 02", "31 OCT · XCM", "ROCHA", "82 KM · +1,600 M"],
-      ["STAGE 03", "01 NOV · XCM", "LA PALOMA", "45 KM · +600 M"],
+      ["STAGE 03", "01 NOV · XCM", "LA PEDRERA", "63 KM · +630 M"],
     ],
     gravelStages: [
       ["STAGE 01", "31 OCT · GRAVEL", "START IN ROCHA", "105 KM · 7 H LIMIT"],
@@ -526,9 +526,9 @@ La segunda etapa será la Etapa Reina de la competencia, disputada en formato XC
 
 STAGE 03 – ETAPA FINAL XCM
 Fecha: 01/11/2026
-Lugar de largada: Arena del evento / La Paloma
-Distancia: aproximadamente 45 km
-Desnivel positivo: cerca de 600 m
+Lugar de salida y llegada: La Pedrera
+Distancia: aproximadamente 63 km
+Desnivel positivo: cerca de 630 m
 
 La tercera y última etapa será decisiva para la clasificación general de la Threerace Bike Ultramarathon Uruguay.
 
@@ -619,7 +619,7 @@ Las categorías oficiales son las publicadas en la pestaña Categorías. En dupl
 8. ETAPAS Y RECORRIDOS
 8.1 Stage 1 – XCC: circuito aproximado de 2 a 2,5 km por vuelta.
 8.2 Stage 2 – Ultramaratón: 82 km y 1.600 m de elevación acumulada.
-8.3 Stage 3 – Ultramaratón: 45 km y 600 m de elevación acumulada.
+8.3 Stage 3 – Ultramaratón: 63 km y 630 m de elevación acumulada.
 8.4 La organización podrá modificar recorridos, distancias o altimetrías por clima, seguridad o logística.
 8.5 Solo serán FINISHER los atletas que completen al menos 75% de las etapas dentro del tiempo límite.
 
@@ -847,9 +847,9 @@ A segunda etapa será a Etapa Rainha da competição, disputada no formato XCM. 
 
 STAGE 03 – ETAPA FINAL XCM
 Data: 01/11/2026
-Local da largada: Arena do evento / La Paloma
-Distância: aproximadamente 45 km
-Desnível positivo: cerca de 600 m
+Local da largada e chegada: La Pedrera
+Distância: aproximadamente 63 km
+Desnível positivo: cerca de 630 m
 
 A terceira e última etapa será decisiva para a classificação geral da Threerace Bike Ultramarathon Uruguay.
 
@@ -915,7 +915,7 @@ Os números devem permanecer visíveis e fixados na frente, sem cortes, adesivos
 As categorias oficiais são as publicadas na aba Categorias. Nas duplas, a soma das idades determina a categoria. Categorias com menos de três atletas poderão ser incorporadas à anterior.
 
 8. ETAPAS E PERCURSOS
-Stage 1: circuito XCC aproximado de 2 a 2,5 km por volta. Stage 2: 82 km e 1.600 m de elevação. Stage 3: 45 km e 600 m de elevação. A organização poderá modificar percursos por clima, segurança ou logística. Somente será FINISHER quem completar pelo menos 75% das etapas dentro do limite.
+Stage 1: circuito XCC aproximado de 2 a 2,5 km por volta. Stage 2: 82 km e 1.600 m de elevação. Stage 3: 63 km e 630 m de elevação. A organização poderá modificar percursos por clima, segurança ou logística. Somente será FINISHER quem completar pelo menos 75% das etapas dentro do limite.
 
 9. REGULAMENTO XCC – STAGE 1
 Circuito fechado, máximo de 15 atletas por bateria e 3 voltas por atleta. A participação é obrigatória, salvo exceção autorizada. O tempo integra a classificação geral e, nas duplas, vale o tempo do integrante mais lento.
@@ -1104,9 +1104,9 @@ The second stage is the Queen Stage, an XCM endurance challenge across rural roa
 
 STAGE 03 – XCM FINAL STAGE
 Date: November 1, 2026
-Start: Event Arena / La Paloma
-Distance: approximately 45 km
-Elevation gain: approximately 600 m
+Start and finish: La Pedrera
+Distance: approximately 63 km
+Elevation gain: approximately 630 m
 
 The third and final stage will decide the overall classification of Threerace Bike Ultramarathon Uruguay.
 
@@ -1170,7 +1170,7 @@ Numbers must remain visible and attached to the front, without cuts, stickers, a
 Official categories are listed under Categories. Pair categories are based on combined ages. Categories with fewer than three athletes may be merged into the preceding category.
 
 8. STAGES AND COURSES
-Stage 1: XCC circuit of approximately 2 to 2.5 km per lap. Stage 2: 82 km and 1,600 m elevation gain. Stage 3: 45 km and 600 m elevation gain. Routes may change for weather, safety or logistics. FINISHER status requires at least 75% of stages within the time limit.
+Stage 1: XCC circuit of approximately 2 to 2.5 km per lap. Stage 2: 82 km and 1,600 m elevation gain. Stage 3: 63 km and 630 m elevation gain. Routes may change for weather, safety or logistics. FINISHER status requires at least 75% of stages within the time limit.
 
 9. XCC – STAGE 1
 Closed circuit, maximum 15 riders per heat and 3 laps per athlete. Participation is mandatory unless expressly authorized. Time counts toward the overall result; for pairs, the slower rider's time applies.
