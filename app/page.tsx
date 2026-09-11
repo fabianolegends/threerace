@@ -28,14 +28,13 @@ const homeCopy = {
     countdown: ["DIAS", "HORAS", "MIN"], sharedBy: "Organização compartilhada por Threerace Sports e Azimut Extremo",
     ecosystem: "ECOSSISTEMA THREERACE", calendar: ["UM CALENDÁRIO.", "DIFERENTES TERRITÓRIOS."],
     calendarText: "Projetos com identidades próprias, unidos pela mesma forma de criar esporte, comunidade e experiência.",
-    eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "SAVE THE DATE", "INSCRIÇÕES ABERTAS"],
-    eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "01 NOV · 2026", "03 — 05 ABR · 2027", "29 ABR — 02 MAI · 2027"],
-    eventPlaces: ["Rocha + La Paloma · Uruguai", "Rocha + La Paloma · Uruguai", "La Paloma · Rocha · Uruguai", "São Francisco de Paula · Brasil", "Serra Gaúcha · Brasil"],
+    eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS"],
+    eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "01 NOV · 2026", "29 ABR — 02 MAI · 2027"],
+    eventPlaces: ["Rocha + La Paloma · Uruguai", "Rocha + La Paloma · Uruguai", "La Paloma · Rocha · Uruguai", "Serra Gaúcha · Brasil"],
     eventTexts: [
       "Três dias de mountain bike entre estradas rurais, natureza e o Atlântico uruguaio.",
       "Duas etapas e 183 quilômetros para descobrir o Uruguai por caminhos que só o gravel conecta.",
       "Um dia, 63 quilômetros e 630 metros de elevação para viver a grande chegada da Threerace no Uruguai.",
-      "A história continua onde começou: mountain bike, natureza e uma comunidade internacional.",
       "Uma travessia por quatro destinos, criada para transformar o gravel em uma jornada pelo território.",
     ],
     historyLabel: "NOSSA HISTÓRIA", historyTitle: "NASCEMOS PARA CRIAR EXPERIÊNCIAS QUE PERMANECEM.",
@@ -68,14 +67,13 @@ const homeCopy = {
     countdown: ["DÍAS", "HORAS", "MIN"], sharedBy: "Organización compartida por Threerace Sports y Azimut Extremo",
     ecosystem: "ECOSISTEMA THREERACE", calendar: ["UN CALENDARIO.", "DIFERENTES TERRITORIOS."],
     calendarText: "Proyectos con identidades propias, unidos por una misma forma de crear deporte, comunidad y experiencia.",
-    eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "RESERVA LA FECHA", "INSCRIPCIONES ABIERTAS"],
-    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "03 — 05 ABR · 2027", "29 ABR — 02 MAY · 2027"],
-    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "São Francisco de Paula · Brasil", "Serra Gaúcha · Brasil"],
+    eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS"],
+    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "29 ABR — 02 MAY · 2027"],
+    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "Serra Gaúcha · Brasil"],
     eventTexts: [
       "Tres días de mountain bike entre caminos rurales, naturaleza y el Atlántico uruguayo.",
       "Dos etapas y 183 kilómetros para descubrir Uruguay por caminos que solo el gravel conecta.",
       "Un día, 63 kilómetros y 630 metros de desnivel para vivir la gran llegada de Threerace en Uruguay.",
-      "La historia continúa donde comenzó: mountain bike, naturaleza y una comunidad internacional.",
       "Una travesía por cuatro destinos, creada para transformar el gravel en un viaje por el territorio.",
     ],
     historyLabel: "NUESTRA HISTORIA", historyTitle: "NACIMOS PARA CREAR EXPERIENCIAS QUE PERMANECEN.",
@@ -108,14 +106,13 @@ const homeCopy = {
     countdown: ["DAYS", "HOURS", "MIN"], sharedBy: "Jointly organized by Threerace Sports and Azimut Extremo",
     ecosystem: "THREERACE ECOSYSTEM", calendar: ["ONE CALENDAR.", "DIFFERENT TERRITORIES."],
     calendarText: "Projects with their own identities, united by the same way of creating sport, community and experience.",
-    eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPEN", "SAVE THE DATE", "REGISTRATION OPEN"],
-    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "03 — 05 APR · 2027", "29 APR — 02 MAY · 2027"],
-    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "São Francisco de Paula · Brazil", "Serra Gaúcha · Brazil"],
+    eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPEN"],
+    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "29 APR — 02 MAY · 2027"],
+    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "Serra Gaúcha · Brazil"],
     eventTexts: [
       "Three days of mountain biking through rural roads, nature and Uruguay's Atlantic coast.",
       "Two stages and 183 kilometers to discover Uruguay along roads only gravel can connect.",
       "One day, 63 kilometers and 630 meters of elevation to experience Threerace's grand finish in Uruguay.",
-      "The story continues where it began: mountain bike, nature and an international community.",
       "A journey through four destinations, created to turn gravel into an experience across the territory.",
     ],
     historyLabel: "OUR HISTORY", historyTitle: "WE WERE BORN TO CREATE EXPERIENCES THAT LAST.",
@@ -197,21 +194,6 @@ const events = [
   },
   {
     n: "04",
-    name: "Threerace Bike Ultramarathon Brasil",
-    place: "São Francisco de Paula · Brasil",
-    date: "03 — 05 ABR · 2027",
-    sport: "MTB STAGE RACE",
-    status: "SAVE THE DATE",
-    text: "A história continua onde começou: mountain bike, natureza e uma comunidade internacional.",
-    href: "/threerace-brasil",
-    img: "/event-threerace-brasil-card.webp",
-    width: 640,
-    height: 959,
-    position: "60% center",
-    saveDate: true,
-  },
-  {
-    n: "05",
     name: "Legends Ultimate Gravel Race",
     place: "Serra Gaúcha · Brasil",
     date: "29 ABR — 02 MAI · 2027",
@@ -305,7 +287,6 @@ export default function Home() {
     media: "(max-width: 900px)",
   });
   const [menu, setMenu] = useState(false);
-  const [saveDateOpen, setSaveDateOpen] = useState(false);
   const [language, setLanguage] = useState<SiteLanguage>("pt");
   const mtbCountdown = useCountdown("2026-10-30T08:00:00-03:00");
   const gravelCountdown = useCountdown("2026-10-31T08:00:00-03:00");
@@ -330,19 +311,6 @@ export default function Home() {
     setLanguage(saved);
     saveLanguage(saved);
   }, []);
-
-  useEffect(() => {
-    if (!saveDateOpen) return;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setSaveDateOpen(false);
-    };
-    document.body.classList.add("save-date-open");
-    window.addEventListener("keydown", closeOnEscape);
-    return () => {
-      document.body.classList.remove("save-date-open");
-      window.removeEventListener("keydown", closeOnEscape);
-    };
-  }, [saveDateOpen]);
 
   function chooseLanguage(nextLanguage: SiteLanguage) {
     setLanguage(nextLanguage);
@@ -484,10 +452,9 @@ export default function Home() {
           {localizedEvents.map((event) => (
             <a
               className="directory-card"
-              href={event.saveDate ? "#save-the-date-sao-chico" : event.href}
-              target={!event.saveDate && event.external ? "_blank" : undefined}
-              rel={!event.saveDate && event.external ? "noreferrer" : undefined}
-              onClick={event.saveDate ? (click) => { click.preventDefault(); setSaveDateOpen(true); } : undefined}
+              href={event.href}
+              target={event.external ? "_blank" : undefined}
+              rel={event.external ? "noreferrer" : undefined}
               key={event.name}
             >
               <img src={event.img} width={event.width} height={event.height} alt="" loading="lazy" decoding="async" style={{ objectPosition: event.position }} />
@@ -513,23 +480,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {saveDateOpen && (
-        <div className="save-date-modal" role="dialog" aria-modal="true" aria-label="Save the Date — Threerace São Chico" onClick={() => setSaveDateOpen(false)}>
-          <div className="save-date-poster" onClick={(event) => event.stopPropagation()}>
-            <img src="/event-threerace-brasil.jpeg" width="854" height="1280" alt="Threerace Bike Ultramarathon Brasil em São Francisco de Paula" decoding="async" />
-            <div className="save-date-poster-shade" />
-            <button type="button" className="save-date-close" onClick={() => setSaveDateOpen(false)} aria-label={t.menuClose}>×</button>
-            <div className="save-date-poster-copy">
-              <p>SÃO FRANCISCO DE PAULA · BRASIL</p>
-              <span>{t.eventStatus[3]}</span>
-              <h2>THREERACE BIKE<br />ULTRAMARATHON BRASIL</h2>
-              <b>{t.eventDates[3]}</b>
-              <small>MTB STAGE RACE</small>
-            </div>
-          </div>
-        </div>
-      )}
 
       <section className="corporate-intro" id="sobre">
         <div className="section-frame corporate-intro-grid">
