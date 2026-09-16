@@ -57,9 +57,7 @@ const copy = {
     format: "FORMATO DEL EVENTO",
     formatText: "Dos etapas con desafío físico, navegación, resistencia y contacto directo con la naturaleza.",
     lots: [
-      ["LOTE 01", "USD 149 + 10% de tasas", "25/06/2026 — 05/08/2026"],
       ["LOTE 02", "USD 179 + 10% de tasas", "06/08/2026 — 05/09/2026"],
-      ["LOTE 03", "USD 199 + 10% de tasas", "06/09/2026 — 15/10/2026"],
     ],
     registrationNotes: [
       "Equipos con más de 10 integrantes deberán consultar condiciones especiales por el e-mail inscricoes@threerace.com.br.",
@@ -133,7 +131,7 @@ const copy = {
       "Mais que uma prova, é um convite para descobrir o Uruguai sobre duas rodas: não apenas competir, mas viver o caminho.",
     ],
     format: "FORMATO DO EVENTO", formatText: "Duas etapas com desafio físico, navegação, resistência e contato direto com a natureza.",
-    lots: [["LOTE 01", "USD 149 + 10% de taxas", "25/06/2026 — 05/08/2026"], ["LOTE 02", "USD 179 + 10% de taxas", "06/08/2026 — 05/09/2026"], ["LOTE 03", "USD 199 + 10% de taxas", "06/09/2026 — 15/10/2026"]],
+    lots: [["LOTE 02", "USD 179 + 10% de taxas", "06/08/2026 — 05/09/2026"]],
     registrationNotes: ["Equipes com mais de 10 integrantes devem consultar condições especiais pelo e-mail inscricoes@threerace.com.br.", "O valor e a data da inscrição serão considerados após a confirmação do pagamento, que pode levar até 5 dias.", "O comprovante poderá ser solicitado na Secretaria de Prova."],
     includedTitle: "INCLUÍDO NA INSCRIÇÃO", included: ["Jersey de ciclismo BIORACER", "Camiseta casual do evento", "Cap de ciclismo", "Medalha Finisher ao completar ao menos 75% do evento", "Placa personalizada", "Seguro do atleta", "Pontos de hidratação", "Serviços médicos no percurso e arena", "Mecânica básica", "Bike Wash"],
     excludedTitle: "NÃO INCLUÍDO", excluded: ["Recuperação muscular", "Mecânica completa", "Hospedagem ou alimentação não descritas", "Traslados ou transfer", "Fotografia"],
@@ -178,7 +176,7 @@ const copy = {
     eventTitle: "Gravel Experience – La Paloma, Rocha, Uruguay",
     eventParagraphs: ["Gravel Experience is for riders seeking more than a finish line. It combines adventure, challenge, nature and the true essence of gravel.", "Part of Threerace Bike Ultramarathon Uruguay, it takes place on October 31 and November 1, 2026, across rural roads, dirt, open fields and Rocha's coastline.", "The course blends wind, distance, strategy, resilience, performance and contemplation.", "La Paloma is the event hub, known for its lighthouse, beaches, rural roads and unique scenery.", "More than a race, it is an invitation to discover Uruguay on two wheels: not only to compete, but to live the road."],
     format: "EVENT FORMAT", formatText: "Two stages combining physical challenge, navigation, endurance and direct contact with nature.",
-    lots: [["BATCH 01", "USD 149 + 10% fees", "06/25/2026 — 07/25/2026"], ["BATCH 02", "USD 179 + 10% fees", "07/26/2026 — 08/25/2026"], ["BATCH 03", "USD 199 + 10% fees", "08/26/2026 — 10/20/2026"]],
+    lots: [["BATCH 02", "USD 179 + 10% fees", "07/26/2026 — 08/25/2026"]],
     registrationNotes: ["Teams with more than 10 riders should request special conditions at inscricoes@threerace.com.br.", "The registration value and date are based on payment confirmation, which may take up to 5 days.", "Proof of payment may be requested at Race Office."],
     includedTitle: "INCLUDED", included: ["BIORACER cycling jersey", "Casual event shirt", "Cycling cap", "Finisher medal after completing at least 75%", "Personalized number plate", "Athlete insurance", "Hydration points", "Medical services on course and at the arena", "Basic mechanical service", "Bike Wash"],
     excludedTitle: "NOT INCLUDED", excluded: ["Muscle recovery", "Complete mechanical service", "Unlisted accommodation or meals", "Transfers", "Photography"],
