@@ -1,0 +1,16 @@
+.brasil-race-countdown { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); align-items:center; gap:40px; margin:0 0 48px; padding:0 0 36px; border-bottom:1px solid var(--br-line); }
+.brasil-race-countdown-label { margin:0; color:var(--br-deep); font-size:.8125rem; line-height:1.5; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
+.brasil-race-countdown-values { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:0; }
+.brasil-race-countdown-values > div { position:relative; display:flex; flex-direction:column; align-items:center; gap:8px; min-width:0; padding:0 12px; }
+.brasil-race-countdown-values > div + div::before { content:":"; position:absolute; left:0; top:8px; transform:translateX(-50%); color:var(--br-line); font-size:1.8rem; font-weight:400; line-height:1; }
+.brasil-race-countdown-values dt { order:1; color:var(--br-muted); font-size:.6875rem; line-height:1.4; font-weight:650; letter-spacing:.13em; text-transform:uppercase; }
+.brasil-race-countdown-values dd { margin:0; color:var(--br-terracotta); font-size:clamp(2.5rem,4.3vw,3.75rem); font-weight:650; line-height:1; letter-spacing:-.045em; font-variant-numeric:tabular-nums; }
+.brasil-race-countdown-date { margin:8px 0 0; color:var(--br-muted); font-size:.9375rem; line-height:1.5; }
+@media(max-width:600px) {
+  .brasil-race-countdown { grid-template-columns:1fr; gap:24px; padding-bottom:28px; margin-bottom:32px; text-align:center; }
+  .brasil-race-countdown-label { font-size:.75rem; letter-spacing:.1em; }
+  .brasil-race-countdown-date { margin-top:5px; font-size:.8125rem; }
+  .brasil-race-countdown-values > div { padding:0 6px; }
+  .brasil-race-countdown-values > div + div::before { font-size:1.4rem; }
+  .brasil-race-countdown-values dt { font-size:.625rem; letter-spacing:.07em; }
+}

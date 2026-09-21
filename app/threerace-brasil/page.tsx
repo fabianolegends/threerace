@@ -6,6 +6,7 @@ import KitCollection from "./kit-collection";
 import AccordionIcon from "./accordion-icon";
 import CategoryTables from "./category-tables";
 import PrioritySignup from "./priority-signup";
+import RaceCountdown from "./race-countdown";
 import { EventVenue, RegulationDocument } from "./event-resources";
 import { brasilEvent, information, raceFormats, registrationPrices, registrationNotice, courseNotice, schedule, scheduleNotice, expo, faqs } from "./content";
 import "./brasil.css";
@@ -113,7 +114,7 @@ export default function Brasil() {
         <p className="brasil-content-note">{courseNotice}</p>
       </div>
     </section>
-    <section className="original-information" id="informacoes"><div className="section-frame"><h2>INFORMAÇÕES COMPLETAS</h2><div className="original-accordion">
+    <section className="original-information" id="informacoes"><div className="section-frame"><RaceCountdown /><h2>INFORMAÇÕES COMPLETAS</h2><div className="original-accordion">
       {information.map((section) => {
         const isOpen = openInfo === section.id;
         return <article key={section.id} id={section.id} className={isOpen ? "open" : ""}>
