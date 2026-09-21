@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { kit } from "./content";
 
 type KitView = { src: string; label: string; alt: string; width: number; height: number };
-type KitPiece = { name: string; status: string; description: string; view: KitView; kind?: "sheet" };
+type KitPiece = { name: string; status: string; view: KitView };
 
 const montage: KitView = {
   src: "kit-apresentacao-2027-v2", label: "Apresentação da coleção",
@@ -15,36 +15,32 @@ const montage: KitView = {
 
 const pieces: KitPiece[] = [
   {
-    name: "Camiseta casual dry", status: "INCLUÍDA EM TODOS OS LOTES", kind: "sheet",
-    description: "Areia, terracota e a araucária que acompanha nossas histórias.",
-    view: { src: "camiseta-vistas-2027", label: "Frente, verso e perfil", alt: "Frente, verso e perfil da camiseta areia Threerace 2027, com marca e araucária em terracota", width: 1536, height: 1024 },
+    name: "Camiseta casual dry", status: "INSCRIÇÃO PADRÃO",
+    view: { src: "camiseta-recortada-2027", label: "Frente, verso e perfil", alt: "Frente, verso e perfil da camiseta areia Threerace 2027, com marca e araucária em terracota", width: 1536, height: 1024 },
   },
   {
-    name: "Jersey de ciclismo", status: "OPCIONAL · + R$ 100", kind: "sheet",
-    description: "A identidade da edição, também na peça para pedalar.",
-    view: { src: "jersey-vistas-2027", label: "Frente, verso e perfil", alt: "Frente, verso e perfil da jersey de ciclismo terracota Threerace 2027, com araucária em areia e bolsos traseiros", width: 1536, height: 1024 },
+    name: "Jersey de ciclismo", status: "PREMIUM",
+    view: { src: "jersey-recortada-2027", label: "Frente, verso e perfil", alt: "Frente, verso e perfil da jersey de ciclismo terracota Threerace 2027, com araucária em areia e bolsos traseiros", width: 1536, height: 1024 },
   },
   {
-    name: "Meia de ciclismo", status: "INCLUÍDA EM TODOS OS LOTES", kind: "sheet",
-    description: "Os mesmos traços e cores, até o último detalhe.",
-    view: { src: "meia-vistas-2027", label: "Frente, verso e perfil", alt: "Frente, verso e perfil da meia de ciclismo terracota, com araucária e marca Threerace em areia", width: 1536, height: 1024 },
+    name: "Meia de ciclismo", status: "INSCRIÇÃO PADRÃO",
+    view: { src: "meia-recortada-2027", label: "Frente, verso e perfil", alt: "Frente, verso e perfil da meia de ciclismo terracota, com araucária e marca Threerace em areia", width: 1536, height: 1024 },
   },
 ];
 
 
 function PieceCard({ piece, onExpand }: { piece: KitPiece; onExpand: (view: KitView, name: string) => void }) {
   const view = piece.view;
-  return <article className={`brasil-piece ${piece.kind ?? ""}`}>
+  return <article className="brasil-piece">
     <div className="brasil-piece-art">
       <span className="brasil-piece-status">{piece.status}</span>
       <button className="brasil-piece-expand" type="button" aria-label={`Ampliar ${piece.name} — ${view.label}`} onClick={() => onExpand(view, piece.name)}>
         <Image src={`/brasil-2027/${view.src}.webp`} alt={view.alt} width={view.width} height={view.height} unoptimized loading="lazy" />
-        <span className="brasil-expand-label" aria-hidden="true">AMPLIAR +</span>
+        <span className="brasil-piece-expand-icon" aria-hidden="true">+</span>
       </button>
     </div>
     <div className="brasil-piece-caption">
-      <div><h3>{piece.name}</h3>{piece.description ? <p>{piece.description}</p> : null}</div>
-      <p className="brasil-piece-view-label">{view.label}</p>
+      <h3>{piece.name}</h3>
     </div>
   </article>;
 }
