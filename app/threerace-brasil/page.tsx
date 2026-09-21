@@ -95,8 +95,8 @@ export default function Brasil() {
         <div className="brasil-choice-grid">{raceFormats.map((format) => <article className={`brasil-choice-card brasil-choice-${format.id}`} key={format.id} aria-labelledby={`modalidade-${format.id}`}>
           <p className="brasil-choice-date">{format.dates} · 2027</p>
           <div className="brasil-choice-heading"><h2 id={`modalidade-${format.id}`}>{format.name}</h2><span>{format.stages.length} DIAS</span></div>
-          <p className="brasil-choice-description">{format.description}</p>
-          <div className="brasil-choice-metrics"><div><div className="brasil-choice-value"><RaceMetricIcon kind="distance" /><strong>{format.stages.reduce((total, stage) => total + stage.distance, 0)}<small> km</small></strong></div><span>distância prevista</span></div><div><div className="brasil-choice-value"><RaceMetricIcon kind="ascent" /><strong>{number(format.stages.reduce((total, stage) => total + stage.ascent, 0))}<small> m</small></strong></div><span>subida acumulada prevista</span></div></div>
+          <p className="brasil-choice-description">{format.id === "ultra" ? "3 etapas com percurso completo" : "2 etapas e percurso reduzido"}</p>
+          <div className="brasil-choice-metrics"><div className="brasil-choice-value" role="group" aria-label="Distância prevista"><RaceMetricIcon kind="distance" /><strong>{format.stages.reduce((total, stage) => total + stage.distance, 0)}<small> km</small></strong></div><div className="brasil-choice-value" role="group" aria-label="Subida acumulada prevista"><RaceMetricIcon kind="ascent" /><strong>{number(format.stages.reduce((total, stage) => total + stage.ascent, 0))}<small> m</small></strong></div></div>
           <div className="brasil-choice-actions"><a href="#etapas" aria-label={`Ver etapas da ${format.name}`} onClick={() => openSection("etapas")}>VER ETAPAS <span aria-hidden="true">↗</span></a><a href="#inscricoes" aria-label={`Valores e lotes da ${format.name}`} onClick={() => openSection("inscricoes")}>VALORES E LOTES <span aria-hidden="true">↗</span></a></div>
         </article>)}</div>
         <p className="brasil-content-note">{courseNotice}</p>

@@ -233,7 +233,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-choice-metrics { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin-top:auto; padding:24px 0; border-block:1px solid var(--br-line); }
 .brasil-choice-value { display:flex; align-items:center; gap:10px; }
 .brasil-choice-metric-icon { width:28px; height:28px; flex-shrink:0; }
-.brasil-choice-metrics strong { display:block; font-size:2.5rem; font-weight:750; letter-spacing:-.04em; line-height:1.25; }
+.brasil-choice-metrics strong { display:block; font-size:2.5rem; font-weight:750; letter-spacing:-.04em; line-height:1.25; white-space:nowrap; }
 .brasil-choice-metrics small { font-size:1rem; font-weight:550; }
 .brasil-choice-metrics span { display:block; margin-top:6px; color:var(--br-muted); font-size:.875rem; line-height:1.5; }
 .brasil-choice-actions { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px 24px; padding-top:22px; }
@@ -244,7 +244,8 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-choice-ultra :is(.brasil-choice-heading > span,.brasil-choice-metrics) { border-color:#f5efe566; }
 .brasil-event-page .brasil-choice-ultra a:focus-visible { outline-color:var(--br-paper); }
 .brasil-modalities .brasil-content-note { max-width:960px; }
-@media(max-width:900px) { .brasil-choice-card { padding:26px; } .brasil-choice-grid { gap:18px; } .brasil-choice-metrics { gap:12px; } .brasil-choice-metrics strong { font-size:2rem; } .brasil-choice-value { gap:8px; } .brasil-choice-metric-icon { width:24px; height:24px; } }
+@media(max-width:1100px) { .brasil-choice-metrics { gap:12px; } .brasil-choice-metrics strong { font-size:1.75rem; } .brasil-choice-value { gap:6px; } .brasil-choice-metric-icon { width:24px; height:24px; } }
+@media(max-width:900px) { .brasil-choice-card { padding:26px; } .brasil-choice-grid { gap:18px; } }
 @media(max-width:700px) { .brasil-choice-grid { grid-template-columns:1fr; } .brasil-modalities-inner { top:0; margin-bottom:0; padding-top:28px; } .brasil-choice-heading h2 { font-size:3rem; } .brasil-choice-actions { gap:12px; } .brasil-choice-actions a { font-size:.8rem; } }
 @media(max-width:380px) { .brasil-choice-card { padding:22px; } .brasil-choice-heading { gap:12px; } .brasil-choice-heading h2 { font-size:2.4rem; } .brasil-choice-metrics strong { font-size:1.5rem; } .brasil-choice-metrics small { font-size:.875rem; } .brasil-choice-value { gap:6px; } .brasil-choice-metric-icon { width:20px; height:20px; } }
 .brasil-event-page :is(.uruguay-event-hero,.brasil-gallery,.brasil-expo,.brasil-closing,.brasil-piece.sock) :is(a,button):focus-visible { outline-color:var(--br-paper); }
