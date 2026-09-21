@@ -215,7 +215,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-event-page .original-information { background:var(--br-paper); padding-top:75px; }
 .brasil-event-page .original-information h2 { color:var(--br-deep); }
 .brasil-event-page .original-accordion article { border-color:var(--br-line); border-radius:3px; background:var(--br-paper); box-shadow:none; }
-.brasil-event-page .original-accordion .brasil-accordion-trigger { grid-template-columns:108px minmax(0,1fr) 64px; min-height:100px; padding:0; gap:0; color:var(--br-ink); background:var(--br-paper); }
+.brasil-event-page .original-accordion .brasil-accordion-trigger { grid-template-columns:108px minmax(0,1fr) 64px; min-height:80px; padding:0; gap:0; color:var(--br-ink); background:var(--br-paper); }
 .brasil-event-page .brasil-accordion-trigger .accordion-field-icon { color:var(--br-paper); background:var(--br-terracotta); }
 .brasil-event-page .brasil-accordion-trigger .accordion-field-icon svg { width:36px; height:36px; stroke-width:1.7; }
 .brasil-event-page .original-accordion .brasil-accordion-trigger:hover,.brasil-event-page .original-accordion .open .brasil-accordion-trigger { background:var(--br-deep); color:var(--br-paper); }
@@ -362,7 +362,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
  .brasil-event-page .countdown-section { padding-top:0; }
  .brasil-event-page .original-information { padding-top:48px; }
  .brasil-event-page .original-information h2 { font-size:2rem; }
- .brasil-event-page .original-accordion .brasil-accordion-trigger { grid-template-columns:80px minmax(0,1fr) 44px; min-height:88px; }
+ .brasil-event-page .original-accordion .brasil-accordion-trigger { grid-template-columns:80px minmax(0,1fr) 44px; min-height:72px; }
  .brasil-event-page .original-accordion .brasil-accordion-trigger > span:nth-child(2) { padding:14px; font-size:.875rem; letter-spacing:.04em; }
  .brasil-event-page .brasil-accordion-trigger .accordion-field-icon svg { width:30px; height:30px; }
  .brasil-event-page .original-about { grid-template-columns:1fr; gap:30px; padding:48px 0; }
