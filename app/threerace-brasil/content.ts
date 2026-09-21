@@ -51,7 +51,7 @@ export const raceFormats = [
 
 export const courseNotice = "Os percursos e desníveis das duas modalidades são previstos e poderão receber ajustes após a validação técnica. Mapas, características do terreno e regras da competição serão apresentados nos materiais oficiais.";
 
-// Regulamento Brasil 2027 · Revisão 04, 21/09/2026 · itens 2 e 4 (páginas 1–4).
+// Regulamento Brasil 2027 · Revisão 05, 21/09/2026 · itens 2 e 4 (páginas 1–4).
 type CompetitionCategory = { name: string; age: string; composition?: string };
 type CategoryGroup = { title: string; categories: CompetitionCategory[]; note?: string };
 type CompetitionFormat = { id: string; name: string; description: string; groups: CategoryGroup[]; grouping: string[] };
@@ -79,8 +79,11 @@ const femaleAgeCategories: CompetitionCategory[] = [
 ];
 const eBikeGroup: CategoryGroup = {
   title: "E-bike individual",
-  categories: [{ name: "Categoria única", age: "19 anos ou mais", composition: "Homens e mulheres juntos" }],
-  note: "Categoria exclusiva da Ultra, sem subdivisão por sexo ou faixa etária e sem duplas E-bike.",
+  categories: [
+    { name: "E-bike masculina", age: "19 anos ou mais" },
+    { name: "E-bike feminina", age: "19 anos ou mais" },
+  ],
+  note: "Categorias exclusivas da Ultra, com disputas separadas no masculino e no feminino, sem subdivisão por faixa etária e sem duplas E-bike.",
 };
 export const competitionCategories: CompetitionFormat[] = [
   {
@@ -166,7 +169,7 @@ export const information = [
     "Com trajetória desde 2017, a Threerace prepara a edição de 2027 com 400 vagas: 250 na Ultra e 150 na Sport, distribuídas em três lotes por modalidade.",
   ] },
   { id: "inscricoes", title: "INSCRIÇÕES E VALORES", icon: "document", heading: "LOTES E VALORES POR ATLETA", paragraphs: ["O lote prioritário é destinado à lista prioritária. Camiseta casual dry e meia de ciclismo estão incluídas em todas as modalidades e lotes."] },
-  { id: "categorias", title: "CATEGORIAS", icon: "document", heading: "ULTRA E SPORT", paragraphs: ["Confira as categorias e escolha sua disputa. A E-bike é exclusiva da Ultra. A idade esportiva é a idade completada até 31 de dezembro de 2027. A idade mínima geral é de 19 anos esportivos, com a exceção da Open feminina Sport indicada abaixo."] },
+  { id: "categorias", title: "CATEGORIAS", icon: "document", heading: "ULTRA E SPORT", paragraphs: ["Confira as categorias e escolha sua disputa. A E-bike é exclusiva da Ultra, com categorias masculina e feminina separadas. A idade esportiva é a idade completada até 31 de dezembro de 2027. A idade mínima geral é de 19 anos esportivos, com a exceção da Open feminina Sport indicada abaixo."] },
   { id: "etapas", title: "ETAPAS E PERCURSOS", icon: "stages", heading: "DOIS FORMATOS PARA ESCOLHER SEU DESAFIO", paragraphs: [courseNotice] },
   { id: "programacao", title: "PROGRAMAÇÃO", icon: "event", heading: "PROGRAMAÇÃO PREVISTA · 2 A 4 DE ABRIL", paragraphs: schedule.map((day) => `${day.date}: ${day.description}`).concat(scheduleNotice) },
   { id: "documentacao", title: "DOCUMENTAÇÃO MÉDICA", icon: "document", heading: "DECLARAÇÃO DE SAÚDE E ATESTADO", paragraphs: ["A área médica reúne o formulário de saúde do atleta e o modelo de atestado da Threerace Brasil 2027. Na versão de trabalho, é possível conferir o preenchimento e baixar o PDF; o envio à organização ainda não está ativo."] },
