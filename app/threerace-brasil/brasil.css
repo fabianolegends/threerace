@@ -1,10 +1,10 @@
 /* Tokens restritos à edição Brasil; as outras páginas preservam sua identidade. */
 .brasil-event-page {
-  --br-terracotta: #a8442d;
+  --br-terracotta: #9a5d49; /* Tom padrão extraído da amostra da organização. */
   --br-sand: #e9dfcf;
   --br-paper: #f5efe5;
   --br-ink: #30251f;
-  --br-deep: #7a3426;
+  --br-deep: #754737;
   --br-muted: #6b564b;
   --br-line: #d0bbaa;
   --orange: var(--br-terracotta);
@@ -17,9 +17,9 @@
   padding-bottom: 0;
 }
 body:has(.brasil-event-page) { background:#f5efe5; }
-body:has(.brasil-event-page) .workspace-notice { background:#e9dfcf; color:#7a3426; border-bottom:1px solid #d0bbaa; }
+body:has(.brasil-event-page) .workspace-notice { background:#e9dfcf; color:#754737; border-bottom:1px solid #d0bbaa; }
 body:has(.brasil-event-page) .workspace-footer { background:#30251f; color:#f5efe5; }
-body:has(.brasil-event-page) .global-top-button { background:#7a3426; color:#f5efe5; }
+body:has(.brasil-event-page) .global-top-button { background:#754737; color:#f5efe5; }
 body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-event-page { --paper:var(--br-paper); }
 .brasil-event-page :is(a,button,summary):focus-visible { outline:3px solid var(--br-terracotta); outline-offset:5px; }
@@ -128,10 +128,10 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 /* A mesma linguagem do kit percorre toda a página. */
 .brasil-event-page .uruguay-event-hero { min-height:830px; color:var(--br-paper); background-color:var(--br-deep); }
 .brasil-event-page .uruguay-event-hero::before { background:none; }
-.brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(78,31,21,.95),rgba(86,36,25,.72) 46%,rgba(66,33,25,.18)),linear-gradient(0deg,rgba(61,28,20,.8),transparent 65%); }
+.brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(117,71,55,.95),rgba(154,93,73,.72) 46%,rgba(48,37,31,.18)),linear-gradient(0deg,rgba(117,71,55,.8),transparent 65%); }
 .brasil-event-page .site-header { border-color:rgba(233,223,207,.3); }
 .brasil-event-page .main-nav a { color:var(--br-paper); }
-.brasil-event-page .main-nav a:hover { color:#eac0a4; }
+.brasil-event-page .main-nav a:hover { color:var(--br-sand); }
 .brasil-event-page .uruguay-title-block { margin-top:74px; }
 .brasil-event-page .uruguay-title-block h1 { color:var(--br-paper); text-shadow:none; }
 .brasil-event-page .uruguay-title-block .location { color:var(--br-sand); }
@@ -167,7 +167,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-program h2,.brasil-format-card h3,.brasil-stage-grid h3 { color:var(--br-deep); }
 .brasil-data-table thead { background:var(--br-deep); }
 .brasil-expo { background:var(--br-terracotta); color:var(--br-paper); }
-.brasil-expo .section-label { color:var(--br-sand); }
+.brasil-expo .section-label { color:var(--br-paper); }
 .brasil-expo .button-dark { color:var(--br-deep); background:var(--br-paper); }
 .brasil-event-page .original-partners { background:var(--br-sand); }
 .brasil-event-page .original-partners p { color:var(--br-muted); }
@@ -297,7 +297,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 }
 @media(max-width:600px) {
  .brasil-event-page .uruguay-event-hero { min-height:0; padding-bottom:26px; background-position:63% center; }
- .brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(78,31,21,.94),rgba(78,31,21,.58)),linear-gradient(0deg,#50231980,transparent); }
+ .brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(117,71,55,.94),rgba(117,71,55,.68)),linear-gradient(0deg,rgba(117,71,55,.5),transparent); }
  .brasil-event-page .uruguay-title-block { position:relative; inset:auto; transform:none; width:calc(100% - 32px); margin:48px auto 0; }
  .brasil-anniversary-label { margin-bottom:22px; font-size:.75rem; }
  .brasil-event-page .uruguay-title-block h1 { font-size:clamp(2.75rem,14vw,4.55rem); }
