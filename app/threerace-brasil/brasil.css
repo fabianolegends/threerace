@@ -100,3 +100,4 @@
 .brasil-expo .button { margin-top:10px; }
 @media(max-width:900px) { .brasil-format-grid,.brasil-expo-grid { grid-template-columns:1fr; } .brasil-expo-grid { gap:24px; } }
 @media(max-width:600px) { .brasil-panel-extra { padding:0 24px 28px; } .brasil-data-table th,.brasil-data-table td { padding:12px; } .brasil-format-card { padding:24px; } .brasil-format-metrics strong { font-size:1.8rem; } .brasil-expo { padding:60px 0; } }
+@media(max-width:600px) { .brasil-price-table { min-width:0; font-size:.875rem; } .brasil-price-table th,.brasil-price-table td { padding:12px 8px; } .brasil-price-table thead th,.brasil-price-table span { font-size:.75rem; } }
