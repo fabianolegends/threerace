@@ -156,14 +156,13 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-event-page .original-accordion .brasil-accordion-trigger > span:nth-child(2) { font-size:1rem; }
 .brasil-event-page .official-copy p { color:var(--br-muted); }
 .brasil-event-page .official-copy h4 { color:var(--br-deep); }
-.brasil-event-page .original-about { padding-block:80px; }
+.brasil-event-page .original-about { grid-template-columns:minmax(0,1fr) minmax(240px,380px); gap:64px; padding-block:80px; }
 .brasil-event-page .original-about h2 { color:var(--br-deep); }
 .brasil-event-page .original-about p { color:var(--br-muted); font-size:1rem; }
 .brasil-event-page .original-about .section-label { color:var(--br-terracotta); }
-.brasil-event-page .original-about-brand.brasil-anniversary { gap:12px; color:var(--br-terracotta); padding:24px; border:1px solid var(--br-line); }
-.brasil-event-page .brasil-anniversary strong { font-size:7rem; line-height:1; letter-spacing:-.09em; }
-.brasil-event-page .brasil-anniversary span { display:block; width:auto; aspect-ratio:auto; font-size:.875rem; letter-spacing:.08em; }
-.brasil-anniversary small { font-size:.875rem; letter-spacing:.13em; }
+.brasil-event-page .original-about-brand.brasil-anniversary { gap:0; padding:0; border:0; }
+.brasil-event-page .brasil-anniversary img { width:100%; max-width:380px; height:auto; }
+@media(max-width:900px) { .brasil-event-page .original-about { grid-template-columns:1fr; gap:32px; } .brasil-event-page .original-about-copy { max-width:none; align-items:flex-start; } .brasil-event-page .original-about-brand.brasil-anniversary { order:0; width:100%; } .brasil-event-page .brasil-anniversary img { max-width:340px; } }
 .brasil-gallery { background:var(--br-deep); }
 .brasil-gallery figcaption { color:var(--br-sand); }
 .brasil-program h2,.brasil-format-card h3,.brasil-stage-grid h3 { color:var(--br-deep); }
@@ -245,7 +244,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-choice-ultra :is(.brasil-choice-date,h2,.brasil-choice-description,.brasil-choice-metrics span,.brasil-choice-actions a) { color:var(--br-paper); }
 .brasil-choice-ultra :is(.brasil-choice-heading > span,.brasil-choice-metrics) { border-color:#f5efe566; }
 .brasil-event-page .brasil-choice-ultra a:focus-visible { outline-color:var(--br-paper); }
-.brasil-modalities .brasil-content-note { max-width:960px; }
+.brasil-modalities .brasil-content-note { max-width:960px; margin-inline:auto; text-align:center; }
 
 /* Araucária da identidade 2027: detalhes decorativos em tom sobre tom. */
 .brasil-choice-card,.brasil-kit-collection,.brasil-closing { position:relative; isolation:isolate; }

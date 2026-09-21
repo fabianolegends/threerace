@@ -62,7 +62,7 @@ export const expo = {
 };
 export const information = [
   { id: "evento", title: "O EVENTO", icon: "event", heading: "A EDIÇÃO 2027", paragraphs: [
-    "A Threerace volta a São Francisco de Paula de 2 a 4 de abril de 2027, com base no Centro de Eventos da cidade. A Ultra começa na sexta-feira com um prólogo em baterias e segue até domingo. A Sport concentra suas duas etapas no sábado e no domingo.",
+    "Após o retorno a São Francisco de Paula em 2026, a Threerace segue na cidade para a edição de 2 a 4 de abril de 2027, com base no Centro de Eventos. A Ultra começa na sexta-feira com um prólogo em baterias e segue até domingo. A Sport concentra suas duas etapas no sábado e no domingo.",
     "O planejamento também inclui uma expo para aproximar ciclistas, acompanhantes e visitantes de lojas e empresas do segmento, com atendimento, apresentação de produtos e venda direta ao público.",
     "Com trajetória desde 2017, a Threerace prepara a edição de 2027 com projeção de 350 atletas: 250 na Ultra e 100 na Sport.",
   ] },
