@@ -8,9 +8,9 @@ type KitView = { src: string; label: string; alt: string; width: number; height:
 type KitPiece = { name: string; status: string; description: string; view: KitView; kind?: "sheet" };
 
 const montage: KitView = {
-  src: "kit-montagem-2027", label: "Montagem da coleção",
-  alt: "Montagem do kit Threerace 2027 com frente e verso da jersey terracota e da camiseta areia, meia de ciclismo, placa de bicicleta e sacochila com ilustrações de araucárias",
-  width: 1536, height: 1024,
+  src: "kit-apresentacao-2027", label: "Apresentação da coleção",
+  alt: "Montagem do kit Threerace 2027 em fundo terracota, com frente e verso da jersey e da camiseta sobrepostos ao fundo e meia, placa e sacochila em primeiro plano",
+  width: 1448, height: 1086,
 };
 
 const pieces: KitPiece[] = [
