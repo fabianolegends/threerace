@@ -3,14 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import KitCollection from "./kit-collection";
+import AccordionIcon from "./accordion-icon";
 import { brasilEvent, information, raceFormats, registrationPrices, registrationNotice, courseNotice, schedule, scheduleNotice, expo, faqs } from "./content";
 import "./brasil.css";
-
-function DocumentIcon({ kind = "document" }: { kind?: string }) {
-  return <svg viewBox="0 0 64 64" aria-hidden="true">
-    {kind === "stages" ? <><path d="M8 50h48M12 45l12-27 10 18 9-23 10 32" /><circle cx="24" cy="18" r="3" /></> : kind === "event" ? <><circle cx="32" cy="32" r="22" /><path d="M32 18v16l11 6" /></> : <><path d="M17 7h23l9 9v41H17Z" /><path d="M40 7v10h9M24 29h18M24 38h18M24 47h12" /></>}
-  </svg>;
-}
 
 const number = (value: number) => value.toLocaleString("pt-BR");
 
@@ -106,7 +101,7 @@ export default function Brasil() {
       {information.map((section) => {
         const isOpen = openInfo === section.id;
         return <article key={section.id} id={section.id} className={isOpen ? "open" : ""}>
-          <h3 className="brasil-accordion-heading"><button className="brasil-accordion-trigger" type="button" aria-expanded={isOpen} aria-controls={`painel-${section.id}`} onClick={() => setOpenInfo(isOpen ? null : section.id)}><span className="accordion-field-icon"><DocumentIcon kind={section.icon} /></span><span>{section.title}</span><span className="brasil-expand" aria-hidden="true">{isOpen ? "−" : "+"}</span></button></h3>
+          <h3 className="brasil-accordion-heading"><button className="brasil-accordion-trigger" type="button" aria-expanded={isOpen} aria-controls={`painel-${section.id}`} onClick={() => setOpenInfo(isOpen ? null : section.id)}><span className="accordion-field-icon"><AccordionIcon section={section.id} /></span><span>{section.title}</span><span className="brasil-expand" aria-hidden="true">{isOpen ? "−" : "+"}</span></button></h3>
           <div id={`painel-${section.id}`} hidden={!isOpen} className="brasil-info-panel"><div className="official-copy"><h4>{section.heading}</h4>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>{section.id === "inscricoes" ? <PricesTable /> : section.id === "etapas" ? <CourseTables /> : null}</div>
         </article>;
       })}

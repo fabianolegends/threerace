@@ -128,7 +128,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 /* A mesma linguagem do kit percorre toda a página. */
 .brasil-event-page .uruguay-event-hero { min-height:830px; color:var(--br-paper); background-color:var(--br-deep); }
 .brasil-event-page .uruguay-event-hero::before { background:none; }
-.brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(117,71,55,.95),rgba(154,93,73,.72) 46%,rgba(48,37,31,.18)),linear-gradient(0deg,rgba(117,71,55,.8),transparent 65%); }
+.brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(21,24,20,.68),rgba(21,24,20,.25) 50%,rgba(21,24,20,.06)),linear-gradient(0deg,rgba(154,93,73,.3),transparent 55%),linear-gradient(180deg,rgba(0,0,0,.22),transparent 25%); }
 .brasil-event-page .site-header { border-color:rgba(233,223,207,.3); }
 .brasil-event-page .main-nav a { color:var(--br-paper); }
 .brasil-event-page .main-nav a:hover { color:var(--br-sand); }
@@ -148,7 +148,9 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-event-page .original-information { background:var(--br-paper); padding-top:75px; }
 .brasil-event-page .original-information h2 { color:var(--br-deep); }
 .brasil-event-page .original-accordion article { border-color:var(--br-line); border-radius:3px; background:var(--br-paper); box-shadow:none; }
-.brasil-event-page .original-accordion .brasil-accordion-trigger { padding:0; gap:0; color:var(--br-ink); background:var(--br-paper); }
+.brasil-event-page .original-accordion .brasil-accordion-trigger { grid-template-columns:108px minmax(0,1fr) 64px; min-height:100px; padding:0; gap:0; color:var(--br-ink); background:var(--br-paper); }
+.brasil-event-page .brasil-accordion-trigger .accordion-field-icon { color:var(--br-paper); background:var(--br-terracotta); }
+.brasil-event-page .brasil-accordion-trigger .accordion-field-icon svg { width:36px; height:36px; stroke-width:1.7; }
 .brasil-event-page .original-accordion .brasil-accordion-trigger:hover,.brasil-event-page .original-accordion .open .brasil-accordion-trigger { background:var(--br-deep); color:var(--br-paper); }
 .brasil-event-page .original-accordion .brasil-accordion-trigger:hover .brasil-expand { color:var(--br-paper); }
 .brasil-event-page .original-accordion .brasil-accordion-trigger > span:nth-child(2) { font-size:1rem; }
@@ -297,7 +299,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 }
 @media(max-width:600px) {
  .brasil-event-page .uruguay-event-hero { min-height:0; padding-bottom:26px; background-position:63% center; }
- .brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(117,71,55,.94),rgba(117,71,55,.68)),linear-gradient(0deg,rgba(117,71,55,.5),transparent); }
+ .brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(21,24,20,.62),rgba(21,24,20,.38)),linear-gradient(0deg,rgba(154,93,73,.18),transparent 60%); }
  .brasil-event-page .uruguay-title-block { position:relative; inset:auto; transform:none; width:calc(100% - 32px); margin:48px auto 0; }
  .brasil-anniversary-label { margin-bottom:22px; font-size:.75rem; }
  .brasil-event-page .uruguay-title-block h1 { font-size:clamp(2.75rem,14vw,4.55rem); }
@@ -307,6 +309,9 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
  .brasil-event-page .countdown-section { padding-top:0; }
  .brasil-event-page .original-information { padding-top:48px; }
  .brasil-event-page .original-information h2 { font-size:2rem; }
+ .brasil-event-page .original-accordion .brasil-accordion-trigger { grid-template-columns:80px minmax(0,1fr) 44px; min-height:88px; }
+ .brasil-event-page .original-accordion .brasil-accordion-trigger > span:nth-child(2) { padding:14px; font-size:.875rem; letter-spacing:.04em; }
+ .brasil-event-page .brasil-accordion-trigger .accordion-field-icon svg { width:30px; height:30px; }
  .brasil-event-page .original-about { grid-template-columns:1fr; gap:30px; padding:48px 0; }
  .brasil-event-page .original-about-copy { max-width:none; align-items:flex-start; }
  .brasil-event-page .original-about h2,.brasil-event-page .original-about p { text-align:left; }
@@ -328,4 +333,8 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
  .brasil-kit-dialog { padding:14px; }
  .brasil-kit-dialog-header { gap:12px; }
  .brasil-kit-dialog-header h3 { font-size:.875rem; }
+}
+@media(max-width:380px) {
+ .brasil-event-page .original-accordion .brasil-accordion-trigger { grid-template-columns:72px minmax(0,1fr) 36px; }
+ .brasil-event-page .original-accordion .brasil-accordion-trigger > span:nth-child(2) { padding-inline:12px; font-size:.8125rem; }
 }
