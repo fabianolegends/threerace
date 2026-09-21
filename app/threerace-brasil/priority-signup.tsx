@@ -64,9 +64,8 @@ export default function PrioritySignup() {
   return <>
     <aside className="brasil-priority-callout" id="lista-prioritaria" aria-labelledby="priority-callout-title">
       <div>
-        <p className="brasil-priority-eyebrow">ACESSO A PARTIR DE {priorityCampaign.openingDate}</p>
         <h2 id="priority-callout-title">Lista prioritária</h2>
-        <p>{priorityCampaign.durationHours} horas de acesso prioritário às inscrições, com valor diferenciado.</p>
+        <p><strong>ACESSO A PARTIR DE {priorityCampaign.openingDate}</strong> — {priorityCampaign.durationHours} horas de acesso prioritário às inscrições, com valor diferenciado.</p>
       </div>
       <button type="button" className="brasil-priority-open" onClick={() => dialogRef.current?.showModal()} aria-haspopup="dialog">QUERO ME CADASTRAR <span aria-hidden="true">↗</span></button>
     </aside>

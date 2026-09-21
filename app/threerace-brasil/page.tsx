@@ -98,7 +98,6 @@ export default function Brasil() {
         <h1>THREERACE<small>BIKE ULTRAMARATHON BRASIL</small></h1>
         <p className="brasil-hero-date">{brasilEvent.date}</p>
         <p className="brasil-hero-motto">MONTANHAS, PESSOAS, HISTÓRIAS.</p>
-        <p className="brasil-hero-statement">{brasilEvent.introduction}</p>
         <PrioritySignup />
       </div>
     </section>
