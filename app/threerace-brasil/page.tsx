@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import KitCollection from "./kit-collection";
 import AccordionIcon from "./accordion-icon";
+import CategoryTables from "./category-tables";
 import { brasilEvent, information, raceFormats, registrationPrices, registrationNotice, courseNotice, schedule, scheduleNotice, expo, faqs } from "./content";
 import "./brasil.css";
 
@@ -116,7 +117,7 @@ export default function Brasil() {
         const isOpen = openInfo === section.id;
         return <article key={section.id} id={section.id} className={isOpen ? "open" : ""}>
           <h3 className="brasil-accordion-heading"><button className="brasil-accordion-trigger" type="button" aria-expanded={isOpen} aria-controls={`painel-${section.id}`} onClick={() => setOpenInfo(isOpen ? null : section.id)}><span className="accordion-field-icon"><AccordionIcon section={section.id} /></span><span>{section.title}</span><span className="brasil-expand" aria-hidden="true">{isOpen ? "−" : "+"}</span></button></h3>
-          <div id={`painel-${section.id}`} hidden={!isOpen} className="brasil-info-panel"><div className="official-copy"><h4>{section.heading}</h4>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>{section.id === "inscricoes" ? <PricesTable /> : section.id === "etapas" ? <CourseTables /> : section.id === "documentacao" ? <MedicalDocuments /> : null}</div>
+          <div id={`painel-${section.id}`} hidden={!isOpen} className="brasil-info-panel"><div className="official-copy"><h4>{section.heading}</h4>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>{section.id === "inscricoes" ? <PricesTable /> : section.id === "categorias" ? <CategoryTables /> : section.id === "etapas" ? <CourseTables /> : section.id === "documentacao" ? <MedicalDocuments /> : null}</div>
         </article>;
       })}
     </div></div></section>
