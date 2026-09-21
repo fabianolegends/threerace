@@ -8,7 +8,7 @@ import CategoryTables from "./category-tables";
 import PrioritySignup from "./priority-signup";
 import RaceCountdown from "./race-countdown";
 import { EventVenue, RegulationDocument } from "./event-resources";
-import { brasilEvent, information, raceFormats, registrationPrices, registrationNotice, courseNotice, schedule, scheduleNotice, expo, faqs } from "./content";
+import { brasilEvent, information, raceFormats, registrationPrices, registrationNotice, jerseyOption, courseNotice, schedule, scheduleNotice, expo, faqs } from "./content";
 import "./brasil.css";
 
 const number = (value: number) => value.toLocaleString("pt-BR");
@@ -23,11 +23,12 @@ function PricesTable() {
   return <div className="brasil-panel-extra">
     <div className="brasil-table-scroll" role="region" aria-label="Valores das inscrições" tabIndex={0}>
       <table className="brasil-data-table brasil-price-table">
-        <caption>Camiseta dry e meia incluídas nas duas opções. Valores por atleta.</caption>
-        <thead><tr><th scope="col">Modalidade e lote</th><th scope="col">Sem jersey</th><th scope="col">Com jersey</th></tr></thead>
-        <tbody>{registrationPrices.map((price) => <tr key={`${price.format}-${price.lot}`}><th scope="row"><strong>{price.format}</strong><span>{price.lot}</span></th><td>R$ {price.withoutJersey}</td><td>R$ {price.withJersey}</td></tr>)}</tbody>
+        <caption>Valores por atleta. Camiseta casual dry e meia de ciclismo incluídas.</caption>
+        <thead><tr><th scope="col">Modalidade e lote</th><th scope="col">Inscrição</th></tr></thead>
+        <tbody>{registrationPrices.map((price) => <tr key={`${price.format}-${price.lot}`}><th scope="row"><strong>{price.format}</strong><span>{price.lot}</span></th><td>R$ {price.price}</td></tr>)}</tbody>
       </table>
     </div>
+    <p className="brasil-jersey-note">{jerseyOption.description}</p>
     <p className="brasil-content-note">{registrationNotice}</p>
   </div>;
 }

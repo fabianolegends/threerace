@@ -51,7 +51,7 @@ export const raceFormats = [
 
 export const courseNotice = "Os percursos e desníveis das duas modalidades são previstos e poderão receber ajustes após a validação técnica. Mapas, características do terreno e regras da competição serão apresentados nos materiais oficiais.";
 
-// Regulamento Brasil 2027 · Revisão 01, 21/09/2026 · itens 2 e 4 (páginas 1–4).
+// Regulamento Brasil 2027 · Revisão 02, 21/09/2026 · itens 2 e 4 (páginas 1–4).
 type CompetitionCategory = { name: string; age: string; composition?: string };
 type CategoryGroup = { title: string; categories: CompetitionCategory[]; note?: string };
 type CompetitionFormat = { id: string; name: string; description: string; groups: CategoryGroup[]; grouping: string[] };
@@ -123,13 +123,17 @@ export const competitionCategories: CompetitionFormat[] = [
 ];
 
 export const registrationPrices = [
-  { format: "Ultra", lot: "Lote 1 · lista prioritária", withoutJersey: 599, withJersey: 699 },
-  { format: "Ultra", lot: "Lote 2", withoutJersey: 699, withJersey: 799 },
-  { format: "Ultra", lot: "Lote 3", withoutJersey: 829, withJersey: 929 },
-  { format: "Sport", lot: "Lote 1 · lista prioritária", withoutJersey: 499, withJersey: 599 },
-  { format: "Sport", lot: "Lote 2", withoutJersey: 599, withJersey: 699 },
-  { format: "Sport", lot: "Lote 3", withoutJersey: 729, withJersey: 829 },
+  { format: "Ultra", lot: "Lote 1 · lista prioritária", price: 599 },
+  { format: "Ultra", lot: "Lote 2", price: 699 },
+  { format: "Ultra", lot: "Lote 3", price: 829 },
+  { format: "Sport", lot: "Lote 1 · lista prioritária", price: 499 },
+  { format: "Sport", lot: "Lote 2", price: 599 },
+  { format: "Sport", lot: "Lote 3", price: 729 },
 ];
+export const jerseyOption = {
+  price: 100,
+  description: "A jersey de ciclismo é opcional e pode ser comprada por R$ 100 adicionais, junto com a inscrição, no momento de realizá-la. Disponível para Ultra e Sport, em todos os lotes.",
+};
 export const registrationNotice = "A lista prioritária terá acesso às inscrições a partir de 20/10/2026, por 48 horas, com valor diferenciado. Horário de abertura, períodos dos demais lotes, formas de pagamento e eventuais taxas serão informados no canal oficial de inscrição.";
 export const scheduleNotice = "Os horários de credenciamento, largadas, premiações e funcionamento da expo serão divulgados na programação oficial.";
 export const schedule = [
@@ -139,7 +143,7 @@ export const schedule = [
 ];
 export const kit = {
   included: ["Participação nas etapas da modalidade escolhida.", "Camiseta casual em tecido dry.", "Meia de ciclismo."],
-  optional: "Jersey de ciclismo opcional: escolha a inscrição com jersey por mais R$ 100. Camiseta dry e meia também estão incluídas nessa opção.",
+  optional: jerseyOption.description,
   notice: "As informações de tamanhos, retirada de kits e demais serviços da prova serão divulgadas pela organização.",
 };
 export const expo = {
@@ -166,7 +170,7 @@ export const information = [
 export const faqs = [
   ["Preciso participar dos três dias?", "Na Ultra, as etapas acontecem de sexta a domingo. Na Sport, as etapas são no sábado e no domingo."],
   ["A Sport tem prólogo na sexta-feira?", "Não. O prólogo de sexta faz parte da Ultra."],
-  ["A jersey está incluída em todas as inscrições?", "A jersey está incluída somente na opção com adicional de R$ 100. Camiseta casual dry e meia de ciclismo fazem parte das duas opções de kit, em todos os lotes."],
+  ["A jersey está incluída na inscrição?", `Não. ${jerseyOption.description} Camiseta casual dry e meia de ciclismo já estão incluídas no valor da inscrição.`],
   ["Onde será a base do evento?", "No Centro de Eventos de São Francisco de Paula, na Avenida Benjamin Constant, bairro Cipó. O mapa e o botão Como chegar estão na seção Base e hospedagem."],
   ["Já posso consultar os horários e os mapas finais?", "Os horários detalhados e os percursos finais serão divulgados nos materiais oficiais. As distâncias e os desníveis apresentados nesta página correspondem ao planejamento atual."],
   ["Como minha loja pode participar da expo?", "A equipe comercial apresentará as opções de espaço, infraestrutura e divulgação para lojistas e empresas interessadas. As condições serão definidas na proposta individual."],

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { kit } from "./content";
+import { kit, jerseyOption } from "./content";
 
 type KitView = { src: string; label: string; alt: string; width: number; height: number };
 type KitPiece = { name: string; status: string; view: KitView };
@@ -19,7 +19,7 @@ const pieces: KitPiece[] = [
     view: { src: "camiseta-recortada-2027", label: "Frente, verso e perfil", alt: "Frente, verso e perfil da camiseta areia Threerace 2027, com marca e araucária em terracota", width: 1536, height: 1024 },
   },
   {
-    name: "Jersey de ciclismo", status: "PREMIUM",
+    name: "Jersey de ciclismo", status: `OPCIONAL · R$ ${jerseyOption.price}`,
     view: { src: "jersey-recortada-2027", label: "Frente, verso e perfil", alt: "Frente, verso e perfil da jersey de ciclismo terracota Threerace 2027, com araucária em areia e bolsos traseiros", width: 1536, height: 1024 },
   },
   {
