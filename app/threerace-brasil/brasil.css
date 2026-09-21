@@ -244,6 +244,36 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-choice-ultra :is(.brasil-choice-heading > span,.brasil-choice-metrics) { border-color:#f5efe566; }
 .brasil-event-page .brasil-choice-ultra a:focus-visible { outline-color:var(--br-paper); }
 .brasil-modalities .brasil-content-note { max-width:960px; }
+
+/* Araucária da identidade 2027: detalhes decorativos em tom sobre tom. */
+.brasil-choice-card,.brasil-kit-collection,.brasil-closing { position:relative; isolation:isolate; }
+.brasil-choice-card::before,.brasil-kit-collection::before,.brasil-closing::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  border-radius:inherit;
+  background:var(--br-terracotta);
+  -webkit-mask-image:url("/brasil-2027/araucaria-watermark.webp");
+  mask-image:url("/brasil-2027/araucaria-watermark.webp");
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-size:230px auto;
+  mask-size:230px auto;
+  -webkit-mask-position:right -26px top -20px;
+  mask-position:right -26px top -20px;
+  opacity:.13;
+}
+.brasil-choice-ultra::before { background:var(--br-paper); opacity:.17; }
+.brasil-kit-collection::before { -webkit-mask-size:520px auto; mask-size:520px auto; -webkit-mask-position:right -70px top -55px; mask-position:right -70px top -55px; opacity:.11; }
+.brasil-closing::before { background:var(--br-sand); -webkit-mask-size:530px auto; mask-size:530px auto; -webkit-mask-position:right 6% bottom -220px; mask-position:right 6% bottom -220px; opacity:.18; }
+@media(max-width:700px) {
+  .brasil-choice-card::before { -webkit-mask-size:180px auto; mask-size:180px auto; }
+  .brasil-kit-collection::before { -webkit-mask-size:340px auto; mask-size:340px auto; -webkit-mask-position:right -120px top 15px; mask-position:right -120px top 15px; opacity:.08; }
+  .brasil-closing::before { -webkit-mask-size:320px auto; mask-size:320px auto; -webkit-mask-position:right -100px bottom -90px; mask-position:right -100px bottom -90px; opacity:.13; }
+}
+
 @media(max-width:1100px) { .brasil-choice-metrics { gap:12px; } .brasil-choice-metrics strong { font-size:1.75rem; } .brasil-choice-value { gap:6px; } .brasil-choice-metric-icon { width:24px; height:24px; } }
 @media(max-width:900px) { .brasil-choice-card { padding:26px; } .brasil-choice-grid { gap:18px; } }
 @media(max-width:700px) { .brasil-choice-grid { grid-template-columns:1fr; } .brasil-modalities-inner { top:0; margin-bottom:0; padding-top:28px; } .brasil-choice-heading h2 { font-size:3rem; } .brasil-choice-actions { gap:12px; } .brasil-choice-actions a { font-size:.8rem; } }
