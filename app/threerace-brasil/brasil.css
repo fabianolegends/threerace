@@ -94,6 +94,25 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 /* Identidade Brasil 2027 — terracota e areia, conforme o kit da organização. */
 .brasil-hero-statement { max-width:570px; }
 .brasil-panel-extra { padding:0 54px 36px; }
+.brasil-regulation-card { display:flex; gap:24px; padding:28px; border:1px solid var(--br-line); border-radius:20px; background:var(--br-sand); }
+.brasil-regulation-card > svg { flex:none; width:40px; height:40px; color:var(--br-deep); }
+.brasil-regulation-details { min-width:0; }
+.brasil-resource-label { color:var(--br-deep); font-size:.75rem; font-weight:750; letter-spacing:.08em; }
+.brasil-regulation-details h5 { margin:12px 0; font-size:1.4rem; line-height:1.3; font-weight:750; }
+.brasil-regulation-details p { margin:0; color:var(--br-muted); font-size:.9375rem; line-height:1.6; }
+.brasil-resource-actions { display:flex; align-items:center; flex-wrap:wrap; gap:16px 24px; margin-top:24px; }
+.brasil-resource-actions a { display:inline-flex; align-items:center; justify-content:center; gap:16px; min-height:44px; line-height:1.5; }
+.brasil-resource-download { color:var(--br-deep); font-size:.8125rem; font-weight:750; letter-spacing:.05em; text-decoration:underline; text-underline-offset:5px; }
+.brasil-resource-actions .button-dark:focus-visible { outline-color:var(--br-deep); }
+.brasil-venue-card { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); overflow:hidden; border:1px solid var(--br-line); border-radius:20px; background:var(--br-sand); }
+.brasil-venue-details { min-width:0; padding:28px; }
+.brasil-venue-details > svg { width:36px; height:36px; color:var(--br-deep); }
+.brasil-venue-details h5 { margin:18px 0 12px; color:var(--br-deep); font-size:1.6rem; line-height:1.2; font-weight:750; }
+.brasil-venue-details address { color:var(--br-muted); font-style:normal; font-size:.9375rem; line-height:1.8; }
+.brasil-venue-details .brasil-resource-actions { align-items:flex-start; flex-direction:column; }
+.brasil-venue-map { display:block; width:100%; height:100%; min-height:360px; border:0; background:var(--br-paper); }
+@media(max-width:850px) { .brasil-venue-card { grid-template-columns:1fr; } .brasil-venue-details { padding:24px; } .brasil-venue-map { min-height:300px; height:300px; } }
+@media(max-width:600px) { .brasil-regulation-card { flex-direction:column; padding:22px; gap:16px; } .brasil-resource-actions { align-items:stretch; flex-direction:column; } .brasil-event-page .brasil-resource-actions .button { padding:15px; font-size:.75rem; } }
 .brasil-category-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:start; }
 .brasil-category-format { min-width:0; border:1px solid var(--br-line); border-radius:20px; overflow:hidden; }
 .brasil-category-header { padding:24px; background:var(--br-terracotta); color:var(--br-paper); }

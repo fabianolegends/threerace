@@ -10,6 +10,17 @@ export const brasilEvent = {
   introduction: "Mountain bike por etapas, com dois formatos para escolher seu desafio: Ultra, em três dias, e Sport, em dois dias.",
 };
 
+// Localização conferida na ficha do Google Maps (CID 5942198016919702).
+// Logradouro/bairro: Prefeitura de São Francisco de Paula, notícia 2536, 09/06/2026.
+// O número diverge entre as duas fontes; o mapa e as rotas apontam para o mesmo local.
+export const eventVenue = {
+  address: "Avenida Benjamin Constant · bairro Cipó",
+  city: "São Francisco de Paula · Rio Grande do Sul",
+  mapsUrl: "https://maps.app.goo.gl/puaCQGVSeqA3s7Vk8",
+  directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=-29.4411357%2C-50.5692636&travelmode=driving",
+  embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3474.577733210162!2d-50.5692636!3d-29.4411357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9518db004aad5571%3A0x151c65c9fbc896!2sCentro%20de%20Eventos!5e0!3m2!1spt-BR!2sbr!4v1790022619447!5m2!1spt-BR!2sbr",
+};
+
 export const raceFormats = [
   {
     id: "ultra", name: "Ultra", days: "Três dias de prova", dates: "2, 3 e 4 de abril",
@@ -138,14 +149,14 @@ export const information = [
   { id: "etapas", title: "ETAPAS E PERCURSOS", icon: "stages", heading: "DOIS FORMATOS PARA ESCOLHER SEU DESAFIO", paragraphs: [courseNotice] },
   { id: "programacao", title: "PROGRAMAÇÃO", icon: "event", heading: "PROGRAMAÇÃO PREVISTA · 2 A 4 DE ABRIL", paragraphs: schedule.map((day) => `${day.date}: ${day.description}`).concat(scheduleNotice) },
   { id: "documentacao", title: "DOCUMENTAÇÃO MÉDICA", icon: "document", heading: "DECLARAÇÃO DE SAÚDE E ATESTADO", paragraphs: ["A área médica reúne o formulário de saúde do atleta e o modelo de atestado da Threerace Brasil 2027. Na versão de trabalho, é possível conferir o preenchimento e baixar o PDF; o envio à organização ainda não está ativo."] },
-  { id: "regulamento", title: "REGULAMENTO", icon: "document", heading: "REGULAMENTO BRASIL 2027 EM PREPARAÇÃO", paragraphs: ["O regulamento oficial da edição brasileira será disponibilizado após a aprovação da organização. Critérios de participação, regras esportivas e condições da inscrição serão detalhados nesse documento."] },
-  { id: "hospedagem", title: "BASE E HOSPEDAGEM", icon: "document", heading: "CENTRO DE EVENTOS · SÃO FRANCISCO DE PAULA", paragraphs: ["A base do evento será no Centro de Eventos de São Francisco de Paula, no Rio Grande do Sul. Endereço completo, mapa de acesso e orientações de chegada serão divulgados pela organização.", "A relação de hospedagens será divulgada em breve."] },
+  { id: "regulamento", title: "REGULAMENTO", icon: "document", heading: "REGULAMENTO BRASIL 2027", paragraphs: ["Consulte as regras de participação, categorias, documentação, equipamentos e classificação da Ultra e da Sport."] },
+  { id: "hospedagem", title: "BASE E HOSPEDAGEM", icon: "document", heading: "CENTRO DE EVENTOS · SÃO FRANCISCO DE PAULA", paragraphs: ["O Centro de Eventos será a base da Threerace Brasil 2027 e da Threerace Expo. Confira a localização e trace sua rota pelo Google Maps."] },
 ];
 export const faqs = [
   ["Preciso participar dos três dias?", "Na Ultra, as etapas acontecem de sexta a domingo. Na Sport, as etapas são no sábado e no domingo."],
   ["A Sport tem prólogo na sexta-feira?", "Não. O prólogo de sexta faz parte da Ultra."],
   ["A jersey está incluída em todas as inscrições?", "A jersey está incluída somente na opção com adicional de R$ 100. Camiseta casual dry e meia de ciclismo fazem parte das duas opções de kit, em todos os lotes."],
-  ["Onde será a base do evento?", "No Centro de Eventos de São Francisco de Paula, no Rio Grande do Sul. Endereço completo, mapa de acesso e orientações de chegada serão divulgados pela organização."],
+  ["Onde será a base do evento?", "No Centro de Eventos de São Francisco de Paula, na Avenida Benjamin Constant, bairro Cipó. O mapa e o botão Como chegar estão na seção Base e hospedagem."],
   ["Já posso consultar os horários e os mapas finais?", "Os horários detalhados e os percursos finais serão divulgados nos materiais oficiais. As distâncias e os desníveis apresentados nesta página correspondem ao planejamento atual."],
   ["Como minha loja pode participar da expo?", "A equipe comercial apresentará as opções de espaço, infraestrutura e divulgação para lojistas e empresas interessadas. As condições serão definidas na proposta individual."],
 ];
