@@ -57,3 +57,46 @@
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .brasil-event-page * { transition:none!important; } }
 
 .brasil-event-page .brasil-accordion-trigger:focus-visible { outline:3px solid #ff5a00; outline-offset:-4px; }
+
+/* Conteúdo Brasil 2027; a identidade visual será ajustada em uma próxima revisão. */
+.brasil-hero-statement { max-width:570px; }
+.brasil-panel-extra { padding:0 54px 36px; }
+.brasil-table-scroll { max-width:100%; overflow-x:auto; overscroll-behavior-x:contain; }
+.brasil-table-scroll:focus-visible { outline:3px solid #ff5a00; outline-offset:3px; }
+.brasil-data-table { width:100%; min-width:580px; border-collapse:collapse; font-size:1rem; line-height:1.6; text-align:left; }
+.brasil-data-table caption { text-align:left; font-size:.875rem; color:#555; padding:0 0 14px; }
+.brasil-data-table th,.brasil-data-table td { padding:16px 18px; border-bottom:1px solid #d9d6d1; }
+.brasil-data-table thead { background:#202020; color:white; }
+.brasil-data-table thead th { font-size:.875rem; font-weight:700; }
+.brasil-data-table tbody th { font-weight:550; }
+.brasil-data-table tbody tr:nth-child(even) { background:#f5f3ef; }
+.brasil-data-table tfoot { font-weight:750; background:#eee9e2; }
+.brasil-price-table { min-width:480px; }
+.brasil-price-table strong,.brasil-price-table span { display:block; }
+.brasil-price-table td { white-space:nowrap; font-weight:700; }
+.brasil-price-table span { font-size:.875rem; }
+.brasil-content-note { margin:22px 0 0; font-size:1rem; line-height:1.75; color:#5c5b57; }
+.brasil-course-table + .brasil-course-table { margin-top:44px; padding-top:35px; border-top:1px solid #ccc; }
+.brasil-course-table > h4 { font-size:1.3rem; font-weight:750; margin:0 0 12px; }
+.brasil-course-table > p { font-size:1rem; line-height:1.75; }
+.brasil-format-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin:36px 0 0; }
+.brasil-format-card { background:white; border-top:4px solid #ff5a00; padding:36px; }
+.brasil-format-card h3 { font-size:3rem; font-weight:800; text-transform:uppercase; letter-spacing:-.04em; margin:20px 0 6px; }
+.brasil-format-card p { font-size:1rem; line-height:1.75; }
+.brasil-format-card .brasil-format-days { margin:0; color:#666; }
+.brasil-format-metrics { display:grid; grid-template-columns:1fr 1.2fr; gap:18px; border-block:1px solid #ddd; padding:24px 0; margin:25px 0; }
+.brasil-format-metrics strong { display:block; font-size:2.2rem; line-height:1.25; letter-spacing:-.04em; }
+.brasil-format-metrics small { font-size:1rem; }
+.brasil-format-metrics span { display:block; font-size:.875rem; line-height:1.5; color:#666; margin-top:6px; }
+.brasil-format-card > a { display:inline-block; margin-top:18px; color:#b53c00; font-weight:750; font-size:.875rem; text-decoration:underline; text-underline-offset:5px; }
+.brasil-schedule-heading { margin-top:80px; }
+.brasil-kit-copy p,.brasil-kit-copy li { font-size:1rem; line-height:1.75; }
+.brasil-kit-copy ul { list-style:disc; margin:0 0 24px; padding-left:22px; }
+.brasil-jersey-note { padding:22px; background:#eee9e2; border-left:3px solid #ff5a00; }
+.brasil-expo { background:#e9e6df; padding:80px 0; }
+.brasil-expo-grid { display:grid; grid-template-columns:1fr 1.3fr; gap:70px; }
+.brasil-expo h2 { font-size:clamp(3rem,6vw,5rem); line-height:1; font-weight:800; letter-spacing:-.05em; }
+.brasil-expo p { font-size:1rem; line-height:1.75; }
+.brasil-expo .button { margin-top:10px; }
+@media(max-width:900px) { .brasil-format-grid,.brasil-expo-grid { grid-template-columns:1fr; } .brasil-expo-grid { gap:24px; } }
+@media(max-width:600px) { .brasil-panel-extra { padding:0 24px 28px; } .brasil-data-table th,.brasil-data-table td { padding:12px; } .brasil-format-card { padding:24px; } .brasil-format-metrics strong { font-size:1.8rem; } .brasil-expo { padding:60px 0; } }
