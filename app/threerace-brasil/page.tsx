@@ -83,11 +83,19 @@ export default function Brasil() {
         <p className="brasil-hero-statement">{brasilEvent.introduction}</p>
         <a className="brasil-hero-kit-link" href="#kit">CONHEÇA O KIT 2027 <span aria-hidden="true">↘</span></a>
       </div>
-      <section className="original-action-cards section-frame" aria-label="Acesso rápido">
-        {[["inscricoes", "INSCRIÇÕES", "VALORES E LOTES"], ["documentacao", "DOCUMENTAÇÃO", "DISPONÍVEL EM BREVE"], ["regulamento", "REGULAMENTO", "EDIÇÃO BRASIL 2027"]].map(([id, title, note]) => <a key={id} href={`#${id}`} onClick={() => openSection(id)}><DocumentIcon /><b>{title}</b><small>{note}</small><i aria-hidden="true">↓</i></a>)}
-      </section>
     </section>
-    <section className="countdown-section" aria-label="Resumo da edição"><div className="section-frame countdown-grid brasil-facts"><div className="countdown-unit"><b>02–04</b><span>ABRIL DE 2027</span></div><div className="countdown-unit"><b>182 KM</b><span>ULTRA · 3 DIAS</span></div><div className="countdown-unit"><b>78 KM</b><span>SPORT · 2 DIAS</span></div></div></section>
+    <section className="brasil-modalities" id="modalidades" aria-label="Modalidades da Threerace Brasil">
+      <div className="section-frame brasil-modalities-inner">
+        <div className="brasil-choice-grid">{raceFormats.map((format) => <article className={`brasil-choice-card brasil-choice-${format.id}`} key={format.id} aria-labelledby={`modalidade-${format.id}`}>
+          <p className="brasil-choice-date">{format.dates} · 2027</p>
+          <div className="brasil-choice-heading"><h2 id={`modalidade-${format.id}`}>{format.name}</h2><span>{format.stages.length} DIAS</span></div>
+          <p className="brasil-choice-description">{format.description}</p>
+          <div className="brasil-choice-metrics"><div><strong>{format.stages.reduce((total, stage) => total + stage.distance, 0)}<small> km</small></strong><span>distância prevista</span></div><div><strong>{number(format.stages.reduce((total, stage) => total + stage.ascent, 0))}<small> m</small></strong><span>subida acumulada prevista</span></div></div>
+          <div className="brasil-choice-actions"><a href="#etapas" aria-label={`Ver etapas da ${format.name}`} onClick={() => openSection("etapas")}>VER ETAPAS <span aria-hidden="true">↗</span></a><a href="#inscricoes" aria-label={`Valores e lotes da ${format.name}`} onClick={() => openSection("inscricoes")}>VALORES E LOTES <span aria-hidden="true">↗</span></a></div>
+        </article>)}</div>
+        <p className="brasil-content-note">{courseNotice}</p>
+      </div>
+    </section>
     <section className="original-information" id="informacoes"><div className="section-frame"><h2>INFORMAÇÕES COMPLETAS</h2><div className="original-accordion">
       {information.map((section) => {
         const isOpen = openInfo === section.id;
@@ -101,15 +109,8 @@ export default function Brasil() {
     <section className="brasil-gallery" aria-label="Galeria da história Threerace"><div className="section-frame brasil-gallery-heading"><p className="section-label">HISTÓRIAS EM IMAGENS</p><div><button type="button" aria-label="Foto anterior" disabled={galleryIndex === 0} onClick={() => setGalleryIndex(galleryIndex - 1)}>←</button><span aria-live="polite">{galleryIndex + 1} / {gallery.length}</span><button type="button" aria-label="Próxima foto" disabled={galleryIndex === gallery.length - 1} onClick={() => setGalleryIndex(galleryIndex + 1)}>→</button></div></div><figure><img src={gallery[galleryIndex]} alt={`Registro histórico da Threerace — imagem ${galleryIndex + 1}`} loading="lazy" /><figcaption>Acervo Threerace · edições anteriores</figcaption></figure></section>
     <section className="brasil-program" id="guia">
       <div className="section-frame">
-        <p className="section-label">GUIA DO ATLETA · BRASIL 2027</p>
-        <h2>DOIS FORMATOS.<br />ESCOLHA SEU DESAFIO.</h2>
-        <div className="brasil-format-grid">{raceFormats.map((format) => <article className="brasil-format-card" key={format.id}>
-          <p className="section-label">{format.dates} · 2027</p><h3>{format.name}</h3><p className="brasil-format-days">{format.days}</p>
-          <div className="brasil-format-metrics"><div><strong>{format.stages.reduce((total, stage) => total + stage.distance, 0)}<small> km</small></strong><span>distância prevista</span></div><div><strong>{number(format.stages.reduce((total, stage) => total + stage.ascent, 0))}<small> m</small></strong><span>subida acumulada prevista</span></div></div>
-          <p>{format.description}</p><a href="#etapas" onClick={() => openSection("etapas")}>VER ETAPAS {format.name.toUpperCase()} ↑</a>
-        </article>)}</div>
-        <p className="brasil-content-note">{courseNotice}</p>
-        <div className="brasil-schedule-heading"><p className="section-label">PROGRAMAÇÃO PREVISTA</p><h2>DA SEXTA AO DOMINGO.</h2></div>
+        <p className="section-label">PROGRAMAÇÃO PREVISTA · BRASIL 2027</p>
+        <h2>DA SEXTA AO DOMINGO.</h2>
         <div className="brasil-stage-grid">{schedule.map((day) => <article key={day.date}><span>{day.date}</span><h3>{day.title}</h3><p>{day.description}</p></article>)}</div>
         <p className="brasil-content-note">{scheduleNotice}</p>
       </div>

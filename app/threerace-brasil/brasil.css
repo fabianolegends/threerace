@@ -220,6 +220,30 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-kit-dialog-header h3 { margin:0; font-size:1rem; font-weight:650; }
 .brasil-kit-dialog-header button { min-height:44px; padding:10px 16px; border:1px solid var(--br-line); background:var(--br-sand); color:var(--br-deep); cursor:pointer; font-size:.875rem; white-space:nowrap; }
 .brasil-kit-dialog > img { display:block; width:100%; height:min(72dvh,820px); object-fit:contain; }
+/* Ultra e Sport têm prioridade logo após a abertura. */
+.brasil-modalities { position:relative; z-index:3; background:var(--br-sand); padding-bottom:44px; border-bottom:1px solid var(--br-line); }
+.brasil-modalities-inner { position:relative; top:-76px; margin-bottom:-76px; }
+.brasil-choice-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.brasil-choice-card { display:flex; flex-direction:column; padding:36px; border:1px solid var(--br-line); border-radius:3px; color:var(--br-ink); background:var(--br-paper); box-shadow:0 16px 28px #30251f12; }
+.brasil-choice-date { margin:0 0 20px; font-size:.875rem; font-weight:600; letter-spacing:.06em; color:var(--br-deep); }
+.brasil-choice-heading { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.brasil-choice-heading h2 { margin:0; color:var(--br-deep); font-size:clamp(2.6rem,4.8vw,4rem); font-weight:800; letter-spacing:-.05em; line-height:1; text-transform:uppercase; }
+.brasil-choice-heading > span { padding:9px 12px; border:1px solid var(--br-line); font-size:.875rem; font-weight:700; letter-spacing:.08em; white-space:nowrap; }
+.brasil-choice-description { margin:24px 0; color:var(--br-muted); font-size:1rem; line-height:1.7; }
+.brasil-choice-metrics { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:auto; padding:24px 0; border-block:1px solid var(--br-line); }
+.brasil-choice-metrics strong { display:block; font-size:2.5rem; font-weight:750; letter-spacing:-.04em; line-height:1.25; }
+.brasil-choice-metrics small { font-size:1rem; font-weight:550; }
+.brasil-choice-metrics span { display:block; margin-top:6px; color:var(--br-muted); font-size:.875rem; line-height:1.5; }
+.brasil-choice-actions { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px 24px; padding-top:22px; }
+.brasil-choice-actions a { display:inline-flex; align-items:center; gap:14px; min-height:44px; border-bottom:1px solid currentColor; color:var(--br-deep); font-size:.875rem; font-weight:700; letter-spacing:.035em; }
+.brasil-choice-actions a:hover { text-decoration:underline; text-underline-offset:5px; }
+.brasil-choice-ultra { background:var(--br-terracotta); border-color:var(--br-terracotta); color:var(--br-paper); }
+.brasil-choice-ultra :is(.brasil-choice-date,h2,.brasil-choice-description,.brasil-choice-metrics span,.brasil-choice-actions a) { color:var(--br-paper); }
+.brasil-choice-ultra :is(.brasil-choice-heading > span,.brasil-choice-metrics) { border-color:#f5efe566; }
+.brasil-event-page .brasil-choice-ultra a:focus-visible { outline-color:var(--br-paper); }
+.brasil-modalities .brasil-content-note { max-width:960px; }
+@media(max-width:900px) { .brasil-choice-card { padding:26px; } .brasil-choice-grid { gap:18px; } .brasil-choice-metrics { gap:12px; } .brasil-choice-metrics strong { font-size:2rem; } }
+@media(max-width:700px) { .brasil-choice-grid { grid-template-columns:1fr; } .brasil-modalities-inner { top:0; margin-bottom:0; padding-top:28px; } .brasil-choice-heading h2 { font-size:3rem; } .brasil-choice-actions { gap:12px; } .brasil-choice-actions a { font-size:.8rem; } }
 .brasil-event-page :is(.uruguay-event-hero,.brasil-gallery,.brasil-expo,.brasil-closing,.brasil-piece.sock) :is(a,button):focus-visible { outline-color:var(--br-paper); }
 .brasil-event-page .original-action-cards a:focus-visible { outline-color:var(--br-deep); }
 .brasil-event-page .original-accordion .open .brasil-accordion-trigger:focus-visible,.brasil-event-page .brasil-accordion-trigger:hover:focus-visible { outline-color:var(--br-paper); }
