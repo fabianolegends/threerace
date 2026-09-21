@@ -136,7 +136,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 @media(max-width:600px) { .brasil-price-table { min-width:0; font-size:.875rem; } .brasil-price-table th,.brasil-price-table td { padding:12px 8px; } .brasil-price-table thead th,.brasil-price-table span { font-size:.75rem; } }
 
 /* A mesma linguagem do kit percorre toda a página. */
-.brasil-event-page .uruguay-event-hero { min-height:830px; color:var(--br-paper); background-color:var(--br-deep); }
+.brasil-event-page .uruguay-event-hero { min-height:830px; color:var(--br-paper); background-color:var(--br-deep); background-position:center 44%; }
 .brasil-event-page .uruguay-event-hero::before { background:none; }
 .brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(21,24,20,.68),rgba(21,24,20,.25) 50%,rgba(21,24,20,.06)),linear-gradient(0deg,rgba(154,93,73,.3),transparent 55%),linear-gradient(180deg,rgba(0,0,0,.22),transparent 25%); }
 .brasil-event-page .site-header { border-color:rgba(233,223,207,.3); }
@@ -294,7 +294,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
  .brasil-piece-caption h3 { font-size:1.1rem; }
 }
 @media(max-width:600px) {
- .brasil-event-page .uruguay-event-hero { min-height:0; padding-bottom:26px; background-position:63% center; }
+ .brasil-event-page .uruguay-event-hero { min-height:0; padding-bottom:26px; background-position:53% center; }
  .brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(21,24,20,.62),rgba(21,24,20,.38)),linear-gradient(0deg,rgba(154,93,73,.18),transparent 60%); }
  .brasil-event-page .uruguay-title-block { position:relative; inset:auto; transform:none; width:calc(100% - 32px); margin:48px auto 0; }
  .brasil-anniversary-label { margin-bottom:22px; font-size:.75rem; }

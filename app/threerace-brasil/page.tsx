@@ -76,7 +76,7 @@ export default function Brasil() {
   function openSection(id: string) { setOpenInfo(id); setMenuOpen(false); }
 
   return <main className="uruguay-event-page brasil-event-page" lang="pt-BR">
-    <section className="hero uruguay-event-hero" style={{ backgroundImage: "url(/home-hero-peloton.jpeg)" }}>
+    <section className="hero uruguay-event-hero" style={{ backgroundImage: "url(/brasil-2027/hero-pdl0485.webp)" }}>
       <header className="site-header">
         <Link className="brand" href="/" aria-label="Threerace Sports"><img className="header-tr3-logo" src="/tr3-logo-display.webp" alt="Threerace Sports" /></Link>
         <nav id="brasil-navigation" className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Navegação da edição Brasil">
