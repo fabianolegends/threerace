@@ -1,0 +1,59 @@
+.brasil-event-page { --paper:#f8f7f4; }
+.brasil-event-page :is(a,button,summary):focus-visible { outline:3px solid #ff5a00; outline-offset:5px; }
+.brasil-event-page [id] { scroll-margin-top:70px; }
+.brasil-event-page .brasil-edition-tag { font-size:.875rem; letter-spacing:.12em; font-weight:750; }
+.brasil-event-page .uruguay-title-block { margin-top:120px; }
+.brasil-event-page .uruguay-title-block .location { font-size:.875rem; line-height:1.5; }
+.brasil-hero-date { color:#fff; font-size:1.15rem; font-weight:750; letter-spacing:.13em; margin:30px 0 15px; }
+.brasil-hero-statement { font-size:1.1rem; line-height:1.6; color:#eee; }
+.brasil-event-page .original-action-cards small { font-size:.875rem; letter-spacing:.05em; }
+.brasil-event-page .brasil-facts b { font-size:clamp(1.75rem,4vw,3.25rem); line-height:1.2; }
+.brasil-event-page .brasil-facts span { font-size:.875rem; letter-spacing:.07em; }
+.brasil-accordion-heading { margin:0; }
+.brasil-accordion-trigger { display:grid; grid-template-columns:76px 1fr 68px; min-height:88px; width:100%; border:0; padding:0; align-items:center; text-align:left; background:white; color:#202020; cursor:pointer; }
+.brasil-accordion-trigger > span:nth-child(2) { padding:16px 24px; font-size:1rem; letter-spacing:.12em; font-weight:750; }
+.brasil-accordion-trigger .brasil-expand { font-size:1.8rem; color:#d54700; justify-self:center; }
+.brasil-event-page .open .brasil-accordion-trigger { background:#202020; color:white; }
+.brasil-event-page .open .brasil-expand { color:white; }
+.brasil-event-page .brasil-info-panel .official-copy { padding-bottom:32px; }
+.brasil-event-page .brasil-info-panel .official-copy p + p { margin-top:14px!important; }
+.brasil-event-page .section-label { font-size:.875rem; line-height:1.4; }
+.brasil-gallery { padding:35px 0 0; background:#202020; color:white; }
+.brasil-gallery-heading { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-bottom:24px; }
+.brasil-gallery-heading .section-label { margin:0; color:#ff8040; }
+.brasil-gallery-heading > div { display:flex; align-items:center; gap:16px; white-space:nowrap; }
+.brasil-gallery button { width:44px; height:44px; border:1px solid #777; background:transparent; color:white; cursor:pointer; font-size:1.5rem; }
+.brasil-gallery button:disabled { opacity:.3; cursor:default; }
+.brasil-gallery figure { margin:0; }
+.brasil-gallery figure img { display:block; width:100%; height:clamp(280px,50vw,580px); object-fit:cover; }
+.brasil-gallery figcaption { padding:12px 24px; text-align:right; font-size:.875rem; color:#ccc; }
+.brasil-program { background:#f0eee9; padding:90px 0; }
+.brasil-event-page :is(.brasil-program,.brasil-kit,.brasil-faq,.brasil-closing) h2 { font-size:clamp(2rem,4.5vw,3.7rem); line-height:1.06; letter-spacing:-.04em; font-weight:760; }
+.brasil-program-intro { max-width:610px; font-size:1.1rem; line-height:1.7; color:#60605a; }
+.brasil-stage-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin-top:40px; }
+.brasil-stage-grid article { border-top:3px solid #ff5a00; background:white; padding:30px; }
+.brasil-stage-grid span { font-size:.875rem; color:#bd3f00; font-weight:750; letter-spacing:.08em; }
+.brasil-stage-grid h3 { font-size:1.7rem; font-weight:750; margin:25px 0 15px; }
+.brasil-stage-grid p { font-size:1rem; line-height:1.7; }
+.brasil-stage-grid small { display:block; font-size:.875rem; color:#666; line-height:1.6; }
+.brasil-kit { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; padding:80px 0; }
+.brasil-kit h2 { margin:0; }
+.brasil-kit > p { font-size:1.1rem; line-height:1.7; color:#60605a; }
+.brasil-event-page .brasil-organizer { display:flex; flex-direction:column; gap:22px; }
+.brasil-event-page .brasil-organizer p { font-size:.875rem; }
+.brasil-event-page .brasil-organizer img { width:160px; height:auto; }
+.brasil-partners-note { text-align:center; color:#666; font-size:1rem; line-height:1.6; margin:26px 0 0; }
+.brasil-faq { display:grid; grid-template-columns:1fr 1.3fr; gap:80px; padding:80px 0; }
+.brasil-event-page .button { font-size:.875rem; letter-spacing:.05em; padding:17px 24px; }
+.brasil-faq details { border-top:1px solid #bbb; padding:24px 0; }
+.brasil-faq summary { cursor:pointer; font-size:1.1rem; font-weight:650; line-height:1.5; }
+.brasil-faq details p { color:#60605a; font-size:1rem; line-height:1.7; margin:16px 0 0; }
+.brasil-closing { background:#202020; color:white; padding:90px 0; }
+.brasil-closing .section-label { color:#ff8040; }
+.brasil-closing p { font-size:1.1rem; }
+@media(min-width:901px) { .brasil-event-page .main-nav { position:static; transform:none; margin-left:auto; margin-right:30px; gap:24px; } .brasil-event-page .header-actions { margin-left:0; } .brasil-event-page .main-nav a { font-size:.875rem; letter-spacing:.08em; } }
+@media(max-width:900px) { .brasil-stage-grid { grid-template-columns:1fr; } .brasil-kit,.brasil-faq { grid-template-columns:1fr; gap:30px; } .brasil-event-page .uruguay-title-block { margin-top:100px; } .brasil-event-page .original-action-cards small { font-size:.875rem; letter-spacing:0; } }
+@media(max-width:600px) { .brasil-event-page .uruguay-title-block { margin:0; top:49%; } .brasil-event-page .uruguay-title-block .location { font-size:.875rem; letter-spacing:.08em; } .brasil-event-page .uruguay-title-block h1 { line-height:.95; } .brasil-event-page .uruguay-title-block h1 small { font-size:.34em; line-height:1.3; } .brasil-hero-date { margin-top:24px; font-size:1rem; letter-spacing:.08em; } .brasil-hero-statement { font-size:1rem; } .brasil-event-page .brasil-edition-tag { font-size:.875rem; } .brasil-event-page .brasil-facts { gap:6px; width:calc(100% - 24px); } .brasil-event-page .brasil-facts .countdown-unit { padding:0 4px; } .brasil-event-page .brasil-facts b { font-size:1.4rem; } .brasil-event-page .brasil-facts span { display:block; margin-top:6px; font-size:.875rem; letter-spacing:0; line-height:1.4; } .brasil-accordion-trigger { grid-template-columns:55px 1fr 44px; min-height:76px; } .brasil-accordion-trigger > span:nth-child(2) { font-size:.9rem; letter-spacing:.04em; padding:12px; } .brasil-event-page .brasil-info-panel .official-copy { padding:24px; } .brasil-program,.brasil-closing { padding:60px 0; } .brasil-gallery-heading { gap:10px; } .brasil-gallery-heading .section-label { max-width:150px; } .brasil-gallery-heading > div { gap:10px; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .brasil-event-page * { transition:none!important; } }
+
+.brasil-event-page .brasil-accordion-trigger:focus-visible { outline:3px solid #ff5a00; outline-offset:-4px; }

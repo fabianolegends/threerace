@@ -379,3 +379,14 @@ footer { color: #fff; background: #071116; }
   .original-support { gap: 12px; }
   .original-support img { width: 28%; }
 }
+
+/* Workspace isolated from the public site. */
+.workspace-notice { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:12px max(16px, calc((100% - 1180px)/2)); background:#ff5a00; color:#161616; font-size:.875rem; line-height:1.4; }
+.workspace-notice strong { font-weight:800; letter-spacing:.03em; }
+.workspace-notice nav { display:flex; gap:20px; }
+.workspace-notice a { text-decoration:underline; text-underline-offset:3px; }
+.workspace-footer { padding:45px 24px; text-align:center; background:#151515; color:#eee; font-size:1rem; line-height:1.7; }
+.workspace-footer strong { letter-spacing:.12em; }
+.workspace-footer p { margin:10px 0; }
+.workspace-footer a { text-decoration:underline; }
+@media(max-width:600px) { .workspace-notice { flex-direction:column; align-items:flex-start; gap:6px; } }

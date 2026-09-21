@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { CookieConsent } from "./components/cookie-consent";
-import { GlobalSiteFooter } from "./components/global-site-footer";
 import "./globals.css";
 import "./corporate.css";
 
@@ -71,11 +69,11 @@ export const metadata: Metadata = {
     images: ["/home-hero-peloton.jpeg"],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
     googleBot: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,
@@ -122,9 +120,9 @@ export default function RootLayout({
             __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
           }}
         />
+        <aside className="workspace-notice" aria-label="Ambiente de desenvolvimento"><strong>VERSÃO DE TRABALHO · NÃO PUBLICADA</strong><nav aria-label="Páginas de trabalho"><a href="/threerace-brasil">Brasil</a><a href="/threerace-uruguay">Referência Uruguai</a></nav></aside>
         {children}
-        <GlobalSiteFooter />
-        <CookieConsent />
+        <footer className="workspace-footer"><strong>THREERACE SPORTS</strong><p>Ambiente de desenvolvimento da edição Brasil 2027.</p><a href="mailto:inscricoes@threerace.com.br">inscricoes@threerace.com.br</a></footer>
         <a className="global-top-button" href="#top" aria-label="Voltar ao topo">
           <span aria-hidden="true">↑</span>
           TOPO
