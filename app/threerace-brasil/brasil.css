@@ -265,6 +265,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
   mask-position:right -26px top -20px;
   opacity:.13;
 }
+.brasil-choice-card::before { transform:scaleX(-1); -webkit-mask-position:left -42px bottom -18px; mask-position:left -42px bottom -18px; }
 .brasil-choice-ultra::before { background:var(--br-paper); opacity:.17; }
 .brasil-kit-collection::before { -webkit-mask-size:520px auto; mask-size:520px auto; -webkit-mask-position:right -70px top -55px; mask-position:right -70px top -55px; opacity:.11; }
 .brasil-closing::before { background:var(--br-sand); -webkit-mask-size:530px auto; mask-size:530px auto; -webkit-mask-position:right 6% bottom -220px; mask-position:right 6% bottom -220px; opacity:.18; }
