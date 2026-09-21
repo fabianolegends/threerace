@@ -138,17 +138,17 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 /* A mesma linguagem do kit percorre toda a página. */
 .brasil-event-page .uruguay-event-hero { min-height:830px; color:var(--br-paper); background-color:var(--br-deep); background-position:center 44%; }
 .brasil-event-page .uruguay-event-hero::before { background:none; }
-.brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(21,24,20,.68),rgba(21,24,20,.25) 50%,rgba(21,24,20,.06)),linear-gradient(0deg,rgba(154,93,73,.3),transparent 55%),linear-gradient(180deg,rgba(0,0,0,.22),transparent 25%); }
+.brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(15,18,15,.86),rgba(15,18,15,.74) 42%,rgba(15,18,15,.38) 68%,rgba(15,18,15,.12)),linear-gradient(0deg,rgba(15,18,15,.18),transparent 55%),linear-gradient(180deg,rgba(0,0,0,.3),transparent 25%); }
 .brasil-event-page .site-header { border-color:rgba(233,223,207,.3); }
 .brasil-event-page .main-nav a { color:var(--br-paper); }
 .brasil-event-page .main-nav a:hover { color:var(--br-sand); }
-.brasil-event-page .uruguay-title-block { margin-top:74px; }
-.brasil-event-page .uruguay-title-block h1 { color:var(--br-paper); text-shadow:none; }
-.brasil-event-page .uruguay-title-block .location { color:var(--br-sand); }
+.brasil-event-page .uruguay-title-block { margin-top:74px; text-shadow:0 2px 10px rgba(0,0,0,.45); }
+.brasil-event-page .uruguay-title-block h1 { color:var(--br-paper); text-shadow:0 2px 18px rgba(0,0,0,.35); }
+.brasil-event-page .uruguay-title-block .location { color:var(--br-paper); }
 .brasil-anniversary-label { display:inline-block; margin:0 0 30px; padding:8px 12px; border:1px solid rgba(233,223,207,.5); color:var(--br-sand); font-size:.875rem; font-weight:650; letter-spacing:.16em; }
-.brasil-hero-motto { margin:24px 0 12px; color:var(--br-sand); font-size:.875rem; letter-spacing:.18em; font-weight:650; }
+.brasil-hero-motto { margin:24px 0 12px; color:var(--br-paper); font-size:.875rem; letter-spacing:.18em; font-weight:650; }
 .brasil-hero-date { color:var(--br-paper); }
-.brasil-hero-statement { color:var(--br-sand); }
+.brasil-hero-statement { color:var(--br-paper); }
 .brasil-hero-kit-link { display:inline-flex; align-items:center; gap:30px; margin-top:12px; padding:14px 0; border-bottom:1px solid var(--br-sand); color:var(--br-paper); font-size:.875rem; font-weight:700; letter-spacing:.08em; }
 .brasil-hero-kit-link span { font-size:1.3rem; }
 .brasil-event-page .original-action-cards a { background:var(--br-paper); border:1px solid var(--br-line); border-radius:3px; box-shadow:0 12px 24px #30251f16; }
@@ -295,7 +295,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 }
 @media(max-width:600px) {
  .brasil-event-page .uruguay-event-hero { min-height:0; padding-bottom:26px; background-position:53% center; }
- .brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(21,24,20,.62),rgba(21,24,20,.38)),linear-gradient(0deg,rgba(154,93,73,.18),transparent 60%); }
+ .brasil-event-page .uruguay-event-hero::after { background:linear-gradient(90deg,rgba(15,18,15,.8),rgba(15,18,15,.66)),linear-gradient(0deg,rgba(15,18,15,.12),transparent 60%); }
  .brasil-event-page .uruguay-title-block { position:relative; inset:auto; transform:none; width:calc(100% - 32px); margin:48px auto 0; }
  .brasil-anniversary-label { margin-bottom:22px; font-size:.75rem; }
  .brasil-event-page .uruguay-title-block h1 { font-size:clamp(2.75rem,14vw,4.55rem); }
