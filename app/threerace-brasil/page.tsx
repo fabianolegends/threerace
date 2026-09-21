@@ -14,6 +14,12 @@ function DocumentIcon({ kind = "document" }: { kind?: string }) {
 
 const number = (value: number) => value.toLocaleString("pt-BR");
 
+function RaceMetricIcon({ kind }: { kind: "distance" | "ascent" }) {
+  return <svg className="brasil-choice-metric-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+    {kind === "distance" ? <><circle cx="5" cy="5" r="2" /><circle cx="19" cy="19" r="2" /><path d="M7 5h9a4 4 0 0 1 0 8H8a3 3 0 0 0 0 6h9" /></> : <><path d="m2 20 8-16 5 9 3-5 4 12H2Z" /><path d="m7 10 3 2 3-2" /></>}
+  </svg>;
+}
+
 function PricesTable() {
   return <div className="brasil-panel-extra">
     <div className="brasil-table-scroll" role="region" aria-label="Valores das inscrições" tabIndex={0}>
@@ -90,7 +96,7 @@ export default function Brasil() {
           <p className="brasil-choice-date">{format.dates} · 2027</p>
           <div className="brasil-choice-heading"><h2 id={`modalidade-${format.id}`}>{format.name}</h2><span>{format.stages.length} DIAS</span></div>
           <p className="brasil-choice-description">{format.description}</p>
-          <div className="brasil-choice-metrics"><div><strong>{format.stages.reduce((total, stage) => total + stage.distance, 0)}<small> km</small></strong><span>distância prevista</span></div><div><strong>{number(format.stages.reduce((total, stage) => total + stage.ascent, 0))}<small> m</small></strong><span>subida acumulada prevista</span></div></div>
+          <div className="brasil-choice-metrics"><div><div className="brasil-choice-value"><RaceMetricIcon kind="distance" /><strong>{format.stages.reduce((total, stage) => total + stage.distance, 0)}<small> km</small></strong></div><span>distância prevista</span></div><div><div className="brasil-choice-value"><RaceMetricIcon kind="ascent" /><strong>{number(format.stages.reduce((total, stage) => total + stage.ascent, 0))}<small> m</small></strong></div><span>subida acumulada prevista</span></div></div>
           <div className="brasil-choice-actions"><a href="#etapas" aria-label={`Ver etapas da ${format.name}`} onClick={() => openSection("etapas")}>VER ETAPAS <span aria-hidden="true">↗</span></a><a href="#inscricoes" aria-label={`Valores e lotes da ${format.name}`} onClick={() => openSection("inscricoes")}>VALORES E LOTES <span aria-hidden="true">↗</span></a></div>
         </article>)}</div>
         <p className="brasil-content-note">{courseNotice}</p>
