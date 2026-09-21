@@ -10,6 +10,12 @@ export const brasilEvent = {
   introduction: "Mountain bike por etapas, com dois formatos para escolher seu desafio: Ultra, em três dias, e Sport, em dois dias.",
 };
 
+export const priorityCampaign = {
+  openingDate: "20/10/2026",
+  openingLabel: "20 de outubro de 2026",
+  durationHours: 48,
+};
+
 // Localização conferida na ficha do Google Maps (CID 5942198016919702).
 // Logradouro/bairro: Prefeitura de São Francisco de Paula, notícia 2536, 09/06/2026.
 // O número diverge entre as duas fontes; o mapa e as rotas apontam para o mesmo local.
@@ -49,6 +55,11 @@ export const courseNotice = "Os percursos e desníveis das duas modalidades são
 type CompetitionCategory = { name: string; age: string; composition?: string };
 type CategoryGroup = { title: string; categories: CompetitionCategory[]; note?: string };
 type CompetitionFormat = { id: string; name: string; description: string; groups: CategoryGroup[]; grouping: string[] };
+
+export function competitionCategoryId(format: string, group: string, category: string): string {
+  const slug = (text: string) => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return `${format}.${slug(group)}.${slug(category)}`;
+}
 
 const maleAgeCategories: CompetitionCategory[] = [
   { name: "Sub-23", age: "19 a 22 anos" },
@@ -119,7 +130,7 @@ export const registrationPrices = [
   { format: "Sport", lot: "Lote 2", withoutJersey: 599, withJersey: 699 },
   { format: "Sport", lot: "Lote 3", withoutJersey: 729, withJersey: 829 },
 ];
-export const registrationNotice = "Abertura das inscrições, períodos dos lotes, formas de pagamento e eventuais taxas serão informados junto ao canal oficial de inscrição.";
+export const registrationNotice = "A lista prioritária terá acesso às inscrições a partir de 20/10/2026, por 48 horas, com valor diferenciado. Horário de abertura, períodos dos demais lotes, formas de pagamento e eventuais taxas serão informados no canal oficial de inscrição.";
 export const scheduleNotice = "Os horários de credenciamento, largadas, premiações e funcionamento da expo serão divulgados na programação oficial.";
 export const schedule = [
   { date: "SEXTA · 02 ABR", title: "PRÓLOGO ULTRA", description: "Credenciamento Ultra, prólogo em baterias e programação da arena." },

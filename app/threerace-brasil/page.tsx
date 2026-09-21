@@ -5,6 +5,7 @@ import Link from "next/link";
 import KitCollection from "./kit-collection";
 import AccordionIcon from "./accordion-icon";
 import CategoryTables from "./category-tables";
+import PrioritySignup from "./priority-signup";
 import { EventVenue, RegulationDocument } from "./event-resources";
 import { brasilEvent, information, raceFormats, registrationPrices, registrationNotice, courseNotice, schedule, scheduleNotice, expo, faqs } from "./content";
 import "./brasil.css";
@@ -98,7 +99,7 @@ export default function Brasil() {
         <p className="brasil-hero-date">{brasilEvent.date}</p>
         <p className="brasil-hero-motto">MONTANHAS, PESSOAS, HISTÓRIAS.</p>
         <p className="brasil-hero-statement">{brasilEvent.introduction}</p>
-        <a className="brasil-hero-kit-link" href="#kit">CONHEÇA O KIT 2027 <span aria-hidden="true">↘</span></a>
+        <PrioritySignup />
       </div>
     </section>
     <section className="brasil-modalities" id="modalidades" aria-label="Modalidades da Threerace Brasil">

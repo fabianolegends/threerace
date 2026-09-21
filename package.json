@@ -9,7 +9,9 @@
     "dev": "WATCHPACK_POLLING=true next dev --webpack --hostname 127.0.0.1",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint . --ignore-pattern .next"
+    "lint": "eslint . --ignore-pattern .next",
+    "test:priority": "node --test tests/priority-list-store.test.ts",
+    "priority:export": "node --env-file-if-exists=.env.local scripts/export-priority-list.ts"
   },
   "dependencies": {
     "next": "16.2.6",

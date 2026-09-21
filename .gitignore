@@ -29,6 +29,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -41,3 +42,12 @@ next-env.d.ts
 /.vinext/
 /outputs/
 /work/
+
+# Private priority-list registrations and exports
+/data/
+/.data/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+/exports/
