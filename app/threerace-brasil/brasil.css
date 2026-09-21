@@ -186,24 +186,26 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-kit-colors { display:flex; gap:10px; align-items:center; font-size:.75rem!important; font-weight:700; letter-spacing:.09em; }
 .brasil-kit-colors span { width:18px; height:18px; border-radius:50%; background:var(--br-terracotta); }
 .brasil-kit-colors span:nth-of-type(2) { background:var(--br-sand); border:1px solid var(--br-line); margin-left:16px; }
+.brasil-kit-montage { margin:0 0 48px; }
+.brasil-kit-montage-expand { position:relative; display:block; width:100%; padding:0; border:1px solid var(--br-line); border-radius:20px; background:var(--br-sand); cursor:zoom-in; }
+.brasil-kit-montage-expand img { display:block; width:100%; height:auto; border-radius:inherit; }
+.brasil-kit-montage-expand .brasil-expand-label { padding:10px 14px; border:1px solid var(--br-line); border-radius:24px; background:var(--br-paper); }
+.brasil-kit-montage figcaption { margin-top:14px; color:var(--br-muted); font-size:.875rem; line-height:1.6; text-align:center; }
 .brasil-kit-pieces { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px; }
 .brasil-piece { min-width:0; }
 .brasil-piece-art { position:relative; background:var(--br-sand); }
+.brasil-piece.sheet .brasil-piece-art { border:1px solid var(--br-line); border-radius:16px; }
+.brasil-piece.sheet .brasil-piece-expand { padding:16px 0 42px; }
+.brasil-piece.sheet .brasil-piece-expand img { height:auto; aspect-ratio:3/2; object-fit:contain; }
 .brasil-piece-status { display:block; padding:20px 20px 0; color:var(--br-deep); font-size:.75rem; font-weight:700; letter-spacing:.07em; min-height:50px; }
 .brasil-piece-expand { position:relative; display:block; width:100%; border:0; background:transparent; padding:18px 20px 42px; cursor:zoom-in; }
 .brasil-piece-expand img { display:block; width:100%; height:350px; object-fit:contain; transition:transform .2s ease; }
 .brasil-piece-expand:hover img { transform:scale(1.025); }
 .brasil-expand-label { position:absolute; right:18px; bottom:14px; font-size:.75rem; font-weight:700; letter-spacing:.06em; color:var(--br-deep); }
-.brasil-piece.sock .brasil-piece-art { background:#30251f; }
-.brasil-piece.sock .brasil-piece-status,.brasil-piece.sock .brasil-expand-label { color:var(--br-paper); }
-.brasil-piece.sock .brasil-piece-expand { padding:0 0 38px; }
-.brasil-piece.sock .brasil-piece-expand img { height:368px; }
 .brasil-piece-caption { padding:22px 0; border-bottom:1px solid var(--br-line); }
 .brasil-piece-caption h3 { font-size:1.25rem; font-weight:700; margin:0 0 8px; letter-spacing:-.025em; }
 .brasil-piece-caption p { font-size:1rem; line-height:1.6; color:var(--br-muted); margin:0; }
-.brasil-piece-views { display:flex; gap:8px; margin-top:18px; }
-.brasil-piece-views button { min-height:42px; padding:10px 18px; border:1px solid var(--br-line); background:transparent; color:var(--br-deep); font-size:.875rem; cursor:pointer; }
-.brasil-piece-views button[aria-pressed="true"] { border-color:var(--br-terracotta); background:var(--br-terracotta); color:var(--br-paper); }
+.brasil-piece-caption .brasil-piece-view-label { margin-top:14px; font-size:.75rem; font-weight:650; letter-spacing:.04em; color:var(--br-deep); }
 .brasil-kit-inclusions { display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-top:40px; padding:32px; background:var(--br-sand); border-left:3px solid var(--br-terracotta); }
 .brasil-kit-inclusions h3 { font-size:1.3rem; font-weight:700; margin:0 0 16px; color:var(--br-deep); }
 .brasil-kit-inclusions ul { padding-left:20px; margin:0; list-style:disc; }
@@ -280,11 +282,11 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 @media(max-width:900px) { .brasil-choice-card { padding:26px; } .brasil-choice-grid { gap:18px; } }
 @media(max-width:700px) { .brasil-choice-grid { grid-template-columns:1fr; } .brasil-modalities-inner { top:0; margin-bottom:0; padding-top:28px; } .brasil-choice-heading h2 { font-size:3rem; } .brasil-choice-actions { gap:12px; } .brasil-choice-actions a { font-size:.8rem; } }
 @media(max-width:380px) { .brasil-choice-card { padding:22px; } .brasil-choice-heading { gap:12px; } .brasil-choice-heading h2 { font-size:2.4rem; } .brasil-choice-metrics strong { font-size:1.5rem; } .brasil-choice-metrics small { font-size:.875rem; } .brasil-choice-value { gap:6px; } .brasil-choice-metric-icon { width:20px; height:20px; } }
-.brasil-event-page :is(.uruguay-event-hero,.brasil-gallery,.brasil-expo,.brasil-closing,.brasil-piece.sock) :is(a,button):focus-visible { outline-color:var(--br-paper); }
+.brasil-event-page :is(.uruguay-event-hero,.brasil-gallery,.brasil-expo,.brasil-closing) :is(a,button):focus-visible { outline-color:var(--br-paper); }
 .brasil-event-page .original-action-cards a:focus-visible { outline-color:var(--br-deep); }
 .brasil-event-page .original-accordion .open .brasil-accordion-trigger:focus-visible,.brasil-event-page .brasil-accordion-trigger:hover:focus-visible { outline-color:var(--br-paper); }
 @media(min-width:901px) { .brasil-event-page .main-nav { gap:18px; margin-right:22px; } .brasil-event-page .main-nav a { font-size:.8rem; letter-spacing:.06em; } }
-@media(max-width:1050px) { .brasil-piece-expand img { height:280px; } .brasil-piece.sock .brasil-piece-expand img { height:298px; } }
+@media(max-width:1050px) { .brasil-piece-expand img { height:280px; } }
 @media(max-width:900px) {
  .brasil-event-page .main-nav { background:var(--br-deep); }
  .brasil-kit-intro,.brasil-kit-inclusions,.brasil-collection-heading { gap:28px; }
@@ -292,7 +294,6 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
  .brasil-piece-status { padding:16px 12px 0; font-size:.75rem; line-height:1.5; }
  .brasil-piece-expand { padding-inline:12px; }
  .brasil-piece-expand img { height:230px; }
- .brasil-piece.sock .brasil-piece-expand img { height:248px; }
  .brasil-piece-caption h3 { font-size:1.1rem; }
  .brasil-collection-pieces .brasil-piece-expand img { height:170px; }
 }
@@ -319,16 +320,16 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
  .brasil-kit-collection { padding:60px 0; }
  .brasil-kit-intro,.brasil-kit-inclusions,.brasil-collection-heading { grid-template-columns:1fr; gap:24px; }
  .brasil-kit-intro { margin-bottom:30px; }
+ .brasil-kit-montage { margin-bottom:34px; }
+ .brasil-kit-montage-expand .brasil-expand-label { right:10px; bottom:10px; padding:8px 10px; }
  .brasil-kit-pieces { grid-template-columns:1fr; gap:34px; }
  .brasil-piece-status { padding:20px 20px 0; font-size:.75rem; }
  .brasil-piece-expand img { height:330px; }
- .brasil-piece.sock .brasil-piece-expand img { height:348px; }
  .brasil-piece-caption { padding-top:20px; }
  .brasil-piece-caption h3 { font-size:1.25rem; }
  .brasil-kit-inclusions { margin-top:32px; padding:24px; }
  .brasil-collection-heading { margin-top:60px; }
  .brasil-collection-pieces .brasil-piece-expand img { height:270px; }
- .brasil-collection-pieces .plate .brasil-piece-expand img { height:210px; }
  .brasil-kit-dialog { padding:14px; }
  .brasil-kit-dialog-header { gap:12px; }
  .brasil-kit-dialog-header h3 { font-size:.875rem; }
