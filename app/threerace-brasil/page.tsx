@@ -8,10 +8,12 @@ import CategoryTables from "./category-tables";
 import PrioritySignup from "./priority-signup";
 import RaceCountdown from "./race-countdown";
 import { EventVenue, RegulationDocument } from "./event-resources";
-import { brasilEvent, information, raceFormats, registrationPrices, registrationNotice, jerseyOption, courseNotice, schedule, scheduleNotice, expo, faqs } from "./content";
+import { brasilEvent, information, raceFormats, registrationPrices, registrationPayment, registrationNotice, jerseyOption, courseNotice, schedule, scheduleNotice, expo, faqs } from "./content";
 import "./brasil.css";
 
 const number = (value: number) => value.toLocaleString("pt-BR");
+const currency = (value: number) => value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const lotDate = (date: string) => date.split("-").reverse().join("/");
 
 function RaceMetricIcon({ kind }: { kind: "distance" | "ascent" }) {
   return <svg className="brasil-choice-metric-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
@@ -23,13 +25,19 @@ function PricesTable() {
   return <div className="brasil-panel-extra">
     <div className="brasil-table-scroll" role="region" aria-label="Valores das inscrições" tabIndex={0}>
       <table className="brasil-data-table brasil-price-table">
-        <caption>Valores por atleta. Camiseta casual dry e meia de ciclismo incluídas.</caption>
-        <thead><tr><th scope="col">Modalidade e lote</th><th scope="col">Inscrição</th></tr></thead>
-        <tbody>{registrationPrices.map((price) => <tr key={`${price.format}-${price.lot}`}><th scope="row"><strong>{price.format}</strong><span>{price.lot}</span></th><td>R$ {price.price}</td></tr>)}</tbody>
+        <caption>Inscrição por atleta, sem a jersey opcional. Taxas já consideradas nos valores abaixo.</caption>
+        <thead><tr><th scope="col">Modalidade e lote</th><th scope="col">Período ou limite</th><th scope="col">Pix <span>Taxa {registrationPayment.pixFeePercent}%</span></th><th scope="col">Outros pagamentos <span>Taxa {registrationPayment.feePercent}%</span></th></tr></thead>
+        <tbody>{registrationPrices.map((price) => <tr key={`${price.format}-${price.lot}`}>
+          <th scope="row"><strong>{price.format}</strong><span>{price.lot}</span></th>
+          <td className="brasil-price-period"><time dateTime={price.startDate}>{lotDate(price.startDate)}</time> a <time dateTime={price.endDate}>{lotDate(price.endDate)}</time><span>ou {price.vacancies} vagas</span></td>
+          <td className="brasil-price-amount"><span className="brasil-price-mobile-label" aria-hidden="true">Pix · taxa 0%</span>{currency(price.price)}</td>
+          <td className="brasil-price-amount"><span className="brasil-price-mobile-label" aria-hidden="true">Outros · taxa 10%</span>{currency(Math.round(price.price * (100 + registrationPayment.feePercent)) / 100)}</td>
+        </tr>)}</tbody>
       </table>
     </div>
-    <p className="brasil-jersey-note">{jerseyOption.description}</p>
+    <p className="brasil-payment-note">{registrationPayment.description}</p>
     <p className="brasil-content-note">{registrationNotice}</p>
+    <p className="brasil-jersey-note">{jerseyOption.description}</p>
   </div>;
 }
 

@@ -32,4 +32,4 @@ Os testes usam apenas dados fictícios e bancos temporários isolados: persistê
 
 ## Campanha
 
-A página considera 20/10/2026 o início das 48 horas prioritárias. A data é informação de campanha; o cadastro não faz cobrança, reserva inscrição ou dispara abertura automática. O horário e o canal de compra serão definidos pela organização.
+A campanha prioritária vai de 20/10/2026 a 22/10/2026, ou até atingir 100 vagas Ultra e 50 vagas Sport por modalidade, o que ocorrer primeiro. Os lotes seguintes vão de 23/10/2026 a 10/12/2026 (100 Ultra e 50 Sport) e de 11/12/2026 a 15/03/2027 (50 Ultra e 50 Sport), também sujeitos ao limite de vagas. Todos os lotes têm taxa de 10%, com taxa de 0% no Pix. Esses dados são informações da campanha; o cadastro de interesse não faz cobrança, reserva vaga, desconta disponibilidade nem dispara abertura automática. Os horários e o canal de compra serão definidos pela organização.

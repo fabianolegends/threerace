@@ -65,7 +65,7 @@ export default function PrioritySignup() {
     <aside className="brasil-priority-callout" id="lista-prioritaria" aria-labelledby="priority-callout-title">
       <div>
         <h2 id="priority-callout-title">Lista prioritária</h2>
-        <p><strong>ACESSO A PARTIR DE {priorityCampaign.openingDate}</strong> — {priorityCampaign.durationHours} horas de acesso prioritário às inscrições, com valor diferenciado.</p>
+        <p><strong>DE {priorityCampaign.openingDate} A {priorityCampaign.closingDate}</strong> — valor diferenciado, até o limite de {priorityCampaign.vacancyLabel}.</p>
       </div>
       <button type="button" className="brasil-priority-open" onClick={() => dialogRef.current?.showModal()} aria-haspopup="dialog">QUERO ME CADASTRAR <span aria-hidden="true">↗</span></button>
     </aside>
@@ -76,7 +76,7 @@ export default function PrioritySignup() {
       </div>
       <div className="brasil-priority-dialog-body">
         <h2 id="priority-title">Entre na lista prioritária.</h2>
-        <p id="priority-description">Acesso às inscrições em <strong>{priorityCampaign.openingLabel}</strong>. Você terá <strong>{priorityCampaign.durationHours} horas com valor diferenciado</strong>.</p>
+        <p id="priority-description">Acesso prioritário de <strong>{priorityCampaign.openingDate} a {priorityCampaign.closingDate}</strong>, com valor diferenciado. Limite de <strong>{priorityCampaign.vacancyLabel}</strong>, ou até a data final, o que ocorrer primeiro.</p>
         {saved ? <div className="brasil-priority-success" role="status">
           <span aria-hidden="true">✓</span>
           <h3 ref={successRef} tabIndex={-1}>Seu interesse está registrado!</h3>

@@ -145,6 +145,11 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-price-table strong,.brasil-price-table span { display:block; }
 .brasil-price-table td { white-space:nowrap; font-weight:700; }
 .brasil-price-table span { font-size:.875rem; }
+.brasil-price-table .brasil-price-period { white-space:normal; font-weight:500; }
+.brasil-price-period time { white-space:nowrap; }
+.brasil-price-period span { margin-top:6px; color:var(--br-deep); font-weight:700; }
+.brasil-price-table .brasil-price-mobile-label { display:none; }
+.brasil-payment-note { margin:22px 0 0; color:var(--br-deep); font-size:1rem; font-weight:700; line-height:1.65; }
 .brasil-content-note { margin:22px 0 0; font-size:1rem; line-height:1.75; color:var(--br-muted); }
 .brasil-course-table + .brasil-course-table { margin-top:44px; padding-top:35px; border-top:1px solid var(--br-line); }
 .brasil-course-table > h4 { font-size:1.3rem; font-weight:750; margin:0 0 12px; }
@@ -171,6 +176,18 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 @media(max-width:900px) { .brasil-format-grid,.brasil-expo-grid { grid-template-columns:1fr; } .brasil-expo-grid { gap:24px; } }
 @media(max-width:600px) { .brasil-panel-extra { padding:0 24px 28px; } .brasil-data-table th,.brasil-data-table td { padding:12px; } .brasil-format-card { padding:24px; } .brasil-format-metrics strong { font-size:1.8rem; } .brasil-expo { padding:60px 0; } }
 @media(max-width:600px) { .brasil-price-table { min-width:0; font-size:.875rem; } .brasil-price-table th,.brasil-price-table td { padding:12px 8px; } .brasil-price-table thead th,.brasil-price-table span { font-size:.75rem; } }
+@media(max-width:700px) {
+ .brasil-price-table { min-width:0; }
+ .brasil-price-table thead { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip-path:inset(50%); }
+ .brasil-price-table tbody { display:block; }
+ .brasil-price-table tbody tr { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); padding:18px 0; border-bottom:1px solid var(--br-line); }
+ .brasil-price-table tbody th,.brasil-price-table tbody td { border:0; padding:8px 12px; }
+ .brasil-price-table tbody th { grid-column:1 / -1; }
+ .brasil-price-table tbody th strong { font-size:1.2rem; }
+ .brasil-price-table .brasil-price-period { grid-column:1 / -1; }
+ .brasil-price-table .brasil-price-mobile-label { display:block; margin-bottom:6px; color:var(--br-muted); font-size:.75rem; font-weight:500; white-space:normal; }
+ .brasil-price-table .brasil-price-amount { font-size:1.05rem; }
+}
 
 /* A mesma linguagem do kit percorre toda a página. */
 .brasil-event-page .uruguay-event-hero { min-height:830px; color:var(--br-paper); background-color:var(--br-deep); background-position:center 44%; }

@@ -12,8 +12,8 @@ export const brasilEvent = {
 
 export const priorityCampaign = {
   openingDate: "20/10/2026",
-  openingLabel: "20 de outubro de 2026",
-  durationHours: 48,
+  closingDate: "22/10/2026",
+  vacancyLabel: "100 vagas Ultra e 50 vagas Sport",
 };
 
 // Localização conferida na ficha do Google Maps (CID 5942198016919702).
@@ -51,7 +51,7 @@ export const raceFormats = [
 
 export const courseNotice = "Os percursos e desníveis das duas modalidades são previstos e poderão receber ajustes após a validação técnica. Mapas, características do terreno e regras da competição serão apresentados nos materiais oficiais.";
 
-// Regulamento Brasil 2027 · Revisão 03, 21/09/2026 · itens 2 e 4 (páginas 1–4).
+// Regulamento Brasil 2027 · Revisão 04, 21/09/2026 · itens 2 e 4 (páginas 1–4).
 type CompetitionCategory = { name: string; age: string; composition?: string };
 type CategoryGroup = { title: string; categories: CompetitionCategory[]; note?: string };
 type CompetitionFormat = { id: string; name: string; description: string; groups: CategoryGroup[]; grouping: string[] };
@@ -122,18 +122,23 @@ export const competitionCategories: CompetitionFormat[] = [
 ];
 
 export const registrationPrices = [
-  { format: "Ultra", lot: "Lote 1 · lista prioritária", price: 599 },
-  { format: "Ultra", lot: "Lote 2", price: 699 },
-  { format: "Ultra", lot: "Lote 3", price: 829 },
-  { format: "Sport", lot: "Lote 1 · lista prioritária", price: 499 },
-  { format: "Sport", lot: "Lote 2", price: 599 },
-  { format: "Sport", lot: "Lote 3", price: 729 },
+  { format: "Ultra", lot: "Lote prioritário", price: 599, startDate: "2026-10-20", endDate: "2026-10-22", vacancies: 100 },
+  { format: "Ultra", lot: "Lote 2", price: 699, startDate: "2026-10-23", endDate: "2026-12-10", vacancies: 100 },
+  { format: "Ultra", lot: "Lote 3", price: 829, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
+  { format: "Sport", lot: "Lote prioritário", price: 499, startDate: "2026-10-20", endDate: "2026-10-22", vacancies: 50 },
+  { format: "Sport", lot: "Lote 2", price: 599, startDate: "2026-10-23", endDate: "2026-12-10", vacancies: 50 },
+  { format: "Sport", lot: "Lote 3", price: 729, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
 ];
+export const registrationPayment = {
+  feePercent: 10,
+  pixFeePercent: 0,
+  description: "Todos os lotes têm taxa de 10%. No pagamento via Pix, a taxa é de 0%.",
+};
 export const jerseyOption = {
   price: 100,
   description: "A jersey de ciclismo é opcional e pode ser comprada por R$ 100 adicionais, junto com a inscrição, no momento de realizá-la. Disponível para Ultra e Sport, em todos os lotes.",
 };
-export const registrationNotice = "A lista prioritária terá acesso às inscrições a partir de 20/10/2026, por 48 horas, com valor diferenciado. Horário de abertura, períodos dos demais lotes, formas de pagamento e eventuais taxas serão informados no canal oficial de inscrição.";
+export const registrationNotice = "Cada lote encerra na data final indicada ou ao atingir seu limite de vagas, o que ocorrer primeiro. O lote prioritário é exclusivo para a lista prioritária. Os horários de abertura e encerramento serão informados no canal oficial de inscrição.";
 export const scheduleNotice = "Os horários de credenciamento, largadas, premiações e funcionamento da expo serão divulgados na programação oficial.";
 export const schedule = [
   { date: "SEXTA · 02 ABR", title: "PRÓLOGO ULTRA", description: "Credenciamento Ultra, prólogo em baterias e programação da arena." },
@@ -156,9 +161,9 @@ export const information = [
   { id: "evento", title: "O EVENTO", icon: "event", heading: "A EDIÇÃO 2027", paragraphs: [
     "Após o retorno a São Francisco de Paula em 2026, a Threerace segue na cidade para a edição de 2 a 4 de abril de 2027, com base no Centro de Eventos. A Ultra começa na sexta-feira com um prólogo em baterias e segue até domingo. A Sport concentra suas duas etapas no sábado e no domingo.",
     "O planejamento também inclui uma expo para aproximar ciclistas, acompanhantes e visitantes de lojas e empresas do segmento, com atendimento, apresentação de produtos e venda direta ao público.",
-    "Com trajetória desde 2017, a Threerace prepara a edição de 2027 com projeção de 350 atletas: 250 na Ultra e 100 na Sport.",
+    "Com trajetória desde 2017, a Threerace prepara a edição de 2027 com 400 vagas: 250 na Ultra e 150 na Sport, distribuídas em três lotes por modalidade.",
   ] },
-  { id: "inscricoes", title: "INSCRIÇÕES E VALORES", icon: "document", heading: "VALORES POR ATLETA", paragraphs: ["O Lote 1 é destinado à lista prioritária. Camiseta casual dry e meia de ciclismo estão incluídas em todas as modalidades e lotes."] },
+  { id: "inscricoes", title: "INSCRIÇÕES E VALORES", icon: "document", heading: "LOTES E VALORES POR ATLETA", paragraphs: ["O lote prioritário é destinado à lista prioritária. Camiseta casual dry e meia de ciclismo estão incluídas em todas as modalidades e lotes."] },
   { id: "categorias", title: "CATEGORIAS", icon: "document", heading: "ULTRA E SPORT", paragraphs: ["Confira as categorias e escolha sua disputa. A E-bike é exclusiva da Ultra. A idade esportiva é a idade completada até 31 de dezembro de 2027. A idade mínima geral é de 19 anos esportivos, com a exceção da Open feminina Sport indicada abaixo."] },
   { id: "etapas", title: "ETAPAS E PERCURSOS", icon: "stages", heading: "DOIS FORMATOS PARA ESCOLHER SEU DESAFIO", paragraphs: [courseNotice] },
   { id: "programacao", title: "PROGRAMAÇÃO", icon: "event", heading: "PROGRAMAÇÃO PREVISTA · 2 A 4 DE ABRIL", paragraphs: schedule.map((day) => `${day.date}: ${day.description}`).concat(scheduleNotice) },
