@@ -32,7 +32,7 @@ export const raceFormats = [
     id: "ultra", name: "Ultra", days: "Três dias de prova", dates: "2, 3 e 4 de abril",
     description: "A Ultra reúne o maior volume esportivo da edição, com prólogo, etapa rainha e etapa final.",
     stages: [
-      { date: "Sexta, 2 de abril", name: "Stage 1 — Prólogo", distance: 32, ascent: 450 },
+      { date: "Sexta, 2 de abril", name: "Stage 1 — Prólogo", distance: 24, ascent: 530 },
       { date: "Sábado, 3 de abril", name: "Stage 2 — Etapa rainha", distance: 82, ascent: 1450 },
       { date: "Domingo, 4 de abril", name: "Stage 3 — Etapa final", distance: 68, ascent: 780 },
     ],
@@ -51,7 +51,7 @@ export const raceFormats = [
 
 export const courseNotice = "Os percursos e desníveis das duas modalidades são previstos e poderão receber ajustes após a validação técnica. Mapas, características do terreno e regras da competição serão apresentados nos materiais oficiais.";
 
-// Regulamento Brasil 2027 · Revisão 05, 21/09/2026 · itens 2 e 4 (páginas 1–4).
+// Regulamento Brasil 2027 · Revisão 06, 21/09/2026 · itens 2 e 4 (páginas 1–4).
 type CompetitionCategory = { name: string; age: string; composition?: string };
 type CategoryGroup = { title: string; categories: CompetitionCategory[]; note?: string };
 type CompetitionFormat = { id: string; name: string; description: string; groups: CategoryGroup[]; grouping: string[] };

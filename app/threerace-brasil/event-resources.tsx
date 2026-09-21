@@ -1,6 +1,6 @@
 import { brasilEvent, eventVenue } from "./content";
 
-const regulationPath = "/brasil-2027/regulamento-threerace-2027-revisao-05.pdf";
+const regulationPath = "/brasil-2027/regulamento-threerace-2027-revisao-06.pdf";
 
 export function RegulationDocument() {
   return <div className="brasil-panel-extra">
@@ -9,10 +9,10 @@ export function RegulationDocument() {
       <div className="brasil-regulation-details">
         <span className="brasil-resource-label">PDF · 15 PÁGINAS</span>
         <h5>Regulamento Threerace Brasil 2027</h5>
-        <p>Revisão 05 · 21 de setembro de 2026</p>
+        <p>Revisão 06 · 21 de setembro de 2026</p>
         <div className="brasil-resource-actions">
           <a className="button button-dark" href={regulationPath} target="_blank" rel="noreferrer">VISUALIZAR REGULAMENTO <span aria-hidden="true">↗</span></a>
-          <a className="brasil-resource-download" href={regulationPath} download="regulamento-threerace-2027-revisao-05.pdf">BAIXAR PDF <span aria-hidden="true">↓</span></a>
+          <a className="brasil-resource-download" href={regulationPath} download="regulamento-threerace-2027-revisao-06.pdf">BAIXAR PDF <span aria-hidden="true">↓</span></a>
         </div>
       </div>
     </div>

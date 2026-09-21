@@ -28,6 +28,6 @@ export default function CategoryTables() {
       </section>)}
     </div>
     <p className="brasil-content-note">Cada atleta participa em uma modalidade e uma categoria elegível. Quando houver sobreposição entre Elite, Open e faixa etária, escolha apenas uma. Os agrupamentos respeitam a modalidade, o sexo e o formato da disputa.</p>
-    <p className="brasil-category-source">Regulamento Threerace Brasil 2027 · Revisão 05 de 21/09/2026 · Itens 2 e 4.</p>
+    <p className="brasil-category-source">Regulamento Threerace Brasil 2027 · Revisão 06 de 21/09/2026 · Itens 2 e 4.</p>
   </div>;
 }
