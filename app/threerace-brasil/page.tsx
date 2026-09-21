@@ -46,6 +46,19 @@ function CourseTables() {
   </div>;
 }
 
+function MedicalDocuments() {
+  return <div className="brasil-panel-extra brasil-medical-links">
+    <Link href="/threerace-brasil/documentos-medicos" className="brasil-medical-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3" /><rect x="9" y="2" width="6" height="4" rx="1" /><path d="M8 13h3l1.5-3 2 6 1.5-3h2" /></svg>
+      <div><span>DECLARAÇÃO DE SAÚDE</span><strong>Informações médicas do atleta</strong><p>Preencha seus dados de saúde e o contato de emergência.</p><b>ACESSAR A ÁREA MÉDICA <span aria-hidden="true">↗</span></b></div>
+    </Link>
+    <a href="/brasil-2027/atestado-medico-threerace-brasil-2027.pdf" download="atestado-medico-threerace-brasil-2027.pdf" className="brasil-medical-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6M12 11v7m-3-3 3 3 3-3" /></svg>
+      <div><span>ATESTADO MÉDICO · ULTRA</span><strong>Modelo para levar ao médico</strong><p>Obrigatório para a Ultra, acompanhado da Declaração de Saúde.</p><b>BAIXAR MODELO PDF <span aria-hidden="true">↓</span></b></div>
+    </a>
+  </div>;
+}
+
 export default function Brasil() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openInfo, setOpenInfo] = useState<string | null>(null);
@@ -72,6 +85,7 @@ export default function Brasil() {
           <a href="#inscricoes" onClick={() => openSection("inscricoes")}>Inscrições</a>
           <a href="#kit" onClick={() => setMenuOpen(false)}>Kit 2027</a>
           <a href="#informacoes" onClick={() => setMenuOpen(false)}>Informações</a>
+          <Link href="/threerace-brasil/documentos-medicos" onClick={() => setMenuOpen(false)}>Área médica</Link>
         </nav>
         <div className="header-actions"><span className="brasil-edition-tag">BRASIL / 2027</span><button className="menu-toggle" type="button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} aria-controls="brasil-navigation" onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button></div>
       </header>
@@ -102,7 +116,7 @@ export default function Brasil() {
         const isOpen = openInfo === section.id;
         return <article key={section.id} id={section.id} className={isOpen ? "open" : ""}>
           <h3 className="brasil-accordion-heading"><button className="brasil-accordion-trigger" type="button" aria-expanded={isOpen} aria-controls={`painel-${section.id}`} onClick={() => setOpenInfo(isOpen ? null : section.id)}><span className="accordion-field-icon"><AccordionIcon section={section.id} /></span><span>{section.title}</span><span className="brasil-expand" aria-hidden="true">{isOpen ? "−" : "+"}</span></button></h3>
-          <div id={`painel-${section.id}`} hidden={!isOpen} className="brasil-info-panel"><div className="official-copy"><h4>{section.heading}</h4>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>{section.id === "inscricoes" ? <PricesTable /> : section.id === "etapas" ? <CourseTables /> : null}</div>
+          <div id={`painel-${section.id}`} hidden={!isOpen} className="brasil-info-panel"><div className="official-copy"><h4>{section.heading}</h4>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>{section.id === "inscricoes" ? <PricesTable /> : section.id === "etapas" ? <CourseTables /> : section.id === "documentacao" ? <MedicalDocuments /> : null}</div>
         </article>;
       })}
     </div></div></section>

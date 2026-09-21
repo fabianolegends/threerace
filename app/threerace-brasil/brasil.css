@@ -1,4 +1,14 @@
 /* Tokens restritos à edição Brasil; as outras páginas preservam sua identidade. */
+.brasil-medical-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.brasil-medical-link { display:flex; align-items:flex-start; gap:18px; padding:28px; border:1px solid var(--br-line); border-radius:20px; background:var(--br-sand); transition:box-shadow .2s ease,border-color .2s ease; }
+.brasil-medical-link:hover { border-color:var(--br-terracotta); box-shadow:0 10px 25px #30251f12; }
+.brasil-medical-link > svg { width:32px; height:32px; flex:none; color:var(--br-deep); }
+.brasil-medical-link div > span { display:block; color:var(--br-deep); font-size:.75rem; font-weight:750; letter-spacing:.06em; }
+.brasil-medical-link strong { display:block; margin:12px 0; font-size:1.25rem; line-height:1.3; }
+.brasil-medical-link p { margin:0 0 20px; color:var(--br-muted); font-size:.95rem; line-height:1.6; }
+.brasil-medical-link b { display:flex; align-items:center; gap:14px; color:var(--br-deep); font-size:.75rem; letter-spacing:.04em; }
+.brasil-medical-link b span { font-size:1.2rem; }
+@media(max-width:750px) { .brasil-medical-links { grid-template-columns:1fr; } .brasil-medical-link { padding:22px; gap:14px; } }
 .brasil-event-page {
   --br-terracotta: #9a5d49; /* Tom padrão extraído da amostra da organização. */
   --br-sand: #e9dfcf;
