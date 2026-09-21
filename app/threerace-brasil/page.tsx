@@ -26,12 +26,12 @@ function PricesTable() {
     <div className="brasil-table-scroll" role="region" aria-label="Valores das inscrições" tabIndex={0}>
       <table className="brasil-data-table brasil-price-table">
         <caption>Inscrição por atleta, sem a jersey opcional. Taxas já consideradas nos valores abaixo.</caption>
-        <thead><tr><th scope="col">Modalidade e lote</th><th scope="col">Período ou limite</th><th scope="col">Pix <span>Taxa {registrationPayment.pixFeePercent}%</span></th><th scope="col">Outros pagamentos <span>Taxa {registrationPayment.feePercent}%</span></th></tr></thead>
-        <tbody>{registrationPrices.map((price) => <tr key={`${price.format}-${price.lot}`}>
-          <th scope="row"><strong>{price.format}</strong><span>{price.lot}</span></th>
+        <thead><tr><th scope="col">Modalidade e lote</th><th scope="col">Período ou limite</th><th scope="col">Pix <span>Taxa {registrationPayment.pixFeePercent}%</span></th><th scope="col">{registrationPayment.cardLabel} <span>Taxa {registrationPayment.feePercent}%</span></th></tr></thead>
+        <tbody>{registrationPrices.map((price) => <tr key={`${price.format}-${price.lot}`} className={price.active ? "brasil-price-current" : undefined}>
+          <th scope="row"><strong>{price.format}</strong><span>{price.lot}</span>{price.active ? <span className="brasil-price-current-badge">LOTE VIGENTE</span> : null}</th>
           <td className="brasil-price-period"><time dateTime={price.startDate}>{lotDate(price.startDate)}</time> a <time dateTime={price.endDate}>{lotDate(price.endDate)}</time><span>ou {price.vacancies} vagas</span></td>
           <td className="brasil-price-amount"><span className="brasil-price-mobile-label" aria-hidden="true">Pix · taxa 0%</span>{currency(price.price)}</td>
-          <td className="brasil-price-amount"><span className="brasil-price-mobile-label" aria-hidden="true">Outros · taxa 10%</span>{currency(Math.round(price.price * (100 + registrationPayment.feePercent)) / 100)}</td>
+          <td className="brasil-price-amount"><span className="brasil-price-mobile-label" aria-hidden="true">{registrationPayment.cardLabel} · taxa {registrationPayment.feePercent}%</span>{currency(Math.round(price.price * (100 + registrationPayment.feePercent)) / 100)}</td>
         </tr>)}</tbody>
       </table>
     </div>

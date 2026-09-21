@@ -121,18 +121,20 @@ export const competitionCategories: CompetitionFormat[] = [
   },
 ];
 
+// Destaque editorial solicitado pela organização para a prévia; não abre vendas.
 export const registrationPrices = [
-  { format: "Ultra", lot: "Lote prioritário", price: 599, startDate: "2026-10-20", endDate: "2026-10-22", vacancies: 100 },
-  { format: "Ultra", lot: "Lote 2", price: 699, startDate: "2026-10-23", endDate: "2026-12-10", vacancies: 100 },
-  { format: "Ultra", lot: "Lote 3", price: 829, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
-  { format: "Sport", lot: "Lote prioritário", price: 499, startDate: "2026-10-20", endDate: "2026-10-22", vacancies: 50 },
-  { format: "Sport", lot: "Lote 2", price: 599, startDate: "2026-10-23", endDate: "2026-12-10", vacancies: 50 },
-  { format: "Sport", lot: "Lote 3", price: 729, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
+  { format: "Ultra", lot: "Lote prioritário", active: true, price: 599, startDate: "2026-10-20", endDate: "2026-10-22", vacancies: 100 },
+  { format: "Ultra", lot: "Lote 2", active: false, price: 699, startDate: "2026-10-23", endDate: "2026-12-10", vacancies: 100 },
+  { format: "Ultra", lot: "Lote 3", active: false, price: 829, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
+  { format: "Sport", lot: "Lote prioritário", active: true, price: 499, startDate: "2026-10-20", endDate: "2026-10-22", vacancies: 50 },
+  { format: "Sport", lot: "Lote 2", active: false, price: 599, startDate: "2026-10-23", endDate: "2026-12-10", vacancies: 50 },
+  { format: "Sport", lot: "Lote 3", active: false, price: 729, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
 ];
 export const registrationPayment = {
+  cardLabel: "Pagamento cartão de crédito",
   feePercent: 10,
   pixFeePercent: 0,
-  description: "Todos os lotes têm taxa de 10%. No pagamento via Pix, a taxa é de 0%.",
+  description: "Pagamento com cartão de crédito tem taxa de 10% em todos os lotes. No Pix, a taxa é de 0%.",
 };
 export const jerseyOption = {
   price: 100,

@@ -149,6 +149,9 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-price-period time { white-space:nowrap; }
 .brasil-price-period span { margin-top:6px; color:var(--br-deep); font-weight:700; }
 .brasil-price-table .brasil-price-mobile-label { display:none; }
+.brasil-price-table tbody tr:not(.brasil-price-current) { background:transparent; }
+.brasil-price-table tbody tr.brasil-price-current { background:var(--br-sand); }
+.brasil-price-table .brasil-price-current-badge { display:inline-block; margin-top:10px; padding:4px 8px; border:1px solid var(--br-line); border-radius:4px; color:var(--br-deep); font-size:.65rem; font-weight:750; letter-spacing:.08em; line-height:1.4; }
 .brasil-payment-note { margin:22px 0 0; color:var(--br-deep); font-size:1rem; font-weight:700; line-height:1.65; }
 .brasil-content-note { margin:22px 0 0; font-size:1rem; line-height:1.75; color:var(--br-muted); }
 .brasil-course-table + .brasil-course-table { margin-top:44px; padding-top:35px; border-top:1px solid var(--br-line); }
@@ -186,7 +189,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
  .brasil-price-table tbody th strong { font-size:1.2rem; }
  .brasil-price-table .brasil-price-period { grid-column:1 / -1; }
  .brasil-price-table .brasil-price-mobile-label { display:block; margin-bottom:6px; color:var(--br-muted); font-size:.75rem; font-weight:500; white-space:normal; }
- .brasil-price-table .brasil-price-amount { font-size:1.05rem; }
+ .brasil-price-table .brasil-price-amount { display:flex; flex-direction:column; justify-content:flex-end; font-size:1.05rem; }
 }
 
 /* A mesma linguagem do kit percorre toda a página. */
