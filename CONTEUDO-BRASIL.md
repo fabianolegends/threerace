@@ -108,4 +108,6 @@ A equipe comercial apresentará as opções de espaço, infraestrutura e divulga
 
 Fonte editorial: dados fornecidos pela organização em 21/09/2026. Substituem as informações preliminares da página anterior. Conteúdo cadastrado somente na branch desenvolvimento/brasil, sem publicação.
 
-Pendências adicionais: categorias competitivas, regulamento, documentação obrigatória, hospedagens e nova identidade visual. Não foi criado link de inscrição nem anunciada abertura de vendas.
+Pendências adicionais: categorias competitivas, regulamento, documentação obrigatória e hospedagens. Não foi criado link de inscrição nem anunciada abertura de vendas.
+
+A identidade visual terracota e areia foi aplicada conforme as oito imagens fornecidas pela organização. Camiseta dry e meia continuam incluídas, e a jersey permanece opcional por R$ 100. Sacochila, bandana e placa aparecem como apresentação da coleção, com inclusão no kit a confirmar. Os logotipos no estudo da placa são ilustrativos.
