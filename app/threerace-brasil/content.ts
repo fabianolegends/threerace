@@ -144,11 +144,44 @@ export const jerseyOption = {
   description: "A jersey de ciclismo é opcional e pode ser comprada por R$ 100 adicionais, junto com a inscrição, no momento de realizá-la. Disponível para Ultra e Sport, em todos os lotes.",
 };
 export const registrationNotice = "Cada lote encerra na data final indicada ou ao atingir seu limite de vagas, o que ocorrer primeiro. O lote prioritário é exclusivo para a lista prioritária. Os horários de abertura e encerramento serão informados no canal oficial de inscrição.";
-export const scheduleNotice = "Os horários de credenciamento, largadas, premiações e funcionamento da expo serão divulgados na programação oficial.";
+export const scheduleNotice = "Programação preliminar. Os horários de credenciamento, largadas, briefings e premiações serão confirmados pela organização. Base do evento: Centro de Eventos de São Francisco de Paula.";
+// Estrutura adaptada do Guia do Protagonista Brasil 2026 (p. 3, 11 e 13)
+// e do regulamento Brasil 2026, itens 15.1, 18.1 e 21. Nenhum deles traz a agenda horária completa.
+// O ofício aos Bombeiros nº 008/2026 contém apenas janelas de apoio operacional;
+// elas não são horários de largada e não foram transpostas para 2027.
+// Fonte e limites da pesquisa: docs/programacao-brasil-2027.md.
 export const schedule = [
-  { date: "SEXTA · 02 ABR", title: "PRÓLOGO ULTRA", description: "Credenciamento Ultra, prólogo em baterias e programação da arena." },
-  { date: "SÁBADO · 03 ABR", title: "ULTRA + SPORT", description: "Etapa rainha Ultra e primeira etapa Sport. A retirada de kits Sport está prevista antes das largadas, em horário a divulgar." },
-  { date: "DOMINGO · 04 ABR", title: "ETAPAS FINAIS", description: "Etapas finais Ultra e Sport, com encerramento do evento." },
+  {
+    date: "SEXTA-FEIRA · 02 DE ABRIL", dateTime: "2027-04-02", title: "Ultra · Prólogo",
+    events: [
+      { time: "Antes da largada", title: "Credenciamento e retirada de kits · Ultra", description: "Recepção dos atletas, conferência dos documentos e entrega do kit no Centro de Eventos." },
+      { time: "Antes da largada", title: "Orientações e organização das baterias", description: "Confira sua bateria e apresente-se para o alinhamento conforme a chamada da organização." },
+      { time: "A confirmar", title: "Largadas do prólogo · Ultra", description: "Baterias de até seis atletas, com intervalo de um minuto. Confira seu horário na lista de largada." },
+      { time: "Após a etapa", title: "Resultados e premiação diária · Ultra", description: "Pódios diários das categorias convencionais previstas no regulamento. A E-bike tem somente premiação geral final." },
+      { time: "À noite", title: "Briefing para sábado", description: "Orientações técnicas para a etapa rainha da Ultra e a primeira etapa da Sport. Horário e formato a confirmar." },
+    ],
+  },
+  {
+    date: "SÁBADO · 03 DE ABRIL", dateTime: "2027-04-03", title: "Ultra · Etapa rainha / Sport · Etapa 1",
+    events: [
+      { time: "Antes da largada", title: "Credenciamento e retirada de kits · Sport", description: "Conferência dos documentos e entrega dos kits antes da primeira etapa. Janela de atendimento a confirmar." },
+      { time: "Antes da largada", title: "Abertura da arena e alinhamento", description: "Acesso ao alinhamento de cada modalidade: de 20 a cinco minutos antes da respectiva largada, salvo alteração no boletim técnico." },
+      { time: "A confirmar", title: "Largada da etapa rainha · Ultra", description: "Segunda etapa da Ultra, com alinhamento conforme a classificação do prólogo e o boletim técnico." },
+      { time: "A confirmar", title: "Largada da primeira etapa · Sport", description: "Início da competição Sport. Ordem e intervalo entre modalidades a confirmar." },
+      { time: "Após as etapas", title: "Resultados e premiação diária · Ultra", description: "Divulgação dos resultados das duas modalidades e pódios diários convencionais da Ultra. Sport e E-bike têm somente premiação geral final." },
+      { time: "À noite", title: "Briefing para domingo", description: "Orientações técnicas para as etapas finais das duas modalidades. Horário e formato a confirmar." },
+    ],
+  },
+  {
+    date: "DOMINGO · 04 DE ABRIL", dateTime: "2027-04-04", title: "Ultra + Sport · Etapas finais",
+    events: [
+      { time: "Antes da largada", title: "Abertura da arena e alinhamento", description: "Acesso ao alinhamento de cada modalidade: de 20 a cinco minutos antes da respectiva largada, salvo alteração no boletim técnico." },
+      { time: "A confirmar", title: "Largada da etapa final · Ultra", description: "Terceira e última etapa da Ultra." },
+      { time: "A confirmar", title: "Largada da etapa final · Sport", description: "Segunda e última etapa da Sport. Ordem e intervalo entre modalidades a confirmar." },
+      { time: "Após as etapas", title: "Resultados finais e premiações", description: "Premiação diária convencional da Ultra e premiação geral da Ultra e da Sport, incluindo E-bike masculina e feminina na Ultra, conforme o regulamento." },
+      { time: "Após a premiação", title: "Encerramento da Threerace Brasil 2027", description: "Conclusão da programação dos três dias no Centro de Eventos." },
+    ],
+  },
 ];
 export const kit = {
   included: ["Participação nas etapas da modalidade escolhida.", "Camiseta casual em tecido dry.", "Meia de ciclismo."],
@@ -171,7 +204,7 @@ export const information = [
   { id: "inscricoes", title: "INSCRIÇÕES E VALORES", icon: "document", heading: "LOTES E VALORES POR ATLETA", paragraphs: ["O lote prioritário é destinado à lista prioritária. Camiseta casual dry e meia de ciclismo estão incluídas em todas as modalidades e lotes."] },
   { id: "categorias", title: "CATEGORIAS", icon: "document", heading: "ULTRA E SPORT", paragraphs: ["Confira as categorias e escolha sua disputa. A E-bike é exclusiva da Ultra, com categorias masculina e feminina separadas. A idade esportiva é a idade completada até 31 de dezembro de 2027. A idade mínima geral é de 19 anos esportivos, com a exceção da Open feminina Sport indicada abaixo."] },
   { id: "etapas", title: "ETAPAS E PERCURSOS", icon: "stages", heading: "DOIS FORMATOS PARA ESCOLHER SEU DESAFIO", paragraphs: [courseNotice] },
-  { id: "programacao", title: "PROGRAMAÇÃO", icon: "event", heading: "PROGRAMAÇÃO PREVISTA · 2 A 4 DE ABRIL", paragraphs: schedule.map((day) => `${day.date}: ${day.description}`).concat(scheduleNotice) },
+  { id: "programacao", title: "PROGRAMAÇÃO", icon: "event", heading: "PROGRAMAÇÃO DIA A DIA · 2 A 4 DE ABRIL", paragraphs: [scheduleNotice] },
   { id: "documentacao", title: "DOCUMENTAÇÃO MÉDICA", icon: "document", heading: "DECLARAÇÃO DE SAÚDE E ATESTADO", paragraphs: ["A área médica reúne o formulário de saúde do atleta e o modelo de atestado da Threerace Brasil 2027. Na versão de trabalho, é possível conferir o preenchimento e baixar o PDF; o envio à organização ainda não está ativo."] },
   { id: "regulamento", title: "REGULAMENTO", icon: "document", heading: "REGULAMENTO BRASIL 2027", paragraphs: ["Consulte as regras de participação, categorias, documentação, equipamentos e classificação da Ultra e da Sport."] },
   { id: "hospedagem", title: "BASE E HOSPEDAGEM", icon: "document", heading: "CENTRO DE EVENTOS · SÃO FRANCISCO DE PAULA", paragraphs: ["O Centro de Eventos será a base da Threerace Brasil 2027 e da Threerace Expo. Confira a localização e trace sua rota pelo Google Maps."] },
