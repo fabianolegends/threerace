@@ -31,11 +31,6 @@ const pieces: KitPiece[] = [
   },
 ];
 
-const collection: KitPiece[] = [
-  { name: "Sacochila", status: "COLEÇÃO 2027", description: "", kind: "sheet", view: { src: "sacochila-vistas-2027", label: "Frente, verso e perfil", alt: "Frente, verso e perfil da sacochila terracota com cordões areia e ilustração de araucária", width: 1536, height: 1024 } },
-  { name: "Bandana", status: "COLEÇÃO 2027", description: "", view: { src: "bandana", label: "Detalhe", alt: "Bandana terracota com araucária e marca Threerace", width: 1000, height: 1052 } },
-  { name: "Placa de identificação", status: "CONCEITO VISUAL", description: "", kind: "sheet", view: { src: "placa-vista-2027", label: "Vista frontal", alt: "Estudo visual da placa de bicicleta Threerace 2027 em terracota e areia, com número 027, nome Fabiano Pellenz e logotipos ilustrativos", width: 1526, height: 1030 } },
-];
 
 function PieceCard({ piece, onExpand }: { piece: KitPiece; onExpand: (view: KitView, name: string) => void }) {
   const view = piece.view;
@@ -76,9 +71,6 @@ export default function KitCollection() {
       </figure>
       <div className="brasil-kit-pieces">{pieces.map((piece) => <PieceCard key={piece.name} piece={piece} onExpand={expand} />)}</div>
       <div className="brasil-kit-inclusions"><div><h3>Seu kit, em qualquer lote.</h3><ul>{kit.included.map((item) => <li key={item}>{item}</li>)}</ul></div><div><p>{kit.optional}</p><p className="brasil-content-note">{kit.notice}</p></div></div>
-      <div className="brasil-collection-heading"><div><p className="section-label">A IDENTIDADE EM CADA DETALHE</p><h3>COLEÇÃO THREERACE 2027.</h3></div><p>Sacochila, bandana e placa integram a apresentação visual da edição. A inclusão dessas peças no kit ainda será confirmada.</p></div>
-      <div className="brasil-kit-pieces brasil-collection-pieces">{collection.map((piece) => <PieceCard key={piece.name} piece={piece} onExpand={expand} />)}</div>
-      <p className="brasil-collection-note">Imagens de apresentação da edição 2027. Os logotipos no estudo da placa são ilustrativos; os patrocinadores oficiais serão anunciados pela organização.</p>
     </div>
     <dialog className="brasil-kit-dialog" ref={dialogRef} aria-labelledby="kit-dialog-title" onClose={() => setSelected(null)} onClick={(event) => { if (event.target === event.currentTarget) dialogRef.current?.close(); }}>
       <div className="brasil-kit-dialog-header"><h3 id="kit-dialog-title">{selected ? `${selected.name} · ${selected.view.label}` : "Kit 2027"}</h3><button type="button" autoFocus aria-label="Fechar imagem ampliada" onClick={() => dialogRef.current?.close()}>FECHAR ×</button></div>
