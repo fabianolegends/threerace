@@ -63,14 +63,20 @@ export default function KitCollection() {
           <Image src={`/brasil-2027/${montage.src}.webp`} alt={montage.alt} width={montage.width} height={montage.height} unoptimized loading="lazy" />
           <span className="brasil-expand-label" aria-hidden="true">AMPLIAR +</span>
         </button>
-        <figcaption>Jersey e camiseta em frente e verso, meia, placa e sacochila.</figcaption>
+        <figcaption>
+          <strong>{kit.summary}</strong>
+          <span>Jersey de ciclismo: opcional por R$ {jerseyOption.price}, comprada junto com a inscrição.</span>
+        </figcaption>
       </figure>
       <div className="brasil-kit-pieces">{pieces.map((piece) => <PieceCard key={piece.name} piece={piece} onExpand={expand} />)}</div>
       <div className="brasil-kit-inclusions"><div><h3>Seu kit, em qualquer lote.</h3><ul>{kit.included.map((item) => <li key={item}>{item}</li>)}</ul></div><div><p>{kit.optional}</p><p className="brasil-content-note">{kit.notice}</p></div></div>
     </div>
     <dialog className="brasil-kit-dialog" ref={dialogRef} aria-labelledby="kit-dialog-title" onClose={() => setSelected(null)} onClick={(event) => { if (event.target === event.currentTarget) dialogRef.current?.close(); }}>
       <div className="brasil-kit-dialog-header"><h3 id="kit-dialog-title">{selected ? `${selected.name} · ${selected.view.label}` : "Kit 2027"}</h3><button type="button" autoFocus aria-label="Fechar imagem ampliada" onClick={() => dialogRef.current?.close()}>FECHAR ×</button></div>
-      {selected ? <Image src={`/brasil-2027/${selected.view.src}.webp`} alt={selected.view.alt} width={selected.view.width} height={selected.view.height} unoptimized /> : null}
+      {selected ? <>
+        <Image src={`/brasil-2027/${selected.view.src}.webp`} alt={selected.view.alt} width={selected.view.width} height={selected.view.height} unoptimized />
+        <a className="brasil-kit-original-link" href={`/brasil-2027/${selected.view.src}.webp`} target="_blank" rel="noopener noreferrer">Abrir imagem original <span className="sr-only">em uma nova aba</span><span aria-hidden="true"> ↗</span></a>
+      </> : null}
     </dialog>
   </section>;
 }

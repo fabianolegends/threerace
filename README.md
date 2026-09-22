@@ -2,7 +2,7 @@
 
 Versão de trabalho do site Threerace no repositório original para preparar a edição Brasil 2027. Preserva a organização das informações da edição Uruguai e aplica a identidade brasileira de dez anos: terracota, areia e as imagens do kit fornecidas pela organização.
 
-As imagens do kit estão em `public/brasil-2027`, otimizadas em WebP com transparência. A seção oferece frente e costas da camiseta e da jersey e ampliação de todas as peças. Camiseta e meia são incluídas; jersey é opcional por R$ 100. Sacochila, bandana e placa são apresentação visual, com inclusão pendente. Logotipos na placa não confirmam patrocínios.
+As imagens do kit estão em `public/brasil-2027`, otimizadas em WebP com transparência. A seção oferece frente e costas da camiseta e da jersey e ampliação de todas as peças. Camiseta casual, meia, placa personalizada e sacochila estão incluídas na inscrição; jersey é opcional por R$ 100, comprada no ato da inscrição. Logotipos na placa não confirmam patrocínios.
 
 **Não publicar esta branch.** O trabalho está em `desenvolvimento/brasil`, no repositório `fabianolegends/threerace`. A branch publicada `legendsbikerace` deve permanecer intacta até autorização.
 

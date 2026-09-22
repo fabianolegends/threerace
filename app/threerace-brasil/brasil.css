@@ -272,6 +272,8 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-kit-montage-expand img { display:block; width:100%; height:auto; border-radius:inherit; }
 .brasil-kit-montage-expand .brasil-expand-label { padding:10px 14px; border:1px solid var(--br-line); border-radius:24px; background:var(--br-paper); }
 .brasil-kit-montage figcaption { margin-top:14px; color:var(--br-muted); font-size:.875rem; line-height:1.6; text-align:center; }
+.brasil-kit-montage figcaption strong { display:block; color:var(--br-deep); font-weight:650; }
+.brasil-kit-montage figcaption span { display:block; margin-top:4px; }
 .brasil-kit-pieces { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px; }
 .brasil-piece { min-width:0; }
 .brasil-piece-art { position:relative; text-align:center; }
@@ -289,12 +291,13 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-kit-inclusions p,.brasil-kit-inclusions li { font-size:1rem; line-height:1.7; }
 .brasil-kit-inclusions p { margin:0; }
 .brasil-kit-inclusions .brasil-content-note { margin-top:16px; }
-.brasil-kit-dialog { position:fixed; inset:0; width:min(940px,calc(100% - 32px)); max-height:92dvh; margin:auto; padding:20px; border:1px solid var(--br-line); background:var(--br-paper); color:var(--br-ink); }
+.brasil-kit-dialog { position:fixed; inset:0; width:min(940px,calc(100% - 32px)); max-height:92dvh; margin:auto; padding:20px; overflow:auto; border:1px solid var(--br-line); background:var(--br-paper); color:var(--br-ink); }
 .brasil-kit-dialog::backdrop { background:rgba(35,22,17,.82); }
 .brasil-kit-dialog-header { display:flex; justify-content:space-between; align-items:center; gap:18px; margin-bottom:18px; }
 .brasil-kit-dialog-header h3 { margin:0; font-size:1rem; font-weight:650; }
 .brasil-kit-dialog-header button { min-height:44px; padding:10px 16px; border:1px solid var(--br-line); background:var(--br-sand); color:var(--br-deep); cursor:pointer; font-size:.875rem; white-space:nowrap; }
-.brasil-kit-dialog > img { display:block; width:100%; height:min(72dvh,820px); object-fit:contain; }
+.brasil-kit-dialog > img { display:block; width:auto; max-width:100%; height:auto; max-height:72dvh; margin-inline:auto; object-fit:contain; }
+.brasil-kit-original-link { display:flex; align-items:center; justify-content:center; gap:4px; min-height:44px; margin-top:12px; color:var(--br-deep); font-size:.875rem; font-weight:650; text-decoration:underline; text-underline-offset:4px; }
 /* Ultra e Sport têm prioridade logo após a abertura. */
 .brasil-modalities { position:relative; z-index:3; background:var(--br-sand); padding-bottom:44px; border-bottom:1px solid var(--br-line); }
 .brasil-modalities-inner { position:relative; top:-76px; margin-bottom:-76px; }
@@ -392,7 +395,7 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
  .brasil-kit-pieces { grid-template-columns:1fr; gap:34px; }
  .brasil-piece-caption h3 { font-size:1.25rem; }
  .brasil-kit-inclusions { margin-top:32px; padding:24px; }
- .brasil-kit-dialog { padding:14px; }
+ .brasil-kit-dialog { width:calc(100% - 16px); padding:12px; }
  .brasil-kit-dialog-header { gap:12px; }
  .brasil-kit-dialog-header h3 { font-size:.875rem; }
 }

@@ -1,13 +1,33 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { createContext, useCallback, useContext, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { BRAZIL_STATES, PRIORITY_CATEGORIES, validatePriorityRegistration } from "../../lib/priority-list-schema";
 import { brasilEvent, priorityCampaign } from "./content";
 import "./priority-signup.css";
 
-export default function PrioritySignup() {
+const PrioritySignupContext = createContext<(() => void) | null>(null);
+
+export function PrioritySignupButton({ children, className = "brasil-priority-open" }: { children: ReactNode; className?: string }) {
+  const openSignup = useContext(PrioritySignupContext);
+  return <button type="button" className={className} onClick={() => openSignup?.()} aria-haspopup="dialog">{children}</button>;
+}
+
+export default function PrioritySignup({ placement = "hero" }: { placement?: "hero" | "prices" }) {
+  const titleId = `priority-callout-title-${placement}`;
+  return <aside className={`brasil-priority-callout${placement === "prices" ? " brasil-priority-callout-prices" : ""}`} id={placement === "hero" ? "lista-prioritaria" : undefined} aria-labelledby={titleId}>
+    <div>
+      {placement === "hero" ? <h2 id={titleId}>Lista prioritária</h2> : <h4 id={titleId}>Garanta seu acesso ao lote prioritário</h4>}
+      <p><strong>DE {priorityCampaign.openingDate} A {priorityCampaign.closingDate}</strong> — valor diferenciado, até o limite de {priorityCampaign.vacancyLabel}.</p>
+      {placement === "prices" && <p className="brasil-priority-callout-disclaimer">Cadastre seu interesse para receber as informações de acesso. O cadastro não confirma a inscrição na prova.</p>}
+    </div>
+    <PrioritySignupButton>QUERO ME CADASTRAR <span aria-hidden="true">↗</span></PrioritySignupButton>
+  </aside>;
+}
+
+export function PrioritySignupProvider({ children }: { children: ReactNode }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const successRef = useRef<HTMLHeadingElement>(null);
+  const openSignup = useCallback(() => dialogRef.current?.showModal(), []);
   const [modality, setModality] = useState("");
   const [category, setCategory] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -61,14 +81,8 @@ export default function PrioritySignup() {
     }
   }
 
-  return <>
-    <aside className="brasil-priority-callout" id="lista-prioritaria" aria-labelledby="priority-callout-title">
-      <div>
-        <h2 id="priority-callout-title">Lista prioritária</h2>
-        <p><strong>DE {priorityCampaign.openingDate} A {priorityCampaign.closingDate}</strong> — valor diferenciado, até o limite de {priorityCampaign.vacancyLabel}.</p>
-      </div>
-      <button type="button" className="brasil-priority-open" onClick={() => dialogRef.current?.showModal()} aria-haspopup="dialog">QUERO ME CADASTRAR <span aria-hidden="true">↗</span></button>
-    </aside>
+  return <PrioritySignupContext.Provider value={openSignup}>
+    {children}
     <dialog ref={dialogRef} className="brasil-priority-dialog" aria-labelledby="priority-title" aria-describedby="priority-description" onCancel={(event) => { if (pending) event.preventDefault(); }}>
       <div className="brasil-priority-dialog-header">
         <p className="brasil-priority-eyebrow">THREERACE BRASIL · 2027</p>
@@ -130,5 +144,5 @@ export default function PrioritySignup() {
         </form>}
       </div>
     </dialog>
-  </>;
+  </PrioritySignupContext.Provider>;
 }

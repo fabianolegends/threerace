@@ -1,4 +1,4 @@
-import { registrationIncludedItems } from "./content";
+import { registrationIncludedItems, registrationKitExtras } from "./content";
 import RegistrationBenefitIcon from "./registration-benefit-icon";
 import "./registration-inclusions.css";
 
@@ -17,6 +17,7 @@ export default function RegistrationInclusions() {
               </li>
             ))}
           </ul>
+          <p className="brasil-inclusions-extra">Também incluído: {registrationKitExtras.join(" ")}</p>
         </div>
       </div>
     </section>

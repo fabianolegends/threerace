@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import KitCollection from "./kit-collection";
 import AccordionIcon from "./accordion-icon";
 import CategoryTables from "./category-tables";
-import PrioritySignup from "./priority-signup";
+import PrioritySignup, { PrioritySignupButton, PrioritySignupProvider } from "./priority-signup";
 import RaceCountdown from "./race-countdown";
 import RaceSchedule from "./race-schedule";
 import RaceGallery from "./race-gallery";
 import RegistrationInclusions from "./registration-inclusions";
+import useSectionNavigation from "./use-section-navigation";
 import { EventVenue, RegulationDocument } from "./event-resources";
 import { brasilEvent, information, raceFormats, registrationPrices, registrationPayment, registrationNotice, registrationBenefits, jerseyOption, courseNotice, expo, faqs } from "./content";
 import "./brasil.css";
@@ -20,6 +21,7 @@ const totalAscent = (stages: { ascent: number | null }[]) => stages.reduce<numbe
 const ascentLabel = (ascent: number | null) => ascent === null ? "A confirmar" : `${number(ascent)} m`;
 const currency = (value: number) => value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const lotDate = (date: string) => date.split("-").reverse().join("/");
+const informationIds = information.map((section) => section.id);
 
 function RaceMetricIcon({ kind }: { kind: "distance" | "ascent" }) {
   return <svg className="brasil-choice-metric-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
@@ -44,6 +46,7 @@ function PricesTable() {
     <p className="brasil-payment-note">{registrationPayment.description}</p>
     <p className="brasil-content-note">{registrationNotice}</p>
     <p className="brasil-jersey-note">{jerseyOption.description}</p>
+    <PrioritySignup placement="prices" />
     <div className="brasil-registration-benefits">
       {registrationBenefits.map((group) => <section key={group.id} aria-labelledby={group.id}>
         <h4 id={group.id}>{group.title}</h4>
@@ -86,28 +89,20 @@ function MedicalDocuments() {
 
 export default function Brasil() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openInfo, setOpenInfo] = useState<string | null>(null);
-  useEffect(() => {
-    const syncHash = () => {
-      const id = window.location.hash.slice(1);
-      setOpenInfo(information.some((section) => section.id === id) ? id : null);
-    };
-    syncHash();
-    window.addEventListener("hashchange", syncHash);
-    return () => window.removeEventListener("hashchange", syncHash);
-  }, []);
-  function openSection(id: string) { setOpenInfo(id); setMenuOpen(false); }
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const { openInfo, onSectionLinkClick, toggleSection } = useSectionNavigation(informationIds, closeMenu);
 
-  return <main className="uruguay-event-page brasil-event-page" lang="pt-BR">
+  return <main className="uruguay-event-page brasil-event-page" lang="pt-BR" onClick={onSectionLinkClick}>
+    <PrioritySignupProvider>
     <section className="hero uruguay-event-hero" style={{ backgroundImage: "url(/brasil-2027/hero-pdl0485-sem-logo.webp)" }}>
       <header className="site-header">
         <Link className="brand" href="/" aria-label="Threerace Sports"><img className="header-tr3-logo" src="/tr3-logo-display.webp" alt="Threerace Sports" /></Link>
         <nav id="brasil-navigation" className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Navegação da edição Brasil">
-          <a href="#evento" onClick={() => openSection("evento")}>O evento</a>
-          <a href="#etapas" onClick={() => openSection("etapas")}>Etapas</a>
-          <a href="#inscricoes" onClick={() => openSection("inscricoes")}>Inscrições</a>
-          <a href="#kit" onClick={() => setMenuOpen(false)}>Kit 2027</a>
-          <a href="#informacoes" onClick={() => setMenuOpen(false)}>Informações</a>
+          <a href="#evento">O evento</a>
+          <a href="#etapas">Etapas</a>
+          <a href="#inscricoes">Inscrições</a>
+          <a href="#kit">Kit 2027</a>
+          <a href="#informacoes">Informações</a>
           <Link href="/threerace-brasil/documentos-medicos" onClick={() => setMenuOpen(false)}>Área médica</Link>
         </nav>
         <div className="header-actions"><span className="brasil-edition-tag">BRASIL / 2027</span><button className="menu-toggle" type="button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} aria-controls="brasil-navigation" onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button></div>
@@ -128,7 +123,7 @@ export default function Brasil() {
           <div className="brasil-choice-heading"><h2 id={`modalidade-${format.id}`}>{format.name}</h2><span>{format.stages.length} DIAS</span></div>
           <p className="brasil-choice-description">{format.id === "ultra" ? "3 etapas com percurso completo" : "2 etapas e percurso reduzido"}</p>
           <div className="brasil-choice-metrics"><div className="brasil-choice-value" role="group" aria-label="Distância prevista"><RaceMetricIcon kind="distance" /><strong>{format.stages.reduce((total, stage) => total + stage.distance, 0)}<small> km</small></strong></div><div className="brasil-choice-value" role="group" aria-label="Subida acumulada prevista"><RaceMetricIcon kind="ascent" />{totalAscent(format.stages) === null ? <strong className="brasil-choice-pending">A confirmar</strong> : <strong>{number(totalAscent(format.stages)!)}<small> m</small></strong>}</div></div>
-          <div className="brasil-choice-actions"><a href="#etapas" aria-label={`Ver etapas da ${format.name}`} onClick={() => openSection("etapas")}>VER ETAPAS <span aria-hidden="true">↗</span></a><a href="#inscricoes" aria-label={`Valores e lotes da ${format.name}`} onClick={() => openSection("inscricoes")}>VALORES E LOTES <span aria-hidden="true">↗</span></a></div>
+          <div className="brasil-choice-actions"><a href="#etapas" aria-label={`Ver etapas da ${format.name}`}>VER ETAPAS <span aria-hidden="true">↗</span></a><a href="#inscricoes" aria-label={`Valores e lotes da ${format.name}`}>VALORES E LOTES <span aria-hidden="true">↗</span></a></div>
         </article>)}</div>
         <p className="brasil-content-note">{courseNotice}</p>
       </div>
@@ -137,7 +132,7 @@ export default function Brasil() {
       {information.map((section) => {
         const isOpen = openInfo === section.id;
         return <article key={section.id} id={section.id} className={isOpen ? "open" : ""}>
-          <h3 className="brasil-accordion-heading"><button className="brasil-accordion-trigger" type="button" aria-expanded={isOpen} aria-controls={`painel-${section.id}`} onClick={() => setOpenInfo(isOpen ? null : section.id)}><span className="accordion-field-icon"><AccordionIcon section={section.id} /></span><span>{section.title}</span><span className="brasil-expand" aria-hidden="true">{isOpen ? "−" : "+"}</span></button></h3>
+          <h3 className="brasil-accordion-heading"><button className="brasil-accordion-trigger" type="button" aria-expanded={isOpen} aria-controls={`painel-${section.id}`} onClick={() => toggleSection(section.id)}><span className="accordion-field-icon"><AccordionIcon section={section.id} /></span><span>{section.title}</span><span className="brasil-expand" aria-hidden="true">{isOpen ? "−" : "+"}</span></button></h3>
           <div id={`painel-${section.id}`} hidden={!isOpen} className="brasil-info-panel"><div className="official-copy"><h4>{section.heading}</h4>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>{section.id === "inscricoes" ? <PricesTable /> : section.id === "categorias" ? <CategoryTables /> : section.id === "etapas" ? <CourseTables /> : section.id === "programacao" ? <RaceSchedule /> : section.id === "documentacao" ? <MedicalDocuments /> : section.id === "regulamento" ? <RegulationDocument /> : section.id === "hospedagem" ? <EventVenue /> : null}</div>
         </article>;
       })}
@@ -175,6 +170,7 @@ export default function Brasil() {
       </div>
     </section>
     <section className="brasil-faq section-frame" id="duvidas"><div><p className="section-label">PERGUNTAS FREQUENTES</p><h2>ANTES DA LARGADA.</h2><a className="button button-dark" href={brasilEvent.whatsapp} target="_blank" rel="noreferrer">FALAR COM A THREERACE ↗</a></div><div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
-    <section className="brasil-closing" id="encerramento"><div className="section-frame"><p className="section-label">SÃO FRANCISCO DE PAULA · RS</p><h2>O PRÓXIMO CAPÍTULO<br />COMEÇA AQUI.</h2><p>{brasilEvent.date}</p><a className="button button-primary" href="#informacoes">VER INFORMAÇÕES ↑</a></div></section>
+    <section className="brasil-closing" id="encerramento"><div className="section-frame"><p className="section-label">SÃO FRANCISCO DE PAULA · RS</p><h2>O PRÓXIMO CAPÍTULO<br />COMEÇA AQUI.</h2><p>{brasilEvent.date}</p><PrioritySignupButton className="button button-primary">ENTRAR NA LISTA PRIORITÁRIA ↗</PrioritySignupButton></div></section>
+    </PrioritySignupProvider>
   </main>;
 }

@@ -155,11 +155,12 @@ export const registrationIncludedItems = [
   { icon: "mechanic", title: "Mecânica básica", detail: "Regulagem e identificação de problemas.", text: "Serviço mecânico básico: regulagem e identificação de problemas." },
   { icon: "wash", title: "Bike wash", detail: "", text: "Bike wash." },
 ] as const;
+export const registrationKitExtras = ["Sacochila Threerace."];
 export const registrationBenefits = [
   {
     id: "incluso-na-inscricao",
     title: "INCLUSO NA INSCRIÇÃO",
-    items: registrationIncludedItems.map((item) => item.text),
+    items: [...registrationIncludedItems.map((item) => item.text), ...registrationKitExtras],
   },
   {
     id: "nao-incluso-na-inscricao",
@@ -215,7 +216,8 @@ export const schedule = [
   },
 ];
 export const kit = {
-  included: ["Participação nas etapas da modalidade escolhida.", "Camiseta casual em tecido dry.", "Meia de ciclismo."],
+  summary: "Camiseta casual, meia de ciclismo, placa personalizada e sacochila incluídas na inscrição.",
+  included: ["Participação nas etapas da modalidade escolhida.", "Camiseta casual em tecido dry.", "Meia de ciclismo.", "Placa personalizada.", "Sacochila Threerace."],
   optional: jerseyOption.description,
   notice: "As informações de tamanhos, retirada de kits e demais serviços da prova serão divulgadas pela organização.",
 };
@@ -232,7 +234,7 @@ export const information = [
     "O planejamento também inclui uma expo para aproximar ciclistas, acompanhantes e visitantes de lojas e empresas do segmento, com atendimento, apresentação de produtos e venda direta ao público.",
     "Com trajetória desde 2017, a Threerace prepara a edição de 2027 com 400 vagas: 250 na Ultra e 150 na Sport, distribuídas em três lotes por modalidade.",
   ] },
-  { id: "inscricoes", title: "INSCRIÇÕES E VALORES", icon: "document", heading: "LOTES E VALORES POR ATLETA", paragraphs: ["O lote prioritário é destinado à lista prioritária. Camiseta casual dry e meia de ciclismo estão incluídas em todas as modalidades e lotes."] },
+  { id: "inscricoes", title: "INSCRIÇÕES E VALORES", icon: "document", heading: "LOTES E VALORES POR ATLETA", paragraphs: ["O lote prioritário é destinado à lista prioritária. Camiseta casual dry, meia de ciclismo, placa personalizada e sacochila estão incluídas em todas as modalidades e lotes."] },
   { id: "categorias", title: "CATEGORIAS", icon: "document", heading: "ULTRA E SPORT", paragraphs: ["Confira as categorias e escolha sua disputa. A E-bike é exclusiva da Ultra, com categorias masculina e feminina separadas. A idade esportiva é a idade completada até 31 de dezembro de 2027. A idade mínima geral é de 19 anos esportivos, com a exceção da Open feminina Sport indicada abaixo."] },
   { id: "etapas", title: "ETAPAS E PERCURSOS", icon: "stages", heading: "DOIS FORMATOS PARA ESCOLHER SEU DESAFIO", paragraphs: [courseNotice] },
   { id: "programacao", title: "PROGRAMAÇÃO", icon: "event", heading: "PROGRAMAÇÃO DIA A DIA · 2 A 4 DE ABRIL", paragraphs: [scheduleNotice] },
