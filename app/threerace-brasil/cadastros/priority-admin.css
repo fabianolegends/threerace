@@ -1,0 +1,205 @@
+.priority-admin-page {
+  min-height: 100vh;
+  padding: clamp(24px, 5vw, 72px);
+  background: #efe6d6;
+  color: #322520;
+  font-family: var(--font-sans), Arial, sans-serif;
+}
+
+.priority-admin-card {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: rgba(255, 250, 241, 0.92);
+  border: 1px solid rgba(129, 74, 56, 0.22);
+  border-radius: 28px;
+  box-shadow: 0 24px 70px rgba(62, 38, 30, 0.12);
+}
+
+.priority-admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.priority-admin-eyebrow {
+  margin: 0 0 12px;
+  color: #a3614b;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+}
+
+.priority-admin-page h1 {
+  margin: 0;
+  color: #7b4334;
+  font-size: clamp(2.4rem, 6vw, 5.5rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.priority-admin-page p {
+  max-width: 760px;
+  color: #735f55;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.priority-admin-export,
+.priority-admin-login button,
+.priority-admin-filters a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #a3614b;
+  color: #fffaf1;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.priority-admin-stats {
+  max-width: 1280px;
+  margin: 22px auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.priority-admin-stats article {
+  padding: 24px;
+  border-radius: 22px;
+  background: #7b4334;
+  color: #fffaf1;
+}
+
+.priority-admin-stats span {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  opacity: 0.78;
+  text-transform: uppercase;
+}
+
+.priority-admin-stats strong {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.priority-admin-filters {
+  max-width: 1280px;
+  margin: 0 auto 22px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.priority-admin-filters a {
+  background: rgba(123, 67, 52, 0.12);
+  color: #7b4334;
+}
+
+.priority-admin-filters a[aria-current="page"] {
+  background: #a3614b;
+  color: #fffaf1;
+}
+
+.priority-admin-table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.priority-admin-table-wrap {
+  overflow-x: auto;
+}
+
+.priority-admin-table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+}
+
+.priority-admin-table caption {
+  padding: 18px 24px;
+  color: #735f55;
+  text-align: left;
+}
+
+.priority-admin-table th,
+.priority-admin-table td {
+  padding: 18px 20px;
+  border-top: 1px solid rgba(129, 74, 56, 0.18);
+  text-align: left;
+  vertical-align: top;
+}
+
+.priority-admin-table th {
+  color: #7b4334;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.priority-admin-table td {
+  color: #3a2a24;
+  line-height: 1.45;
+}
+
+.priority-admin-table a {
+  color: #7b4334;
+  font-weight: 700;
+}
+
+.priority-admin-table span {
+  color: #846d62;
+}
+
+.priority-admin-access {
+  max-width: 760px;
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.priority-admin-login {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.priority-admin-login label {
+  display: grid;
+  gap: 8px;
+  color: #7b4334;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.priority-admin-login input {
+  min-height: 52px;
+  border: 1px solid rgba(129, 74, 56, 0.3);
+  border-radius: 16px;
+  padding: 0 16px;
+  background: #fffaf1;
+  color: #322520;
+  font: inherit;
+}
+
+@media (max-width: 760px) {
+  .priority-admin-header,
+  .priority-admin-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .priority-admin-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
