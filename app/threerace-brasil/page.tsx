@@ -10,7 +10,7 @@ import PrioritySignup from "./priority-signup";
 import RaceCountdown from "./race-countdown";
 import RaceSchedule from "./race-schedule";
 import { EventVenue, RegulationDocument } from "./event-resources";
-import { brasilEvent, information, raceFormats, registrationPrices, registrationPayment, registrationNotice, jerseyOption, courseNotice, expo, faqs } from "./content";
+import { brasilEvent, information, raceFormats, registrationPrices, registrationPayment, registrationNotice, registrationBenefits, jerseyOption, courseNotice, expo, faqs } from "./content";
 import "./brasil.css";
 
 const number = (value: number) => value.toLocaleString("pt-BR");
@@ -40,6 +40,12 @@ function PricesTable() {
     <p className="brasil-payment-note">{registrationPayment.description}</p>
     <p className="brasil-content-note">{registrationNotice}</p>
     <p className="brasil-jersey-note">{jerseyOption.description}</p>
+    <div className="brasil-registration-benefits">
+      {registrationBenefits.map((group) => <section key={group.id} aria-labelledby={group.id}>
+        <h4 id={group.id}>{group.title}</h4>
+        <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
+      </section>)}
+    </div>
   </div>;
 }
 

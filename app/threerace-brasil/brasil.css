@@ -171,6 +171,13 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-kit-copy p,.brasil-kit-copy li { font-size:1rem; line-height:1.75; }
 .brasil-kit-copy ul { list-style:disc; margin:0 0 24px; padding-left:22px; }
 .brasil-jersey-note { padding:22px; background:var(--br-sand); border-left:3px solid var(--br-terracotta); }
+.brasil-registration-benefits { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; margin-top:32px; padding-top:32px; border-top:1px solid var(--br-line); }
+.brasil-registration-benefits h4 { margin:0 0 18px; color:var(--br-deep); font-size:1rem; font-weight:750; letter-spacing:.04em; line-height:1.4; }
+.brasil-registration-benefits ul { margin:0; padding-left:20px; list-style:disc; }
+.brasil-registration-benefits li { padding-left:3px; color:var(--br-ink); font-size:.9375rem; line-height:1.65; }
+.brasil-registration-benefits li + li { margin-top:9px; }
+.brasil-registration-benefits li::marker { color:var(--br-terracotta); }
+@media(max-width:700px) { .brasil-registration-benefits { grid-template-columns:1fr; gap:28px; margin-top:28px; padding-top:28px; } }
 .brasil-expo { background:var(--br-sand); padding:80px 0; }
 .brasil-expo-grid { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr) minmax(0,1.05fr); align-items:center; gap:32px; }
 .brasil-expo-grid > * { min-width:0; }

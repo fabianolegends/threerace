@@ -144,6 +144,35 @@ export const jerseyOption = {
   description: "A jersey de ciclismo é opcional e pode ser comprada por R$ 100 adicionais, junto com a inscrição, no momento de realizá-la. Disponível para Ultra e Sport, em todos os lotes.",
 };
 export const registrationNotice = "Cada lote encerra na data final indicada ou ao atingir seu limite de vagas, o que ocorrer primeiro. O lote prioritário é exclusivo para a lista prioritária. Os horários de abertura e encerramento serão informados no canal oficial de inscrição.";
+export const registrationBenefits = [
+  {
+    id: "incluso-na-inscricao",
+    title: "INCLUSO NA INSCRIÇÃO",
+    items: [
+      "Camiseta casual alusiva ao evento.",
+      "Meias Threerace.",
+      "Medalha FINISHER, caso complete 75% do evento.",
+      "Placa personalizada.",
+      "Seguro do atleta.",
+      "Pontos de hidratação durante o percurso.",
+      "Serviços médicos no percurso e atendimento básico gratuito na arena.",
+      "Serviço mecânico básico: regulagem e identificação de problemas.",
+      "Bike wash.",
+    ],
+  },
+  {
+    id: "nao-incluso-na-inscricao",
+    title: "NÃO INCLUSO NA INSCRIÇÃO",
+    items: [
+      "Jersey de ciclismo.",
+      "Serviço de recuperação muscular.",
+      "Serviço mecânico completo.",
+      "Hospedagem ou alimentação não descritas.",
+      "Qualquer deslocamento ou transfer.",
+      "Serviço de fotografia.",
+    ],
+  },
+];
 export const scheduleNotice = "Programação preliminar. Os horários de credenciamento, largadas, briefings e premiações serão confirmados pela organização. Base do evento: Centro de Eventos de São Francisco de Paula.";
 // Estrutura adaptada do Guia do Protagonista Brasil 2026 (p. 3, 11 e 13)
 // e do regulamento Brasil 2026, itens 15.1, 18.1 e 21. Nenhum deles traz a agenda horária completa.
