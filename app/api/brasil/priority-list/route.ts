@@ -85,9 +85,9 @@ export async function POST(request: Request): Promise<Response> {
     return errorResponse(400, "Confira os campos indicados.", validated.errors);
   }
   try {
-    storePriorityRegistration(validated.data, PRIORITY_CONSENT_VERSION);
+    await storePriorityRegistration(validated.data, PRIORITY_CONSENT_VERSION);
   } catch {
-    // Do not log personal data, database paths, or the submitted request.
+    // Do not log personal data, database paths, connection strings, or the submitted request.
     return errorResponse(503, "Não foi possível salvar seu cadastro agora. Tente novamente em instantes.");
   }
 
