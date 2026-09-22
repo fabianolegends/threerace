@@ -32,11 +32,11 @@ export const raceFormats = [
     id: "ultra", name: "Ultra", days: "Três dias de prova", dates: "2, 3 e 4 de abril",
     description: "A Ultra reúne o maior volume esportivo da edição, com uma etapa de XCC, etapa rainha e etapa final.",
     stages: [
-      { date: "Sexta, 2 de abril", name: "Stage 1 — Etapa de XCC", detail: "2 voltas em circuito de 3,5 km", distance: 7, ascent: null },
+      { date: "Sexta, 2 de abril", name: "Stage 1 — Etapa de XCC", detail: "2 voltas · 3,5 km e 120 m de elevação por volta", distance: 7, ascent: 240 },
       { date: "Sábado, 3 de abril", name: "Stage 2 — Etapa rainha", distance: 82, ascent: 1450 },
       { date: "Domingo, 4 de abril", name: "Stage 3 — Etapa final", distance: 68, ascent: 780 },
     ],
-    note: "A etapa de XCC terá duas voltas em circuito de 3,5 km, totalizando 7 km. As largadas serão por categoria, com no máximo 10 atletas por bateria. O início das largadas será ajustado conforme a quantidade de baterias, garantindo o término da prova até as 17h. O desnível do XCC e o desnível total da Ultra serão confirmados pela organização.",
+    note: "A etapa de XCC terá duas voltas em circuito de 3,5 km e 120 m de elevação por volta, totalizando 7 km e 240 m de subida acumulada. As largadas serão por categoria, com no máximo 10 atletas por bateria. O início das largadas será ajustado conforme a quantidade de baterias, garantindo o término da prova até as 17h.",
   },
   {
     id: "sport", name: "Sport", days: "Duas etapas no fim de semana", dates: "3 e 4 de abril",
@@ -51,7 +51,7 @@ export const raceFormats = [
 
 export const courseNotice = "Os percursos e desníveis das duas modalidades são previstos e poderão receber ajustes após a validação técnica. Mapas, características do terreno e regras da competição serão apresentados nos materiais oficiais.";
 
-// Regulamento Brasil 2027 · Revisão 07, 22/09/2026 · itens 2 e 4 (páginas 1–4).
+// Regulamento Brasil 2027 · Revisão 08, 22/09/2026 · itens 2 e 4 (páginas 1–4).
 type CompetitionCategory = { name: string; age: string; composition?: string };
 type CategoryGroup = { title: string; categories: CompetitionCategory[]; note?: string };
 type CompetitionFormat = { id: string; name: string; description: string; groups: CategoryGroup[]; grouping: string[] };
@@ -186,7 +186,7 @@ export const schedule = [
     events: [
       { time: "Antes da largada", title: "Credenciamento e retirada de kits · Ultra", description: "Recepção dos atletas, conferência dos documentos e entrega do kit no Centro de Eventos." },
       { time: "Antes da largada", title: "Orientações e organização das baterias", description: "Confira sua categoria e bateria. Cada largada terá no máximo 10 atletas; apresente-se ao alinhamento conforme a chamada da organização." },
-      { time: "A confirmar", title: "Largadas da etapa de XCC · Ultra", description: "Duas voltas em circuito de 3,5 km (7 km no total), com largadas por categoria de até 10 atletas. O início será ajustado conforme a quantidade de baterias, para que a prova termine até as 17h." },
+      { time: "A confirmar", title: "Largadas da etapa de XCC · Ultra", description: "Duas voltas em circuito de 3,5 km e 120 m de elevação por volta (7 km e 240 m no total), com largadas por categoria de até 10 atletas. O início será ajustado conforme a quantidade de baterias, para que a prova termine até as 17h." },
       { time: "Até as 17h", title: "Término da etapa de XCC", description: "Todas as baterias deverão terminar até as 17h. Confira o horário da sua largada na programação divulgada pela organização." },
       { time: "Após a etapa", title: "Resultados e premiação diária · Ultra", description: "Pódios diários das categorias convencionais previstas no regulamento. A E-bike tem somente premiação geral final." },
       { time: "À noite", title: "Briefing para sábado", description: "Orientações técnicas para a etapa rainha da Ultra e a primeira etapa da Sport. Horário e formato a confirmar." },
