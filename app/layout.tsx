@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./corporate.css";
+import { DevelopmentSiteFooter } from "./components/development-site-footer";
 
 const siteUrl = "https://www.threerace.com";
 
@@ -122,7 +123,7 @@ export default function RootLayout({
         />
         <aside className="workspace-notice" aria-label="Ambiente de desenvolvimento"><strong>VERSÃO DE TRABALHO · NÃO PUBLICADA</strong><nav aria-label="Páginas de trabalho"><a href="/threerace-brasil">Brasil</a><a href="/threerace-uruguay">Referência Uruguai</a></nav></aside>
         {children}
-        <footer className="workspace-footer"><strong>THREERACE SPORTS</strong><p>Ambiente de desenvolvimento da edição Brasil 2027.</p><a href="mailto:inscricoes@threerace.com.br">inscricoes@threerace.com.br</a></footer>
+        <DevelopmentSiteFooter />
         <a className="global-top-button" href="#top" aria-label="Voltar ao topo">
           <span aria-hidden="true">↑</span>
           TOPO

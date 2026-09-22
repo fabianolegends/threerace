@@ -1,4 +1,4 @@
-// Dados fornecidos pela organização em 21/09/2026. Esta é a fonte editorial da página.
+// Dados fornecidos pela organização, atualizados em 22/09/2026. Esta é a fonte editorial da página.
 export const brasilEvent = {
   location: "SÃO FRANCISCO DE PAULA · RIO GRANDE DO SUL",
   venue: "Centro de Eventos de São Francisco de Paula",
@@ -30,13 +30,13 @@ export const eventVenue = {
 export const raceFormats = [
   {
     id: "ultra", name: "Ultra", days: "Três dias de prova", dates: "2, 3 e 4 de abril",
-    description: "A Ultra reúne o maior volume esportivo da edição, com prólogo, etapa rainha e etapa final.",
+    description: "A Ultra reúne o maior volume esportivo da edição, com uma etapa de XCC, etapa rainha e etapa final.",
     stages: [
-      { date: "Sexta, 2 de abril", name: "Stage 1 — Prólogo", distance: 24, ascent: 530 },
+      { date: "Sexta, 2 de abril", name: "Stage 1 — Etapa de XCC", detail: "2 voltas em circuito de 3,5 km", distance: 7, ascent: null },
       { date: "Sábado, 3 de abril", name: "Stage 2 — Etapa rainha", distance: 82, ascent: 1450 },
       { date: "Domingo, 4 de abril", name: "Stage 3 — Etapa final", distance: 68, ascent: 780 },
     ],
-    note: "No prólogo, as largadas serão realizadas em baterias de até seis atletas, com uma nova bateria a cada minuto. O horário e a composição das baterias serão divulgados pela organização.",
+    note: "A etapa de XCC terá duas voltas em circuito de 3,5 km, totalizando 7 km. As largadas serão por categoria, com no máximo 10 atletas por bateria. O início das largadas será ajustado conforme a quantidade de baterias, garantindo o término da prova até as 17h. O desnível do XCC e o desnível total da Ultra serão confirmados pela organização.",
   },
   {
     id: "sport", name: "Sport", days: "Duas etapas no fim de semana", dates: "3 e 4 de abril",
@@ -45,13 +45,13 @@ export const raceFormats = [
       { date: "Sábado, 3 de abril", name: "Stage 1", distance: 46, ascent: 670 },
       { date: "Domingo, 4 de abril", name: "Stage 2", distance: 32, ascent: 450 },
     ],
-    note: "A Sport não tem prólogo na sexta-feira. Suas etapas acontecem no sábado e no domingo.",
+    note: "A Sport não participa da etapa de XCC na sexta-feira. Suas etapas acontecem no sábado e no domingo.",
   },
 ];
 
 export const courseNotice = "Os percursos e desníveis das duas modalidades são previstos e poderão receber ajustes após a validação técnica. Mapas, características do terreno e regras da competição serão apresentados nos materiais oficiais.";
 
-// Regulamento Brasil 2027 · Revisão 06, 21/09/2026 · itens 2 e 4 (páginas 1–4).
+// Regulamento Brasil 2027 · Revisão 07, 22/09/2026 · itens 2 e 4 (páginas 1–4).
 type CompetitionCategory = { name: string; age: string; composition?: string };
 type CategoryGroup = { title: string; categories: CompetitionCategory[]; note?: string };
 type CompetitionFormat = { id: string; name: string; description: string; groups: CategoryGroup[]; grouping: string[] };
@@ -182,11 +182,12 @@ export const scheduleNotice = "Programação preliminar. Os horários de credenc
 // Fonte e limites da pesquisa: docs/programacao-brasil-2027.md.
 export const schedule = [
   {
-    date: "SEXTA-FEIRA · 02 DE ABRIL", dateTime: "2027-04-02", title: "Ultra · Prólogo",
+    date: "SEXTA-FEIRA · 02 DE ABRIL", dateTime: "2027-04-02", title: "Ultra · Etapa de XCC",
     events: [
       { time: "Antes da largada", title: "Credenciamento e retirada de kits · Ultra", description: "Recepção dos atletas, conferência dos documentos e entrega do kit no Centro de Eventos." },
-      { time: "Antes da largada", title: "Orientações e organização das baterias", description: "Confira sua bateria e apresente-se para o alinhamento conforme a chamada da organização." },
-      { time: "A confirmar", title: "Largadas do prólogo · Ultra", description: "Baterias de até seis atletas, com intervalo de um minuto. Confira seu horário na lista de largada." },
+      { time: "Antes da largada", title: "Orientações e organização das baterias", description: "Confira sua categoria e bateria. Cada largada terá no máximo 10 atletas; apresente-se ao alinhamento conforme a chamada da organização." },
+      { time: "A confirmar", title: "Largadas da etapa de XCC · Ultra", description: "Duas voltas em circuito de 3,5 km (7 km no total), com largadas por categoria de até 10 atletas. O início será ajustado conforme a quantidade de baterias, para que a prova termine até as 17h." },
+      { time: "Até as 17h", title: "Término da etapa de XCC", description: "Todas as baterias deverão terminar até as 17h. Confira o horário da sua largada na programação divulgada pela organização." },
       { time: "Após a etapa", title: "Resultados e premiação diária · Ultra", description: "Pódios diários das categorias convencionais previstas no regulamento. A E-bike tem somente premiação geral final." },
       { time: "À noite", title: "Briefing para sábado", description: "Orientações técnicas para a etapa rainha da Ultra e a primeira etapa da Sport. Horário e formato a confirmar." },
     ],
@@ -196,7 +197,7 @@ export const schedule = [
     events: [
       { time: "Antes da largada", title: "Credenciamento e retirada de kits · Sport", description: "Conferência dos documentos e entrega dos kits antes da primeira etapa. Janela de atendimento a confirmar." },
       { time: "Antes da largada", title: "Abertura da arena e alinhamento", description: "Acesso ao alinhamento de cada modalidade: de 20 a cinco minutos antes da respectiva largada, salvo alteração no boletim técnico." },
-      { time: "A confirmar", title: "Largada da etapa rainha · Ultra", description: "Segunda etapa da Ultra, com alinhamento conforme a classificação do prólogo e o boletim técnico." },
+      { time: "A confirmar", title: "Largada da etapa rainha · Ultra", description: "Segunda etapa da Ultra, com alinhamento conforme a classificação da etapa de XCC e o boletim técnico." },
       { time: "A confirmar", title: "Largada da primeira etapa · Sport", description: "Início da competição Sport. Ordem e intervalo entre modalidades a confirmar." },
       { time: "Após as etapas", title: "Resultados e premiação diária · Ultra", description: "Divulgação dos resultados das duas modalidades e pódios diários convencionais da Ultra. Sport e E-bike têm somente premiação geral final." },
       { time: "À noite", title: "Briefing para domingo", description: "Orientações técnicas para as etapas finais das duas modalidades. Horário e formato a confirmar." },
@@ -227,7 +228,7 @@ export const expo = {
 };
 export const information = [
   { id: "evento", title: "O EVENTO", icon: "event", heading: "A EDIÇÃO 2027", paragraphs: [
-    "Após o retorno a São Francisco de Paula em 2026, a Threerace segue na cidade para a edição de 2 a 4 de abril de 2027, com base no Centro de Eventos. A Ultra começa na sexta-feira com um prólogo em baterias e segue até domingo. A Sport concentra suas duas etapas no sábado e no domingo.",
+    "Após o retorno a São Francisco de Paula em 2026, a Threerace segue na cidade para a edição de 2 a 4 de abril de 2027, com base no Centro de Eventos. A Ultra começa na sexta-feira com uma etapa de XCC em baterias por categoria e segue até domingo. A Sport concentra suas duas etapas no sábado e no domingo.",
     "O planejamento também inclui uma expo para aproximar ciclistas, acompanhantes e visitantes de lojas e empresas do segmento, com atendimento, apresentação de produtos e venda direta ao público.",
     "Com trajetória desde 2017, a Threerace prepara a edição de 2027 com 400 vagas: 250 na Ultra e 150 na Sport, distribuídas em três lotes por modalidade.",
   ] },
@@ -241,7 +242,7 @@ export const information = [
 ];
 export const faqs = [
   ["Preciso participar dos três dias?", "Na Ultra, as etapas acontecem de sexta a domingo. Na Sport, as etapas são no sábado e no domingo."],
-  ["A Sport tem prólogo na sexta-feira?", "Não. O prólogo de sexta faz parte da Ultra."],
+  ["A Sport participa da etapa de XCC na sexta-feira?", "Não. A etapa de XCC de sexta-feira é exclusiva da Ultra. A Sport compete no sábado e no domingo."],
   ["A jersey está incluída na inscrição?", `Não. ${jerseyOption.description} Camiseta casual dry e meia de ciclismo já estão incluídas no valor da inscrição.`],
   ["Onde será a base do evento?", "No Centro de Eventos de São Francisco de Paula, na Avenida Benjamin Constant, bairro Cipó. O mapa e o botão Como chegar estão na seção Base e hospedagem."],
   ["Já posso consultar os horários e os mapas finais?", "Os horários detalhados e os percursos finais serão divulgados nos materiais oficiais. As distâncias e os desníveis apresentados nesta página correspondem ao planejamento atual."],

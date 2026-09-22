@@ -16,6 +16,8 @@ import { brasilEvent, information, raceFormats, registrationPrices, registration
 import "./brasil.css";
 
 const number = (value: number) => value.toLocaleString("pt-BR");
+const totalAscent = (stages: { ascent: number | null }[]) => stages.reduce<number | null>((total, stage) => total === null || stage.ascent === null ? null : total + stage.ascent, 0);
+const ascentLabel = (ascent: number | null) => ascent === null ? "A confirmar" : `${number(ascent)} m`;
 const currency = (value: number) => value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const lotDate = (date: string) => date.split("-").reverse().join("/");
 
@@ -60,8 +62,8 @@ function CourseTables() {
         <table className="brasil-data-table">
           <caption>{format.name} · {format.dates} · percursos previstos</caption>
           <thead><tr><th scope="col">Data</th><th scope="col">Etapa</th><th scope="col">Distância prevista</th><th scope="col">Subida acumulada prevista</th></tr></thead>
-          <tbody>{format.stages.map((stage) => <tr key={stage.name}><th scope="row">{stage.date}</th><td>{stage.name}</td><td>{stage.distance} km</td><td>{number(stage.ascent)} m</td></tr>)}</tbody>
-          <tfoot><tr><th scope="row" colSpan={2}>Total {format.name}</th><td>{format.stages.reduce((total, stage) => total + stage.distance, 0)} km</td><td>{number(format.stages.reduce((total, stage) => total + stage.ascent, 0))} m</td></tr></tfoot>
+          <tbody>{format.stages.map((stage) => <tr key={stage.name}><th scope="row">{stage.date}</th><td>{stage.name}{"detail" in stage && <small className="brasil-course-detail">{stage.detail}</small>}</td><td>{stage.distance} km</td><td>{ascentLabel(stage.ascent)}</td></tr>)}</tbody>
+          <tfoot><tr><th scope="row" colSpan={2}>Total {format.name}</th><td>{format.stages.reduce((total, stage) => total + stage.distance, 0)} km</td><td>{ascentLabel(totalAscent(format.stages))}</td></tr></tfoot>
         </table>
       </div>
       <p className="brasil-content-note">{format.note}</p>
@@ -125,7 +127,7 @@ export default function Brasil() {
           <p className="brasil-choice-date">{format.dates} · 2027</p>
           <div className="brasil-choice-heading"><h2 id={`modalidade-${format.id}`}>{format.name}</h2><span>{format.stages.length} DIAS</span></div>
           <p className="brasil-choice-description">{format.id === "ultra" ? "3 etapas com percurso completo" : "2 etapas e percurso reduzido"}</p>
-          <div className="brasil-choice-metrics"><div className="brasil-choice-value" role="group" aria-label="Distância prevista"><RaceMetricIcon kind="distance" /><strong>{format.stages.reduce((total, stage) => total + stage.distance, 0)}<small> km</small></strong></div><div className="brasil-choice-value" role="group" aria-label="Subida acumulada prevista"><RaceMetricIcon kind="ascent" /><strong>{number(format.stages.reduce((total, stage) => total + stage.ascent, 0))}<small> m</small></strong></div></div>
+          <div className="brasil-choice-metrics"><div className="brasil-choice-value" role="group" aria-label="Distância prevista"><RaceMetricIcon kind="distance" /><strong>{format.stages.reduce((total, stage) => total + stage.distance, 0)}<small> km</small></strong></div><div className="brasil-choice-value" role="group" aria-label="Subida acumulada prevista"><RaceMetricIcon kind="ascent" />{totalAscent(format.stages) === null ? <strong className="brasil-choice-pending">A confirmar</strong> : <strong>{number(totalAscent(format.stages)!)}<small> m</small></strong>}</div></div>
           <div className="brasil-choice-actions"><a href="#etapas" aria-label={`Ver etapas da ${format.name}`} onClick={() => openSection("etapas")}>VER ETAPAS <span aria-hidden="true">↗</span></a><a href="#inscricoes" aria-label={`Valores e lotes da ${format.name}`} onClick={() => openSection("inscricoes")}>VALORES E LOTES <span aria-hidden="true">↗</span></a></div>
         </article>)}</div>
         <p className="brasil-content-note">{courseNotice}</p>
@@ -156,7 +158,22 @@ export default function Brasil() {
         </div>
       </div>
     </section>
-    <section className="original-partners"><div className="section-frame"><div className="original-organizers brasil-organizer"><p>REALIZAÇÃO</p><img src="/tr3-logo-display.webp" alt="Threerace Sports" loading="lazy" /></div><p className="brasil-partners-note">Patrocinadores e apoiadores da edição Brasil serão anunciados em breve.</p></div></section>
+    <section className="original-partners brasil-partners" id="parceiros" aria-label="Organização e patrocínio">
+      <div className="section-frame brasil-partners-grid">
+        <div className="brasil-partner">
+          <h2>ORGANIZAÇÃO</h2>
+          <Link className="brasil-partner-logo brasil-partner-tr3" href="/" aria-label="TR3 · Threerace Sports">
+            <Image src="/tr3-logo-display.webp" width={160} height={160} sizes="112px" alt="TR3 · Threerace Sports" />
+          </Link>
+        </div>
+        <div className="brasil-partner">
+          <h2>PATROCÍNIO</h2>
+          <a className="brasil-partner-logo brasil-partner-prefeitura" href="https://www.saofranciscodepaula.rs.gov.br/portal/" target="_blank" rel="noreferrer" aria-label="Prefeitura Municipal de São Francisco de Paula · site oficial">
+            <Image src="/brasil-2027/prefeitura-sao-francisco-de-paula-oficial.png" width={405} height={110} sizes="(max-width: 600px) 80vw, 360px" alt="Prefeitura Municipal de São Francisco de Paula" />
+          </a>
+        </div>
+      </div>
+    </section>
     <section className="brasil-faq section-frame" id="duvidas"><div><p className="section-label">PERGUNTAS FREQUENTES</p><h2>ANTES DA LARGADA.</h2><a className="button button-dark" href={brasilEvent.whatsapp} target="_blank" rel="noreferrer">FALAR COM A THREERACE ↗</a></div><div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
     <section className="brasil-closing" id="encerramento"><div className="section-frame"><p className="section-label">SÃO FRANCISCO DE PAULA · RS</p><h2>O PRÓXIMO CAPÍTULO<br />COMEÇA AQUI.</h2><p>{brasilEvent.date}</p><a className="button button-primary" href="#informacoes">VER INFORMAÇÕES ↑</a></div></section>
   </main>;

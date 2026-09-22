@@ -1,12 +1,15 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useSyncExternalStore, type FormEvent } from "react";
 import {
   getSavedLanguage,
   SITE_LANGUAGE_CHANGE_EVENT,
   type SiteLanguage,
 } from "../site-language";
 import { PrivacyPreferencesButton } from "./privacy-preferences-button";
+import "./global-site-footer-preview.css";
 
 const footerCopy = {
   pt: {
@@ -23,6 +26,8 @@ const footerCopy = {
     sent: "Cadastro realizado! Você agora faz parte da Comunidade Threerace.",
     error: "Não foi possível concluir. Tente novamente em alguns instantes.",
     sending: "ENVIANDO...",
+    previewNotice: "Cadastro de novidades disponível em breve.",
+    previewSubscribe: "EM BREVE",
     footerBrand: "EVENTOS, ESPORTE E EXPERIÊNCIAS QUE VÃO MAIS LONGE.",
     explore: "EXPLORE",
     events: "Eventos",
@@ -45,6 +50,8 @@ const footerCopy = {
     sent: "¡Registro realizado! Ya formas parte de la Comunidad Threerace.",
     error: "No fue posible completar el registro. Inténtalo de nuevo.",
     sending: "ENVIANDO...",
+    previewNotice: "El registro de novedades estará disponible pronto.",
+    previewSubscribe: "PRÓXIMAMENTE",
     footerBrand: "EVENTOS, DEPORTE Y EXPERIENCIAS QUE LLEGAN MÁS LEJOS.",
     explore: "EXPLORA",
     events: "Eventos",
@@ -67,6 +74,8 @@ const footerCopy = {
     sent: "Registration complete! You are now part of the Threerace Community.",
     error: "We could not complete your registration. Please try again.",
     sending: "SENDING...",
+    previewNotice: "Newsletter signup will be available soon.",
+    previewSubscribe: "COMING SOON",
     footerBrand: "EVENTS, SPORT AND EXPERIENCES THAT GO FURTHER.",
     explore: "EXPLORE",
     events: "Events",
@@ -77,24 +86,40 @@ const footerCopy = {
   },
 } satisfies Record<SiteLanguage, Record<string, string>>;
 
-export function GlobalSiteFooter() {
-  const [language, setLanguage] = useState<SiteLanguage>("pt");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+function subscribeToLanguage(onChange: () => void) {
+  window.addEventListener(SITE_LANGUAGE_CHANGE_EVENT, onChange);
+  window.addEventListener("storage", onChange);
+  return () => {
+    window.removeEventListener(SITE_LANGUAGE_CHANGE_EVENT, onChange);
+    window.removeEventListener("storage", onChange);
+  };
+}
 
-  useEffect(() => {
-    setLanguage(getSavedLanguage("pt"));
-    const updateLanguage = (event: Event) => {
-      setLanguage((event as CustomEvent<SiteLanguage>).detail);
-    };
-    window.addEventListener(SITE_LANGUAGE_CHANGE_EVENT, updateLanguage);
-    return () =>
-      window.removeEventListener(SITE_LANGUAGE_CHANGE_EVENT, updateLanguage);
-  }, []);
+function getFooterLanguage(): SiteLanguage {
+  try {
+    return getSavedLanguage("pt");
+  } catch {
+    return "pt";
+  }
+}
+
+const getServerLanguage = (): SiteLanguage => "pt";
+
+type GlobalSiteFooterProps = {
+  preview?: boolean;
+  fixedLanguage?: SiteLanguage;
+};
+
+export function GlobalSiteFooter({ preview = false, fixedLanguage }: GlobalSiteFooterProps = {}) {
+  const savedLanguage = useSyncExternalStore(subscribeToLanguage, getFooterLanguage, getServerLanguage);
+  const language = fixedLanguage ?? savedLanguage;
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const t = footerCopy[language];
 
   async function submitNewsletter(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (preview || status === "sending") return;
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
     setStatus("sending");
@@ -121,15 +146,16 @@ export function GlobalSiteFooter() {
   }
 
   return (
-    <footer className="global-site-footer" id="contato">
+    <footer className={`global-site-footer${preview ? " global-site-footer--preview" : ""}`} id="contato" lang={language === "pt" ? "pt-BR" : language}>
       <div className="footer-newsletter" id="comunidade">
         <div className="section-frame footer-newsletter-grid">
           <div>
             <p className="section-label">{t.community}</p>
             <h2>{t.communityTitle}</h2>
             <p>{t.communityText}</p>
+            {preview && <p className="footer-newsletter-preview" id="footer-newsletter-preview-note">{t.previewNotice}</p>}
           </div>
-          <form onSubmit={submitNewsletter}>
+          <form onSubmit={submitNewsletter} aria-describedby={preview ? "footer-newsletter-preview-note" : undefined}>
             <label>
               <span>{t.name}</span>
               <input
@@ -137,6 +163,8 @@ export function GlobalSiteFooter() {
                 type="text"
                 placeholder={t.namePlaceholder}
                 required
+                disabled={preview}
+                autoComplete="given-name"
               />
             </label>
             <label>
@@ -146,19 +174,21 @@ export function GlobalSiteFooter() {
                 type="email"
                 placeholder="voce@email.com"
                 required
+                disabled={preview}
+                autoComplete="email"
               />
             </label>
             <label>
               <span>{t.interest}</span>
-              <select name="interest" defaultValue={t.allEvents}>
+              <select name="interest" defaultValue={t.allEvents} disabled={preview}>
                 <option>{t.allEvents}</option>
                 <option>Mountain bike</option>
                 <option>Gravel</option>
                 <option>{t.partnerships}</option>
               </select>
             </label>
-            <button type="submit" disabled={status === "sending"}>
-              {status === "sending" ? t.sending : t.subscribe}
+            <button type="submit" disabled={preview || status === "sending"}>
+              {preview ? t.previewSubscribe : status === "sending" ? t.sending : t.subscribe}
             </button>
             {status === "sent" && (
               <p className="newsletter-success" role="status">
@@ -175,11 +205,12 @@ export function GlobalSiteFooter() {
       </div>
       <div className="section-frame footer-top corporate-footer">
         <div className="footer-brand">
-          <img
+          <Image
             className="footer-logo"
             src="/tr3-logo-display.webp"
-            width="512"
-            height="512"
+            width={512}
+            height={512}
+            sizes="92px"
             alt="Threerace Sports"
             loading="lazy"
             decoding="async"
@@ -188,9 +219,9 @@ export function GlobalSiteFooter() {
         </div>
         <div className="footer-nav">
           <p>{t.explore}</p>
-          <a href="/#eventos">{t.events}</a>
-          <a href="/#historias">TR3 Journal</a>
-          <a href="/#sobre">{t.about}</a>
+          <Link href="/#eventos">{t.events}</Link>
+          <Link href="/#historias">TR3 Journal</Link>
+          <Link href="/#sobre">{t.about}</Link>
         </div>
         <div className="footer-contact">
           <p>{t.contact}</p>
@@ -209,7 +240,7 @@ export function GlobalSiteFooter() {
       <div className="section-frame footer-bottom">
         <span>THREERACE SPORTS © 2026</span>
         <span>
-          {t.region} · <PrivacyPreferencesButton label={t.privacy} />
+          {t.region} · {preview ? <Link href="/politica-de-privacidade">{t.privacy}</Link> : <PrivacyPreferencesButton label={t.privacy} />}
         </span>
       </div>
     </footer>
