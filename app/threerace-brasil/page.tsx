@@ -9,6 +9,8 @@ import CategoryTables from "./category-tables";
 import PrioritySignup from "./priority-signup";
 import RaceCountdown from "./race-countdown";
 import RaceSchedule from "./race-schedule";
+import RaceGallery from "./race-gallery";
+import RegistrationInclusions from "./registration-inclusions";
 import { EventVenue, RegulationDocument } from "./event-resources";
 import { brasilEvent, information, raceFormats, registrationPrices, registrationPayment, registrationNotice, registrationBenefits, jerseyOption, courseNotice, expo, faqs } from "./content";
 import "./brasil.css";
@@ -83,8 +85,6 @@ function MedicalDocuments() {
 export default function Brasil() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openInfo, setOpenInfo] = useState<string | null>(null);
-  const [galleryIndex, setGalleryIndex] = useState(0);
-  const gallery = Array.from({ length: 8 }, (_, i) => `/tr3-gallery-${String(i + 1).padStart(2, "0")}.svg`);
   useEffect(() => {
     const syncHash = () => {
       const id = window.location.hash.slice(1);
@@ -141,7 +141,8 @@ export default function Brasil() {
       })}
     </div></div></section>
     <section className="original-about section-frame" id="historia"><div className="original-about-copy"><p className="section-label">NOSSA HISTÓRIA · 2017 — 2027</p><h2>DEZ ANOS DE MONTANHAS, PESSOAS E HISTÓRIAS.</h2><p>A Threerace constrói sua história desde 2017, reunindo pessoas em torno do mountain bike, da natureza e dos desafios por etapas.</p><p>Em 2026, voltamos a São Francisco de Paula, na Serra Gaúcha. Em 2027, seguimos na cidade para celebrar dez anos dessa trajetória, de 2 a 4 de abril. Um novo encontro para quem já faz parte da nossa história e para quem chega para pedalar com a gente.</p></div><div className="original-about-brand brasil-anniversary"><img src="/brasil-2027/selo-10-anos-alinhado.webp" width="900" height="900" alt="Selo Threerace: 10 anos, 2017–2027, com araucária em terracota e areia" loading="lazy" /></div></section>
-    <section className="brasil-gallery" aria-label="Galeria da história Threerace"><div className="section-frame brasil-gallery-heading"><p className="section-label">HISTÓRIAS EM IMAGENS</p><div><button type="button" aria-label="Foto anterior" disabled={galleryIndex === 0} onClick={() => setGalleryIndex(galleryIndex - 1)}>←</button><span aria-live="polite">{galleryIndex + 1} / {gallery.length}</span><button type="button" aria-label="Próxima foto" disabled={galleryIndex === gallery.length - 1} onClick={() => setGalleryIndex(galleryIndex + 1)}>→</button></div></div><figure><img src={gallery[galleryIndex]} alt={`Registro histórico da Threerace — imagem ${galleryIndex + 1}`} loading="lazy" /><figcaption>Acervo Threerace · edições anteriores</figcaption></figure></section>
+    <RaceGallery />
+    <RegistrationInclusions />
     <KitCollection />
     <section className="brasil-expo" id="expo">
       <div className="section-frame">

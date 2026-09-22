@@ -1,0 +1,110 @@
+.brasil-event-page .brasil-race-gallery {
+  --br-gallery-gap: 12px;
+  --br-gallery-visible: 1;
+  padding: 32px 0 20px;
+  color: var(--br-paper);
+  background: var(--br-deep);
+}
+.brasil-race-gallery .brasil-race-gallery-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.brasil-race-gallery .brasil-race-gallery-heading h2 {
+  margin: 0;
+  color: var(--br-paper);
+  font-size: .875rem;
+  font-weight: 750;
+  letter-spacing: .12em;
+  line-height: 1.5;
+}
+.brasil-race-gallery .brasil-race-gallery-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brasil-race-gallery .brasil-race-gallery-controls button {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--br-sand);
+  border-radius: 50%;
+  color: var(--br-paper);
+  background: transparent;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+.brasil-race-gallery .brasil-race-gallery-controls button:hover:not(:disabled) {
+  color: var(--br-deep);
+  background: var(--br-paper);
+}
+.brasil-race-gallery .brasil-race-gallery-controls button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+.brasil-race-gallery .brasil-race-gallery-controls svg { width: 22px; height: 22px; }
+.brasil-race-gallery .brasil-race-gallery-count {
+  min-width: 110px;
+  margin: 0;
+  font-size: .875rem;
+  line-height: 1.5;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.brasil-race-gallery .brasil-race-gallery-viewport {
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+.brasil-race-gallery .brasil-race-gallery-track {
+  display: flex;
+  gap: var(--br-gallery-gap);
+  transform: translateX(calc(var(--br-gallery-index) * (100% + var(--br-gallery-gap)) / var(--br-gallery-visible) * -1));
+  transition: transform .3s ease;
+}
+.brasil-race-gallery .brasil-race-gallery-slide {
+  flex: 0 0 calc((100% - (var(--br-gallery-visible) - 1) * var(--br-gallery-gap)) / var(--br-gallery-visible));
+  min-width: 0;
+  margin: 0;
+}
+.brasil-race-gallery .brasil-race-gallery-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  user-select: none;
+}
+.brasil-race-gallery .brasil-race-gallery-credit {
+  margin-top: 16px;
+  margin-bottom: 0;
+  color: var(--br-paper);
+  font-size: .8125rem;
+  line-height: 1.6;
+  text-align: right;
+}
+.brasil-event-page .brasil-race-gallery button:focus-visible {
+  outline: 3px solid var(--br-paper);
+  outline-offset: 4px;
+}
+.brasil-race-gallery .brasil-race-gallery-viewport:focus-visible {
+  outline: 3px solid var(--br-paper);
+  outline-offset: -3px;
+}
+@media (min-width: 768px) {
+  .brasil-event-page .brasil-race-gallery { --br-gallery-visible: 3; }
+}
+@media (max-width: 767px) {
+  .brasil-race-gallery .brasil-race-gallery-heading { gap: 16px; }
+  .brasil-race-gallery .brasil-race-gallery-heading h2 { font-size: .8125rem; }
+  .brasil-race-gallery .brasil-race-gallery-credit { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brasil-race-gallery .brasil-race-gallery-track,
+  .brasil-race-gallery .brasil-race-gallery-controls button { transition: none; }
+}

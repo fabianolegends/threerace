@@ -144,21 +144,22 @@ export const jerseyOption = {
   description: "A jersey de ciclismo é opcional e pode ser comprada por R$ 100 adicionais, junto com a inscrição, no momento de realizá-la. Disponível para Ultra e Sport, em todos os lotes.",
 };
 export const registrationNotice = "Cada lote encerra na data final indicada ou ao atingir seu limite de vagas, o que ocorrer primeiro. O lote prioritário é exclusivo para a lista prioritária. Os horários de abertura e encerramento serão informados no canal oficial de inscrição.";
+export const registrationIncludedItems = [
+  { icon: "shirt", title: "Camiseta casual", detail: "Alusiva ao evento.", text: "Camiseta casual alusiva ao evento." },
+  { icon: "socks", title: "Meias Threerace", detail: "", text: "Meias Threerace." },
+  { icon: "medal", title: "Medalha FINISHER", detail: "Caso complete 75% do evento.", text: "Medalha FINISHER, caso complete 75% do evento." },
+  { icon: "plate", title: "Placa personalizada", detail: "", text: "Placa personalizada." },
+  { icon: "shield", title: "Seguro do atleta", detail: "", text: "Seguro do atleta." },
+  { icon: "hydration", title: "Hidratação", detail: "Pontos de hidratação durante o percurso.", text: "Pontos de hidratação durante o percurso." },
+  { icon: "medical", title: "Serviços médicos", detail: "No percurso e atendimento básico gratuito na arena.", text: "Serviços médicos no percurso e atendimento básico gratuito na arena." },
+  { icon: "mechanic", title: "Mecânica básica", detail: "Regulagem e identificação de problemas.", text: "Serviço mecânico básico: regulagem e identificação de problemas." },
+  { icon: "wash", title: "Bike wash", detail: "", text: "Bike wash." },
+] as const;
 export const registrationBenefits = [
   {
     id: "incluso-na-inscricao",
     title: "INCLUSO NA INSCRIÇÃO",
-    items: [
-      "Camiseta casual alusiva ao evento.",
-      "Meias Threerace.",
-      "Medalha FINISHER, caso complete 75% do evento.",
-      "Placa personalizada.",
-      "Seguro do atleta.",
-      "Pontos de hidratação durante o percurso.",
-      "Serviços médicos no percurso e atendimento básico gratuito na arena.",
-      "Serviço mecânico básico: regulagem e identificação de problemas.",
-      "Bike wash.",
-    ],
+    items: registrationIncludedItems.map((item) => item.text),
   },
   {
     id: "nao-incluso-na-inscricao",
