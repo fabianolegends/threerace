@@ -1,0 +1,28 @@
+.brasil-internal-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 10px 20px;
+  background: #754634;
+  color: #f5efe4;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.brasil-internal-preview strong {
+  font-size: 11px;
+  letter-spacing: .1em;
+}
+
+.brasil-regulation-review {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-left: 3px solid #985d47;
+  background: #eae0ce;
+  color: #553c31;
+  font-size: 14px;
+  line-height: 1.6;
+}

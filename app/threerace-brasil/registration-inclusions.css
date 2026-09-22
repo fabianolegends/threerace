@@ -1,0 +1,59 @@
+.brasil-inclusions {
+  padding: 64px 0;
+  background: var(--br-sand);
+  isolation: isolate;
+}
+
+.brasil-inclusions-panel {
+  padding: 48px 36px 44px;
+}
+
+.brasil-inclusions h2 {
+  margin: 0 0 40px;
+  color: var(--br-deep);
+  text-align: center;
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.04em;
+}
+
+.brasil-inclusions-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 36px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.brasil-inclusions-grid > li {
+  grid-column: span 2;
+  min-width: 0;
+  text-align: center;
+}
+
+.brasil-inclusions-grid > li:first-child { grid-column: 2 / span 2; }
+.brasil-inclusions-grid > li:nth-child(5) { grid-column: 1 / span 2; }
+.brasil-inclusions-grid .brasil-benefit-icon { display: flex; align-items: center; justify-content: center; width: 90px; height: 90px; margin: 0 auto 16px; mix-blend-mode: multiply; }
+.brasil-benefit-icon svg { display: block; flex: none; }
+.brasil-inclusions-grid h3 { margin: 0; color: var(--br-ink); font-size: .9375rem; font-weight: 700; line-height: 1.4; }
+.brasil-inclusions-grid p { max-width: 190px; margin: 6px auto 0; color: var(--br-muted); font-size: .8125rem; line-height: 1.5; }
+.brasil-inclusions-extra { margin: 30px 0 0; color: var(--br-deep); text-align: center; font-size: .9375rem; line-height: 1.6; }
+
+@media (max-width: 1023px) {
+  .brasil-inclusions-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .brasil-inclusions-grid > li,
+  .brasil-inclusions-grid > li:first-child,
+  .brasil-inclusions-grid > li:nth-child(5) { grid-column: auto; }
+}
+
+@media (max-width: 600px) {
+  .brasil-inclusions { padding: 40px 0; }
+  .brasil-inclusions-panel { padding: 32px 18px; }
+  .brasil-inclusions h2 { margin-bottom: 30px; }
+  .brasil-inclusions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+  .brasil-inclusions-grid > li:last-child { grid-column: 1 / -1; }
+  .brasil-inclusions-grid .brasil-benefit-icon { width: 75.6px; height: 75.6px; margin-bottom: 12px; }
+  .brasil-inclusions-grid h3 { font-size: .875rem; }
+}

@@ -1,19 +1,27 @@
 import type { Metadata } from "next";
 import SeoJsonLd from "../seo-json-ld";
+import { brasilEvent } from "./content";
+import "./internal-preview.css";
 
 const url = "https://www.threerace.com/threerace-brasil";
 
 export const metadata: Metadata = {
   title: "Threerace Bike Ultramarathon Brasil 2027",
   description:
-    "A Threerace Bike Ultramarathon retorna a São Francisco de Paula de 3 a 5 de abril de 2027 para celebrar dez anos de MTB, natureza e comunidade.",
+    "Threerace Brasil, de 2 a 4 de abril de 2027 no Centro de Eventos de São Francisco de Paula. Ultra em três dias e Sport em duas etapas, com Threerace Expo.",
   alternates: { canonical: "/threerace-brasil" },
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: { index: false, follow: false, noimageindex: true },
+  },
   openGraph: {
     type: "website",
     url,
     title: "Threerace Bike Ultramarathon Brasil 2027",
     description:
-      "MTB Stage Race em São Francisco de Paula, na Serra Gaúcha.",
+      "2 a 4 de abril de 2027 · Ultra e Sport em São Francisco de Paula.",
     images: [
       {
         url: "/event-threerace-brasil.jpeg",
@@ -24,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Threerace Bike Ultramarathon Brasil 2027",
-    description: "MTB Stage Race em São Francisco de Paula.",
+    description: "2 a 4 de abril de 2027 · Ultra e Sport em São Francisco de Paula.",
     images: ["/event-threerace-brasil.jpeg"],
   },
 };
@@ -35,16 +43,16 @@ const eventJsonLd = {
   "@id": `${url}/#event`,
   name: "Threerace Bike Ultramarathon Brasil 2027",
   description:
-    "MTB Stage Race de três dias em São Francisco de Paula, Rio Grande do Sul.",
+    "Mountain bike por etapas em São Francisco de Paula: Ultra em três dias, Sport em dois dias e Threerace Expo.",
   url,
   image: ["https://www.threerace.com/event-threerace-brasil.jpeg"],
-  startDate: "2027-04-03",
-  endDate: "2027-04-05",
+  startDate: brasilEvent.startDate,
+  endDate: brasilEvent.endDate,
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: {
     "@type": "Place",
-    name: "São Francisco de Paula",
+    name: brasilEvent.venue,
     address: {
       "@type": "PostalAddress",
       addressLocality: "São Francisco de Paula",
@@ -63,6 +71,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <SeoJsonLd data={eventJsonLd} />
+      <aside className="brasil-internal-preview" aria-label="Versão para preparação da equipe">
+        <strong>PRÉVIA INTERNA · EQUIPE</strong>
+        <span>Cadastros demonstrativos. Regulamento em revisão.</span>
+      </aside>
       {children}
     </>
   );

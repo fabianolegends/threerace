@@ -1,0 +1,65 @@
+.brasil-event-page .brasil-schedule-day {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.brasil-schedule-day + .brasil-schedule-day { margin-top: 32px; }
+.brasil-schedule-day-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  background: var(--br-sand);
+  border-left: 3px solid var(--br-terracotta);
+}
+.brasil-schedule-day-header h5 {
+  margin: 0;
+  color: var(--br-deep);
+  font-size: 1rem;
+  font-weight: 750;
+  letter-spacing: .04em;
+}
+.brasil-schedule-day-header p {
+  margin: 0;
+  color: var(--br-muted);
+  font-size: .875rem;
+  line-height: 1.5;
+}
+.brasil-schedule-events { list-style: none; margin: 0; padding: 0; }
+.brasil-schedule-events li {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr);
+  gap: 24px;
+  align-items: baseline;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--br-line);
+}
+.brasil-schedule-time {
+  color: var(--br-deep);
+  font-size: .9375rem;
+  font-weight: 700;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+.brasil-schedule-events h6 {
+  margin: 0;
+  color: var(--br-ink);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.brasil-schedule-events p {
+  margin: 4px 0 0;
+  color: var(--br-muted);
+  font-size: .9375rem;
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .brasil-schedule-day-header { gap: 6px; padding: 14px 16px; }
+  .brasil-schedule-day-header h5 { font-size: .9375rem; }
+  .brasil-schedule-events li { grid-template-columns: 1fr; gap: 4px; padding: 16px; }
+  .brasil-schedule-time { font-size: .875rem; }
+}
