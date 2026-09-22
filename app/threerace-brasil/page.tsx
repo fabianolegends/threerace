@@ -140,13 +140,13 @@ export default function Brasil() {
     <section className="brasil-expo" id="expo">
       <div className="section-frame">
         <div className="brasil-expo-grid">
-          <div><p className="section-label">CENTRO DE EVENTOS · SÃO FRANCISCO DE PAULA</p><h2>THREERACE<br />EXPO.</h2><p>Produtos, serviços e encontros em torno da bicicleta.</p></div>
-          <div>{expo.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<a className="button button-dark" href={brasilEvent.whatsapp} target="_blank" rel="noreferrer">CONSULTAR PARTICIPAÇÃO NA EXPO ↗</a></div>
+          <div className="brasil-expo-intro"><p className="section-label">CENTRO DE EVENTOS · SÃO FRANCISCO DE PAULA</p><h2>THREERACE<br />EXPO.</h2><p>Produtos, serviços e encontros em torno da bicicleta.</p></div>
+          <div className="brasil-expo-copy">{expo.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<a className="button button-dark" href={brasilEvent.whatsapp} target="_blank" rel="noreferrer">CONSULTAR PARTICIPAÇÃO NA EXPO ↗</a></div>
+          <figure className="brasil-expo-preview">
+            <Image src="/brasil-2027/expo-centro-eventos-estudo.webp" width={1672} height={941} sizes="(max-width: 700px) 90vw, (max-width: 1100px) 40vw, 360px" alt="Estudo visual da Threerace Expo no Centro de Eventos, com credenciamento, estandes de bicicletas, palco e pórtico na identidade terracota e areia." />
+            <figcaption>Estudo visual · Threerace Expo</figcaption>
+          </figure>
         </div>
-        <figure className="brasil-expo-preview">
-          <Image src="/brasil-2027/expo-centro-eventos-estudo.webp" width={1672} height={941} sizes="(max-width: 1200px) 90vw, 1180px" alt="Estudo visual da Threerace Expo no Centro de Eventos, com credenciamento, estandes de bicicletas, palco e pórtico na identidade terracota e areia." />
-          <figcaption>Estudo visual da Threerace Expo · Centro de Eventos</figcaption>
-        </figure>
       </div>
     </section>
     <section className="original-partners"><div className="section-frame"><div className="original-organizers brasil-organizer"><p>REALIZAÇÃO</p><img src="/tr3-logo-display.webp" alt="Threerace Sports" loading="lazy" /></div><p className="brasil-partners-note">Patrocinadores e apoiadores da edição Brasil serão anunciados em breve.</p></div></section>
