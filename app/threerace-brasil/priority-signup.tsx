@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { BRAZIL_STATES, PRIORITY_CATEGORIES, validatePriorityRegistration } from "../../lib/priority-list-schema";
-import { priorityCampaign } from "./content";
+import { brasilEvent, priorityCampaign } from "./content";
 import "./priority-signup.css";
 
 const PrioritySignupContext = createContext<(() => void) | null>(null);
@@ -16,11 +16,11 @@ export default function PrioritySignup({ placement = "hero" }: { placement?: "he
   const titleId = `priority-callout-title-${placement}`;
   return <aside className={`brasil-priority-callout${placement === "prices" ? " brasil-priority-callout-prices" : ""}`} id={placement === "hero" ? "lista-prioritaria" : undefined} aria-labelledby={titleId}>
     <div>
-      {placement === "hero" ? <h2 id={titleId}>Lista prioritária</h2> : <h4 id={titleId}>Acesso ao lote prioritário</h4>}
+      {placement === "hero" ? <h2 id={titleId}>Lista prioritária</h2> : <h4 id={titleId}>Garanta seu acesso ao lote prioritário</h4>}
       <p><strong>DE {priorityCampaign.openingDate} A {priorityCampaign.closingDate}</strong> — valor diferenciado, até o limite de {priorityCampaign.vacancyLabel}.</p>
-      <p className="brasil-priority-callout-disclaimer">Prévia interna para a equipe. O formulário é demonstrativo e não salva cadastros.</p>
+      {placement === "prices" && <p className="brasil-priority-callout-disclaimer">Cadastre seu interesse para receber as informações de acesso. O cadastro não confirma a inscrição na prova.</p>}
     </div>
-    <PrioritySignupButton>TESTAR CADASTRO <span aria-hidden="true">↗</span></PrioritySignupButton>
+    <PrioritySignupButton>QUERO ME CADASTRAR <span aria-hidden="true">↗</span></PrioritySignupButton>
   </aside>;
 }
 
@@ -31,7 +31,8 @@ export function PrioritySignupProvider({ children }: { children: ReactNode }) {
   const [modality, setModality] = useState("");
   const [category, setCategory] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [reviewed, setReviewed] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [saved, setSaved] = useState(false);
   const selectedFormat = PRIORITY_CATEGORIES.find((format) => format.id === modality);
 
   const fieldError = (field: string) => errors[field] ? <span className="brasil-priority-field-error" id={`priority-error-${field}`}>{errors[field]}</span> : null;
@@ -40,8 +41,9 @@ export function PrioritySignupProvider({ children }: { children: ReactNode }) {
     "aria-describedby": errors[field] ? `priority-error-${field}` : undefined,
   });
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (pending) return;
     const form = event.currentTarget;
     const values = new FormData(form);
     const validation = validatePriorityRegistration({
@@ -54,31 +56,50 @@ export function PrioritySignupProvider({ children }: { children: ReactNode }) {
       return;
     }
     setErrors({});
-    form.reset();
-    setModality("");
-    setCategory("");
-    setReviewed(true);
-    requestAnimationFrame(() => successRef.current?.focus());
+    setPending(true);
+    try {
+      const response = await fetch("/api/brasil/priority-list", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(validation.data),
+        signal: AbortSignal.timeout(20000),
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true) {
+        setErrors({ ...result.errors, form: result.error || "Não foi possível salvar agora. Tente novamente." });
+        return;
+      }
+      setSaved(true);
+      form.reset();
+      setModality("");
+      setCategory("");
+      requestAnimationFrame(() => successRef.current?.focus());
+    } catch {
+      setErrors({ form: "Não recebemos a confirmação do cadastro. Confira sua conexão e tente novamente; o mesmo e-mail não será cadastrado duas vezes." });
+    } finally {
+      setPending(false);
+    }
   }
 
   return <PrioritySignupContext.Provider value={openSignup}>
     {children}
-    <dialog ref={dialogRef} className="brasil-priority-dialog" aria-labelledby="priority-title" aria-describedby="priority-description priority-demo-notice">
+    <dialog ref={dialogRef} className="brasil-priority-dialog" aria-labelledby="priority-title" aria-describedby="priority-description" onCancel={(event) => { if (pending) event.preventDefault(); }}>
       <div className="brasil-priority-dialog-header">
         <p className="brasil-priority-eyebrow">THREERACE BRASIL · 2027</p>
-        <button className="brasil-priority-close" type="button" onClick={() => dialogRef.current?.close()} aria-label="Fechar cadastro da lista prioritária">×</button>
+        <button className="brasil-priority-close" type="button" onClick={() => dialogRef.current?.close()} disabled={pending} aria-label="Fechar cadastro da lista prioritária">×</button>
       </div>
       <div className="brasil-priority-dialog-body">
-        <h2 id="priority-title">Teste da lista prioritária.</h2>
+        <h2 id="priority-title">Entre na lista prioritária.</h2>
         <p id="priority-description">Acesso prioritário de <strong>{priorityCampaign.openingDate} a {priorityCampaign.closingDate}</strong>, com valor diferenciado. Limite de <strong>{priorityCampaign.vacancyLabel}</strong>, ou até a data final, o que ocorrer primeiro.</p>
-        <p id="priority-demo-notice" className="brasil-priority-demo-notice"><strong>Demonstração para a equipe.</strong> Use dados fictícios. Nenhuma informação será enviada ou salva e nenhum contato será realizado.</p>
-        {reviewed ? <div className="brasil-priority-success" role="status">
+        {saved ? <div className="brasil-priority-success" role="status">
           <span aria-hidden="true">✓</span>
-          <h3 ref={successRef} tabIndex={-1}>Teste conferido.</h3>
-          <p>Os campos passaram pela validação. Nenhum cadastro foi criado e os dados preenchidos foram descartados.</p>
-          <button type="button" className="brasil-priority-submit" onClick={() => setReviewed(false)}>TESTAR NOVAMENTE</button>
-        </div> : <form onSubmit={submit} noValidate autoComplete="off">
-          <fieldset className="brasil-priority-fields">
+          <h3 ref={successRef} tabIndex={-1}>Seu interesse está registrado!</h3>
+          <p>A Threerace usará o e-mail ou telefone cadastrado para enviar as informações de acesso.</p>
+          <p>Se esse e-mail já estava na lista, o cadastro anterior foi mantido. Para corrigir seus dados, fale com <a href={`mailto:${brasilEvent.email}`}>{brasilEvent.email}</a>.</p>
+          <p>O cadastro na lista não confirma sua inscrição na prova.</p>
+          <button type="button" className="brasil-priority-submit" onClick={() => dialogRef.current?.close()}>CONCLUÍDO</button>
+        </div> : <form onSubmit={submit} noValidate aria-busy={pending}>
+          <fieldset disabled={pending} className="brasil-priority-fields">
             <legend className="brasil-priority-sr-only">Dados para a lista prioritária</legend>
             <label className="brasil-priority-full">Nome completo
               <input name="fullName" autoComplete="name" maxLength={120} required {...fieldAttributes("fullName")} />{fieldError("fullName")}
@@ -112,12 +133,14 @@ export function PrioritySignupProvider({ children }: { children: ReactNode }) {
             </label>
             <label className="brasil-priority-consent brasil-priority-full">
               <input type="checkbox" name="consent" required {...fieldAttributes("consent")} />
-              <span>Quero receber da Threerace as informações de acesso prioritário por e-mail ou telefone. Nesta demonstração, esta confirmação também é apenas um teste.{fieldError("consent")}</span>
+              <span>Quero receber da Threerace as informações de acesso prioritário por e-mail ou telefone.{fieldError("consent")}</span>
             </label>
           </fieldset>
           <p className="brasil-priority-privacy">Mora fora do Brasil? Selecione Exterior em Estado e informe sua cidade e país no campo Cidade.</p>
-          <button type="submit" className="brasil-priority-submit">VALIDAR DEMONSTRAÇÃO</button>
-          <p className="brasil-priority-disclaimer">Todos os campos são obrigatórios para testar a validação. Esta prévia não cadastra participantes nem reserva vagas.</p>
+          <p className="brasil-priority-privacy">Usaremos estes dados para organizar a lista e entrar em contato sobre as inscrições. Para corrigir ou remover seu cadastro, fale com <a href={`mailto:${brasilEvent.email}`}>{brasilEvent.email}</a>.</p>
+          {errors.form && <p className="brasil-priority-form-error" role="alert">{errors.form}</p>}
+          <button type="submit" className="brasil-priority-submit" disabled={pending}>{pending ? "SALVANDO CADASTRO…" : "ENTRAR NA LISTA PRIORITÁRIA"}</button>
+          <p className="brasil-priority-disclaimer">Todos os campos são obrigatórios. Este cadastro é para acesso prioritário e não confirma a inscrição na prova.</p>
         </form>}
       </div>
     </dialog>
