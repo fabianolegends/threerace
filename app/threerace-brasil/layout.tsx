@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import SeoJsonLd from "../seo-json-ld";
 import { brasilEvent } from "./content";
-import "./internal-preview.css";
 
 const url = "https://www.threerace.com/threerace-brasil";
 
@@ -71,10 +70,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <SeoJsonLd data={eventJsonLd} />
-      <aside className="brasil-internal-preview" aria-label="Versão para preparação da equipe">
-        <strong>PRÉVIA INTERNA · EQUIPE</strong>
-        <span>Cadastros demonstrativos. Regulamento em revisão.</span>
-      </aside>
       {children}
     </>
   );
