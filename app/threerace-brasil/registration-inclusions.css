@@ -1,14 +1,11 @@
 .brasil-inclusions {
   padding: 64px 0;
   background: var(--br-sand);
+  isolation: isolate;
 }
 
 .brasil-inclusions-panel {
   padding: 48px 36px 44px;
-  border: 1px solid var(--br-line);
-  border-radius: 28px;
-  background: #fff;
-  box-shadow: 0 12px 32px #30251f0a;
 }
 
 .brasil-inclusions h2 {
@@ -38,7 +35,7 @@
 
 .brasil-inclusions-grid > li:first-child { grid-column: 2 / span 2; }
 .brasil-inclusions-grid > li:nth-child(5) { grid-column: 1 / span 2; }
-.brasil-inclusions-grid .brasil-benefit-icon { display: flex; align-items: center; justify-content: center; width: 90px; height: 90px; margin: 0 auto 16px; }
+.brasil-inclusions-grid .brasil-benefit-icon { display: flex; align-items: center; justify-content: center; width: 90px; height: 90px; margin: 0 auto 16px; mix-blend-mode: multiply; }
 .brasil-benefit-icon svg { display: block; flex: none; }
 .brasil-inclusions-grid h3 { margin: 0; color: var(--br-ink); font-size: .9375rem; font-weight: 700; line-height: 1.4; }
 .brasil-inclusions-grid p { max-width: 190px; margin: 6px auto 0; color: var(--br-muted); font-size: .8125rem; line-height: 1.5; }
@@ -52,7 +49,7 @@
 
 @media (max-width: 600px) {
   .brasil-inclusions { padding: 40px 0; }
-  .brasil-inclusions-panel { padding: 32px 18px; border-radius: 20px; }
+  .brasil-inclusions-panel { padding: 32px 18px; }
   .brasil-inclusions h2 { margin-bottom: 30px; }
   .brasil-inclusions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
   .brasil-inclusions-grid > li:last-child { grid-column: 1 / -1; }
