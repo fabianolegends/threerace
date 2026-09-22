@@ -27,7 +27,7 @@ let schemaReady: Promise<void> | null = null;
 
 async function getSql(): Promise<NeonSql> {
   if (cachedSql) return cachedSql;
-  const connectionString = process.env.DATABASE_URL?.trim();
+  const connectionString = (process.env.DATABASE_URL || process.env.DATABASE_POSTGRES_URL)?.trim();
   if (!connectionString) throw new PriorityStorageError("NOT_CONFIGURED");
   try {
     const { neon } = await import("@neondatabase/serverless");
