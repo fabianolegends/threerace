@@ -6,12 +6,11 @@ import { getSavedLanguage, saveLanguage, SiteLanguage } from "./site-language";
 
 const logo = "/tr3-logo-display.webp";
 const azimutMenuLogo = "/azimut-extremo-logo-white.svg";
-const legendsLogo = "/legends-logo-card.webp";
 
 const homeNavigation = {
-  pt: ["EVENTOS", "NOSSA HISTÓRIA", "NOTÍCIAS", "COMUNIDADE TR3", "CONTATO"],
-  es: ["EVENTOS", "NUESTRA HISTORIA", "NOTICIAS", "COMUNIDAD TR3", "CONTACTO"],
-  en: ["EVENTS", "OUR HISTORY", "NEWS", "TR3 COMMUNITY", "CONTACT"],
+  pt: ["EVENTOS", "LEGENDS", "NOSSA HISTÓRIA", "NOTÍCIAS", "COMUNIDADE TR3", "CONTATO"],
+  es: ["EVENTOS", "LEGENDS", "NUESTRA HISTORIA", "NOTICIAS", "COMUNIDAD TR3", "CONTACTO"],
+  en: ["EVENTS", "LEGENDS", "OUR HISTORY", "NEWS", "TR3 COMMUNITY", "CONTACT"],
 } as const;
 
 const languageFlags: Record<SiteLanguage, string> = { es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" };
@@ -28,14 +27,14 @@ const homeCopy = {
     countdown: ["DIAS", "HORAS", "MIN"], sharedBy: "Organização compartilhada por Threerace Sports e Azimut Extremo",
     ecosystem: "ECOSSISTEMA THREERACE", calendar: ["UM CALENDÁRIO.", "DIFERENTES TERRITÓRIOS."],
     calendarText: "Projetos com identidades próprias, unidos pela mesma forma de criar esporte, comunidade e experiência.",
-    eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS"],
-    eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "01 NOV · 2026", "29 ABR — 02 MAI · 2027"],
-    eventPlaces: ["Rocha + La Paloma · Uruguai", "Rocha + La Paloma · Uruguai", "La Paloma · Rocha · Uruguai", "Serra Gaúcha · Brasil"],
+    eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "ABERTURA INSCRIÇÕES 20/10"],
+    eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "01 NOV · 2026", "02 — 04 ABR · 2027"],
+    eventPlaces: ["Rocha + La Paloma · Uruguai", "Rocha + La Paloma · Uruguai", "La Paloma · Rocha · Uruguai", "São Francisco de Paula · Brasil"],
     eventTexts: [
       "Três dias de mountain bike entre estradas rurais, natureza e o Atlântico uruguaio.",
       "Duas etapas e 183 quilômetros para descobrir o Uruguai por caminhos que só o gravel conecta.",
       "Um dia, 63 quilômetros e 630 metros de elevação para viver a grande chegada da Threerace no Uruguai.",
-      "Uma travessia por quatro destinos, criada para transformar o gravel em uma jornada pelo território.",
+      "A edição de 10 anos retorna a São Francisco de Paula com Ultra em três dias e Sport em dois dias.",
     ],
     historyLabel: "NOSSA HISTÓRIA", historyTitle: "NASCEMOS PARA CRIAR EXPERIÊNCIAS QUE PERMANECEM.",
     story: [
@@ -47,9 +46,9 @@ const homeCopy = {
     journalTitle: ["HISTÓRIAS,", "BASTIDORES E ROTAS."],
     journalText: "Notícias dos eventos, reconhecimentos de percurso e histórias de quem vive a Threerace.",
     readStory: "LEIA A HISTÓRIA ↗",
-    newsDates: ["JUL · 2026", "JUL · 2026", "MAI · 2027"],
-    newsTitles: ["La Paloma será a base da nova edição internacional da Threerace", "Dois dias para descobrir o Uruguai por novas linhas", "Quatro destinos. Uma travessia pela Serra Gaúcha"],
-    newsTexts: ["Rocha recebe três dias de mountain bike, natureza e experiência internacional.", "Uma experiência de 183 km entre estradas rurais, vento, campos e litoral.", "Canela, São Francisco de Paula, Gramado e Nova Petrópolis conectadas pelo gravel."],
+    newsDates: ["JUL · 2026", "JUL · 2026", "ABR · 2027"],
+    newsTitles: ["La Paloma será a base da nova edição internacional da Threerace", "Dois dias para descobrir o Uruguai por novas linhas", "A Threerace Brasil volta a São Francisco de Paula"],
+    newsTexts: ["Rocha recebe três dias de mountain bike, natureza e experiência internacional.", "Uma experiência de 183 km entre estradas rurais, vento, campos e litoral.", "A edição de 10 anos celebra montanhas, pessoas e histórias na Serra Gaúcha."],
     manifestoTop: ["DA SERRA AO MAR.", "DO BRASIL AO URUGUAI."], manifesto: ["O DESTINO MUDA.", "A ESSÊNCIA CONTINUA."],
     community: "COMUNIDADE TR3", communityTitle: "RECEBA OS PRÓXIMOS DESAFIOS.", communityText: "Datas, inscrições e novidades em primeira mão.",
     name: "NOME", namePlaceholder: "Seu nome", interest: "INTERESSE", allEvents: "Todos os eventos", partnerships: "Parcerias", subscribe: "RECEBER NOVIDADES ↗",
@@ -67,14 +66,14 @@ const homeCopy = {
     countdown: ["DÍAS", "HORAS", "MIN"], sharedBy: "Organización compartida por Threerace Sports y Azimut Extremo",
     ecosystem: "ECOSISTEMA THREERACE", calendar: ["UN CALENDARIO.", "DIFERENTES TERRITORIOS."],
     calendarText: "Proyectos con identidades propias, unidos por una misma forma de crear deporte, comunidad y experiencia.",
-    eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS"],
-    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "29 ABR — 02 MAY · 2027"],
-    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "Serra Gaúcha · Brasil"],
+    eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "APERTURA INSCRIPCIONES 20/10"],
+    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "02 — 04 ABR · 2027"],
+    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "São Francisco de Paula · Brasil"],
     eventTexts: [
       "Tres días de mountain bike entre caminos rurales, naturaleza y el Atlántico uruguayo.",
       "Dos etapas y 183 kilómetros para descubrir Uruguay por caminos que solo el gravel conecta.",
       "Un día, 63 kilómetros y 630 metros de desnivel para vivir la gran llegada de Threerace en Uruguay.",
-      "Una travesía por cuatro destinos, creada para transformar el gravel en un viaje por el territorio.",
+      "La edición de 10 años vuelve a São Francisco de Paula con Ultra en tres días y Sport en dos días.",
     ],
     historyLabel: "NUESTRA HISTORIA", historyTitle: "NACIMOS PARA CREAR EXPERIENCIAS QUE PERMANECEN.",
     story: [
@@ -86,9 +85,9 @@ const homeCopy = {
     journalTitle: ["HISTORIAS,", "BASTIDORES Y RUTAS."],
     journalText: "Noticias de los eventos, reconocimientos de recorridos e historias de quienes viven Threerace.",
     readStory: "LEE LA HISTORIA ↗",
-    newsDates: ["JUL · 2026", "JUL · 2026", "MAY · 2027"],
-    newsTitles: ["La Paloma será la base de la nueva edición internacional de Threerace", "Dos días para descubrir Uruguay por nuevas líneas", "Cuatro destinos. Una travesía por la Serra Gaúcha"],
-    newsTexts: ["Rocha recibe tres días de mountain bike, naturaleza y experiencia internacional.", "Una experiencia de 183 km entre caminos rurales, viento, campos y costa.", "Canela, São Francisco de Paula, Gramado y Nova Petrópolis conectadas por el gravel."],
+    newsDates: ["JUL · 2026", "JUL · 2026", "ABR · 2027"],
+    newsTitles: ["La Paloma será la base de la nueva edición internacional de Threerace", "Dos días para descubrir Uruguay por nuevas líneas", "Threerace Brasil vuelve a São Francisco de Paula"],
+    newsTexts: ["Rocha recibe tres días de mountain bike, naturaleza y experiencia internacional.", "Una experiencia de 183 km entre caminos rurales, viento, campos y costa.", "La edición de 10 años celebra montañas, personas e historias en la Serra Gaúcha."],
     manifestoTop: ["DE LA SIERRA AL MAR.", "DE BRASIL A URUGUAY."], manifesto: ["EL DESTINO CAMBIA.", "LA ESENCIA CONTINÚA."],
     community: "COMUNIDAD TR3", communityTitle: "RECIBE LOS PRÓXIMOS DESAFÍOS.", communityText: "Fechas, inscripciones y novedades de primera mano.",
     name: "NOMBRE", namePlaceholder: "Tu nombre", interest: "INTERÉS", allEvents: "Todos los eventos", partnerships: "Alianzas", subscribe: "RECIBIR NOVEDADES ↗",
@@ -106,14 +105,14 @@ const homeCopy = {
     countdown: ["DAYS", "HOURS", "MIN"], sharedBy: "Jointly organized by Threerace Sports and Azimut Extremo",
     ecosystem: "THREERACE ECOSYSTEM", calendar: ["ONE CALENDAR.", "DIFFERENT TERRITORIES."],
     calendarText: "Projects with their own identities, united by the same way of creating sport, community and experience.",
-    eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPEN"],
-    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "29 APR — 02 MAY · 2027"],
-    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "Serra Gaúcha · Brazil"],
+    eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPENS 20/10"],
+    eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "02 — 04 APR · 2027"],
+    eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "São Francisco de Paula · Brazil"],
     eventTexts: [
       "Three days of mountain biking through rural roads, nature and Uruguay's Atlantic coast.",
       "Two stages and 183 kilometers to discover Uruguay along roads only gravel can connect.",
       "One day, 63 kilometers and 630 meters of elevation to experience Threerace's grand finish in Uruguay.",
-      "A journey through four destinations, created to turn gravel into an experience across the territory.",
+      "The 10-year edition returns to São Francisco de Paula with Ultra over three days and Sport over two days.",
     ],
     historyLabel: "OUR HISTORY", historyTitle: "WE WERE BORN TO CREATE EXPERIENCES THAT LAST.",
     story: [
@@ -125,9 +124,9 @@ const homeCopy = {
     journalTitle: ["STORIES,", "BEHIND THE SCENES AND ROUTES."],
     journalText: "Event news, route scouting and stories from those who experience Threerace.",
     readStory: "READ THE STORY ↗",
-    newsDates: ["JUL · 2026", "JUL · 2026", "MAY · 2027"],
-    newsTitles: ["La Paloma will host Threerace's new international edition", "Two days to discover Uruguay along new lines", "Four destinations. A journey through Serra Gaúcha"],
-    newsTexts: ["Rocha welcomes three days of mountain bike, nature and international experience.", "A 183 km experience across rural roads, wind, fields and coastline.", "Canela, São Francisco de Paula, Gramado and Nova Petrópolis connected by gravel."],
+    newsDates: ["JUL · 2026", "JUL · 2026", "APR · 2027"],
+    newsTitles: ["La Paloma will host Threerace's new international edition", "Two days to discover Uruguay along new lines", "Threerace Brasil returns to São Francisco de Paula"],
+    newsTexts: ["Rocha welcomes three days of mountain bike, nature and international experience.", "A 183 km experience across rural roads, wind, fields and coastline.", "The 10-year edition celebrates mountains, people and stories in Serra Gaúcha."],
     manifestoTop: ["FROM THE MOUNTAINS TO THE SEA.", "FROM BRAZIL TO URUGUAY."], manifesto: ["THE DESTINATION CHANGES.", "THE ESSENCE REMAINS."],
     community: "TR3 COMMUNITY", communityTitle: "GET THE NEXT CHALLENGES.", communityText: "Dates, registration openings and news delivered first.",
     name: "NAME", namePlaceholder: "Your name", interest: "INTEREST", allEvents: "All events", partnerships: "Partnerships", subscribe: "GET UPDATES ↗",
@@ -194,19 +193,17 @@ const events = [
   },
   {
     n: "04",
-    name: "Legends Ultimate Gravel Race",
-    place: "Serra Gaúcha · Brasil",
-    date: "29 ABR — 02 MAI · 2027",
-    sport: "GRAVEL STAGE RACE",
-    status: "INSCRIÇÕES ABERTAS",
-    text: "Uma travessia por quatro destinos, criada para transformar o gravel em uma jornada pelo território.",
-    href: "https://www.legendsbikerace.com.br",
-    img: "/event-legends-card.webp",
+    name: "Threerace Bike Ultramarathon Brasil",
+    place: "São Francisco de Paula · Brasil",
+    date: "02 — 04 ABR · 2027",
+    sport: "MTB STAGE RACE",
+    status: "ABERTURA INSCRIÇÕES 20/10",
+    text: "A edição de 10 anos retorna a São Francisco de Paula com Ultra em três dias e Sport em dois dias.",
+    href: "/threerace-brasil",
+    img: "/event-threerace-brasil-card.webp",
     width: 960,
-    height: 720,
-    position: "34% center",
-    external: true,
-    legends: true,
+    height: 640,
+    position: "52% center",
   },
 ];
 
@@ -232,14 +229,14 @@ const news = [
     height: 540,
   },
   {
-    category: "LEGENDS",
-    date: "MAI · 2027",
-    title: "Quatro destinos. Uma travessia pela Serra Gaúcha",
-    text: "Canela, São Francisco de Paula, Gramado e Nova Petrópolis conectadas pelo gravel.",
-    href: "/noticias/legends-serra-gaucha",
-    img: "/event-legends-card.webp",
+    category: "THREERACE BRASIL",
+    date: "ABR · 2027",
+    title: "A Threerace Brasil volta a São Francisco de Paula",
+    text: "A edição de 10 anos celebra montanhas, pessoas e histórias na Serra Gaúcha.",
+    href: "/threerace-brasil",
+    img: "/event-threerace-brasil-card.webp",
     width: 960,
-    height: 720,
+    height: 640,
     external: false,
   },
 ];
@@ -326,8 +323,8 @@ export default function Home() {
           </a>
           <div className="corporate-header-actions">
             <nav className={menu ? "main-nav is-open" : "main-nav"} aria-label={homeNavigation[language].join(", ")}>
-              {["#eventos", "#sobre", "#historias", "#comunidade", "#contato"].map((href, index) => (
-                <a href={href} onClick={() => setMenu(false)} key={href}>{homeNavigation[language][index]}</a>
+              {["#eventos", "https://www.legendsbikerace.com.br", "#sobre", "#historias", "#comunidade", "#contato"].map((href, index) => (
+                <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} onClick={() => setMenu(false)} key={href}>{homeNavigation[language][index]}</a>
               ))}
             </nav>
             <div className="corporate-socials" aria-label="Social media">
@@ -467,10 +464,9 @@ export default function Home() {
                 <b>{event.date}</b>
                 <span className="directory-sport">{event.sport}</span>
                 <div className="directory-description">
-                  <div className="directory-organizers" aria-label={event.shared ? "Organização Threerace Sports e Azimut Extremo" : event.legends ? "Organização Threerace Sports e Legends Ultimate Gravel Race" : "Organização Threerace Sports"}>
+                  <div className="directory-organizers" aria-label={event.shared ? "Organização Threerace Sports e Azimut Extremo" : "Organização Threerace Sports"}>
                     <img src={logo} width="512" height="512" alt="TR3" loading="lazy" decoding="async" />
                     {event.shared && <img src={azimutMenuLogo} width="363" height="354" alt="Azimut Extremo" loading="lazy" decoding="async" />}
-                    {event.legends && <img className="legends-card-logo" src={legendsLogo} width="96" height="137" alt="Legends Ultimate Gravel Race" loading="lazy" decoding="async" />}
                   </div>
                   <small>{event.text}</small>
                 </div>
