@@ -176,6 +176,10 @@ body:has(.brasil-kit-dialog[open]) { overflow:hidden; }
 .brasil-expo h2 { font-size:clamp(3rem,6vw,5rem); line-height:1; font-weight:800; letter-spacing:-.05em; }
 .brasil-expo p { font-size:1rem; line-height:1.75; }
 .brasil-expo .button { margin-top:10px; }
+.brasil-expo-preview { margin:44px 0 0; }
+.brasil-expo-preview img { display:block; width:100%; height:auto; border:1px solid rgba(245,239,229,.25); border-radius:22px; box-shadow:0 18px 44px rgba(48,37,31,.2); }
+.brasil-expo-preview figcaption { margin-top:16px; color:var(--br-paper); font-size:.8125rem; line-height:1.6; text-align:right; }
+@media(max-width:600px) { .brasil-expo-preview { margin-top:28px; } .brasil-expo-preview img { border-radius:14px; } .brasil-expo-preview figcaption { margin-top:12px; text-align:left; } }
 @media(max-width:900px) { .brasil-format-grid,.brasil-expo-grid { grid-template-columns:1fr; } .brasil-expo-grid { gap:24px; } }
 @media(max-width:600px) { .brasil-panel-extra { padding:0 24px 28px; } .brasil-data-table th,.brasil-data-table td { padding:12px; } .brasil-format-card { padding:24px; } .brasil-format-metrics strong { font-size:1.8rem; } .brasil-expo { padding:60px 0; } }
 @media(max-width:600px) { .brasil-price-table { min-width:0; font-size:.875rem; } .brasil-price-table th,.brasil-price-table td { padding:12px 8px; } .brasil-price-table thead th,.brasil-price-table span { font-size:.75rem; } }

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import KitCollection from "./kit-collection";
 import AccordionIcon from "./accordion-icon";
 import CategoryTables from "./category-tables";
@@ -136,7 +137,18 @@ export default function Brasil() {
     <section className="original-about section-frame" id="historia"><div className="original-about-copy"><p className="section-label">NOSSA HISTÓRIA · 2017 — 2027</p><h2>DEZ ANOS DE MONTANHAS, PESSOAS E HISTÓRIAS.</h2><p>A Threerace constrói sua história desde 2017, reunindo pessoas em torno do mountain bike, da natureza e dos desafios por etapas.</p><p>Em 2026, voltamos a São Francisco de Paula, na Serra Gaúcha. Em 2027, seguimos na cidade para celebrar dez anos dessa trajetória, de 2 a 4 de abril. Um novo encontro para quem já faz parte da nossa história e para quem chega para pedalar com a gente.</p></div><div className="original-about-brand brasil-anniversary"><img src="/brasil-2027/selo-10-anos-alinhado.webp" width="900" height="900" alt="Selo Threerace: 10 anos, 2017–2027, com araucária em terracota e areia" loading="lazy" /></div></section>
     <section className="brasil-gallery" aria-label="Galeria da história Threerace"><div className="section-frame brasil-gallery-heading"><p className="section-label">HISTÓRIAS EM IMAGENS</p><div><button type="button" aria-label="Foto anterior" disabled={galleryIndex === 0} onClick={() => setGalleryIndex(galleryIndex - 1)}>←</button><span aria-live="polite">{galleryIndex + 1} / {gallery.length}</span><button type="button" aria-label="Próxima foto" disabled={galleryIndex === gallery.length - 1} onClick={() => setGalleryIndex(galleryIndex + 1)}>→</button></div></div><figure><img src={gallery[galleryIndex]} alt={`Registro histórico da Threerace — imagem ${galleryIndex + 1}`} loading="lazy" /><figcaption>Acervo Threerace · edições anteriores</figcaption></figure></section>
     <KitCollection />
-    <section className="brasil-expo" id="expo"><div className="section-frame brasil-expo-grid"><div><p className="section-label">CENTRO DE EVENTOS · SÃO FRANCISCO DE PAULA</p><h2>THREERACE<br />EXPO.</h2><p>Produtos, serviços e encontros em torno da bicicleta.</p></div><div>{expo.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<a className="button button-dark" href={brasilEvent.whatsapp} target="_blank" rel="noreferrer">CONSULTAR PARTICIPAÇÃO NA EXPO ↗</a></div></div></section>
+    <section className="brasil-expo" id="expo">
+      <div className="section-frame">
+        <div className="brasil-expo-grid">
+          <div><p className="section-label">CENTRO DE EVENTOS · SÃO FRANCISCO DE PAULA</p><h2>THREERACE<br />EXPO.</h2><p>Produtos, serviços e encontros em torno da bicicleta.</p></div>
+          <div>{expo.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<a className="button button-dark" href={brasilEvent.whatsapp} target="_blank" rel="noreferrer">CONSULTAR PARTICIPAÇÃO NA EXPO ↗</a></div>
+        </div>
+        <figure className="brasil-expo-preview">
+          <Image src="/brasil-2027/expo-centro-eventos-estudo.webp" width={1672} height={941} sizes="(max-width: 1200px) 90vw, 1180px" alt="Estudo visual da Threerace Expo no Centro de Eventos, com credenciamento, estandes de bicicletas, palco e pórtico na identidade terracota e areia." />
+          <figcaption>Estudo visual da Threerace Expo · Centro de Eventos</figcaption>
+        </figure>
+      </div>
+    </section>
     <section className="original-partners"><div className="section-frame"><div className="original-organizers brasil-organizer"><p>REALIZAÇÃO</p><img src="/tr3-logo-display.webp" alt="Threerace Sports" loading="lazy" /></div><p className="brasil-partners-note">Patrocinadores e apoiadores da edição Brasil serão anunciados em breve.</p></div></section>
     <section className="brasil-faq section-frame" id="duvidas"><div><p className="section-label">PERGUNTAS FREQUENTES</p><h2>ANTES DA LARGADA.</h2><a className="button button-dark" href={brasilEvent.whatsapp} target="_blank" rel="noreferrer">FALAR COM A THREERACE ↗</a></div><div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
     <section className="brasil-closing" id="encerramento"><div className="section-frame"><p className="section-label">SÃO FRANCISCO DE PAULA · RS</p><h2>O PRÓXIMO CAPÍTULO<br />COMEÇA AQUI.</h2><p>{brasilEvent.date}</p><a className="button button-primary" href="#informacoes">VER INFORMAÇÕES ↑</a></div></section>
