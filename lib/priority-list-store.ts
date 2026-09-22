@@ -1,21 +1,11 @@
-import { randomUUID } from "node:crypto";
-import {
-  chmodSync,
-  closeSync,
-  constants,
-  existsSync,
-  lstatSync,
-  mkdirSync,
-  openSync,
-} from "node:fs";
-import { dirname, isAbsolute, resolve } from "node:path";
-import { DatabaseSync } from "node:sqlite";
 import type { PriorityRegistration } from "./priority-list-schema";
 
 const EVENT_ID = "threerace-brasil-2027";
 
+type NeonSql = (strings: TemplateStringsArray, ...values: unknown[]) => Promise<unknown[]>;
+
 export class PriorityStorageError extends Error {
-  readonly code: "NOT_CONFIGURED" | "UNSUPPORTED_HOST" | "UNAVAILABLE";
+  readonly code: "NOT_CONFIGURED" | "UNAVAILABLE";
 
   constructor(code: PriorityStorageError["code"]) {
     super("O armazenamento da lista prioritária está indisponível.");
@@ -32,149 +22,100 @@ export type PriorityRegistrationRecord = Omit<PriorityRegistration, "consent"> &
   consentVersion: string;
 };
 
-/** No default path: a temporary/serverless filesystem cannot retain registrations. */
-export function resolvePriorityDbPath(env: NodeJS.ProcessEnv = process.env): string {
-  if (env.VERCEL) throw new PriorityStorageError("UNSUPPORTED_HOST");
-  const configured = env.THREERACE_PRIORITY_DB_PATH?.trim();
-  if (!configured || !isAbsolute(configured)) {
-    throw new PriorityStorageError("NOT_CONFIGURED");
-  }
-  const path = resolve(configured);
-  if (
-    env.NODE_ENV !== "test" &&
-    (/^\/(?:private\/)?(?:tmp|var\/tmp)(?:\/|$)/.test(path) ||
-      /^\/(?:private\/)?var\/folders\//.test(path))
-  ) {
-    throw new PriorityStorageError("NOT_CONFIGURED");
-  }
-  return path;
-}
+let cachedSql: NeonSql | null = null;
+let schemaReady: Promise<void> | null = null;
 
-function preparePrivateFile(path: string): void {
-  const directory = dirname(path);
-  mkdirSync(directory, { recursive: true, mode: 0o700 });
-  const directoryInfo = lstatSync(directory);
-  if (!directoryInfo.isDirectory() || directoryInfo.isSymbolicLink()) {
+async function getSql(): Promise<NeonSql> {
+  if (cachedSql) return cachedSql;
+  const connectionString = process.env.DATABASE_URL?.trim();
+  if (!connectionString) throw new PriorityStorageError("NOT_CONFIGURED");
+  try {
+    const { neon } = await import("@neondatabase/serverless");
+    cachedSql = neon(connectionString) as NeonSql;
+    return cachedSql;
+  } catch {
     throw new PriorityStorageError("UNAVAILABLE");
   }
-  chmodSync(directory, 0o700);
-  const descriptor = openSync(
-    path,
-    constants.O_CREAT | constants.O_RDWR | constants.O_NOFOLLOW,
-    0o600,
-  );
-  closeSync(descriptor);
-  enforceFilePermissions(path);
 }
 
-function enforceFilePermissions(path: string): void {
-  for (const file of [path, `${path}-wal`, `${path}-shm`, `${path}-journal`]) {
-    if (!existsSync(file)) continue;
-    const info = lstatSync(file);
-    if (!info.isFile() || info.isSymbolicLink()) {
-      throw new PriorityStorageError("UNAVAILABLE");
-    }
-    chmodSync(file, 0o600);
+async function ensureSchema(sql: NeonSql): Promise<void> {
+  if (!schemaReady) {
+    schemaReady = (async () => {
+      await sql`
+        CREATE TABLE IF NOT EXISTS priority_registrations (
+          id UUID PRIMARY KEY,
+          event_id TEXT NOT NULL,
+          submitted_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+          full_name TEXT NOT NULL,
+          email TEXT NOT NULL,
+          phone TEXT NOT NULL,
+          city TEXT NOT NULL,
+          state TEXT NOT NULL,
+          modality TEXT NOT NULL CHECK (modality IN ('ultra', 'sport')),
+          category TEXT NOT NULL,
+          consent BOOLEAN NOT NULL CHECK (consent = TRUE),
+          consent_version TEXT NOT NULL
+        )
+      `;
+      await sql`
+        CREATE UNIQUE INDEX IF NOT EXISTS priority_registrations_event_email_idx
+        ON priority_registrations (event_id, lower(email))
+      `;
+      await sql`
+        CREATE INDEX IF NOT EXISTS priority_registrations_event_submitted_idx
+        ON priority_registrations (event_id, submitted_at)
+      `;
+    })().catch((error) => {
+      schemaReady = null;
+      throw error;
+    });
   }
+  await schemaReady;
 }
 
-function openWritableDatabase(path: string): DatabaseSync {
-  preparePrivateFile(path);
-  const database = new DatabaseSync(path);
-  try {
-    database.exec(`
-      PRAGMA busy_timeout = 5000;
-      PRAGMA journal_mode = WAL;
-      PRAGMA synchronous = FULL;
-      CREATE TABLE IF NOT EXISTS priority_registrations (
-        id TEXT PRIMARY KEY NOT NULL,
-        event_id TEXT NOT NULL,
-        submitted_at TEXT NOT NULL,
-        full_name TEXT NOT NULL,
-        email TEXT COLLATE NOCASE NOT NULL,
-        phone TEXT NOT NULL,
-        city TEXT NOT NULL,
-        state TEXT NOT NULL,
-        modality TEXT NOT NULL CHECK (modality IN ('ultra', 'sport')),
-        category TEXT NOT NULL,
-        consent INTEGER NOT NULL CHECK (consent = 1),
-        consent_version TEXT NOT NULL,
-        UNIQUE (event_id, email)
-      ) STRICT;
-    `);
-    enforceFilePermissions(path);
-    return database;
-  } catch (error) {
-    database.close();
-    throw error;
-  }
-}
-
-/** Resolves only after COMMIT; repeated emails never overwrite an existing athlete. */
-export function storePriorityRegistration(
+/** Resolves only after the database confirms the insert. Repeated emails never overwrite an existing athlete. */
+export async function storePriorityRegistration(
   registration: PriorityRegistration,
   consentVersion: string,
-): void {
-  const path = resolvePriorityDbPath();
-  let database: DatabaseSync | undefined;
-  let transactionOpen = false;
+): Promise<void> {
   try {
-    database = openWritableDatabase(path);
-    database.exec("BEGIN IMMEDIATE");
-    transactionOpen = true;
-    database.prepare(`
+    const sql = await getSql();
+    await ensureSchema(sql);
+    await sql`
       INSERT INTO priority_registrations (
-        id, event_id, submitted_at, full_name, email, phone, city, state,
+        id, event_id, full_name, email, phone, city, state,
         modality, category, consent, consent_version
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      ON CONFLICT(event_id, email) DO NOTHING
-    `).run(
-      randomUUID(),
-      EVENT_ID,
-      new Date().toISOString(),
-      registration.fullName,
-      registration.email.trim().toLowerCase(),
-      registration.phone,
-      registration.city,
-      registration.state,
-      registration.modality,
-      registration.category,
-      registration.consent === true ? 1 : 0,
-      consentVersion,
-    );
-    enforceFilePermissions(path);
-    database.exec("COMMIT");
-    transactionOpen = false;
-  } catch {
-    if (database && transactionOpen) {
-      try { database.exec("ROLLBACK"); } catch { /* Preserve the original failure. */ }
-    }
+      ) VALUES (
+        gen_random_uuid(), ${EVENT_ID}, ${registration.fullName},
+        ${registration.email.trim().toLowerCase()}, ${registration.phone}, ${registration.city},
+        ${registration.state}, ${registration.modality}, ${registration.category},
+        ${registration.consent === true}, ${consentVersion}
+      )
+      ON CONFLICT (event_id, lower(email)) DO NOTHING
+    `;
+  } catch (error) {
+    if (error instanceof PriorityStorageError) throw error;
     throw new PriorityStorageError("UNAVAILABLE");
-  } finally {
-    database?.close();
   }
 }
 
 /** Organizer CLI only. Never expose this through an unauthenticated HTTP route. */
-export function readPriorityRegistrations(): PriorityRegistrationRecord[] {
-  const path = resolvePriorityDbPath();
-  let database: DatabaseSync | undefined;
+export async function readPriorityRegistrations(): Promise<PriorityRegistrationRecord[]> {
   try {
-    const info = lstatSync(path);
-    if (!info.isFile() || info.isSymbolicLink()) {
-      throw new PriorityStorageError("UNAVAILABLE");
-    }
-    database = new DatabaseSync(path, { readOnly: true });
-    database.exec("PRAGMA busy_timeout = 5000");
-    return database.prepare(`
-      SELECT id, event_id AS eventId, submitted_at AS submittedAt,
-        full_name AS fullName, email, phone, city, state, modality, category,
-        consent, consent_version AS consentVersion
-      FROM priority_registrations WHERE event_id = ? ORDER BY submitted_at, id
-    `).all(EVENT_ID) as PriorityRegistrationRecord[];
-  } catch {
+    const sql = await getSql();
+    await ensureSchema(sql);
+    const rows = await sql`
+      SELECT id::text, event_id AS "eventId", submitted_at AS "submittedAt",
+        full_name AS "fullName", email, phone, city, state, modality, category,
+        CASE WHEN consent THEN 1 ELSE 0 END AS consent,
+        consent_version AS "consentVersion"
+      FROM priority_registrations
+      WHERE event_id = ${EVENT_ID}
+      ORDER BY submitted_at, id
+    `;
+    return rows as PriorityRegistrationRecord[];
+  } catch (error) {
+    if (error instanceof PriorityStorageError) throw error;
     throw new PriorityStorageError("UNAVAILABLE");
-  } finally {
-    database?.close();
   }
 }
