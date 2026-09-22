@@ -450,8 +450,6 @@ export default function Home() {
             <a
               className="directory-card"
               href={event.href}
-              target={event.external ? "_blank" : undefined}
-              rel={event.external ? "noreferrer" : undefined}
               key={event.name}
             >
               <img src={event.img} width={event.width} height={event.height} alt="" loading="lazy" decoding="async" style={{ objectPosition: event.position }} />
