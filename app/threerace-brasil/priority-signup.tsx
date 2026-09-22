@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { BRAZIL_STATES, PRIORITY_CATEGORIES, validatePriorityRegistration } from "../../lib/priority-list-schema";
+import { PRIORITY_CATEGORIES, validatePriorityRegistration } from "../../lib/priority-list-schema";
 import { brasilEvent, priorityCampaign } from "./content";
 import "./priority-signup.css";
 
@@ -113,11 +113,8 @@ export function PrioritySignupProvider({ children }: { children: ReactNode }) {
             <label>Cidade
               <input name="city" autoComplete="address-level2" maxLength={100} required {...fieldAttributes("city")} />{fieldError("city")}
             </label>
-            <label>Estado
-              <select name="state" autoComplete="address-level1" defaultValue="" required {...fieldAttributes("state")}>
-                <option value="" disabled>Selecione seu estado</option>
-                {BRAZIL_STATES.map(([code, name]) => <option key={code} value={code}>{name} · {code}</option>)}
-              </select>{fieldError("state")}
+            <label>País
+              <input name="country" autoComplete="country-name" maxLength={80} placeholder="Brasil" required {...fieldAttributes("country")} />{fieldError("country")}
             </label>
             <label>Modalidade
               <select name="modality" value={modality} required {...fieldAttributes("modality")} onChange={(event) => { setModality(event.target.value); setCategory(""); }}>
@@ -136,7 +133,7 @@ export function PrioritySignupProvider({ children }: { children: ReactNode }) {
               <span>Quero receber da Threerace as informações de acesso prioritário por e-mail ou telefone.{fieldError("consent")}</span>
             </label>
           </fieldset>
-          <p className="brasil-priority-privacy">Mora fora do Brasil? Selecione Exterior em Estado e informe sua cidade e país no campo Cidade.</p>
+          <p className="brasil-priority-privacy">Informe a cidade e o país onde você mora para organizarmos contatos do Brasil e do exterior.</p>
           <p className="brasil-priority-privacy">Usaremos estes dados para organizar a lista e entrar em contato sobre as inscrições. Para corrigir ou remover seu cadastro, fale com <a href={`mailto:${brasilEvent.email}`}>{brasilEvent.email}</a>.</p>
           {errors.form && <p className="brasil-priority-form-error" role="alert">{errors.form}</p>}
           <button type="submit" className="brasil-priority-submit" disabled={pending}>{pending ? "SALVANDO CADASTRO…" : "ENTRAR NA LISTA PRIORITÁRIA"}</button>
