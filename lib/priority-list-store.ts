@@ -50,12 +50,21 @@ async function ensureSchema(sql: NeonSql): Promise<void> {
           email TEXT NOT NULL,
           phone TEXT NOT NULL,
           city TEXT NOT NULL,
-          state TEXT NOT NULL,
+          country TEXT NOT NULL DEFAULT '',
+          state TEXT NOT NULL DEFAULT 'NA',
           modality TEXT NOT NULL CHECK (modality IN ('ultra', 'sport')),
           category TEXT NOT NULL,
           consent BOOLEAN NOT NULL CHECK (consent = TRUE),
           consent_version TEXT NOT NULL
         )
+      `;
+      await sql`
+        ALTER TABLE priority_registrations
+        ADD COLUMN IF NOT EXISTS country TEXT NOT NULL DEFAULT ''
+      `;
+      await sql`
+        ALTER TABLE priority_registrations
+        ALTER COLUMN state SET DEFAULT 'NA'
       `;
       await sql`
         CREATE UNIQUE INDEX IF NOT EXISTS priority_registrations_event_email_idx
@@ -83,12 +92,12 @@ export async function storePriorityRegistration(
     await ensureSchema(sql);
     await sql`
       INSERT INTO priority_registrations (
-        id, event_id, full_name, email, phone, city, state,
+        id, event_id, full_name, email, phone, city, country, state,
         modality, category, consent, consent_version
       ) VALUES (
         gen_random_uuid(), ${EVENT_ID}, ${registration.fullName},
         ${registration.email.trim().toLowerCase()}, ${registration.phone}, ${registration.city},
-        ${registration.state}, ${registration.modality}, ${registration.category},
+        ${registration.country}, 'NA', ${registration.modality}, ${registration.category},
         ${registration.consent === true}, ${consentVersion}
       )
       ON CONFLICT (event_id, lower(email)) DO NOTHING
@@ -106,7 +115,7 @@ export async function readPriorityRegistrations(): Promise<PriorityRegistrationR
     await ensureSchema(sql);
     const rows = await sql`
       SELECT id::text, event_id AS "eventId", submitted_at AS "submittedAt",
-        full_name AS "fullName", email, phone, city, state, modality, category,
+        full_name AS "fullName", email, phone, city, country, modality, category,
         CASE WHEN consent THEN 1 ELSE 0 END AS consent,
         consent_version AS "consentVersion"
       FROM priority_registrations
