@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import type { SiteLanguage } from "../site-language";
+import { componentText } from "./components-i18n";
 import { useId, useRef, useState, useSyncExternalStore, type CSSProperties, type KeyboardEvent, type TouchEvent } from "react";
 import "./race-gallery.css";
 
 const photographs = Array.from({ length: 8 }, (_, index) => ({
   src: `/tr3-gallery-${String(index + 1).padStart(2, "0")}.svg`,
-  alt: `Registro histórico da Threerace em uma edição anterior — foto ${index + 1}`,
 }));
 const desktopQuery = "(min-width: 768px)";
 
@@ -25,7 +26,8 @@ function GalleryArrow({ previous = false }: { previous?: boolean }) {
   </svg>;
 }
 
-export default function RaceGallery() {
+export default function RaceGallery({ locale = "pt" }: { locale?: SiteLanguage }) {
+  const t = componentText(locale);
   const id = useId();
   const isDesktop = useSyncExternalStore(subscribeToLayout, getDesktopLayout, getServerLayout);
   const visibleCount = isDesktop ? 3 : 1;
@@ -68,25 +70,25 @@ export default function RaceGallery() {
   }
 
   const visibleLabel = visibleCount === 1
-    ? `Foto ${currentIndex + 1} de ${photographs.length}`
-    : `Fotos ${currentIndex + 1}–${currentIndex + visibleCount} de ${photographs.length}`;
+    ? t("Foto {first} de {total}", { first: currentIndex + 1, total: photographs.length })
+    : t("Fotos {first}–{last} de {total}", { first: currentIndex + 1, last: currentIndex + visibleCount, total: photographs.length });
 
-  return <section className="brasil-race-gallery" aria-labelledby={`${id}-heading`} aria-roledescription="carrossel">
+  return <section className="brasil-race-gallery" aria-labelledby={`${id}-heading`} aria-roledescription={t("carrossel")}>
     <div className="section-frame brasil-race-gallery-heading">
-      <h2 id={`${id}-heading`}>HISTÓRIAS EM IMAGENS</h2>
+      <h2 id={`${id}-heading`}>{t("HISTÓRIAS EM IMAGENS")}</h2>
       <div className="brasil-race-gallery-controls">
-        <button type="button" onClick={() => moveBy(-1)} disabled={currentIndex === 0} aria-label="Foto anterior" aria-controls={`${id}-photos`}><GalleryArrow previous /></button>
+        <button type="button" onClick={() => moveBy(-1)} disabled={currentIndex === 0} aria-label={t("Foto anterior")} aria-controls={`${id}-photos`}><GalleryArrow previous /></button>
         <p className="brasil-race-gallery-count" role="status" aria-atomic="true">{visibleLabel}</p>
-        <button type="button" onClick={() => moveBy(1)} disabled={currentIndex === lastStart} aria-label="Próxima foto" aria-controls={`${id}-photos`}><GalleryArrow /></button>
+        <button type="button" onClick={() => moveBy(1)} disabled={currentIndex === lastStart} aria-label={t("Próxima foto")} aria-controls={`${id}-photos`}><GalleryArrow /></button>
       </div>
     </div>
-    <div className="brasil-race-gallery-viewport" id={`${id}-photos`} role="group" aria-label="Fotos da Threerace. Use as setas esquerda e direita para navegar." tabIndex={0} onKeyDown={handleKeyDown} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} onTouchCancel={() => { touchStart.current = null; }}>
+    <div className="brasil-race-gallery-viewport" id={`${id}-photos`} role="group" aria-label={t("Fotos da Threerace. Use as setas esquerda e direita para navegar.")} tabIndex={0} onKeyDown={handleKeyDown} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} onTouchCancel={() => { touchStart.current = null; }}>
       <div className="brasil-race-gallery-track" style={{ "--br-gallery-index": currentIndex } as CSSProperties}>
         {photographs.map((photograph, index) => <figure key={photograph.src} className="brasil-race-gallery-slide" aria-hidden={index < currentIndex || index >= currentIndex + visibleCount}>
-          <Image src={photograph.src} width={1440} height={960} sizes="(min-width: 768px) 33vw, 100vw" alt={photograph.alt} draggable={false} unoptimized />
+          <Image src={photograph.src} width={1440} height={960} sizes="(min-width: 768px) 33vw, 100vw" alt={t("Registro histórico da Threerace em uma edição anterior — foto {number}", { number: index + 1 })} draggable={false} unoptimized />
         </figure>)}
       </div>
     </div>
-    <p className="section-frame brasil-race-gallery-credit">Acervo Threerace · edições anteriores</p>
+    <p className="section-frame brasil-race-gallery-credit">{t("Acervo Threerace · edições anteriores")}</p>
   </section>;
 }

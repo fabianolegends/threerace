@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { preload } from "react-dom";
 import { getSavedLanguage, saveLanguage, SiteLanguage } from "./site-language";
+import { useSiteLanguage } from "./use-site-language";
 
 const logo = "/tr3-logo-display.webp";
 const azimutMenuLogo = "/azimut-extremo-logo-white.svg";
@@ -284,7 +285,7 @@ export default function Home() {
     media: "(max-width: 900px)",
   });
   const [menu, setMenu] = useState(false);
-  const [language, setLanguage] = useState<SiteLanguage>("pt");
+  const language = useSiteLanguage("pt");
   const mtbCountdown = useCountdown("2026-10-30T08:00:00-03:00");
   const gravelCountdown = useCountdown("2026-10-31T08:00:00-03:00");
   const shortCountdown = useCountdown("2026-11-01T08:30:00-03:00");
@@ -304,13 +305,10 @@ export default function Home() {
   }));
 
   useEffect(() => {
-    const saved = getSavedLanguage("pt");
-    setLanguage(saved);
-    saveLanguage(saved);
+    saveLanguage(getSavedLanguage("pt"));
   }, []);
 
   function chooseLanguage(nextLanguage: SiteLanguage) {
-    setLanguage(nextLanguage);
     saveLanguage(nextLanguage);
   }
 

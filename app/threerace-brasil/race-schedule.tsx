@@ -1,7 +1,9 @@
-import { schedule } from "./content";
+import type { SiteLanguage } from "../site-language";
+import { getBrasilContent } from "./content-i18n";
 import "./race-schedule.css";
 
-export default function RaceSchedule() {
+export default function RaceSchedule({ locale = "pt" }: { locale?: SiteLanguage }) {
+  const { schedule } = getBrasilContent(locale);
   return <div className="brasil-panel-extra brasil-race-schedule">
     {schedule.map((day) => <section className="brasil-schedule-day" key={day.dateTime} aria-labelledby={`agenda-${day.dateTime}`}>
       <header className="brasil-schedule-day-header">

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SiteHtml } from "./components/site-html";
 import { CookieConsent } from "./components/cookie-consent";
+import { GlobalTopButton } from "./components/global-top-button";
 import { GlobalSiteFooter } from "./components/global-site-footer";
 import "./globals.css";
 import "./corporate.css";
@@ -111,7 +113,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <SiteHtml>
       <body
         id="top"
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -125,11 +127,8 @@ export default function RootLayout({
         {children}
         <GlobalSiteFooter />
         <CookieConsent />
-        <a className="global-top-button" href="#top" aria-label="Voltar ao topo">
-          <span aria-hidden="true">↑</span>
-          TOPO
-        </a>
+        <GlobalTopButton />
       </body>
-    </html>
+    </SiteHtml>
   );
 }

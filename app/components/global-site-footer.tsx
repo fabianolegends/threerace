@@ -1,11 +1,9 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
-import {
-  getSavedLanguage,
-  SITE_LANGUAGE_CHANGE_EVENT,
-  type SiteLanguage,
-} from "../site-language";
+import { FormEvent, useState } from "react";
+import Link from "next/link";
+import { useSiteLanguage } from "../use-site-language";
+import type { SiteLanguage } from "../site-language";
 import { PrivacyPreferencesButton } from "./privacy-preferences-button";
 
 const footerCopy = {
@@ -14,6 +12,9 @@ const footerCopy = {
     communityTitle: "RECEBA AS PRÓXIMAS LARGADAS.",
     communityText:
       "Novos eventos, abertura de inscrições e histórias dos territórios onde pedalamos.",
+    email: "E-MAIL",
+    requiredField: "Preencha este campo.",
+    validEmail: "Informe um e-mail válido.",
     name: "NOME",
     namePlaceholder: "Seu nome",
     interest: "INTERESSE",
@@ -36,6 +37,9 @@ const footerCopy = {
     communityTitle: "RECIBE LAS PRÓXIMAS LARGADAS.",
     communityText:
       "Nuevos eventos, apertura de inscripciones e historias de los territorios donde pedaleamos.",
+    email: "CORREO ELECTRÓNICO",
+    requiredField: "Completa este campo.",
+    validEmail: "Introduce un correo electrónico válido.",
     name: "NOMBRE",
     namePlaceholder: "Tu nombre",
     interest: "INTERÉS",
@@ -58,6 +62,9 @@ const footerCopy = {
     communityTitle: "GET THE NEXT START DATES.",
     communityText:
       "New events, registration openings and stories from the territories where we ride.",
+    email: "EMAIL",
+    requiredField: "Please fill in this field.",
+    validEmail: "Enter a valid email address.",
     name: "NAME",
     namePlaceholder: "Your name",
     interest: "INTEREST",
@@ -78,18 +85,8 @@ const footerCopy = {
 } satisfies Record<SiteLanguage, Record<string, string>>;
 
 export function GlobalSiteFooter() {
-  const [language, setLanguage] = useState<SiteLanguage>("pt");
+  const language = useSiteLanguage();
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
-  useEffect(() => {
-    setLanguage(getSavedLanguage("pt"));
-    const updateLanguage = (event: Event) => {
-      setLanguage((event as CustomEvent<SiteLanguage>).detail);
-    };
-    window.addEventListener(SITE_LANGUAGE_CHANGE_EVENT, updateLanguage);
-    return () =>
-      window.removeEventListener(SITE_LANGUAGE_CHANGE_EVENT, updateLanguage);
-  }, []);
 
   const t = footerCopy[language];
 
@@ -129,7 +126,13 @@ export function GlobalSiteFooter() {
             <h2>{t.communityTitle}</h2>
             <p>{t.communityText}</p>
           </div>
-          <form onSubmit={submitNewsletter}>
+          <form onSubmit={submitNewsletter} onInvalid={(event) => {
+            const field = event.target as HTMLInputElement;
+            field.setCustomValidity(field.validity.typeMismatch ? t.validEmail : t.requiredField);
+          }} onInput={(event) => {
+            const field = event.target;
+            if (field instanceof HTMLInputElement) field.setCustomValidity("");
+          }}>
             <label>
               <span>{t.name}</span>
               <input
@@ -140,11 +143,11 @@ export function GlobalSiteFooter() {
               />
             </label>
             <label>
-              <span>E-MAIL</span>
+              <span>{t.email}</span>
               <input
                 name="email"
                 type="email"
-                placeholder="voce@email.com"
+                placeholder={{ pt: "voce@email.com", es: "tu@email.com", en: "you@email.com" }[language]}
                 required
               />
             </label>
@@ -188,9 +191,9 @@ export function GlobalSiteFooter() {
         </div>
         <div className="footer-nav">
           <p>{t.explore}</p>
-          <a href="/#eventos">{t.events}</a>
-          <a href="/#historias">TR3 Journal</a>
-          <a href="/#sobre">{t.about}</a>
+          <Link href="/#eventos">{t.events}</Link>
+          <Link href="/#historias">TR3 Journal</Link>
+          <Link href="/#sobre">{t.about}</Link>
         </div>
         <div className="footer-contact">
           <p>{t.contact}</p>

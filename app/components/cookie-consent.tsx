@@ -1,12 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import {
-  getSavedLanguage,
-  SITE_LANGUAGE_CHANGE_EVENT,
-  type SiteLanguage,
-} from "../site-language";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { useSiteLanguage } from "../use-site-language";
+import type { SiteLanguage } from "../site-language";
 import { GoogleAnalytics } from "./google-analytics";
 import styles from "./cookie-consent.module.css";
 
@@ -45,48 +42,48 @@ const copy = {
   },
 } satisfies Record<SiteLanguage, Record<string, string>>;
 
+const CONSENT_CHANGE_EVENT = "threerace:consent-change";
+function readConsent(): Consent {
+  try {
+    const saved = window.localStorage.getItem(STORAGE_KEY);
+    return saved === "accepted" || saved === "rejected" ? saved : null;
+  } catch { return null; }
+}
+function subscribeConsent(listener: () => void) {
+  window.addEventListener("storage", listener);
+  window.addEventListener(CONSENT_CHANGE_EVENT, listener);
+  return () => { window.removeEventListener("storage", listener); window.removeEventListener(CONSENT_CHANGE_EVENT, listener); };
+}
+const subscribeReady = () => () => {};
+
 export function CookieConsent() {
-  const [consent, setConsent] = useState<Consent>(null);
-  const [ready, setReady] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState<SiteLanguage>("pt");
+  const consent = useSyncExternalStore(subscribeConsent, readConsent, () => null);
+  const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
+  const [reopened, setReopened] = useState(false);
+  const [sessionConsent, setSessionConsent] = useState<Consent>(null);
+  const language = useSiteLanguage();
+  const currentConsent = consent ?? sessionConsent;
+  const isOpen = currentConsent === null || reopened;
 
   useEffect(() => {
-    const saved = window.localStorage.getItem(STORAGE_KEY) as Consent;
-    setConsent(saved === "accepted" || saved === "rejected" ? saved : null);
-    setIsOpen(saved !== "accepted" && saved !== "rejected");
-    setLanguage(getSavedLanguage("pt"));
-    setReady(true);
-  }, []);
-
-  useEffect(() => {
-    const openPreferences = () => setIsOpen(true);
-    const updateLanguage = (event: Event) => {
-      setLanguage((event as CustomEvent<SiteLanguage>).detail);
-    };
-
+    const openPreferences = () => setReopened(true);
     window.addEventListener(OPEN_PREFERENCES_EVENT, openPreferences);
-    window.addEventListener(SITE_LANGUAGE_CHANGE_EVENT, updateLanguage);
-
-    return () => {
-      window.removeEventListener(OPEN_PREFERENCES_EVENT, openPreferences);
-      window.removeEventListener(SITE_LANGUAGE_CHANGE_EVENT, updateLanguage);
-    };
+    return () => window.removeEventListener(OPEN_PREFERENCES_EVENT, openPreferences);
   }, []);
 
   function saveConsent(value: Exclude<Consent, null>) {
-    window.localStorage.setItem(STORAGE_KEY, value);
-    setConsent(value);
-    setIsOpen(false);
+    try { window.localStorage.setItem(STORAGE_KEY, value); } catch { /* Keep the choice for this session when storage is unavailable. */ }
+    setSessionConsent(value);
+    window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
+    setReopened(false);
   }
-
   if (!ready) return null;
 
   const t = copy[language];
 
   return (
     <>
-      {consent === "accepted" && <GoogleAnalytics />}
+      {currentConsent === "accepted" && <GoogleAnalytics />}
 
       {isOpen ? (
         <section className={styles.banner} aria-label={t.label}>

@@ -33,8 +33,10 @@ function isSiteLanguage(value: string | null): value is SiteLanguage {
 
 export function getStoredLanguage(): SiteLanguage | null {
   if (typeof window === "undefined") return null;
-  const saved = window.localStorage.getItem(SITE_LANGUAGE_KEY);
-  return isSiteLanguage(saved) ? saved : null;
+  try {
+    const saved = window.localStorage.getItem(SITE_LANGUAGE_KEY);
+    return isSiteLanguage(saved) ? saved : null;
+  } catch { return null; }
 }
 
 export function getSavedLanguage(fallback: SiteLanguage): SiteLanguage {
@@ -86,7 +88,7 @@ export async function detectInitialLanguage(
 }
 
 export function saveLanguage(language: SiteLanguage) {
-  window.localStorage.setItem(SITE_LANGUAGE_KEY, language);
+  try { window.localStorage.setItem(SITE_LANGUAGE_KEY, language); } catch { /* Language navigation also works with storage disabled. */ }
   document.documentElement.lang = language === "pt" ? "pt-BR" : language;
   window.dispatchEvent(
     new CustomEvent<SiteLanguage>(SITE_LANGUAGE_CHANGE_EVENT, {
