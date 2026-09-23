@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     const internalHeaders = [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive, noimageindex" }];
     return [
       { source: "/threerace-brasil/:path*", headers: internalHeaders },
+      { source: "/:locale(pt|es|en)/threerace-brasil/:path*", headers: internalHeaders },
       { source: "/brasil-2027/:path*", headers: internalHeaders },
     ];
   },

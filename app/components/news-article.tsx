@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { detectInitialLanguage, saveLanguage, SiteLanguage } from "../site-language";
 
 const logo = "/tr3-logo-display.webp";
@@ -187,8 +188,8 @@ export default function NewsArticle({ slug }: { slug: keyof typeof articles }) {
     <main className="news-article-page">
       <section className="news-article-hero" style={{ backgroundImage: `url(${article.image})`, backgroundPosition: article.imagePosition }}>
         <header className="site-header news-article-header">
-          <a className="brand" href="/" aria-label="Threerace Sports"><img className="header-tr3-logo" src={logo} alt="Threerace Sports" /></a>
-          <a className="news-back-top" href="/#historias">← {t.back}</a>
+          <Link className="brand" href="/" aria-label="Threerace Sports"><img className="header-tr3-logo" src={logo} alt="Threerace Sports" /></Link>
+          <Link className="news-back-top" href="/#historias">← {t.back}</Link>
           <div className="language-switcher" aria-label="Language selector">
             {(["es", "pt", "en"] as SiteLanguage[]).map((code) => <button type="button" key={code} className={language === code ? "active" : ""} onClick={() => selectLanguage(code)} aria-label={code}>{flags[code]}</button>)}
           </div>
@@ -212,7 +213,7 @@ export default function NewsArticle({ slug }: { slug: keyof typeof articles }) {
       </article>
 
       <section className="news-article-footer">
-        <div className="section-frame"><p>{t.related}</p><a href="/#historias">{t.back} ↗</a></div>
+        <div className="section-frame"><p>{t.related}</p><Link href="/#historias">{t.back} ↗</Link></div>
       </section>
     </main>
   );

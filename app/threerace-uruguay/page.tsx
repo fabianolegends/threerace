@@ -2,7 +2,9 @@
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { getSavedLanguage, saveLanguage } from "../site-language";
+import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 
 type Language = "es" | "pt" | "en";
@@ -1304,7 +1306,7 @@ export function ThreeraceUruguayPage({
   localized = false,
 }: ThreeraceUruguayPageProps) {
   const router = useRouter();
-  const [language, setLanguage] = useState<Language>(initialLanguage);
+  const language = useSiteLanguage(initialLanguage, localized ? initialLanguage : undefined);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [guideMode, setGuideMode] = useState<"mtb" | "gravel">("mtb");
@@ -1334,15 +1336,12 @@ export function ThreeraceUruguayPage({
   const closeMenu = () => setMenuOpen(false);
 
   const selectLanguage = (code: Language) => {
-    setLanguage(code);
     saveLanguage(code);
     if (localized) router.push(`/${code}/threerace-uruguay`);
   };
 
   useEffect(() => {
-    const selected = localized ? initialLanguage : getSavedLanguage(initialLanguage);
-    setLanguage(selected);
-    saveLanguage(selected);
+    saveLanguage(localized ? initialLanguage : getSavedLanguage(initialLanguage));
   }, [initialLanguage, localized]);
 
   useEffect(() => {
@@ -1494,11 +1493,11 @@ export function ThreeraceUruguayPage({
           <h2>{t.historyTitle}</h2>
           <p>{t.history}</p>
           <p>{t.historyDetail}</p>
-          <a className="original-about-mobile-link" href="/">{t.discoverMore} +++</a>
+          <Link className="original-about-mobile-link" href="/">{t.discoverMore} +++</Link>
         </div>
         <div className="original-about-brand">
           <span><img src={tr3Logo} alt="Threerace Sports" /></span>
-          <a className="original-about-desktop-link" href="/">{t.discoverMore} +++</a>
+          <Link className="original-about-desktop-link" href="/">{t.discoverMore} +++</Link>
         </div>
       </section>
 

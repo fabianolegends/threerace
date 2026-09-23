@@ -2,7 +2,9 @@
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { getSavedLanguage, saveLanguage } from "../site-language";
+import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 
 type Language = "es" | "pt" | "en";
@@ -216,7 +218,7 @@ export function GravelExperienceUruguayPage({
   localized = false,
 }: GravelExperienceUruguayPageProps) {
   const router = useRouter();
-  const [language, setLanguage] = useState<Language>(initialLanguage);
+  const language = useSiteLanguage(initialLanguage, localized ? initialLanguage : undefined);
   const [open, setOpen] = useState<PanelKey | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [galleryIndex, setGalleryIndex] = useState(0);
@@ -230,15 +232,12 @@ export function GravelExperienceUruguayPage({
   }, [now]);
 
   const selectLanguage = (code: Language) => {
-    setLanguage(code);
     saveLanguage(code);
     if (localized) router.push(`/${code}/gravel-experience-uruguay`);
   };
 
   useEffect(() => {
-    const selected = localized ? initialLanguage : getSavedLanguage(initialLanguage);
-    setLanguage(selected);
-    saveLanguage(selected);
+    saveLanguage(localized ? initialLanguage : getSavedLanguage(initialLanguage));
   }, [initialLanguage, localized]);
 
   useEffect(() => {
@@ -286,12 +285,12 @@ export function GravelExperienceUruguayPage({
     >
       <section className="hero uruguay-event-hero gravel-event-hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <header className="site-header">
-          <a className="brand" href="/" aria-label="Threerace Sports">
+          <Link className="brand" href="/" aria-label="Threerace Sports">
             <img className="header-tr3-logo" src={tr3HeaderLogo} alt="Threerace Sports" />
             <img className="header-azimut-logo" src={azimutHeaderLogo} alt="Azimut Extremo" />
-          </a>
+          </Link>
           <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Main navigation">
-            <a href="/">{t.nav[0]}</a><a href="#stages">{t.nav[1]}</a><a href={registrationUrl} target="_blank" rel="noreferrer">{t.nav[2]}</a><a href="#information">{t.nav[3]}</a>
+            <Link href="/">{t.nav[0]}</Link><a href="#stages">{t.nav[1]}</a><a href={registrationUrl} target="_blank" rel="noreferrer">{t.nav[2]}</a><a href="#information">{t.nav[3]}</a>
           </nav>
           <div className="header-actions"><div className="language-switcher" aria-label="Language selector">{(["es", "pt", "en"] as Language[]).map((code) => <button key={code} className={language === code ? "active" : ""} type="button" onClick={() => selectLanguage(code)} aria-label={code} aria-pressed={language === code}>{{ es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" }[code]}</button>)}</div><button className="menu-toggle" type="button" aria-label={menuOpen ? t.close : t.menu} onClick={() => setMenuOpen(!menuOpen)}><span/><span/></button></div>
         </header>
@@ -311,7 +310,7 @@ export function GravelExperienceUruguayPage({
         </div>
         <div className="original-about-brand">
           <span><img src={tr3Logo} alt="Threerace Sports" /></span>
-          <a href="/">{language === "pt" ? "SAIBA MAIS" : language === "en" ? "DISCOVER MORE" : "CONOCE MÁS"} +++</a>
+          <Link href="/">{language === "pt" ? "SAIBA MAIS" : language === "en" ? "DISCOVER MORE" : "CONOCE MÁS"} +++</Link>
         </div>
       </section>
 
