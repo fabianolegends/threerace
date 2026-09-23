@@ -111,14 +111,13 @@ export default function BrasilPage({ locale = "pt" }: { locale?: SiteLanguage })
       <header className="site-header">
         <Link className="brand" href="/" aria-label="Threerace Sports"><img className="header-tr3-logo" src="/tr3-logo-display.webp" alt="Threerace Sports" /></Link>
         <nav id="brasil-navigation" className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label={t("Navegação da edição Brasil")}>
-          <a href="#evento">{t("O evento")}</a>
-          <a href="#etapas">{t("Etapas")}</a>
+          <Link href="/" onClick={closeMenu}>{t("Home")}</Link>
           <a href="#inscricoes">{t("Inscrições")}</a>
-          <a href="#kit">{t("Kit 2027")}</a>
-          <a href="#informacoes">{t("Informações")}</a>
+          <a href="#etapas">{t("Etapas")}</a>
+          <a href="#kit">{t("Kit")}</a>
           <Link href={brasilPath(locale, "/documentos-medicos")} onClick={() => setMenuOpen(false)}>{t("Área médica")}</Link>
         </nav>
-        <div className="header-actions"><span className="brasil-edition-tag">BRASIL / 2027</span><BrasilLanguageSwitcher locale={locale} /><button className="menu-toggle" type="button" aria-label={menuOpen ? t("Fechar menu") : t("Abrir menu")} aria-expanded={menuOpen} aria-controls="brasil-navigation" onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button></div>
+        <div className="header-actions"><BrasilLanguageSwitcher locale={locale} /><button className="menu-toggle" type="button" aria-label={menuOpen ? t("Fechar menu") : t("Abrir menu")} aria-expanded={menuOpen} aria-controls="brasil-navigation" onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button></div>
       </header>
       <div className="hero-content uruguay-title-block">
         <p className="brasil-anniversary-label">{t("2017 — 2027 · 10 ANOS")}</p>

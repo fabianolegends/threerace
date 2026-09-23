@@ -1,6 +1,8 @@
 import type { SiteLanguage } from "../site-language";
 
 const translations = {
+  "Home": ["Inicio", "Home"],
+  "Kit": ["Kit", "Kit"],
   "A confirmar": [
     "A confirmar",
     "To be confirmed"

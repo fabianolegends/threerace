@@ -141,16 +141,17 @@ for (const locale of ["es", "en"]) assert.equal(translatePriorityError("unexpect
 const BrasilPage = require(path.join(directory, "brasil-page.tsx")).default;
 const { PrioritySignupProvider } = require(path.join(directory, "priority-signup.tsx"));
 const menu = {
-  pt: ["O evento", "Etapas", "Inscrições", "Kit 2027", "Informações", "Área médica"],
-  es: ["El evento", "Etapas", "Inscripciones", "Kit 2027", "Información", "Área médica"],
-  en: ["The event", "Stages", "Registration", "2027 Kit", "Information", "Medical area"],
+  pt: ["Home", "Inscrições", "Etapas", "Kit", "Área médica"],
+  es: ["Inicio", "Inscripciones", "Etapas", "Kit", "Área médica"],
+  en: ["Home", "Registration", "Stages", "Kit", "Medical area"],
 };
 for (const locale of ["pt", "es", "en"]) {
   const html = renderToStaticMarkup(React.createElement(BrasilPage, { locale }));
   assert(html.includes(`lang="${brasilLanguageTags[locale]}"`));
   const navigation = html.match(/<nav id="brasil-navigation"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
   assert(navigation, `${locale}: missing event menu`);
-  for (const label of menu[locale]) assert(navigation.includes(`>${label}</a>`), `${locale}: missing menu item ${label}`);
+  assert.deepEqual([...navigation.matchAll(/<a[^>]*>([^<]+)<\/a>/g)].map((match) => match[1]), menu[locale], `${locale}: menu items or order changed`);
+  for (const flag of ["🇧🇷", "🇪🇸", "🇬🇧"]) assert(html.includes(flag), `${locale}: missing language flag ${flag}`);
   for (const code of ["pt", "es", "en"]) assert(html.includes(`href="${brasilPath(code)}"`), `${locale}: missing language link ${code}`);
   assert(html.includes(`href="${brasilPath(locale, "/documentos-medicos")}"`), `${locale}: medical link lost its language`);
   for (const section of source.information) assert(html.includes(`id="${section.id}"`), `${locale}: missing section ID ${section.id}`);

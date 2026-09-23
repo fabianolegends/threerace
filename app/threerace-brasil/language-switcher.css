@@ -1,7 +1,7 @@
-.brasil-language-switcher a { display:grid;place-items:center;min-width:32px;min-height:36px;color:inherit;font-size:.75rem;font-weight:750;letter-spacing:.06em;opacity:.72;border-bottom:2px solid transparent;transition:opacity .2s ease,border-color .2s ease; }
+.brasil-language-switcher a { display:grid;place-items:center;min-width:40px;min-height:44px;color:inherit;font-size:1.5rem;font-weight:750;letter-spacing:.06em;opacity:.72;border-bottom:2px solid transparent;transition:opacity .2s ease,border-color .2s ease; }
 .brasil-language-switcher a:hover,.brasil-language-switcher a.active { opacity:1;border-bottom-color:currentColor; }
 .brasil-language-switcher a:focus-visible { outline:2px solid currentColor;outline-offset:3px; }
 .brasil-event-page .header-actions { gap:10px; }
 .brasil-event-page .brasil-language-switcher { gap:3px;padding-left:10px; }
-@media (min-width:901px) and (max-width:1250px) { .brasil-event-page .main-nav { gap:14px;margin-right:14px; } .brasil-event-page .main-nav a { font-size:.72rem;letter-spacing:.04em; } .brasil-event-page .brasil-edition-tag { display:none; } }
-@media (max-width:600px) { .brasil-event-page .brasil-edition-tag { display:none; } .brasil-event-page .brasil-language-switcher { padding-left:0; } }
+@media (min-width:901px) and (max-width:1250px) { .brasil-event-page .main-nav { gap:14px;margin-right:14px; } .brasil-event-page .main-nav a { font-size:.72rem;letter-spacing:.04em; } }
+@media (max-width:600px) { .brasil-event-page .brasil-language-switcher { padding-left:0; } }

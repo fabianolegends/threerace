@@ -12,6 +12,6 @@ export function BrasilLanguageSwitcher({ locale, medical = false }: { locale: Si
       // Keep section links and campaign parameters when switching editions of this page.
       event.currentTarget.href = `${brasilPath(code, medical ? "/documentos-medicos" : "")}${window.location.search}${window.location.hash}`;
       saveLanguage(code);
-    }}>{code.toUpperCase()}</a>)}
+    }}><span aria-hidden="true">{{ pt: "🇧🇷", es: "🇪🇸", en: "🇬🇧" }[code]}</span></a>)}
   </nav>;
 }
