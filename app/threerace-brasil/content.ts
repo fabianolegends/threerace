@@ -11,8 +11,8 @@ export const brasilEvent = {
 };
 
 export const priorityCampaign = {
-  openingDate: "20/10/2026",
-  closingDate: "22/10/2026",
+  openingDate: "02/11/2026",
+  closingDate: "04/11/2026",
   vacancyLabel: "100 vagas Ultra e 50 vagas Sport",
 };
 
@@ -126,11 +126,11 @@ export const competitionCategories: CompetitionFormat[] = [
 
 // Destaque editorial solicitado pela organização para a prévia; não abre vendas.
 export const registrationPrices = [
-  { format: "Ultra", lot: "Lote prioritário", active: true, price: 599, startDate: "2026-10-20", endDate: "2026-10-22", vacancies: 100 },
-  { format: "Ultra", lot: "Lote 2", active: false, price: 699, startDate: "2026-10-23", endDate: "2026-12-10", vacancies: 100 },
+  { format: "Ultra", lot: "Lote prioritário", active: true, price: 599, startDate: "2026-11-02", endDate: "2026-11-04", vacancies: 100 },
+  { format: "Ultra", lot: "Lote 2", active: false, price: 699, startDate: "2026-11-05", endDate: "2026-12-10", vacancies: 100 },
   { format: "Ultra", lot: "Lote 3", active: false, price: 829, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
-  { format: "Sport", lot: "Lote prioritário", active: true, price: 499, startDate: "2026-10-20", endDate: "2026-10-22", vacancies: 50 },
-  { format: "Sport", lot: "Lote 2", active: false, price: 599, startDate: "2026-10-23", endDate: "2026-12-10", vacancies: 50 },
+  { format: "Sport", lot: "Lote prioritário", active: true, price: 499, startDate: "2026-11-02", endDate: "2026-11-04", vacancies: 50 },
+  { format: "Sport", lot: "Lote 2", active: false, price: 599, startDate: "2026-11-05", endDate: "2026-12-10", vacancies: 50 },
   { format: "Sport", lot: "Lote 3", active: false, price: 729, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
 ];
 export const registrationPayment = {
