@@ -28,7 +28,7 @@ const homeCopy = {
     countdown: ["DIAS", "HORAS", "MIN"], sharedBy: "Organização compartilhada por Threerace Sports e Azimut Extremo",
     ecosystem: "ECOSSISTEMA THREERACE", calendar: ["UM CALENDÁRIO.", "DIFERENTES TERRITÓRIOS."],
     calendarText: "Projetos com identidades próprias, unidos pela mesma forma de criar esporte, comunidade e experiência.",
-    eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "ABERTURA INSCRIÇÕES 20/10"],
+    eventStatus: ["INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "INSCRIÇÕES ABERTAS", "ABERTURA INSCRIÇÕES 02/11"],
     eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "01 NOV · 2026", "02 — 04 ABR · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguai", "Rocha + La Paloma · Uruguai", "La Paloma · Rocha · Uruguai", "São Francisco de Paula · Brasil"],
     eventTexts: [
@@ -67,7 +67,7 @@ const homeCopy = {
     countdown: ["DÍAS", "HORAS", "MIN"], sharedBy: "Organización compartida por Threerace Sports y Azimut Extremo",
     ecosystem: "ECOSISTEMA THREERACE", calendar: ["UN CALENDARIO.", "DIFERENTES TERRITORIOS."],
     calendarText: "Proyectos con identidades propias, unidos por una misma forma de crear deporte, comunidad y experiencia.",
-    eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "APERTURA INSCRIPCIONES 20/10"],
+    eventStatus: ["INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "INSCRIPCIONES ABIERTAS", "APERTURA INSCRIPCIONES 02/11"],
     eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "02 — 04 ABR · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "São Francisco de Paula · Brasil"],
     eventTexts: [
@@ -106,7 +106,7 @@ const homeCopy = {
     countdown: ["DAYS", "HOURS", "MIN"], sharedBy: "Jointly organized by Threerace Sports and Azimut Extremo",
     ecosystem: "THREERACE ECOSYSTEM", calendar: ["ONE CALENDAR.", "DIFFERENT TERRITORIES."],
     calendarText: "Projects with their own identities, united by the same way of creating sport, community and experience.",
-    eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPENS 20/10"],
+    eventStatus: ["REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPEN", "REGISTRATION OPENS 02/11"],
     eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "02 — 04 APR · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "São Francisco de Paula · Brazil"],
     eventTexts: [
@@ -198,7 +198,7 @@ const events = [
     place: "São Francisco de Paula · Brasil",
     date: "02 — 04 ABR · 2027",
     sport: "MTB STAGE RACE",
-    status: "ABERTURA INSCRIÇÕES 20/10",
+    status: "ABERTURA INSCRIÇÕES 02/11",
     text: "A edição de 10 anos retorna a São Francisco de Paula com Ultra em três dias e Sport em dois dias.",
     href: "/threerace-brasil",
     img: "/event-threerace-brasil-card.webp",
