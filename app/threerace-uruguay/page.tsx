@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
+import UruguayStages from "./stages";
 
 type Language = "es" | "pt" | "en";
 
@@ -73,9 +74,9 @@ const copy = {
     stages: "ETAPAS",
     categories: "CATEGORÍAS",
     mtbStages: [
-      ["ETAPA 01", "30 OCT · XCC", "ROCHA", "2 KM · 3 VUELTAS"],
-      ["ETAPA 02", "31 OCT · XCM", "ROCHA", "82 KM · +1.600 M"],
-      ["ETAPA 03", "01 NOV · XCM", "LA PEDRERA", "63 KM · +630 M"],
+      ["ETAPA 01", "30 OCT · XCC", "LA PALOMA", "5,3 KM · 1 VUELTA"],
+      ["ETAPA 02", "31 OCT · XCM", "ROCHA", "81,1 KM · +1.370 M"],
+      ["ETAPA 03", "01 NOV · XCM", "LA PEDRERA", "64 KM · +670 M"],
     ],
     gravelStages: [
       ["ETAPA 01", "31 OCT · GRAVEL", "SALIDA ROCHA", "105 KM · LÍMITE 7 H"],
@@ -193,9 +194,9 @@ const copy = {
     stages: "ETAPAS",
     categories: "CATEGORIAS",
     mtbStages: [
-      ["ETAPA 01", "30 OUT · XCC", "ROCHA", "2 KM · 3 VOLTAS"],
-      ["ETAPA 02", "31 OUT · XCM", "ROCHA", "82 KM · +1.600 M"],
-      ["ETAPA 03", "01 NOV · XCM", "LA PEDRERA", "63 KM · +630 M"],
+      ["ETAPA 01", "30 OUT · XCC", "LA PALOMA", "5,3 KM · 1 VOLTA"],
+      ["ETAPA 02", "31 OUT · XCM", "ROCHA", "81,1 KM · +1.370 M"],
+      ["ETAPA 03", "01 NOV · XCM", "LA PEDRERA", "64 KM · +670 M"],
     ],
     gravelStages: [
       ["ETAPA 01", "31 OUT · GRAVEL", "LARGADA EM ROCHA", "105 KM · LIMITE 7 H"],
@@ -313,9 +314,9 @@ const copy = {
     stages: "STAGES",
     categories: "CATEGORIES",
     mtbStages: [
-      ["STAGE 01", "30 OCT · XCC", "ROCHA", "2 KM · 3 LAPS"],
-      ["STAGE 02", "31 OCT · XCM", "ROCHA", "82 KM · +1,600 M"],
-      ["STAGE 03", "01 NOV · XCM", "LA PEDRERA", "63 KM · +630 M"],
+      ["STAGE 01", "30 OCT · XCC", "LA PALOMA", "5.3 KM · 1 LAP"],
+      ["STAGE 02", "31 OCT · XCM", "ROCHA", "81.1 KM · +1,370 M"],
+      ["STAGE 03", "01 NOV · XCM", "LA PEDRERA", "64 KM · +670 M"],
     ],
     gravelStages: [
       ["STAGE 01", "31 OCT · GRAVEL", "START IN ROCHA", "105 KM · 7 H LIMIT"],
@@ -512,32 +513,6 @@ DUPLAS FEMENINAS
 • Dupla Femenina Libre
 
 En las categorías de duplas, la categoría es determinada por la suma de las edades de los dos atletas. En caso de que una categoría no posea un mínimo de tres atletas, será incorporada a la categoría anterior, conforme al reglamento.`,
-  stages: `STAGE 01 – XCC
-Fecha: 30/10/2026
-Lugar de largada: Arena del evento / La Paloma
-
-La primera etapa será disputada en formato XCC, con un recorrido aproximado de 2 km por vuelta. Los atletas deberán completar 3 vueltas ininterrumpidas al circuito, de acuerdo con la programación oficial. Las largadas serán organizadas por categoría, con un máximo de 15 atletas por salida, respetando el orden, horarios y criterios técnicos definidos por la organización.
-
-STAGE 02 – ETAPA REINA XCM
-Fecha: 31/10/2026
-Lugar de largada: Ciudad de Rocha
-Distancia: aproximadamente 82 km
-Desnivel positivo: cerca de 1.600 m
-
-La segunda etapa será la Etapa Reina de la competencia, disputada en formato XCM. Tendrá características de resistencia, navegación por caminos rurales, sectores técnicos, subidas exigentes y trechos de alta demanda física, representando el mayor desafío de la competencia.
-
-STAGE 03 – ETAPA FINAL XCM
-Fecha: 01/11/2026
-Lugar de salida y llegada: La Pedrera
-Distancia: aproximadamente 63 km
-Desnivel positivo: cerca de 630 m
-
-La tercera y última etapa será decisiva para la clasificación general de la Threerace Bike Ultramarathon Uruguay.
-
-INFORMACIÓN GENERAL SOBRE LOS RECORRIDOS
-Todos los recorridos se encuentran en proceso final de definición técnica, revisión logística y validación. Las distancias, altimetrías, lugares de paso, puntos de hidratación, horarios de largada, tiempos de corte y recorridos oficiales podrán sufrir ajustes por razones técnicas, climáticas, de seguridad, ambientales o por determinación de las autoridades competentes.
-
-Los recorridos oficiales serán divulgados el día 30 de agosto de 2026 en las páginas web oficiales del evento, por Threerace Sports y Azimut Extremo.`,
   schedule: `JUEVES – 29/10/2026
 16:00 – Apertura de la Arena Threerace Uruguay
 16:00 a 21:00 – Entrega de kits
@@ -547,7 +522,7 @@ VIERNES – 30/10/2026 | STAGE 01 – XCC
 09:00 a 11:00 – Entrega de kits
 11:00 a 18:00 – Funcionamiento de la mecánica
 12:00 a 18:00 – Funcionamiento del Bike Wash
-12:00 – Primera largada XCC
+13:30 – Primera largada XCC
 19:00 – Publicación de resultados oficiales
 19:00 – Premiación según reglamento – Stage 01
 19:30 – Briefing online Stage 02 / Etapa Reina
@@ -619,21 +594,21 @@ DOMINGO – 01/11/2026 | STAGE 03 – ETAPA FINAL
 Las categorías oficiales son las publicadas en la pestaña Categorías. En duplas, la suma de las edades determina la categoría. Categorías con menos de tres atletas podrán ser incorporadas a la categoría anterior.
 
 8. ETAPAS Y RECORRIDOS
-8.1 Stage 1 – XCC: circuito aproximado de 2 a 2,5 km por vuelta.
-8.2 Stage 2 – Ultramaratón: 82 km y 1.600 m de elevación acumulada.
-8.3 Stage 3 – Ultramaratón: 63 km y 630 m de elevación acumulada.
+8.1 Stage 1 – XCC: una única vuelta de 5,3 km.
+8.2 Stage 2 – Ultramaratón: 81,1 km y 1.370 m de elevación acumulada.
+8.3 Stage 3 – Ultramaratón: 64 km y 670 m de elevación acumulada.
 8.4 La organización podrá modificar recorridos, distancias o altimetrías por clima, seguridad o logística.
 8.5 Solo serán FINISHER los atletas que completen al menos 75% de las etapas dentro del tiempo límite.
 
 9. REGLAMENTO XCC – STAGE 1
-9.1 Circuito cerrado, aproximadamente 2 km por vuelta.
+9.1 Circuito cerrado de 5,3 km.
 9.2 Máximo de 15 atletas por batería.
 9.3 Las baterías serán formadas por atletas de la misma categoría.
-9.4 Cada atleta deberá completar 3 vueltas.
-9.5 Distancia total aproximada de 6 km, sujeta a ajustes técnicos.
+9.4 Cada atleta deberá completar una única vuelta.
+9.5 Distancia total de 5,3 km, sujeta a ajustes técnicos.
 9.6 y 9.7 El orden, composición e intervalos serán definidos y divulgados por la organización.
 9.8 La participación en el Stage 1 es obligatoria, salvo excepción aprobada.
-9.9 El tiempo será registrado desde la largada hasta el final de la tercera vuelta.
+9.9 El tiempo será registrado desde la largada hasta el final de la vuelta única.
 9.10 En duplas, vale el tiempo del integrante más lento.
 9.11 El resultado podrá definir el orden de largada de las etapas siguientes.
 9.12 El tiempo integrará la clasificación general acumulada.
@@ -833,32 +808,6 @@ DUPLAS FEMININAS
 • Dupla Feminina Livre
 
 Nas categorias de duplas, a categoria é determinada pela soma das idades dos dois atletas. Caso uma categoria não tenha o mínimo de três atletas, será incorporada à categoria anterior, conforme o regulamento.`,
-  stages: `STAGE 01 – XCC
-Data: 30/10/2026
-Local da largada: Arena do evento / La Paloma
-
-A primeira etapa será disputada no formato XCC, em um percurso aproximado de 2 km por volta. Os atletas deverão completar 3 voltas ininterruptas no circuito, conforme a programação oficial. As largadas serão organizadas por categoria, com no máximo 15 atletas por bateria, respeitando a ordem, os horários e os critérios técnicos definidos pela organização.
-
-STAGE 02 – ETAPA RAINHA XCM
-Data: 31/10/2026
-Local da largada: Cidade de Rocha
-Distância: aproximadamente 82 km
-Desnível positivo: cerca de 1.600 m
-
-A segunda etapa será a Etapa Rainha da competição, disputada no formato XCM. Terá características de resistência, navegação por estradas rurais, setores técnicos, subidas exigentes e trechos de alta demanda física, representando o maior desafio da competição.
-
-STAGE 03 – ETAPA FINAL XCM
-Data: 01/11/2026
-Local da largada e chegada: La Pedrera
-Distância: aproximadamente 63 km
-Desnível positivo: cerca de 630 m
-
-A terceira e última etapa será decisiva para a classificação geral da Threerace Bike Ultramarathon Uruguay.
-
-INFORMAÇÕES GERAIS SOBRE OS PERCURSOS
-Todos os percursos estão em processo final de definição técnica, revisão logística e validação. Distâncias, altimetrias, locais de passagem, pontos de hidratação, horários de largada, tempos de corte e trajetos oficiais poderão sofrer ajustes por razões técnicas, climáticas, de segurança, ambientais ou por determinação das autoridades competentes.
-
-Os percursos oficiais serão divulgados em 30 de agosto de 2026 nos canais oficiais do evento, pela Threerace Sports e pela Azimut Extremo.`,
   schedule: `QUINTA-FEIRA – 29/10/2026
 16:00 – Abertura da Arena Threerace Uruguay
 16:00 às 21:00 – Entrega de kits
@@ -868,7 +817,7 @@ SEXTA-FEIRA – 30/10/2026 | STAGE 01 – XCC
 09:00 às 11:00 – Entrega de kits
 11:00 às 18:00 – Funcionamento da mecânica
 12:00 às 18:00 – Funcionamento do Bike Wash
-12:00 – Primeira largada XCC
+13:30 – Primeira largada XCC
 19:00 – Publicação dos resultados oficiais
 19:00 – Premiação conforme regulamento – Stage 01
 19:30 – Briefing online Stage 02 / Etapa Rainha
@@ -917,10 +866,10 @@ Os números devem permanecer visíveis e fixados na frente, sem cortes, adesivos
 As categorias oficiais são as publicadas na aba Categorias. Nas duplas, a soma das idades determina a categoria. Categorias com menos de três atletas poderão ser incorporadas à anterior.
 
 8. ETAPAS E PERCURSOS
-Stage 1: circuito XCC aproximado de 2 a 2,5 km por volta. Stage 2: 82 km e 1.600 m de elevação. Stage 3: 63 km e 630 m de elevação. A organização poderá modificar percursos por clima, segurança ou logística. Somente será FINISHER quem completar pelo menos 75% das etapas dentro do limite.
+Stage 1: XCC com uma única volta de 5,3 km. Stage 2: 81,1 km e 1.370 m de elevação. Stage 3: 64 km e 670 m de elevação. A organização poderá modificar percursos por clima, segurança ou logística. Somente será FINISHER quem completar pelo menos 75% das etapas dentro do limite.
 
 9. REGULAMENTO XCC – STAGE 1
-Circuito fechado, máximo de 15 atletas por bateria e 3 voltas por atleta. A participação é obrigatória, salvo exceção autorizada. O tempo integra a classificação geral e, nas duplas, vale o tempo do integrante mais lento.
+Circuito fechado, máximo de 15 atletas por bateria e uma única volta de 5,3 km por atleta. A participação é obrigatória, salvo exceção autorizada. O tempo integra a classificação geral e, nas duplas, vale o tempo do integrante mais lento.
 
 10. INÍCIO DAS ETAPAS
 O portão de alinhamento abre 20 minutos antes. As zonas serão definidas pela classificação geral e fecham 5 minutos antes. Atletas atrasados largarão ao final; duplas devem entrar juntas.
@@ -1090,32 +1039,6 @@ WOMEN'S PAIRS
 • Women's Pair Open
 
 For pair categories, the category is determined by the sum of both riders' ages. A category with fewer than three athletes may be merged into the preceding category, as defined in the rulebook.`,
-  stages: `STAGE 01 – XCC
-Date: October 30, 2026
-Start: Event Arena / La Paloma
-
-The first stage is an XCC race on an approximately 2 km lap. Athletes must complete 3 uninterrupted laps. Starts are organized by category, with a maximum of 15 riders per heat, following the official schedule and technical criteria.
-
-STAGE 02 – XCM QUEEN STAGE
-Date: October 31, 2026
-Start: City of Rocha
-Distance: approximately 82 km
-Elevation gain: approximately 1,600 m
-
-The second stage is the Queen Stage, an XCM endurance challenge across rural roads, technical sectors, demanding climbs and physically intense sections.
-
-STAGE 03 – XCM FINAL STAGE
-Date: November 1, 2026
-Start and finish: La Pedrera
-Distance: approximately 63 km
-Elevation gain: approximately 630 m
-
-The third and final stage will decide the overall classification of Threerace Bike Ultramarathon Uruguay.
-
-GENERAL COURSE INFORMATION
-All courses are undergoing final technical definition, logistical review and validation. Distances, elevation, passage points, hydration stations, start times, cut-off times and official routes may change for technical, weather, safety, environmental or authority-related reasons.
-
-Official routes will be released on August 30, 2026 through the event's official channels by Threerace Sports and Azimut Extremo.`,
   schedule: `THURSDAY – OCTOBER 29, 2026
 4:00 PM – Threerace Uruguay Arena opens
 4:00 PM to 9:00 PM – Race kit collection
@@ -1125,7 +1048,7 @@ FRIDAY – OCTOBER 30, 2026 | STAGE 01 – XCC
 9:00 AM to 11:00 AM – Race kit collection
 11:00 AM to 6:00 PM – Mechanical service
 12:00 PM to 6:00 PM – Bike Wash
-12:00 PM – First XCC start
+1:30 PM – First XCC start
 7:00 PM – Official results
 7:00 PM – Stage 01 awards according to the rulebook
 7:30 PM – Online Stage 02 / Queen Stage briefing
@@ -1172,10 +1095,10 @@ Numbers must remain visible and attached to the front, without cuts, stickers, a
 Official categories are listed under Categories. Pair categories are based on combined ages. Categories with fewer than three athletes may be merged into the preceding category.
 
 8. STAGES AND COURSES
-Stage 1: XCC circuit of approximately 2 to 2.5 km per lap. Stage 2: 82 km and 1,600 m elevation gain. Stage 3: 63 km and 630 m elevation gain. Routes may change for weather, safety or logistics. FINISHER status requires at least 75% of stages within the time limit.
+Stage 1: XCC with a single 5.3 km lap. Stage 2: 81.1 km and 1,370 m elevation gain. Stage 3: 64 km and 670 m elevation gain. Routes may change for weather, safety or logistics. FINISHER status requires at least 75% of stages within the time limit.
 
 9. XCC – STAGE 1
-Closed circuit, maximum 15 riders per heat and 3 laps per athlete. Participation is mandatory unless expressly authorized. Time counts toward the overall result; for pairs, the slower rider's time applies.
+Closed circuit, maximum 15 riders per heat and a single 5.3 km lap per athlete. Participation is mandatory unless expressly authorized. Time counts toward the overall result; for pairs, the slower rider's time applies.
 
 10. STAGE STARTS
 Starting corrals open 20 minutes before the start, are assigned by overall classification and close 5 minutes before. Late riders start at the back. Pair riders must enter together.
@@ -1460,7 +1383,7 @@ export function ThreeraceUruguayPage({
               { title: labels.event, text: info.event, icon: "event" as const },
               { title: labels.register, text: info.registration, href: registrationUrl, action: labels.register, icon: "registration" as const },
               { title: labels.categories, text: info.categories, icon: "categories" as const },
-              { title: labels.stages, text: info.stages, icon: "stages" as const },
+              { title: labels.stages, text: "", icon: "stages" as const },
               { title: labels.program, text: info.schedule, icon: "schedule" as const },
               { title: labels.rulebook, text: info.regulation, href: rulebookUrl, action: labels.rulebook, icon: "rulebook" as const },
               { title: labels.stay, text: info.lodging, href: lodgingUrl, action: labels.stay, icon: "lodging" as const },
@@ -1477,7 +1400,7 @@ export function ThreeraceUruguayPage({
                   </div>
                   <div className="original-accordion-content" id={`event-info-${index}`}>
                     <div className="accordion-panel-inner">
-                      {icon === "lodging" ? <LodgingDirectory language={language} /> : <OfficialText text={text} />}
+                      {icon === "lodging" ? <LodgingDirectory language={language} /> : icon === "stages" ? <UruguayStages language={language} /> : <OfficialText text={text} />}
                       {href && icon !== "lodging" && <a className="accordion-action" href={href} target="_blank" rel="noreferrer">{action} ↗</a>}
                     </div>
                   </div>
