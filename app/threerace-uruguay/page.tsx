@@ -7,6 +7,7 @@ import { getSavedLanguage, saveLanguage } from "../site-language";
 import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 import UruguayStages from "./stages";
+import UruguaySchedule from "./schedule";
 
 type Language = "es" | "pt" | "en";
 
@@ -513,40 +514,6 @@ DUPLAS FEMENINAS
 • Dupla Femenina Libre
 
 En las categorías de duplas, la categoría es determinada por la suma de las edades de los dos atletas. En caso de que una categoría no posea un mínimo de tres atletas, será incorporada a la categoría anterior, conforme al reglamento.`,
-  schedule: `JUEVES – 29/10/2026
-16:00 – Apertura de la Arena Threerace Uruguay
-16:00 a 21:00 – Entrega de kits
-
-VIERNES – 30/10/2026 | STAGE 01 – XCC
-09:00 – Apertura de la Arena Threerace Uruguay
-09:00 a 11:00 – Entrega de kits
-11:00 a 18:00 – Funcionamiento de la mecánica
-12:00 a 18:00 – Funcionamiento del Bike Wash
-13:30 – Primera largada XCC
-19:00 – Publicación de resultados oficiales
-19:00 – Premiación según reglamento – Stage 01
-19:30 – Briefing online Stage 02 / Etapa Reina
-19:30 – Cierre de la arena
-
-SÁBADO – 31/10/2026 | STAGE 02 – ETAPA REINA
-07:00 – Apertura de la Arena Threerace Uruguay en Rocha
-07:00 a 18:00 – Funcionamiento de la mecánica
-07:45 – Apertura de los portones para alineación
-08:00 – Largada Stage 02 / Etapa Reina
-10:00 a 18:00 – Funcionamiento del Bike Wash
-18:00 – Publicación de resultados oficiales
-18:00 – Premiación según reglamento – Stage 02
-18:00 – Briefing online Stage 03 / Etapa Final
-18:30 – Cierre de la arena
-
-DOMINGO – 01/11/2026 | STAGE 03 – ETAPA FINAL
-07:00 – Apertura de la Arena Threerace Uruguay
-08:45 – Apertura de los portones para alineación
-09:00 – Largada Stage 03 / Etapa Final
-14:00 – Publicación de resultados oficiales
-14:30 – Premiación Stage 03 / Final
-14:30 – Premiación de las etapas y premiación General Ultra
-15:00 – Cierre Threerace Bike Ultramarathon Uruguay 2026`,
   regulation: `REGLAMENTO THREERACE BIKE ULTRAMARATHON URUGUAY 2026
 
 1. CICLISTAS
@@ -808,40 +775,6 @@ DUPLAS FEMININAS
 • Dupla Feminina Livre
 
 Nas categorias de duplas, a categoria é determinada pela soma das idades dos dois atletas. Caso uma categoria não tenha o mínimo de três atletas, será incorporada à categoria anterior, conforme o regulamento.`,
-  schedule: `QUINTA-FEIRA – 29/10/2026
-16:00 – Abertura da Arena Threerace Uruguay
-16:00 às 21:00 – Entrega de kits
-
-SEXTA-FEIRA – 30/10/2026 | STAGE 01 – XCC
-09:00 – Abertura da Arena Threerace Uruguay
-09:00 às 11:00 – Entrega de kits
-11:00 às 18:00 – Funcionamento da mecânica
-12:00 às 18:00 – Funcionamento do Bike Wash
-13:30 – Primeira largada XCC
-19:00 – Publicação dos resultados oficiais
-19:00 – Premiação conforme regulamento – Stage 01
-19:30 – Briefing online Stage 02 / Etapa Rainha
-19:30 – Fechamento da arena
-
-SÁBADO – 31/10/2026 | STAGE 02 – ETAPA RAINHA
-07:00 – Abertura da Arena Threerace Uruguay em Rocha
-07:00 às 18:00 – Funcionamento da mecânica
-07:45 – Abertura dos portões para alinhamento
-08:00 – Largada Stage 02 / Etapa Rainha
-10:00 às 18:00 – Funcionamento do Bike Wash
-18:00 – Publicação dos resultados oficiais
-18:00 – Premiação conforme regulamento – Stage 02
-18:00 – Briefing online Stage 03 / Etapa Final
-18:30 – Fechamento da arena
-
-DOMINGO – 01/11/2026 | STAGE 03 – ETAPA FINAL
-07:00 – Abertura da Arena Threerace Uruguay
-08:45 – Abertura dos portões para alinhamento
-09:00 – Largada Stage 03 / Etapa Final
-14:00 – Publicação dos resultados oficiais
-14:30 – Premiação Stage 03 / Final
-14:30 – Premiação das etapas e premiação Geral Ultra
-15:00 – Encerramento Threerace Bike Ultramarathon Uruguay 2026`,
   regulation: `REGULAMENTO THREERACE BIKE ULTRAMARATHON URUGUAY 2026
 
 1. CICLISTAS
@@ -1039,38 +972,6 @@ WOMEN'S PAIRS
 • Women's Pair Open
 
 For pair categories, the category is determined by the sum of both riders' ages. A category with fewer than three athletes may be merged into the preceding category, as defined in the rulebook.`,
-  schedule: `THURSDAY – OCTOBER 29, 2026
-4:00 PM – Threerace Uruguay Arena opens
-4:00 PM to 9:00 PM – Race kit collection
-
-FRIDAY – OCTOBER 30, 2026 | STAGE 01 – XCC
-9:00 AM – Arena opens
-9:00 AM to 11:00 AM – Race kit collection
-11:00 AM to 6:00 PM – Mechanical service
-12:00 PM to 6:00 PM – Bike Wash
-1:30 PM – First XCC start
-7:00 PM – Official results
-7:00 PM – Stage 01 awards according to the rulebook
-7:30 PM – Online Stage 02 / Queen Stage briefing
-7:30 PM – Arena closes
-
-SATURDAY – OCTOBER 31, 2026 | STAGE 02 – QUEEN STAGE
-7:00 AM – Threerace Uruguay Arena opens in Rocha
-7:00 AM to 6:00 PM – Mechanical service
-7:45 AM – Starting corrals open
-8:00 AM – Stage 02 / Queen Stage start
-10:00 AM to 6:00 PM – Bike Wash
-6:00 PM – Official results and Stage 02 awards
-6:00 PM – Online Stage 03 / Final Stage briefing
-6:30 PM – Arena closes
-
-SUNDAY – NOVEMBER 1, 2026 | STAGE 03 – FINAL STAGE
-7:00 AM – Arena opens
-8:45 AM – Starting corrals open
-9:00 AM – Stage 03 / Final Stage start
-2:00 PM – Official results
-2:30 PM – Stage 03 / Final and Overall Ultra awards
-3:00 PM – Threerace Bike Ultramarathon Uruguay 2026 closes`,
   regulation: `THREERACE BIKE ULTRAMARATHON URUGUAY 2026 RULEBOOK
 
 1. RIDERS
@@ -1384,7 +1285,7 @@ export function ThreeraceUruguayPage({
               { title: labels.register, text: info.registration, href: registrationUrl, action: labels.register, icon: "registration" as const },
               { title: labels.categories, text: info.categories, icon: "categories" as const },
               { title: labels.stages, text: "", icon: "stages" as const },
-              { title: labels.program, text: info.schedule, icon: "schedule" as const },
+              { title: labels.program, text: "", icon: "schedule" as const },
               { title: labels.rulebook, text: info.regulation, href: rulebookUrl, action: labels.rulebook, icon: "rulebook" as const },
               { title: labels.stay, text: info.lodging, href: lodgingUrl, action: labels.stay, icon: "lodging" as const },
             ].map(({ title, text, href, action, icon }, index) => {
@@ -1400,7 +1301,7 @@ export function ThreeraceUruguayPage({
                   </div>
                   <div className="original-accordion-content" id={`event-info-${index}`}>
                     <div className="accordion-panel-inner">
-                      {icon === "lodging" ? <LodgingDirectory language={language} /> : icon === "stages" ? <UruguayStages language={language} /> : <OfficialText text={text} />}
+                      {icon === "lodging" ? <LodgingDirectory language={language} /> : icon === "stages" ? <UruguayStages language={language} /> : icon === "schedule" ? <UruguaySchedule language={language} /> : <OfficialText text={text} />}
                       {href && icon !== "lodging" && <a className="accordion-action" href={href} target="_blank" rel="noreferrer">{action} ↗</a>}
                     </div>
                   </div>

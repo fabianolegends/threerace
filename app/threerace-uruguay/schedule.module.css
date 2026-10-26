@@ -1,0 +1,10 @@
+.schedule { padding-bottom: 36px !important; }
+.day + .day { margin-top: 36px; }
+.events { list-style: none; margin: 0; padding: 0; }
+.event { display: grid; grid-template-columns: 138px minmax(0, 1fr); gap: 8px 20px; padding: 8px 0; color: #5c5b57; }
+.time { font-variant-numeric: tabular-nums; font-size: 1rem; line-height: 1.72; white-space: nowrap; }
+.schedule .map { display: inline-block; width: auto; margin: 4px 0 0; font-size: .95rem; font-weight: 650; letter-spacing: normal; color: var(--orange-deep); text-decoration: underline; text-underline-offset: 4px; }
+.schedule .map:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 4px; }
+@media (max-width: 600px) {
+  .event { grid-template-columns: 1fr; gap: 0; padding: 10px 0; }
+}
