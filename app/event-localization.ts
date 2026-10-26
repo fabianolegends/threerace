@@ -81,7 +81,7 @@ const events: Record<EventSlug, EventConfig> = {
     image: "/gravel-experience-hero-v2.png",
     startDate: "2026-10-31T07:00:00-03:00",
     endDate: "2026-11-01T15:00:00-03:00",
-    addressLocality: "La Paloma",
+    addressLocality: "Rocha",
     registrationUrl:
       "https://event.windfit.app/threerace-gravel-experience-uruguay-2026",
     price: "149",
@@ -91,25 +91,25 @@ const events: Record<EventSlug, EventConfig> = {
         title: "Prova de Gravel por Etapas no Uruguai 2026",
         socialTitle: "Gravel Experience Uruguay 2026",
         description:
-          "Prova de gravel com duas etapas em La Paloma e Rocha, Uruguai, nos dias 31 de outubro e 1º de novembro de 2026.",
+          "Prova de gravel de 174 km em duas etapas, com largadas em Rocha e La Pedrera, Uruguai, nos dias 31 de outubro e 1º de novembro de 2026.",
         imageAlt: "Ciclista na Gravel Experience Uruguay",
-        place: "La Paloma e Rocha",
+        place: "Rocha e La Pedrera",
       },
       es: {
         title: "Carrera de Gravel por Etapas en Uruguay 2026",
         socialTitle: "Gravel Experience Uruguay 2026",
         description:
-          "Carrera de gravel de dos etapas en La Paloma y Rocha, Uruguay, el 31 de octubre y 1 de noviembre de 2026.",
+          "Carrera de gravel de 174 km en dos etapas, con salidas en Rocha y La Pedrera, Uruguay, el 31 de octubre y 1 de noviembre de 2026.",
         imageAlt: "Ciclista en Gravel Experience Uruguay",
-        place: "La Paloma y Rocha",
+        place: "Rocha y La Pedrera",
       },
       en: {
         title: "Gravel Stage Race in Uruguay 2026",
         socialTitle: "Gravel Experience Uruguay 2026",
         description:
-          "Two-stage gravel race in La Paloma and Rocha, Uruguay, on October 31 and November 1, 2026.",
+          "A 174 km, two-stage gravel race starting in Rocha and La Pedrera, Uruguay, on October 31 and November 1, 2026.",
         imageAlt: "Rider at Gravel Experience Uruguay",
-        place: "La Paloma and Rocha",
+        place: "Rocha and La Pedrera",
       },
     },
   },

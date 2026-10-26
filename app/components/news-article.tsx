@@ -81,11 +81,11 @@ const articles: Record<string, Article> = {
         title: "Dois dias para descobrir o Uruguai por novas linhas",
         lead: "Uma experiência de 183 quilômetros criada para quem procura no gravel uma forma de explorar territórios, administrar o esforço e viver cada trecho com intensidade.",
         sections: [
-          { title: "O gravel como forma de viajar", paragraphs: ["Integrada à programação da Threerace Uruguay, a Gravel Experience acontece nos dias 31 de outubro e 1º de novembro de 2026. São duas etapas — 115 km e 68 km — conectando caminhos rurais, terra, campos abertos e paisagens costeiras de Rocha.", "O objetivo não é apenas completar uma distância. É permitir que a bicicleta conduza o participante por mudanças de terreno, vento, silêncio e cenários que revelam o Uruguai de outra perspectiva."] },
+          { title: "O gravel como forma de viajar", paragraphs: ["Integrada à programação da Threerace Uruguay, a Gravel Experience acontece nos dias 31 de outubro e 1º de novembro de 2026. São duas etapas — 101 km e 73 km — conectando caminhos rurais, terra, campos abertos e paisagens costeiras de Rocha.", "O objetivo não é apenas completar uma distância. É permitir que a bicicleta conduza o participante por mudanças de terreno, vento, silêncio e cenários que revelam o Uruguai de outra perspectiva."] },
           { title: "Estratégia em duas etapas", paragraphs: ["A primeira jornada concentra o maior volume e exige leitura de ritmo, alimentação e equipamento. No segundo dia, o corpo volta à estrada para uma etapa mais curta, mas marcada pelo acúmulo de esforço e pela necessidade de manter a consistência.", "Essa sequência transforma a prova em uma experiência completa: preparação, autonomia e capacidade de adaptação passam a ser tão importantes quanto a velocidade."] },
           { title: "Uma nova porta de entrada para a TR3", paragraphs: ["A Gravel Experience amplia o ecossistema da Threerace no Uruguai e conversa com ciclistas que desejam uma prova desafiadora, porém conectada à contemplação, ao turismo e à cultura gravel.", "Com organização compartilhada entre TR3 e Azimut Extremo, o evento leva para La Paloma uma proposta internacional construída com conhecimento local."] },
         ],
-        facts: [{ label: "DATA", value: "31 OUT — 01 NOV · 2026" }, { label: "DISTÂNCIA", value: "183 KM" }, { label: "ETAPAS", value: "115 KM + 68 KM" }, { label: "BASE", value: "LA PALOMA · ROCHA" }],
+        facts: [{ label: "DATA", value: "31 OUT — 01 NOV · 2026" }, { label: "DISTÂNCIA", value: "174 KM" }, { label: "ETAPAS", value: "101 KM + 73 KM" }, { label: "BASE", value: "LA PALOMA · ROCHA" }],
         back: "VOLTAR ÀS NOTÍCIAS", factsTitle: "INFORMAÇÕES ESSENCIAIS", cta: "CONHEÇA O EVENTO ↗", related: "DUAS ETAPAS · UMA EXPERIÊNCIA",
       },
       es: {
@@ -93,11 +93,11 @@ const articles: Record<string, Article> = {
         title: "Dos días para descubrir Uruguay por nuevas líneas",
         lead: "Una experiencia de 183 kilómetros creada para quienes encuentran en el gravel una forma de explorar territorios, administrar el esfuerzo y vivir cada tramo con intensidad.",
         sections: [
-          { title: "El gravel como forma de viajar", paragraphs: ["Integrada a la programación de Threerace Uruguay, Gravel Experience se realizará los días 31 de octubre y 1.º de noviembre de 2026. Son dos etapas —115 km y 68 km— que conectan caminos rurales, tierra, campos abiertos y paisajes costeros de Rocha.", "El objetivo no es solamente completar una distancia. Es permitir que la bicicleta conduzca al participante por cambios de terreno, viento, silencio y escenarios que revelan Uruguay desde otra perspectiva."] },
+          { title: "El gravel como forma de viajar", paragraphs: ["Integrada a la programación de Threerace Uruguay, Gravel Experience se realizará los días 31 de octubre y 1.º de noviembre de 2026. Son dos etapas —101 km y 73 km— que conectan caminos rurales, tierra, campos abiertos y paisajes costeros de Rocha.", "El objetivo no es solamente completar una distancia. Es permitir que la bicicleta conduzca al participante por cambios de terreno, viento, silencio y escenarios que revelan Uruguay desde otra perspectiva."] },
           { title: "Estrategia en dos etapas", paragraphs: ["La primera jornada concentra el mayor volumen y exige lectura de ritmo, alimentación y equipo. En el segundo día, el cuerpo vuelve al camino para una etapa más corta, marcada por el esfuerzo acumulado y la necesidad de mantener la consistencia.", "Esta secuencia transforma la prueba en una experiencia completa: preparación, autonomía y capacidad de adaptación son tan importantes como la velocidad."] },
           { title: "Una nueva puerta de entrada a TR3", paragraphs: ["Gravel Experience amplía el ecosistema de Threerace en Uruguay y dialoga con ciclistas que buscan una prueba desafiante, conectada con la contemplación, el turismo y la cultura gravel.", "Con organización compartida entre TR3 y Azimut Extremo, el evento lleva a La Paloma una propuesta internacional construida con conocimiento local."] },
         ],
-        facts: [{ label: "FECHA", value: "31 OCT — 01 NOV · 2026" }, { label: "DISTANCIA", value: "183 KM" }, { label: "ETAPAS", value: "115 KM + 68 KM" }, { label: "BASE", value: "LA PALOMA · ROCHA" }],
+        facts: [{ label: "FECHA", value: "31 OCT — 01 NOV · 2026" }, { label: "DISTANCIA", value: "174 KM" }, { label: "ETAPAS", value: "101 KM + 73 KM" }, { label: "BASE", value: "LA PALOMA · ROCHA" }],
         back: "VOLVER A NOTICIAS", factsTitle: "INFORMACIÓN ESENCIAL", cta: "CONOCE EL EVENTO ↗", related: "DOS ETAPAS · UNA EXPERIENCIA",
       },
       en: {
@@ -105,11 +105,11 @@ const articles: Record<string, Article> = {
         title: "Two days to discover Uruguay along new lines",
         lead: "A 183-kilometer experience for riders who see gravel as a way to explore territories, manage effort and live every section with intensity.",
         sections: [
-          { title: "Gravel as a way to travel", paragraphs: ["Part of the Threerace Uruguay program, Gravel Experience takes place on October 31 and November 1, 2026. Two stages —115 km and 68 km— connect rural roads, dirt, open fields and Rocha's coastal landscapes.", "The goal is not simply to cover a distance. It is to let the bicycle guide each participant through changing terrain, wind, silence and scenery that reveal Uruguay from another perspective."] },
+          { title: "Gravel as a way to travel", paragraphs: ["Part of the Threerace Uruguay program, Gravel Experience takes place on October 31 and November 1, 2026. Two stages —101 km and 73 km— connect rural roads, dirt, open fields and Rocha's coastal landscapes.", "The goal is not simply to cover a distance. It is to let the bicycle guide each participant through changing terrain, wind, silence and scenery that reveal Uruguay from another perspective."] },
           { title: "Strategy across two stages", paragraphs: ["The first day carries the greatest volume and demands careful management of pace, nutrition and equipment. On day two, the body returns to the road for a shorter stage shaped by accumulated effort and the need for consistency.", "This sequence turns the race into a complete experience: preparation, autonomy and adaptability become as important as speed."] },
           { title: "A new gateway to TR3", paragraphs: ["Gravel Experience expands the Threerace ecosystem in Uruguay and speaks to cyclists seeking a demanding event connected to contemplation, tourism and gravel culture.", "Jointly organized by TR3 and Azimut Extremo, the event brings an international proposal built with local knowledge to La Paloma."] },
         ],
-        facts: [{ label: "DATE", value: "31 OCT — 01 NOV · 2026" }, { label: "DISTANCE", value: "183 KM" }, { label: "STAGES", value: "115 KM + 68 KM" }, { label: "BASE", value: "LA PALOMA · ROCHA" }],
+        facts: [{ label: "DATE", value: "31 OCT — 01 NOV · 2026" }, { label: "DISTANCE", value: "174 KM" }, { label: "STAGES", value: "101 KM + 73 KM" }, { label: "BASE", value: "LA PALOMA · ROCHA" }],
         back: "BACK TO NEWS", factsTitle: "ESSENTIAL INFORMATION", cta: "DISCOVER THE EVENT ↗", related: "TWO STAGES · ONE EXPERIENCE",
       },
     },

@@ -5,7 +5,7 @@ const url =
   "https://www.threerace.com/noticias/gravel-experience-uruguay";
 const title = "Dois dias para descobrir o Uruguai por novas linhas";
 const description =
-  "Conheça a Gravel Experience Uruguay: 183 km em duas etapas por caminhos rurais, campos e paisagens costeiras de Rocha.";
+  "Conheça a Gravel Experience Uruguay: 174 km em duas etapas por caminhos rurais, campos e paisagens costeiras de Rocha.";
 const image = "https://www.threerace.com/gravel-experience-hero-v2.png";
 
 export const metadata: Metadata = {

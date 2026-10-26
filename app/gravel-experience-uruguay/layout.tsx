@@ -7,7 +7,7 @@ const url = "https://www.threerace.com/gravel-experience-uruguay";
 export const metadata: Metadata = {
   title: "Gravel Experience Uruguay 2026",
   description:
-    "Gravel Stage Race de duas etapas e 183 km em La Paloma e Rocha, Uruguai, nos dias 31 de outubro e 1º de novembro de 2026.",
+    "Gravel Stage Race de duas etapas e 174 km com largadas em Rocha e La Pedrera, Uruguai, nos dias 31 de outubro e 1º de novembro de 2026.",
   alternates: {
     canonical: "/gravel-experience-uruguay",
     languages: eventAlternates("gravel-experience-uruguay"),
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url,
     title: "Gravel Experience Uruguay 2026",
     description:
-      "Duas etapas e 183 km para descobrir o Uruguai pelos caminhos que o gravel conecta.",
+      "Duas etapas e 174 km para descobrir o Uruguai pelos caminhos que o gravel conecta.",
     images: [
       {
         url: "/gravel-experience-hero-v2.png",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Gravel Experience Uruguay 2026",
-    description: "Gravel Stage Race de 183 km em La Paloma e Rocha.",
+    description: "Gravel Stage Race de 174 km com largadas em Rocha e La Pedrera.",
     images: ["/gravel-experience-hero-v2.png"],
   },
 };
@@ -39,7 +39,7 @@ const eventJsonLd = {
   "@id": `${url}/#event`,
   name: "Gravel Experience Uruguay 2026",
   description:
-    "Gravel Stage Race com duas etapas, 115 km e 68 km, por caminhos rurais e paisagens costeiras de Rocha.",
+    "Gravel Stage Race com duas etapas, 101 km e 73 km, por caminhos rurais e paisagens costeiras de Rocha.",
   url,
   image: ["https://www.threerace.com/gravel-experience-hero-v2.png"],
   startDate: "2026-10-31T07:00:00-03:00",
@@ -48,10 +48,10 @@ const eventJsonLd = {
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: {
     "@type": "Place",
-    name: "La Paloma e Rocha",
+    name: "Rocha e La Pedrera",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "La Paloma",
+      addressLocality: "Rocha",
       addressRegion: "Rocha",
       addressCountry: "UY",
     },

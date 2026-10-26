@@ -80,8 +80,8 @@ const copy = {
       ["ETAPA 03", "01 NOV · XCM", "LA PEDRERA", "64 KM · +670 M"],
     ],
     gravelStages: [
-      ["ETAPA 01", "31 OCT · GRAVEL", "SALIDA ROCHA", "105 KM · LÍMITE 7 H"],
-      ["ETAPA 02", "01 NOV · GRAVEL", "LA PALOMA", "68 KM · LÍMITE 4 H 40"],
+      ["ETAPA 01", "31 OCT · GRAVEL", "SALIDA ROCHA", "101 KM · LÍMITE 7 H"],
+      ["ETAPA 02", "01 NOV · GRAVEL", "LA PEDRERA", "73 KM · LÍMITE 4 H 40"],
     ],
     categoriesText:
       "La clasificación se define por modalidad. Revisa tu categoría antes de iniciar el proceso de inscripción.",
@@ -200,8 +200,8 @@ const copy = {
       ["ETAPA 03", "01 NOV · XCM", "LA PEDRERA", "64 KM · +670 M"],
     ],
     gravelStages: [
-      ["ETAPA 01", "31 OUT · GRAVEL", "LARGADA EM ROCHA", "105 KM · LIMITE 7 H"],
-      ["ETAPA 02", "01 NOV · GRAVEL", "LA PALOMA", "68 KM · LIMITE 4 H 40"],
+      ["ETAPA 01", "31 OUT · GRAVEL", "LARGADA EM ROCHA", "101 KM · LIMITE 7 H"],
+      ["ETAPA 02", "01 NOV · GRAVEL", "LA PEDRERA", "73 KM · LIMITE 4 H 40"],
     ],
     categoriesText:
       "A classificação é definida por modalidade. Confira sua categoria antes de iniciar a inscrição.",
@@ -320,8 +320,8 @@ const copy = {
       ["STAGE 03", "01 NOV · XCM", "LA PEDRERA", "64 KM · +670 M"],
     ],
     gravelStages: [
-      ["STAGE 01", "31 OCT · GRAVEL", "START IN ROCHA", "105 KM · 7 H LIMIT"],
-      ["STAGE 02", "01 NOV · GRAVEL", "LA PALOMA", "68 KM · 4 H 40 LIMIT"],
+      ["STAGE 01", "31 OCT · GRAVEL", "START IN ROCHA", "101 KM · 7 H LIMIT"],
+      ["STAGE 02", "01 NOV · GRAVEL", "LA PEDRERA", "73 KM · 4 H 40 LIMIT"],
     ],
     categoriesText:
       "Classification is defined by format. Check your category before you start registration.",

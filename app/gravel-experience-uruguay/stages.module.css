@@ -1,0 +1,11 @@
+.stages { max-width: none !important; padding-bottom: 36px !important; }
+.stage + .stage { margin-top: 40px; }
+.stages .stage p + p { margin-top: 8px !important; }
+.stages .map, .schedule .map, .stages .profile a { margin: 0; width: auto; font-size: 1rem; letter-spacing: normal; }
+.stages .map, .schedule .map, .stages .profile figcaption a { display: inline-block; color: var(--orange-deep); font-weight: 650; text-decoration: underline; text-underline-offset: 4px; }
+.stages .map, .schedule .map { margin: 8px 0 16px; overflow-wrap: anywhere; }
+.profile { margin: 22px 0 0; }
+.stages .profile > a { display: block; width: 100%; background: #fff; }
+.profile img { display: block; width: 100%; height: auto; }
+.profile figcaption { margin-top: 8px; font-size: .9rem; }
+.stages a:focus-visible, .schedule a:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 4px; }

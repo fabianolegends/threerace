@@ -49,7 +49,7 @@ const homeCopy = {
     readStory: "LEIA A HISTÓRIA ↗",
     newsDates: ["JUL · 2026", "JUL · 2026", "ABR · 2027"],
     newsTitles: ["La Paloma será a base da nova edição internacional da Threerace", "Dois dias para descobrir o Uruguai por novas linhas", "A Threerace Brasil volta a São Francisco de Paula"],
-    newsTexts: ["Rocha recebe três dias de mountain bike, natureza e experiência internacional.", "Uma experiência de 183 km entre estradas rurais, vento, campos e litoral.", "A edição de 10 anos celebra montanhas, pessoas e histórias na Serra Gaúcha."],
+    newsTexts: ["Rocha recebe três dias de mountain bike, natureza e experiência internacional.", "Uma experiência de 174 km entre estradas rurais, vento, campos e litoral.", "A edição de 10 anos celebra montanhas, pessoas e histórias na Serra Gaúcha."],
     manifestoTop: ["DA SERRA AO MAR.", "DO BRASIL AO URUGUAI."], manifesto: ["O DESTINO MUDA.", "A ESSÊNCIA CONTINUA."],
     community: "COMUNIDADE TR3", communityTitle: "RECEBA OS PRÓXIMOS DESAFIOS.", communityText: "Datas, inscrições e novidades em primeira mão.",
     name: "NOME", namePlaceholder: "Seu nome", interest: "INTERESSE", allEvents: "Todos os eventos", partnerships: "Parcerias", subscribe: "RECEBER NOVIDADES ↗",
@@ -88,7 +88,7 @@ const homeCopy = {
     readStory: "LEE LA HISTORIA ↗",
     newsDates: ["JUL · 2026", "JUL · 2026", "ABR · 2027"],
     newsTitles: ["La Paloma será la base de la nueva edición internacional de Threerace", "Dos días para descubrir Uruguay por nuevas líneas", "Threerace Brasil vuelve a São Francisco de Paula"],
-    newsTexts: ["Rocha recibe tres días de mountain bike, naturaleza y experiencia internacional.", "Una experiencia de 183 km entre caminos rurales, viento, campos y costa.", "La edición de 10 años celebra montañas, personas e historias en la Serra Gaúcha."],
+    newsTexts: ["Rocha recibe tres días de mountain bike, naturaleza y experiencia internacional.", "Una experiencia de 174 km entre caminos rurales, viento, campos y costa.", "La edición de 10 años celebra montañas, personas e historias en la Serra Gaúcha."],
     manifestoTop: ["DE LA SIERRA AL MAR.", "DE BRASIL A URUGUAY."], manifesto: ["EL DESTINO CAMBIA.", "LA ESENCIA CONTINÚA."],
     community: "COMUNIDAD TR3", communityTitle: "RECIBE LOS PRÓXIMOS DESAFÍOS.", communityText: "Fechas, inscripciones y novedades de primera mano.",
     name: "NOMBRE", namePlaceholder: "Tu nombre", interest: "INTERÉS", allEvents: "Todos los eventos", partnerships: "Alianzas", subscribe: "RECIBIR NOVEDADES ↗",
@@ -127,7 +127,7 @@ const homeCopy = {
     readStory: "READ THE STORY ↗",
     newsDates: ["JUL · 2026", "JUL · 2026", "APR · 2027"],
     newsTitles: ["La Paloma will host Threerace's new international edition", "Two days to discover Uruguay along new lines", "Threerace Brasil returns to São Francisco de Paula"],
-    newsTexts: ["Rocha welcomes three days of mountain bike, nature and international experience.", "A 183 km experience across rural roads, wind, fields and coastline.", "The 10-year edition celebrates mountains, people and stories in Serra Gaúcha."],
+    newsTexts: ["Rocha welcomes three days of mountain bike, nature and international experience.", "A 174 km experience across rural roads, wind, fields and coastline.", "The 10-year edition celebrates mountains, people and stories in Serra Gaúcha."],
     manifestoTop: ["FROM THE MOUNTAINS TO THE SEA.", "FROM BRAZIL TO URUGUAY."], manifesto: ["THE DESTINATION CHANGES.", "THE ESSENCE REMAINS."],
     community: "TR3 COMMUNITY", communityTitle: "GET THE NEXT CHALLENGES.", communityText: "Dates, registration openings and news delivered first.",
     name: "NAME", namePlaceholder: "Your name", interest: "INTEREST", allEvents: "All events", partnerships: "Partnerships", subscribe: "GET UPDATES ↗",
@@ -223,7 +223,7 @@ const news = [
     category: "GRAVEL EXPERIENCE",
     date: "JUL · 2026",
     title: "Dois dias para descobrir o Uruguai por novas linhas",
-    text: "Uma experiência de 183 km entre estradas rurais, vento, campos e litoral.",
+    text: "Uma experiência de 174 km entre estradas rurais, vento, campos e litoral.",
     href: "/noticias/gravel-experience-uruguay",
     img: "/gravel-experience-card.webp",
     width: 960,
@@ -391,7 +391,7 @@ export default function Home() {
                   <div className="next-event-organizers-mobile" aria-hidden="true">
                     <img src={logo} width="512" height="512" alt="" /><span>+</span><img src={azimutMenuLogo} width="363" height="354" alt="" />
                   </div>
-                  <div className="next-event-meta"><span>{t.gravelDate}</span><span>183 KM</span></div>
+                  <div className="next-event-meta"><span>{t.gravelDate}</span><span>174 KM</span></div>
                 </div>
               </div>
               <div className="next-event-organizers" aria-label={t.sharedBy}>

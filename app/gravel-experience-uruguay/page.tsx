@@ -3,6 +3,9 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+import { locations } from "../threerace-uruguay/locations";
+import styles from "./stages.module.css";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
@@ -42,7 +45,7 @@ const copy = {
     heroSubtitle: "EXPERIENCE URUGUAY",
     actions: [
       ["INSCRIPCIONES", "PLATAFORMA WINDFIT"],
-      ["ETAPAS", "115 KM + 68 KM"],
+      ["ETAPAS", "101 KM + 73 KM"],
       ["REGLAMENTO", "REGLAMENTO 2026"],
     ],
     countdown: ["DÍAS", "HORAS", "MINUTOS"],
@@ -77,10 +80,12 @@ const copy = {
     femaleText: "Clasificación general femenina. Premiación de la 1.ª a la 5.ª colocada.",
     categoryRules: ["Completar los dos stages dentro de los tiempos máximos", "Cumplir integralmente la ruta oficial", "Pasar por todos los puntos de control", "No recibir penalizaciones que resulten en descalificación", "La ausencia injustificada en la premiación podrá implicar la pérdida del trofeo"],
     stages: [
-      { name: "STAGE 01 — 115 KM", date: "31/10/2026", start: "Gimnasio Polideportivo de Rocha", distance: "115 km", elevation: "1.214 m+", surface: "26% asfalto · 74% tierra", limit: "7 horas" },
-      { name: "STAGE 02 — 68 KM", date: "01/11/2026", start: "Arena TR3 · La Paloma", distance: "68 km", elevation: "560 m+", surface: "31% asfalto · 69% tierra", limit: "4h30" },
+      { name: "STAGE 01 — 101 KM", date: "31/10/2026", start: "Centro Polideportivo Rocha", distance: "101 km", elevation: "1.280 m+", surface: "26% asfalto · 74% tierra", limit: "7 horas" },
+      { name: "STAGE 02 — 73 KM", date: "01/11/2026", start: "Mirador La Pedrera — La Pedrera", distance: "73 km", elevation: "670 m+", surface: "31% asfalto · 69% tierra", limit: "4h30" },
     ],
     stageLabels: ["FECHA", "LARGADA", "DISTANCIA", "ELEVACIÓN", "SUPERFICIE", "TIEMPO LÍMITE"],
+    mapLabel: "Ver en Google Maps", enlargeLabel: "Ampliar perfil", addressLabel: "Dirección",
+    profileAlts: ["Perfil de la etapa 01: 101 km y 1.280 m de desnivel positivo. Apoyo y asistencia mecánica en el km 63.", "Perfil de la etapa 02: 73 km y 670 m de desnivel positivo. Apoyo en los km 18 y 55; asistencia mecánica en el km 55."],
     schedule: [
       ["JUEVES · 29/10", ["16:00 · Apertura de la Arena Threerace Uruguay", "16:00–21:00 · Entrega de kits"]],
       ["VIERNES · 30/10", ["09:00 · Apertura de la Arena", "15:00–19:00 · Entrega de kits Gravel Experience"]],
@@ -89,7 +94,7 @@ const copy = {
     ],
     rulesTitle: "REGLAMENTO OFICIAL · GRAVEL EXPERIENCE 2026",
     rules: [
-      ["1. PRESENTACIÓN", "Prueba oficial en dos etapas: 115 km desde Rocha, con límite de 7 horas, y 68 km desde La Paloma, con límite de 4h30. Clasificación masculina y femenina por tiempo acumulado."],
+      ["1. PRESENTACIÓN", "Prueba oficial en dos etapas: 101 km desde el Centro Polideportivo Rocha, con límite de 7 horas, y 73 km desde el Mirador La Pedrera, con límite de 4h30. Clasificación masculina y femenina por tiempo acumulado."],
       ["2. PARTICIPACIÓN", "La inscripción implica aceptación del reglamento y de los riesgos del ciclismo gravel. Edad mínima de 18 años; menores solo con autorización. Bicicleta gravel segura, autonomía del atleta y drafting entre ciclistas permitido. Prohibido apoyo móvil, remolque, rueda de vehículos, cambio de bicicleta o abastecimiento fuera de los puntos autorizados."],
       ["3. CATEGORÍAS", "Categorías generales masculina y femenina, sin división por edad. Para clasificar es obligatorio completar ambos stages, seguir la ruta y no recibir descalificación."],
       ["4. REGISTRO", "Formulario Windfit, pago confirmado, documentación solicitada, término de responsabilidad y retirada personal del kit. La organización puede solicitar certificado médico y alterar o cancelar etapas por seguridad, clima, logística, fuerza mayor o decisión oficial."],
@@ -121,7 +126,7 @@ const copy = {
   pt: {
     nav: ["HOME", "ETAPAS", "INSCRIÇÃO", "INFORMAÇÕES"],
     heroPlace: "ROCHA + LA PALOMA · URUGUAI", heroTitle: "GRAVEL", heroSubtitle: "EXPERIENCE URUGUAY",
-    actions: [["INSCRIÇÕES", "PLATAFORMA WINDFIT"], ["ETAPAS", "115 KM + 68 KM"], ["REGULAMENTO", "REGULAMENTO 2026"]],
+    actions: [["INSCRIÇÕES", "PLATAFORMA WINDFIT"], ["ETAPAS", "101 KM + 73 KM"], ["REGULAMENTO", "REGULAMENTO 2026"]],
     countdown: ["DIAS", "HORAS", "MINUTOS"], information: "INFORMAÇÕES COMPLETAS",
     panels: ["O EVENTO", "INSCRIÇÕES", "CATEGORIAS", "ETAPAS", "PROGRAMAÇÃO", "REGULAMENTO", "HOSPEDAGEM"],
     eventTitle: "Gravel Experience – La Paloma, Rocha, Uruguai",
@@ -140,14 +145,16 @@ const copy = {
     categoriesIntro: "Categorias únicas, sem divisão por idade. A classificação é definida pelo tempo acumulado das duas etapas.", male: "MASCULINA", maleText: "Geral masculina, com premiação do 1º ao 10º.", female: "FEMININA", femaleText: "Geral feminina, com premiação da 1ª à 5ª.",
     categoryRules: ["Completar as duas etapas dentro dos tempos máximos", "Cumprir integralmente a rota oficial", "Passar por todos os pontos de controle", "Não receber penalização desclassificatória", "Ausência injustificada na premiação pode implicar perda do troféu"],
     stages: [
-      { name: "STAGE 01 — 115 KM", date: "31/10/2026", start: "Ginásio Poliesportivo de Rocha", distance: "115 km", elevation: "1.214 m+", surface: "26% asfalto · 74% terra", limit: "7 horas" },
-      { name: "STAGE 02 — 68 KM", date: "01/11/2026", start: "Arena TR3 · La Paloma", distance: "68 km", elevation: "560 m+", surface: "31% asfalto · 69% terra", limit: "4h30" },
+      { name: "STAGE 01 — 101 KM", date: "31/10/2026", start: "Centro Polideportivo Rocha", distance: "101 km", elevation: "1.280 m+", surface: "26% asfalto · 74% terra", limit: "7 horas" },
+      { name: "STAGE 02 — 73 KM", date: "01/11/2026", start: "Mirador La Pedrera — La Pedrera", distance: "73 km", elevation: "670 m+", surface: "31% asfalto · 69% terra", limit: "4h30" },
     ],
     stageLabels: ["DATA", "LARGADA", "DISTÂNCIA", "ELEVAÇÃO", "SUPERFÍCIE", "TEMPO LIMITE"],
+    mapLabel: "Ver no Google Maps", enlargeLabel: "Ampliar perfil", addressLabel: "Endereço",
+    profileAlts: ["Perfil da etapa 01: 101 km e 1.280 m de desnível positivo. Apoio e suporte mecânico no km 63.", "Perfil da etapa 02: 73 km e 670 m de desnível positivo. Apoio nos km 18 e 55; suporte mecânico no km 55."],
     schedule: [["QUINTA · 29/10", ["16:00 · Abertura da Arena", "16:00–21:00 · Entrega de kits"]], ["SEXTA · 30/10", ["09:00 · Abertura da Arena", "15:00–19:00 · Entrega de kits Gravel"]], ["SÁBADO · 31/10", ["06:00 · Abertura da Arena em Rocha", "06:50 · Alinhamento", "07:00 · Largada Stage 01"]], ["DOMINGO · 01/11", ["07:00 · Abertura da Arena", "07:45 · Alinhamento", "08:00 · Largada Stage 02", "14:00 · Resultados oficiais", "14:30 · Premiação Gravel Experience", "15:00 · Encerramento"]]],
     rulesTitle: "REGULAMENTO OFICIAL · GRAVEL EXPERIENCE 2026",
     rules: [
-      ["1. APRESENTAÇÃO", "Prova em duas etapas: 115 km, limite de 7h, e 68 km, limite de 4h30. Classificação masculina e feminina pelo tempo acumulado."],
+      ["1. APRESENTAÇÃO", "Prova em duas etapas: 101 km com largada no Centro Polideportivo Rocha, limite de 7h, e 73 km com largada no Mirador La Pedrera, limite de 4h30. Classificação masculina e feminina pelo tempo acumulado."],
       ["2. PARTICIPAÇÃO", "Inscrição implica aceitar o regulamento e os riscos. Idade mínima 18 anos; menor só com autorização. Bicicleta gravel segura, autonomia e drafting permitido. Proibidos apoio móvel, reboque, vácuo de veículos, troca de bicicleta e abastecimento irregular."],
       ["3. CATEGORIAS", "Gerais masculina e feminina, sem idade. É obrigatório completar ambas as etapas, seguir a rota e não ser desclassificado."],
       ["4. INSCRIÇÃO", "Formulário Windfit, pagamento, documentos, termo e retirada pessoal do kit. Pode haver exigência médica e alterações por segurança, clima, logística ou força maior."],
@@ -172,7 +179,7 @@ const copy = {
   en: {
     nav: ["HOME", "STAGES", "REGISTRATION", "INFORMATION"],
     heroPlace: "ROCHA + LA PALOMA · URUGUAY", heroTitle: "GRAVEL", heroSubtitle: "EXPERIENCE URUGUAY",
-    actions: [["REGISTRATION", "WINDFIT PLATFORM"], ["STAGES", "115 KM + 68 KM"], ["RULEBOOK", "2026 RULEBOOK"]],
+    actions: [["REGISTRATION", "WINDFIT PLATFORM"], ["STAGES", "101 KM + 73 KM"], ["RULEBOOK", "2026 RULEBOOK"]],
     countdown: ["DAYS", "HOURS", "MINUTES"], information: "COMPLETE INFORMATION",
     panels: ["THE EVENT", "REGISTRATION", "CATEGORIES", "STAGES", "SCHEDULE", "RULEBOOK", "ACCOMMODATION"],
     eventTitle: "Gravel Experience – La Paloma, Rocha, Uruguay",
@@ -184,12 +191,14 @@ const copy = {
     excludedTitle: "NOT INCLUDED", excluded: ["Muscle recovery", "Complete mechanical service", "Unlisted accommodation or meals", "Transfers", "Photography"],
     categoriesIntro: "Open categories with no age divisions. Classification uses the accumulated time of both stages.", male: "MEN", maleText: "Men's overall, awards from 1st to 10th.", female: "WOMEN", femaleText: "Women's overall, awards from 1st to 5th.",
     categoryRules: ["Finish both stages within time limits", "Follow the entire official route", "Pass every control point", "Receive no disqualifying penalty", "Unjustified absence from awards may forfeit the trophy"],
-    stages: [{ name: "STAGE 01 — 115 KM", date: "10/31/2026", start: "Rocha Sports Gym", distance: "115 km", elevation: "1,214 m+", surface: "26% paved · 74% dirt", limit: "7 hours" }, { name: "STAGE 02 — 68 KM", date: "11/01/2026", start: "TR3 Arena · La Paloma", distance: "68 km", elevation: "560 m+", surface: "31% paved · 69% dirt", limit: "4h30" }],
+    stages: [{ name: "STAGE 01 — 101 KM", date: "10/31/2026", start: "Centro Polideportivo Rocha", distance: "101 km", elevation: "1,280 m+", surface: "26% paved · 74% dirt", limit: "7 hours" }, { name: "STAGE 02 — 73 KM", date: "11/01/2026", start: "Mirador La Pedrera — La Pedrera", distance: "73 km", elevation: "670 m+", surface: "31% paved · 69% dirt", limit: "4h30" }],
     stageLabels: ["DATE", "START", "DISTANCE", "ELEVATION", "SURFACE", "TIME LIMIT"],
+    mapLabel: "View on Google Maps", enlargeLabel: "Enlarge profile", addressLabel: "Address",
+    profileAlts: ["Stage 01 elevation profile: 101 km and 1,280 m elevation gain. Aid and mechanical support at km 63.", "Stage 02 elevation profile: 73 km and 670 m elevation gain. Aid at km 18 and 55; mechanical support at km 55."],
     schedule: [["THURSDAY · OCT 29", ["16:00 · Arena opens", "16:00–21:00 · Kit pickup"]], ["FRIDAY · OCT 30", ["09:00 · Arena opens", "15:00–19:00 · Gravel kit pickup"]], ["SATURDAY · OCT 31", ["06:00 · Rocha Arena opens", "06:50 · Starting grid opens", "07:00 · Stage 01 start"]], ["SUNDAY · NOV 01", ["07:00 · Arena opens", "07:45 · Starting grid opens", "08:00 · Stage 02 start", "14:00 · Official results", "14:30 · Awards", "15:00 · Event closes"]]],
     rulesTitle: "OFFICIAL RULEBOOK · GRAVEL EXPERIENCE 2026",
     rules: [
-      ["1. EVENT", "Two stages: 115 km with a 7-hour limit and 68 km with a 4h30 limit. Men's and women's accumulated-time classification."], ["2. PARTICIPATION", "Registration accepts the rules and risks. Minimum age 18; minors need authorization. Safe gravel bike, rider autonomy and rider drafting allowed. Mobile support, towing, vehicle drafting, bike swaps and unauthorized aid are prohibited."], ["3. CATEGORIES", "Men's and women's overall, no age split. Both stages and the full route must be completed without disqualification."], ["4. REGISTRATION", "Windfit form, payment, documents, waiver and personal kit pickup. Medical documents may be required; changes may occur for safety, weather, logistics or force majeure."], ["5. EQUIPMENT", "Required: helmet, safe bike, number, phone, GPS/GPX, recommended 1.5 L hydration, repair kit, spare, pump/CO₂, suitable clothing and ID. Tubeless, tools, lights, eyewear, gloves, sunscreen, cash, extra food, lubricant and insurance are recommended."], ["6. NUMBER", "The official number must remain visible and may not be cut, folded, altered, covered or removed."], ["7. SAFETY", "Obey traffic laws, signage and staff; assist emergencies and report accidents or withdrawal."], ["8. TIME LIMITS", "Stage 01: 7h. Stage 02: 4h30. Exceeding limits removes classification, awards and support. Intermediate cutoffs may apply."], ["9. WITHDRAWAL", "Withdrawal must be reported immediately. Return transport is not guaranteed except in emergencies or by race direction."], ["10. PENALTIES", "Littering, disrespect, missing gear, disobedience, shortcuts, missed controls, illegal aid, bike swaps, towing, vehicle drafting, no helmet, wrong number, irregular entry, dangerous behavior or unreported withdrawal may penalize or disqualify."], ["11. ROUTE", "The official GPX is mandatory and may change for safety, weather, permissions, terrain, traffic or force majeure."], ["12. MINIMUM FIELD", "The event depends on technical, logistical and operational criteria; activities may be cancelled, changed or regrouped."], ["13. AWARDS", "Top 10 men and top 5 women. Riders must complete stages, route and controls without disqualification."], ["14. SPONSORS", "Personal sponsor logos are allowed if they comply with rules, safety, law and official sponsors."], ["15. IMAGE RIGHTS", "Entry authorizes use of image, voice, name, results, photos and video for institutional, commercial and promotional purposes."], ["16. LAW", "Uruguayan law applies; omitted cases are decided by organizers and race direction."], ["17. GENERAL", "Organizers may make technical, sporting and logistical adjustments. Official communications are published through event channels."],
+      ["1. EVENT", "Two stages: 101 km starting at Centro Polideportivo Rocha with a 7-hour limit and 73 km starting at Mirador La Pedrera with a 4h30 limit. Men's and women's accumulated-time classification."], ["2. PARTICIPATION", "Registration accepts the rules and risks. Minimum age 18; minors need authorization. Safe gravel bike, rider autonomy and rider drafting allowed. Mobile support, towing, vehicle drafting, bike swaps and unauthorized aid are prohibited."], ["3. CATEGORIES", "Men's and women's overall, no age split. Both stages and the full route must be completed without disqualification."], ["4. REGISTRATION", "Windfit form, payment, documents, waiver and personal kit pickup. Medical documents may be required; changes may occur for safety, weather, logistics or force majeure."], ["5. EQUIPMENT", "Required: helmet, safe bike, number, phone, GPS/GPX, recommended 1.5 L hydration, repair kit, spare, pump/CO₂, suitable clothing and ID. Tubeless, tools, lights, eyewear, gloves, sunscreen, cash, extra food, lubricant and insurance are recommended."], ["6. NUMBER", "The official number must remain visible and may not be cut, folded, altered, covered or removed."], ["7. SAFETY", "Obey traffic laws, signage and staff; assist emergencies and report accidents or withdrawal."], ["8. TIME LIMITS", "Stage 01: 7h. Stage 02: 4h30. Exceeding limits removes classification, awards and support. Intermediate cutoffs may apply."], ["9. WITHDRAWAL", "Withdrawal must be reported immediately. Return transport is not guaranteed except in emergencies or by race direction."], ["10. PENALTIES", "Littering, disrespect, missing gear, disobedience, shortcuts, missed controls, illegal aid, bike swaps, towing, vehicle drafting, no helmet, wrong number, irregular entry, dangerous behavior or unreported withdrawal may penalize or disqualify."], ["11. ROUTE", "The official GPX is mandatory and may change for safety, weather, permissions, terrain, traffic or force majeure."], ["12. MINIMUM FIELD", "The event depends on technical, logistical and operational criteria; activities may be cancelled, changed or regrouped."], ["13. AWARDS", "Top 10 men and top 5 women. Riders must complete stages, route and controls without disqualification."], ["14. SPONSORS", "Personal sponsor logos are allowed if they comply with rules, safety, law and official sponsors."], ["15. IMAGE RIGHTS", "Entry authorizes use of image, voice, name, results, photos and video for institutional, commercial and promotional purposes."], ["16. LAW", "Uruguayan law applies; omitted cases are decided by organizers and race direction."], ["17. GENERAL", "Organizers may make technical, sporting and logistical adjustments. Official communications are published through event channels."],
     ],
     stayTitle: "Accommodation options in La Paloma", stayText: "Use Rocha's official accommodation guide and plan your stay close to the arena.", stayCta: "VIEW ACCOMMODATION",
     organizers: "ORGANIZATION", historyTitle: "DO YOU KNOW THE RACE STORY?", historyText: "Threerace Sports was founded in 2017 to lead Ekonova Adventure's competitive events. Focused on MTB, it established Threerace Bike Ultramarathon as a South American reference with strong international participation.",
@@ -269,11 +278,48 @@ export function GravelExperienceUruguayPage({
   const actionTargets = [registrationUrl, "#stages", "#rules"];
 
   const panelContent = (key: PanelKey) => {
-    if (key === "event") return <div className="official-copy"><h4>{t.eventTitle}</h4>{t.eventParagraphs.map((p) => <p key={p}>{p}</p>)}<h4>{t.format}</h4><p>{t.formatText}</p><div className="gravel-distance-strip"><b>STAGE 01</b><span>31.10.2026 · 115 KM</span><b>STAGE 02</b><span>01.11.2026 · 68 KM</span></div></div>;
+    if (key === "event") return <div className="official-copy"><h4>{t.eventTitle}</h4>{t.eventParagraphs.map((p) => <p key={p}>{p}</p>)}<h4>{t.format}</h4><p>{t.formatText}</p><div className="gravel-distance-strip"><b>STAGE 01</b><span>31.10.2026 · 101 KM</span><b>STAGE 02</b><span>01.11.2026 · 73 KM</span></div></div>;
     if (key === "registration") return <div className="official-copy"><div className="gravel-lots">{t.lots.map(([name, price, date]) => <article key={name}><b>{name}</b><strong>{price}</strong><span>{date}</span></article>)}</div>{t.registrationNotes.map((p) => <p key={p}>{p}</p>)}<div className="gravel-two-columns"><div><h4>{t.includedTitle}</h4><List>{t.included.map((item) => <li key={item}>{item}</li>)}</List></div><div><h4>{t.excludedTitle}</h4><List>{t.excluded.map((item) => <li key={item}>{item}</li>)}</List></div></div><a className="button button-primary accordion-action" href={registrationUrl} target="_blank" rel="noreferrer">{t.finalCta} ↗</a></div>;
     if (key === "categories") return <div className="official-copy"><p>{t.categoriesIntro}</p><div className="gravel-category-grid"><article><b>{t.male}</b><p>{t.maleText}</p></article><article><b>{t.female}</b><p>{t.femaleText}</p></article></div><List>{t.categoryRules.map((item) => <li key={item}>{item}</li>)}</List></div>;
-    if (key === "stages") return <div className="official-copy"><div className="gravel-stage-details">{t.stages.map((stage) => <article key={stage.name}><h4>{stage.name}</h4>{[stage.date, stage.start, stage.distance, stage.elevation, stage.surface, stage.limit].map((value, index) => <p key={t.stageLabels[index]}><b>{t.stageLabels[index]}:</b> {value}</p>)}</article>)}</div></div>;
-    if (key === "schedule") return <div className="official-copy gravel-schedule">{t.schedule.map(([day, entries]) => <section key={day as string}><h4>{day}</h4><List>{(entries as readonly string[]).map((item) => <li key={item}>{item}</li>)}</List></section>)}</div>;
+    if (key === "stages") return (
+      <div className={`official-copy ${styles.stages}`}>
+        {t.stages.map((stage, stageIndex) => {
+          const location = locations[stageIndex + 1];
+          const profile = `/gravel-2026/perfil-etapa-0${stageIndex + 1}.png`;
+          return (
+            <section className={styles.stage} key={stage.name} aria-labelledby={`gravel-stage-${stageIndex + 1}`}>
+              <h4 id={`gravel-stage-${stageIndex + 1}`}>{stage.name}</h4>
+              {[stage.date, stage.start, stage.distance, stage.elevation, stage.surface, stage.limit].map((value, index) => (
+                <p key={t.stageLabels[index]}><b>{t.stageLabels[index]}:</b> {value}</p>
+              ))}
+              <p><b>{t.addressLabel}:</b> {location.address}</p>
+              <a className={styles.map} href={location.map} target="_blank" rel="noopener noreferrer" aria-label={`${t.mapLabel} — ${location.name}`}>{t.mapLabel} ↗</a>
+              <figure className={styles.profile}>
+                <a href={profile} target="_blank" rel="noopener noreferrer" aria-label={`${t.enlargeLabel} — ${stage.name}`}>
+                  <Image src={profile} alt={t.profileAlts[stageIndex]} width={3240} height={720} unoptimized />
+                </a>
+                <figcaption><a href={profile} target="_blank" rel="noopener noreferrer">{t.enlargeLabel} ↗</a></figcaption>
+              </figure>
+            </section>
+          );
+        })}
+      </div>
+    );
+    if (key === "schedule") return (
+      <div className={`official-copy gravel-schedule ${styles.schedule}`}>
+        {t.schedule.map(([day, entries], index) => {
+          const location = locations[Math.max(0, index - 1)];
+          return (
+            <section key={day as string}>
+              <h4>{day}</h4>
+              <p><strong>{location.name}</strong></p>
+              <a className={styles.map} href={location.map} target="_blank" rel="noopener noreferrer" aria-label={`${t.mapLabel} — ${location.name}`}>{t.mapLabel} ↗</a>
+              <List>{(entries as readonly string[]).map((item) => <li key={item}>{item}</li>)}</List>
+            </section>
+          );
+        })}
+      </div>
+    );
     if (key === "rules") return <div className="official-copy gravel-rules"><h4>{t.rulesTitle}</h4>{t.rules.map(([title, text]) => <section key={title}><h4>{title}</h4><p>{text}</p></section>)}</div>;
     return <div className="official-copy"><LodgingDirectory language={language} /></div>;
   };
