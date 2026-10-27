@@ -42,7 +42,7 @@ const eventJsonLd = {
     "Gravel Stage Race com duas etapas, 101 km e 73 km, por caminhos rurais e paisagens costeiras de Rocha.",
   url,
   image: ["https://www.threerace.com/gravel-experience-hero-v2.png"],
-  startDate: "2026-10-31T07:00:00-03:00",
+  startDate: "2026-10-31T07:45:00-03:00",
   endDate: "2026-11-01T15:00:00-03:00",
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",

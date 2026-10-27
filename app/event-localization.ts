@@ -79,7 +79,7 @@ const events: Record<EventSlug, EventConfig> = {
   },
   "gravel-experience-uruguay": {
     image: "/gravel-experience-hero-v2.png",
-    startDate: "2026-10-31T07:00:00-03:00",
+    startDate: "2026-10-31T07:45:00-03:00",
     endDate: "2026-11-01T15:00:00-03:00",
     addressLocality: "Rocha",
     registrationUrl:
