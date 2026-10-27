@@ -207,6 +207,15 @@ export function GravelExperienceUruguayPage({
   }, [initialLanguage, localized]);
 
   useEffect(() => {
+    const openRulebooks = () => {
+      if (window.location.hash === "#rules") setOpen("rules");
+    };
+    openRulebooks();
+    window.addEventListener("hashchange", openRulebooks);
+    return () => window.removeEventListener("hashchange", openRulebooks);
+  }, []);
+
+  useEffect(() => {
     const timer = window.setInterval(() => setNow(Date.now()), 30000);
     return () => window.clearInterval(timer);
   }, []);
@@ -298,7 +307,7 @@ export function GravelExperienceUruguayPage({
           <div className="header-actions"><div className="language-switcher" aria-label="Language selector">{(["es", "pt", "en"] as Language[]).map((code) => <button key={code} className={language === code ? "active" : ""} type="button" onClick={() => selectLanguage(code)} aria-label={code} aria-pressed={language === code}>{{ es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" }[code]}</button>)}</div><button className="menu-toggle" type="button" aria-label={menuOpen ? t.close : t.menu} onClick={() => setMenuOpen(!menuOpen)}><span/><span/></button></div>
         </header>
         <div className="uruguay-title-block gravel-title-block"><p className="location">{t.heroPlace}</p><h1>{t.heroTitle}<small>{t.heroSubtitle}</small></h1></div>
-        <section className="original-action-cards section-frame" aria-label="Quick access">{t.actions.map(([title, note], index) => <a key={title} href={actionTargets[index]} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}><Icon kind={(["register", "stages", "rules"] as const)[index]} /><b>{title}</b><small>{note}</small><i><ActionArrow direction={index === 0 ? "external" : "down"} /></i></a>)}</section>
+        <section className="original-action-cards section-frame" aria-label="Quick access">{t.actions.map(([title, note], index) => <a key={title} href={actionTargets[index]} onClick={index === 2 ? () => setOpen("rules") : undefined} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}><Icon kind={(["register", "stages", "rules"] as const)[index]} /><b>{title}</b><small>{note}</small><i><ActionArrow direction={index === 0 ? "external" : "down"} /></i></a>)}</section>
       </section>
 
       <section className="countdown-section" aria-label="Countdown"><div className="section-frame countdown-grid">{countdown.map((value, index) => <div className="countdown-unit" key={t.countdown[index]}><b>{String(value).padStart(2, "0")}</b><span>{t.countdown[index]}</span></div>)}</div></section>

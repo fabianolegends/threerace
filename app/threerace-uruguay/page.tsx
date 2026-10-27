@@ -818,6 +818,15 @@ export function ThreeraceUruguayPage({
   }, [initialLanguage, localized]);
 
   useEffect(() => {
+    const openRulebooks = () => {
+      if (window.location.hash === "#rules") setOpenInfo(5);
+    };
+    openRulebooks();
+    window.addEventListener("hashchange", openRulebooks);
+    return () => window.removeEventListener("hashchange", openRulebooks);
+  }, []);
+
+  useEffect(() => {
     const timer = window.setInterval(() => setNow(Date.now()), 30000);
     return () => window.clearInterval(timer);
   }, []);
@@ -908,8 +917,8 @@ export function ThreeraceUruguayPage({
         >
           <QuickIcon type="certificate"/><b>{labels.certificate}</b><small>{labels.certificateNote}</small><i><ActionArrow direction="external" /></i>
         </a>
-        <a href={rulebookUrl} target="_blank" rel="noreferrer">
-          <QuickIcon type="rulebook"/><b>{labels.rulebook}</b><small>{labels.rulebookNote}</small><i><ActionArrow direction="external" /></i>
+        <a href="#rules" onClick={() => setOpenInfo(5)}>
+          <QuickIcon type="rulebook"/><b>{labels.rulebook}</b><small>{labels.rulebookNote}</small><i><ActionArrow direction="down" /></i>
         </a>
         </section>
       </section>
@@ -940,7 +949,7 @@ export function ThreeraceUruguayPage({
             ].map(({ title, text, href, action, icon }, index) => {
               const isOpen = openInfo === index;
               return (
-                <article className={isOpen ? "open" : ""} key={title}>
+                <article id={icon === "rulebook" ? "rules" : undefined} className={isOpen ? "open" : ""} key={title}>
                   <div className="accordion-trigger">
                     <AccordionIcon type={icon} />
                     <b>{title}</b>
