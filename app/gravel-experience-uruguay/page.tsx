@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { locations } from "../threerace-uruguay/locations";
+import { epicServices } from "../threerace-uruguay/epic-services";
 import styles from "./stages.module.css";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 import { useSiteLanguage } from "../use-site-language";
@@ -90,8 +91,8 @@ const copy = {
     schedule: [
       ["JUEVES · 29/10", ["16:00 · Apertura de la Arena Threerace Uruguay", "16:00–21:00 · Entrega de kits"]],
       ["VIERNES · 30/10", ["09:00 · Apertura de la Arena", "15:00–19:00 · Entrega de kits Gravel Experience"]],
-      ["SÁBADO · 31/10", ["06:30 · Apertura de la Arena en Rocha", "07:40 · Apertura de portones para alineación", "07:45 · Largada Stage 01"]],
-      ["DOMINGO · 01/11", ["07:00 · Apertura de la Arena", "08:10 · Apertura de portones para alineación", "08:20 · Largada Stage 02", "14:00 · Resultados oficiales", "14:30 · Premiación Gravel Experience", "15:00 · Cierre del evento"]],
+      ["SÁBADO · 31/10", ["06:30 · Apertura de la Arena en Rocha", "07:40 · Apertura de portones para alineación", "07:45 · Largada Stage 01", "11:00 · Apertura de la arena y de la tienda EPIC Bikes — Casa Bahia, La Paloma", "18:30 · Cierre de la arena en La Paloma"]],
+      ["DOMINGO · 01/11", ["07:00 · Apertura de la Arena", "08:10 · Apertura de portones para alineación", "08:20 · Largada Stage 02", "11:00 · Apertura de la arena y de la tienda EPIC Bikes — Casa Bahia, La Paloma", "14:00 · Resultados oficiales", "14:30 · Premiación Gravel Experience", "15:00 · Cierre del evento"]],
     ],
     stayTitle: "Opciones de hospedaje en La Paloma",
     stayText: "Consulte la guía oficial de alojamientos de Rocha y organice su estadía cerca de la arena del evento.",
@@ -132,7 +133,7 @@ const copy = {
     stageLabels: ["DATA", "LARGADA", "DISTÂNCIA", "ELEVAÇÃO", "SUPERFÍCIE", "TEMPO LIMITE"],
     mapLabel: "Ver no Google Maps", enlargeLabel: "Ampliar perfil", addressLabel: "Endereço",
     profileAlts: ["Perfil da etapa 01: 101 km e 1.280 m de desnível positivo. Apoio e suporte mecânico no km 63.", "Perfil da etapa 02: 73 km e 670 m de desnível positivo. Apoio nos km 18 e 55; suporte mecânico no km 55."],
-    schedule: [["QUINTA · 29/10", ["16:00 · Abertura da Arena", "16:00–21:00 · Entrega de kits"]], ["SEXTA · 30/10", ["09:00 · Abertura da Arena", "15:00–19:00 · Entrega de kits Gravel"]], ["SÁBADO · 31/10", ["06:30 · Abertura da Arena em Rocha", "07:40 · Alinhamento", "07:45 · Largada Stage 01"]], ["DOMINGO · 01/11", ["07:00 · Abertura da Arena", "08:10 · Alinhamento", "08:20 · Largada Stage 02", "14:00 · Resultados oficiais", "14:30 · Premiação Gravel Experience", "15:00 · Encerramento"]]],
+    schedule: [["QUINTA · 29/10", ["16:00 · Abertura da Arena", "16:00–21:00 · Entrega de kits"]], ["SEXTA · 30/10", ["09:00 · Abertura da Arena", "15:00–19:00 · Entrega de kits Gravel"]], ["SÁBADO · 31/10", ["06:30 · Abertura da Arena em Rocha", "07:40 · Alinhamento", "07:45 · Largada Stage 01", "11:00 · Abertura da arena e da loja EPIC Bikes — Casa Bahia, La Paloma", "18:30 · Fechamento da arena em La Paloma"]], ["DOMINGO · 01/11", ["07:00 · Abertura da Arena", "08:10 · Alinhamento", "08:20 · Largada Stage 02", "11:00 · Abertura da arena e da loja EPIC Bikes — Casa Bahia, La Paloma", "14:00 · Resultados oficiais", "14:30 · Premiação Gravel Experience", "15:00 · Encerramento"]]],
     stayTitle: "Opções de hospedagem em La Paloma", stayText: "Consulte o guia oficial de hospedagens de Rocha e organize sua estadia próximo à arena.", stayCta: "VER HOSPEDAGENS",
     organizers: "ORGANIZAÇÃO E REALIZAÇÃO", historyTitle: "JÁ CONHECE A HISTÓRIA DA PROVA?", historyText: "A Threerace Sports nasceu em 2017 para liderar os eventos competitivos da Ekonova Adventure. Com foco no MTB, consolidou a Threerace Bike Ultramarathon como referência sul-americana e um dos eventos brasileiros com maior participação estrangeira.",
     finalTitle: "DUAS ETAPAS. UM URUGUAI PARA DESCOBRIR.", finalCta: "INSCREVER-ME AGORA", menu: "Abrir menu", close: "Fechar menu",
@@ -156,7 +157,7 @@ const copy = {
     stageLabels: ["DATE", "START", "DISTANCE", "ELEVATION", "SURFACE", "TIME LIMIT"],
     mapLabel: "View on Google Maps", enlargeLabel: "Enlarge profile", addressLabel: "Address",
     profileAlts: ["Stage 01 elevation profile: 101 km and 1,280 m elevation gain. Aid and mechanical support at km 63.", "Stage 02 elevation profile: 73 km and 670 m elevation gain. Aid at km 18 and 55; mechanical support at km 55."],
-    schedule: [["THURSDAY · OCT 29", ["16:00 · Arena opens", "16:00–21:00 · Kit pickup"]], ["FRIDAY · OCT 30", ["09:00 · Arena opens", "15:00–19:00 · Gravel kit pickup"]], ["SATURDAY · OCT 31", ["06:30 · Rocha Arena opens", "07:40 · Starting grid opens", "07:45 · Stage 01 start"]], ["SUNDAY · NOV 01", ["07:00 · Arena opens", "08:10 · Starting grid opens", "08:20 · Stage 02 start", "14:00 · Official results", "14:30 · Awards", "15:00 · Event closes"]]],
+    schedule: [["THURSDAY · OCT 29", ["16:00 · Arena opens", "16:00–21:00 · Kit pickup"]], ["FRIDAY · OCT 30", ["09:00 · Arena opens", "15:00–19:00 · Gravel kit pickup"]], ["SATURDAY · OCT 31", ["06:30 · Rocha Arena opens", "07:40 · Starting grid opens", "07:45 · Stage 01 start", "11:00 · Arena and EPIC Bikes store open — Casa Bahia, La Paloma", "18:30 · La Paloma arena closes"]], ["SUNDAY · NOV 01", ["07:00 · Arena opens", "08:10 · Starting grid opens", "08:20 · Stage 02 start", "11:00 · Arena and EPIC Bikes store open — Casa Bahia, La Paloma", "14:00 · Official results", "14:30 · Awards", "15:00 · Event closes"]]],
     stayTitle: "Accommodation options in La Paloma", stayText: "Use Rocha's official accommodation guide and plan your stay close to the arena.", stayCta: "VIEW ACCOMMODATION",
     organizers: "ORGANIZATION", historyTitle: "DO YOU KNOW THE RACE STORY?", historyText: "Threerace Sports was founded in 2017 to lead Ekonova Adventure's competitive events. Focused on MTB, it established Threerace Bike Ultramarathon as a South American reference with strong international participation.",
     finalTitle: "TWO STAGES. A URUGUAY TO DISCOVER.", finalCta: "REGISTER NOW", menu: "Open menu", close: "Close menu",
@@ -281,6 +282,14 @@ export function GravelExperienceUruguayPage({
               <p><strong>{location.name}</strong></p>
               <a className={styles.map} href={location.map} target="_blank" rel="noopener noreferrer" aria-label={`${t.mapLabel} — ${location.name}`}>{t.mapLabel} ↗</a>
               <List>{(entries as readonly string[]).map((item) => <li key={item}>{item}</li>)}</List>
+              {index >= 2 && (
+                <>
+                  <p>{epicServices[language][index === 2 ? "saturday" : "sunday"]}</p>
+                  <a className={styles.map} href={locations[0].map} target="_blank" rel="noopener noreferrer" aria-label={`${t.mapLabel} — ${locations[0].name}`}>
+                    {locations[0].name} — {t.mapLabel} ↗
+                  </a>
+                </>
+              )}
             </section>
           );
         })}

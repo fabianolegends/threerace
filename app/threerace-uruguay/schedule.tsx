@@ -1,4 +1,5 @@
 import { locations } from "./locations";
+import { epicServices } from "./epic-services";
 import styles from "./schedule.module.css";
 
 type Language = "pt" | "es" | "en";
@@ -14,6 +15,7 @@ const copy = {
     ],
     events: {
       opening: "Abertura da Arena Threerace Uruguay",
+      laPalomaOpening: "Abertura da arena e da loja EPIC Bikes em La Paloma",
       kits: "Entrega de kits",
       mechanics: "Funcionamento da mecânica",
       wash: "Funcionamento do Bike Wash",
@@ -43,6 +45,7 @@ const copy = {
     ],
     events: {
       opening: "Apertura de la Arena Threerace Uruguay",
+      laPalomaOpening: "Apertura de la arena y de la tienda EPIC Bikes en La Paloma",
       kits: "Entrega de kits",
       mechanics: "Funcionamiento de la mecánica",
       wash: "Funcionamiento del Bike Wash",
@@ -72,6 +75,7 @@ const copy = {
     ],
     events: {
       opening: "Threerace Uruguay Arena opens",
+      laPalomaOpening: "La Paloma arena and EPIC Bikes store open",
       kits: "Race kit collection",
       mechanics: "Mechanical service",
       wash: "Bike Wash",
@@ -119,19 +123,20 @@ const days: { location: number; events: ScheduleEvent[] }[] = [
   ] },
   { location: 1, events: [
     { time: "07:00", key: "opening" },
-    { time: "07:00", end: "18:00", key: "mechanics", laPaloma: true },
     { time: "07:45", key: "corrals" },
     { time: "08:00", key: "start2" },
+    { time: "11:00", key: "laPalomaOpening" },
     { time: "11:00", end: "18:00", key: "wash", laPaloma: true },
     { time: "17:00", key: "results" },
     { time: "17:00", key: "awards2" },
     { time: "18:00", key: "briefing3" },
-    { time: "18:30", key: "closing" },
+    { time: "18:30", key: "closing", laPaloma: true },
   ] },
   { location: 2, events: [
     { time: "07:00", key: "opening" },
     { time: "08:15", key: "corrals" },
     { time: "08:30", key: "start3" },
+    { time: "11:00", key: "laPalomaOpening" },
     { time: "14:00", key: "results" },
     { time: "14:30", key: "awards3" },
     { time: "14:30", key: "overall" },
@@ -149,24 +154,30 @@ export default function UruguaySchedule({ language }: { language: Language }) {
           <section className={styles.day} key={index} aria-labelledby={`uruguay-schedule-${index}`}>
             <h4 id={`uruguay-schedule-${index}`}>{t.titles[index]}</h4>
             <ul className={styles.events}>
-              {day.events.map((event) => (
-                <li className={styles.event} key={event.key}>
-                  <strong className={styles.time}>
-                    {event.time}{event.end && ` ${t.range} ${event.end}`}
-                  </strong>
-                  <div>
-                    <p>{t.events[event.key]}{event.laPaloma && <> <strong>(La Paloma)</strong></>}
-                      {event.key === "opening" && <> — <strong>{location.name}</strong></>}
-                    </p>
-                    {event.key === "opening" && (
-                      <a className={styles.map} href={location.map} target="_blank" rel="noopener noreferrer" aria-label={`${t.map} — ${location.name}`}>
-                        {t.map} ↗
-                      </a>
-                    )}
-                  </div>
-                </li>
-              ))}
+              {day.events.map((event) => {
+                const isOpening = event.key === "opening" || event.key === "laPalomaOpening";
+                const eventLocation = event.key === "laPalomaOpening" ? locations[0] : location;
+                return (
+                  <li className={styles.event} key={event.key}>
+                    <strong className={styles.time}>
+                      {event.time}{event.end && ` ${t.range} ${event.end}`}
+                    </strong>
+                    <div>
+                      <p>{t.events[event.key]}{event.laPaloma && <> <strong>(La Paloma)</strong></>}
+                        {isOpening && <> — <strong>{eventLocation.name}</strong></>}
+                      </p>
+                      {isOpening && (
+                        <a className={styles.map} href={eventLocation.map} target="_blank" rel="noopener noreferrer" aria-label={`${t.map} — ${eventLocation.name}`}>
+                          {t.map} ↗
+                        </a>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
+            {index === 2 && <p>{epicServices[language].saturday}</p>}
+            {index === 3 && <p>{epicServices[language].sunday}</p>}
           </section>
         );
       })}
