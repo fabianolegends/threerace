@@ -799,9 +799,9 @@ export function ThreeraceUruguayPage({
     ];
   }, [now]);
   const labels = {
-    es: { register: "INSCRIPCIONES", registerNote: "PLATAFORMA WINDFIT", certificate: "CERTIFICADOS", certificateNote: "DOCUMENTACIÓN OBLIGATORIA", rulebook: "REGLAMENTO", rulebookNote: "REGLAMENTO 2026", stay: "ALOJAMIENTO", info: "INFORMACIÓN COMPLETA", program: "PROGRAMACIÓN", event: "EL EVENTO", stages: "ETAPAS", categories: "CATEGORÍAS", open: "Abrir", close: "Cerrar" },
-    pt: { register: "INSCRIÇÕES", registerNote: "PLATAFORMA WINDFIT", certificate: "CERTIFICADOS", certificateNote: "DOCUMENTAÇÃO OBRIGATÓRIA", rulebook: "REGULAMENTO", rulebookNote: "REGULAMENTO 2026", stay: "HOSPEDAGEM", info: "INFORMAÇÕES COMPLETAS", program: "PROGRAMAÇÃO", event: "O EVENTO", stages: "ETAPAS", categories: "CATEGORIAS", open: "Abrir", close: "Fechar" },
-    en: { register: "REGISTRATION", registerNote: "WINDFIT PLATFORM", certificate: "CERTIFICATES", certificateNote: "REQUIRED DOCUMENTATION", rulebook: "RULEBOOK", rulebookNote: "2026 RULEBOOK", stay: "ACCOMMODATION", info: "EVENT INFORMATION", program: "SCHEDULE", event: "THE EVENT", stages: "STAGES", categories: "CATEGORIES", open: "Open", close: "Close" },
+    es: { register: "INSCRIPCIONES", registerNote: "PLATAFORMA WINDFIT", certificate: "CERTIFICADOS", certificateNote: "DOCUMENTACIÓN OBLIGATORIA", rulebook: "REGLAMENTO", rulebookNote: "REGLAMENTO 2026", stay: "ALOJAMIENTO", info: "INFORMACIÓN COMPLETA", program: "PROGRAMACIÓN", event: "EL EVENTO", stages: "ETAPA / PUNTOS DE CORTE", categories: "CATEGORÍAS", open: "Abrir", close: "Cerrar" },
+    pt: { register: "INSCRIÇÕES", registerNote: "PLATAFORMA WINDFIT", certificate: "CERTIFICADOS", certificateNote: "DOCUMENTAÇÃO OBRIGATÓRIA", rulebook: "REGULAMENTO", rulebookNote: "REGULAMENTO 2026", stay: "HOSPEDAGEM", info: "INFORMAÇÕES COMPLETAS", program: "PROGRAMAÇÃO", event: "O EVENTO", stages: "ETAPA / PONTOS DE CORTE", categories: "CATEGORIAS", open: "Abrir", close: "Fechar" },
+    en: { register: "REGISTRATION", registerNote: "WINDFIT PLATFORM", certificate: "CERTIFICATES", certificateNote: "REQUIRED DOCUMENTATION", rulebook: "RULEBOOK", rulebookNote: "2026 RULEBOOK", stay: "ACCOMMODATION", info: "EVENT INFORMATION", program: "SCHEDULE", event: "THE EVENT", stages: "STAGE / CUTOFF POINTS", categories: "CATEGORIES", open: "Open", close: "Close" },
   }[language];
 
   const navTargets = ["/", "#stages", registrationUrl, "#information"];

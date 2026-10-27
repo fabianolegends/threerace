@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import LodgingDirectory from "../lodging-directory";
+import UruguayCutoff from "../uruguay-cutoff";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 
 type Language = "es" | "pt" | "en";
@@ -57,7 +58,7 @@ const copy = {
     panels: {
       event: "EL EVENTO",
       registration: "INSCRIPCIONES",
-      course: "RECORRIDO",
+      course: "ETAPA / PUNTOS DE CORTE",
       schedule: "PROGRAMACIÓN",
       categories: "CATEGORÍAS Y PREMIACIÓN",
       kit: "KIT Y SERVICIOS",
@@ -81,7 +82,7 @@ const copy = {
     courseLabels: ["FECHA", "SALIDA", "DISTANCIA", "DESNIVEL", "FORMATO"],
     courseValues: ["Domingo · 01/11/2026", "La Pedrera · Rocha", "63 km", "630 m de desnivel positivo", "MTB · etapa única"],
     courseNote:
-      "El trazado detallado, la superficie, los puntos de hidratación y el tiempo límite se incorporarán en una próxima actualización.",
+      "El trazado detallado, la superficie y los demás puntos de hidratación se incorporarán en una próxima actualización.",
     scheduleTitle: "ENTREGA DE KIT Y SALIDA",
     scheduleItems: [
       "Sábado · 31 de octubre · 16:00–19:00 · Entrega de kits en la Arena Threerace, en La Paloma.",
@@ -161,7 +162,7 @@ const copy = {
     panels: {
       event: "O EVENTO",
       registration: "INSCRIÇÕES",
-      course: "PERCURSO",
+      course: "ETAPA / PONTOS DE CORTE",
       schedule: "PROGRAMAÇÃO",
       categories: "CATEGORIAS E PREMIAÇÃO",
       kit: "KIT E SERVIÇOS",
@@ -185,7 +186,7 @@ const copy = {
     courseLabels: ["DATA", "LARGADA", "DISTÂNCIA", "ELEVAÇÃO", "FORMATO"],
     courseValues: ["Domingo · 01/11/2026", "La Pedrera · Rocha", "63 km", "630 m de elevação acumulada", "MTB · etapa única"],
     courseNote:
-      "O traçado detalhado, o tipo de piso, os pontos de hidratação e o tempo-limite serão incluídos em uma próxima atualização.",
+      "O traçado detalhado, o tipo de piso e os demais pontos de hidratação serão incluídos em uma próxima atualização.",
     scheduleTitle: "ENTREGA DE KIT E LARGADA",
     scheduleItems: [
       "Sábado · 31 de outubro · 16:00–19:00 · Entrega de kits na Arena Threerace, em La Paloma.",
@@ -265,7 +266,7 @@ const copy = {
     panels: {
       event: "THE EVENT",
       registration: "REGISTRATION",
-      course: "COURSE",
+      course: "STAGE / CUTOFF POINTS",
       schedule: "SCHEDULE",
       categories: "CATEGORIES AND AWARDS",
       kit: "KIT AND SERVICES",
@@ -289,7 +290,7 @@ const copy = {
     courseLabels: ["DATE", "START", "DISTANCE", "ELEVATION", "FORMAT"],
     courseValues: ["Sunday · Nov 1, 2026", "La Pedrera · Rocha", "63 km", "630 m elevation gain", "MTB · single-stage race"],
     courseNote:
-      "Detailed routing, surface information, hydration points and the time limit will be added in a future update.",
+      "Detailed routing, surface information and the remaining hydration points will be added in a future update.",
     scheduleTitle: "KIT PICKUP AND START",
     scheduleItems: [
       "Saturday · October 31 · 16:00–19:00 · Kit pickup at the Threerace Arena in La Paloma.",
@@ -501,6 +502,7 @@ export function ThreeraceShortUruguayPage({
             ))}
           </div>
           <p className="short-information-note">{t.courseNote}</p>
+          <UruguayCutoff language={language} stage={3} short />
         </div>
       );
     }
