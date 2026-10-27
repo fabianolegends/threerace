@@ -9,6 +9,7 @@ import styles from "./stages.module.css";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
+import UruguayRulebooks from "../uruguay-rulebooks";
 
 type Language = "es" | "pt" | "en";
 type GravelExperienceUruguayPageProps = {
@@ -92,29 +93,6 @@ const copy = {
       ["SÁBADO · 31/10", ["06:30 · Apertura de la Arena en Rocha", "07:40 · Apertura de portones para alineación", "07:45 · Largada Stage 01"]],
       ["DOMINGO · 01/11", ["07:00 · Apertura de la Arena", "08:10 · Apertura de portones para alineación", "08:20 · Largada Stage 02", "14:00 · Resultados oficiales", "14:30 · Premiación Gravel Experience", "15:00 · Cierre del evento"]],
     ],
-    rulesTitle: "REGLAMENTO OFICIAL · GRAVEL EXPERIENCE 2026",
-    rulesRevision: "Actualizado el 26/10/2026", rulesDownload: "REGLAMENTO COMPLETO (PDF · ESPAÑOL)",
-    rules: [
-      ["1. PRESENTACIÓN", "Dos etapas, con un total de 174 km: Stage 01 el 31/10/2026, 101 km y 1.280 m de elevación, largada a las 07:45 en el Centro Polideportivo Rocha (L. A. De Herrera, 27000 Rocha, Uruguay), límite de 7 horas; Stage 02 el 01/11/2026, 73 km y 670 m de elevación, largada a las 08:20 en Mirador La Pedrera, La Pedrera, límite de 4h30. Clasificación masculina y femenina por tiempo acumulado."],
-      ["2. PARTICIPACIÓN", "La inscripción implica aceptación del reglamento y de los riesgos del ciclismo gravel. Edad mínima de 18 años; menores solo con autorización. Bicicleta gravel segura, autonomía del atleta y drafting entre ciclistas permitido. Prohibido apoyo móvil, remolque, rueda de vehículos, cambio de bicicleta o abastecimiento fuera de los puntos autorizados."],
-      ["3. CATEGORÍAS", "Categorías generales masculina y femenina, sin división por edad. Para clasificar es obligatorio completar ambos stages, seguir la ruta y no recibir descalificación."],
-      ["4. REGISTRO", "Formulario Windfit, pago confirmado, documentación solicitada, término de responsabilidad y retirada personal del kit. La organización puede solicitar certificado médico y alterar o cancelar etapas por seguridad, clima, logística, fuerza mayor o decisión oficial. Entrega de kits en Casa Bahia, La Paloma: 29/10 de 16:00 a 21:00 y 30/10 de 15:00 a 19:00."],
-      ["5. EQUIPAMIENTO", "Obligatorios: casco, bicicleta segura, número visible, celular cargado, GPS con GPX, hidratación recomendada de 1,5 L, reparación básica, repuesto, bomba/CO₂, ropa adecuada y documento. Recomendados: tubeless, multiherramienta, luces, gafas, guantes, protector solar, efectivo, alimentación extra, lubricante y seguro personal."],
-      ["6. NÚMERO", "El número oficial debe permanecer visible y no puede ser cortado, doblado, adulterado, cubierto o retirado."],
-      ["7. SEGURIDAD", "La ruta comparte caminos abiertos con vehículos, peatones y animales. Es obligatorio respetar las leyes, señalización y staff, prestar ayuda en emergencias y comunicar accidentes o abandono."],
-      ["8. TIEMPOS MÁXIMOS", "Stage 01: 7 horas. Stage 02: 4h30. Quien exceda el límite podrá ser retirado o continuar por cuenta propia, sin clasificación, premiación ni apoyo. Podrán existir cortes intermedios."],
-      ["9. ABANDONO", "Todo abandono debe comunicarse inmediatamente. La organización no está obligada a proporcionar transporte, salvo emergencia o decisión de la dirección."],
-      ["10. PENALIZACIONES", "Podrán generar penalización o descalificación: basura, falta de respeto, ausencia de equipo, desobediencia, recorte o ruta no autorizada, pérdida de controles, apoyo irregular, cambio de bicicleta, remolque, rueda de vehículo, falta de casco, número ajeno, inscripción irregular, riesgo a terceros o abandono no informado."],
-      ["11. RUTA", "El GPX oficial es obligatorio. Cada atleta debe cargarlo correctamente. La ruta puede modificarse por seguridad, clima, permisos, terreno, tránsito o fuerza mayor. Puntos de apoyo: Stage 01 en el km 63, con apoyo mecánico; Stage 02 en los km 18 y 55, con apoyo mecánico en el km 55. Asistencia externa únicamente en los puntos oficiales autorizados."],
-      ["12. PARTICIPANTES MÍNIMOS", "La realización depende de criterios técnicos, logísticos y operacionales. Actividades podrán ser canceladas, modificadas o reagrupadas."],
-      ["13. PREMIACIÓN", "Top 10 masculino y top 5 femenino por acumulado. Es obligatorio completar las etapas, la ruta e todos los controles sin penalización descalificatoria. Resultados oficiales el 01/11 a las 14:00 y premiación Gravel Experience a las 14:30. Cierre a las 15:00."],
-      ["14. PATROCINADORES", "Logotipos personales son permitidos si no contradicen las normas, seguridad, legislación o patrocinadores oficiales."],
-      ["15. USO DE IMAGEN", "La inscripción autoriza el uso de imagen, voz, nombre, resultados, fotos, videos y registros del participante para fines institucionales, comerciales y promocionales."],
-      ["16. LEY APLICABLE", "Las controversias seguirán la legislación de la República Oriental del Uruguay. Los casos omisos serán decididos por la organización y dirección de carrera."],
-      ["17. DISPOSICIONES GENERALES", "La organización puede realizar ajustes técnicos, deportivos, logísticos y operacionales. Las comunicaciones oficiales se publicarán en sus canales; desconocer el reglamento no exime su cumplimiento."],
-      ["18. PROGRAMACIÓN Y LUGARES", "29/10: apertura de la arena a las 16:00 en Casa Bahia, La Paloma. 30/10: apertura a las 09:00 en el mismo lugar. 31/10, Centro Polideportivo Rocha: apertura a las 06:30, alineación a las 07:40 y largada del Stage 01 a las 07:45. 01/11, Mirador La Pedrera: apertura a las 07:00, alineación a las 08:10 y largada del Stage 02 a las 08:20. Todos los horarios son locales de Uruguay."],
-
-    ],
     stayTitle: "Opciones de hospedaje en La Paloma",
     stayText: "Consulte la guía oficial de alojamientos de Rocha y organice su estadía cerca de la arena del evento.",
     stayCta: "VER HOSPEDAJES",
@@ -155,29 +133,6 @@ const copy = {
     mapLabel: "Ver no Google Maps", enlargeLabel: "Ampliar perfil", addressLabel: "Endereço",
     profileAlts: ["Perfil da etapa 01: 101 km e 1.280 m de desnível positivo. Apoio e suporte mecânico no km 63.", "Perfil da etapa 02: 73 km e 670 m de desnível positivo. Apoio nos km 18 e 55; suporte mecânico no km 55."],
     schedule: [["QUINTA · 29/10", ["16:00 · Abertura da Arena", "16:00–21:00 · Entrega de kits"]], ["SEXTA · 30/10", ["09:00 · Abertura da Arena", "15:00–19:00 · Entrega de kits Gravel"]], ["SÁBADO · 31/10", ["06:30 · Abertura da Arena em Rocha", "07:40 · Alinhamento", "07:45 · Largada Stage 01"]], ["DOMINGO · 01/11", ["07:00 · Abertura da Arena", "08:10 · Alinhamento", "08:20 · Largada Stage 02", "14:00 · Resultados oficiais", "14:30 · Premiação Gravel Experience", "15:00 · Encerramento"]]],
-    rulesTitle: "REGULAMENTO OFICIAL · GRAVEL EXPERIENCE 2026",
-    rulesRevision: "Atualizado em 27/10/2026", rulesDownload: "REGULAMENTO COMPLETO (PDF · PORTUGUÊS)",
-    rules: [
-      ["1. APRESENTAÇÃO", "Duas etapas, totalizando 174 km: Stage 01 em 31/10/2026, 101 km e 1.280 m de elevação, largada às 07:45 no Centro Polideportivo Rocha (L. A. De Herrera, 27000 Rocha, Uruguai), limite de 7 horas; Stage 02 em 01/11/2026, 73 km e 670 m de elevação, largada às 08:20 no Mirador La Pedrera, La Pedrera, limite de 4h30. Classificação masculina e feminina por tempo acumulado."],
-      ["2. PARTICIPAÇÃO", "Inscrição implica aceitar o regulamento e os riscos. Idade mínima 18 anos; menor só com autorização. Bicicleta gravel segura, autonomia e drafting permitido. Proibidos apoio móvel, reboque, vácuo de veículos, troca de bicicleta e abastecimento irregular."],
-      ["3. CATEGORIAS", "Gerais masculina e feminina, sem idade. É obrigatório completar ambas as etapas, seguir a rota e não ser desclassificado."],
-      ["4. INSCRIÇÃO", "Formulário Windfit, pagamento, documentos, termo e retirada pessoal do kit. Pode haver exigência médica e alterações por segurança, clima, logística ou força maior. Entrega de kits na Casa Bahia, La Paloma: 29/10 das 16:00 às 21:00 e 30/10 das 15:00 às 19:00."],
-      ["5. EQUIPAMENTOS", "Obrigatórios: capacete, bicicleta segura, número, celular, GPS com GPX, hidratação recomendada 1,5 L, reparo, reserva, bomba/CO₂, roupa e documento. Recomendados: tubeless, ferramentas, luzes, óculos, luvas, protetor, dinheiro, alimentação, lubrificante e seguro."],
-      ["6. NÚMERO", "O número deve ficar visível e não pode ser cortado, dobrado, adulterado, coberto ou retirado."],
-      ["7. SEGURANÇA", "Respeitar trânsito, sinalização e staff, prestar ajuda em emergências e comunicar acidentes ou abandono."],
-      ["8. TEMPOS", "Stage 01: 7h. Stage 02: 4h30. Exceder o limite elimina classificação, premiação e apoio. Podem existir cortes intermediários."],
-      ["9. ABANDONO", "O abandono deve ser comunicado imediatamente. Transporte não é obrigatório, salvo emergência ou decisão da direção."],
-      ["10. PENALIZAÇÕES", "Lixo, desrespeito, falta de equipamento, desobediência, atalhos, perda de controles, apoio irregular, troca de bicicleta, reboque, vácuo, falta de capacete, número alheio, inscrição irregular, risco ou abandono não informado podem penalizar ou desclassificar."],
-      ["11. ROTA", "O GPX oficial é obrigatório e pode ser alterado por segurança, clima, permissões, terreno, trânsito ou força maior. Pontos de apoio: Stage 01 no km 63, com apoio mecânico; Stage 02 nos km 18 e 55, com apoio mecânico no km 55. Apoio externo somente nos pontos oficiais autorizados."],
-      ["12. MÍNIMO", "A realização depende de critérios técnicos, logísticos e operacionais; atividades podem ser canceladas, alteradas ou reagrupadas."],
-      ["13. PREMIAÇÃO", "Top 10 masculino e top 5 feminino. É necessário completar etapas, rota e controles sem desclassificação. Resultados oficiais em 01/11 às 14:00 e premiação Gravel Experience às 14:30. Encerramento às 15:00."],
-      ["14. PATROCÍNIOS", "Logos pessoais são permitidas se respeitarem normas, segurança, leis e patrocinadores oficiais."],
-      ["15. IMAGEM", "A inscrição autoriza uso de imagem, voz, nome, resultados, fotos e vídeos para fins institucionais, comerciais e promocionais."],
-      ["16. LEI", "Aplica-se a legislação uruguaia; casos omissos serão decididos pela organização e direção."],
-      ["17. DISPOSIÇÕES", "A organização pode fazer ajustes técnicos, esportivos e logísticos. Comunicados oficiais serão publicados nos canais do evento."],
-      ["18. PROGRAMAÇÃO E LOCAIS", "29/10: abertura da arena às 16:00 na Casa Bahia, La Paloma. 30/10: abertura às 09:00 no mesmo local. 31/10, Centro Polideportivo Rocha: abertura às 06:30, alinhamento às 07:40 e largada do Stage 01 às 07:45. 01/11, Mirador La Pedrera: abertura às 07:00, alinhamento às 08:10 e largada do Stage 02 às 08:20. Todos os horários são locais do Uruguai."],
-
-    ],
     stayTitle: "Opções de hospedagem em La Paloma", stayText: "Consulte o guia oficial de hospedagens de Rocha e organize sua estadia próximo à arena.", stayCta: "VER HOSPEDAGENS",
     organizers: "ORGANIZAÇÃO E REALIZAÇÃO", historyTitle: "JÁ CONHECE A HISTÓRIA DA PROVA?", historyText: "A Threerace Sports nasceu em 2017 para liderar os eventos competitivos da Ekonova Adventure. Com foco no MTB, consolidou a Threerace Bike Ultramarathon como referência sul-americana e um dos eventos brasileiros com maior participação estrangeira.",
     finalTitle: "DUAS ETAPAS. UM URUGUAI PARA DESCOBRIR.", finalCta: "INSCREVER-ME AGORA", menu: "Abrir menu", close: "Fechar menu",
@@ -202,29 +157,6 @@ const copy = {
     mapLabel: "View on Google Maps", enlargeLabel: "Enlarge profile", addressLabel: "Address",
     profileAlts: ["Stage 01 elevation profile: 101 km and 1,280 m elevation gain. Aid and mechanical support at km 63.", "Stage 02 elevation profile: 73 km and 670 m elevation gain. Aid at km 18 and 55; mechanical support at km 55."],
     schedule: [["THURSDAY · OCT 29", ["16:00 · Arena opens", "16:00–21:00 · Kit pickup"]], ["FRIDAY · OCT 30", ["09:00 · Arena opens", "15:00–19:00 · Gravel kit pickup"]], ["SATURDAY · OCT 31", ["06:30 · Rocha Arena opens", "07:40 · Starting grid opens", "07:45 · Stage 01 start"]], ["SUNDAY · NOV 01", ["07:00 · Arena opens", "08:10 · Starting grid opens", "08:20 · Stage 02 start", "14:00 · Official results", "14:30 · Awards", "15:00 · Event closes"]]],
-    rulesTitle: "OFFICIAL RULEBOOK · GRAVEL EXPERIENCE 2026",
-    rulesRevision: "Updated October 26, 2026", rulesDownload: "FULL RULEBOOK (PDF · ESPAÑOL)",
-    rules: [
-      ["1. EVENT", "Two stages totaling 174 km: Stage 01 on October 31, 2026, 101 km with 1,280 m elevation gain, starting at 07:45 at Centro Polideportivo Rocha (L. A. De Herrera, 27000 Rocha, Uruguay), with a 7-hour limit; Stage 02 on November 1, 2026, 73 km with 670 m elevation gain, starting at 08:20 at Mirador La Pedrera, La Pedrera, with a 4h30 limit. Men’s and women’s classification by accumulated time."],
-      ["2. PARTICIPATION", "Registration accepts the rules and risks. Minimum age 18; minors need authorization. Safe gravel bike, rider autonomy and rider drafting allowed. Mobile support, towing, vehicle drafting, bike swaps and unauthorized aid are prohibited."],
-      ["3. CATEGORIES", "Men's and women's overall, no age split. Both stages and the full route must be completed without disqualification."],
-      ["4. REGISTRATION", "Windfit form, payment, documents, waiver and personal kit pickup. Medical documents may be required; changes may occur for safety, weather, logistics or force majeure. Kit pickup at Casa Bahia, La Paloma: October 29 from 16:00 to 21:00 and October 30 from 15:00 to 19:00."],
-      ["5. EQUIPMENT", "Required: helmet, safe bike, number, phone, GPS/GPX, recommended 1.5 L hydration, repair kit, spare, pump/CO₂, suitable clothing and ID. Tubeless, tools, lights, eyewear, gloves, sunscreen, cash, extra food, lubricant and insurance are recommended."],
-      ["6. NUMBER", "The official number must remain visible and may not be cut, folded, altered, covered or removed."],
-      ["7. SAFETY", "Obey traffic laws, signage and staff; assist emergencies and report accidents or withdrawal."],
-      ["8. TIME LIMITS", "Stage 01: 7h. Stage 02: 4h30. Exceeding limits removes classification, awards and support. Intermediate cutoffs may apply."],
-      ["9. WITHDRAWAL", "Withdrawal must be reported immediately. Return transport is not guaranteed except in emergencies or by race direction."],
-      ["10. PENALTIES", "Littering, disrespect, missing gear, disobedience, shortcuts, missed controls, illegal aid, bike swaps, towing, vehicle drafting, no helmet, wrong number, irregular entry, dangerous behavior or unreported withdrawal may penalize or disqualify."],
-      ["11. ROUTE", "The official GPX is mandatory and may change for safety, weather, permissions, terrain, traffic or force majeure. Aid stations: Stage 01 at km 63, with mechanical support; Stage 02 at km 18 and 55, with mechanical support at km 55. External support is allowed only at authorized official stations."],
-      ["12. MINIMUM FIELD", "The event depends on technical, logistical and operational criteria; activities may be cancelled, changed or regrouped."],
-      ["13. AWARDS", "Top 10 men and top 5 women. Riders must complete stages, route and controls without disqualification. Official results on November 1 at 14:00 and Gravel Experience awards at 14:30. Event closing at 15:00."],
-      ["14. SPONSORS", "Personal sponsor logos are allowed if they comply with rules, safety, law and official sponsors."],
-      ["15. IMAGE RIGHTS", "Entry authorizes use of image, voice, name, results, photos and video for institutional, commercial and promotional purposes."],
-      ["16. LAW", "Uruguayan law applies; omitted cases are decided by organizers and race direction."],
-      ["17. GENERAL", "Organizers may make technical, sporting and logistical adjustments. Official communications are published through event channels."],
-      ["18. SCHEDULE AND LOCATIONS", "October 29: arena opens at 16:00 at Casa Bahia, La Paloma. October 30: arena opens at 09:00 at the same location. October 31, Centro Polideportivo Rocha: arena opens at 06:30, alignment at 07:40 and Stage 01 start at 07:45. November 1, Mirador La Pedrera: arena opens at 07:00, alignment at 08:10 and Stage 02 start at 08:20. All times are local to Uruguay."],
-
-    ],
     stayTitle: "Accommodation options in La Paloma", stayText: "Use Rocha's official accommodation guide and plan your stay close to the arena.", stayCta: "VIEW ACCOMMODATION",
     organizers: "ORGANIZATION", historyTitle: "DO YOU KNOW THE RACE STORY?", historyText: "Threerace Sports was founded in 2017 to lead Ekonova Adventure's competitive events. Focused on MTB, it established Threerace Bike Ultramarathon as a South American reference with strong international participation.",
     finalTitle: "TWO STAGES. A URUGUAY TO DISCOVER.", finalCta: "REGISTER NOW", menu: "Open menu", close: "Close menu",
@@ -345,7 +277,7 @@ export function GravelExperienceUruguayPage({
         })}
       </div>
     );
-    if (key === "rules") return <div className="official-copy gravel-rules"><h4>{t.rulesTitle}</h4><p>{t.rulesRevision}</p><p><a className="button button-dark" href={language === "pt" ? "/regulamentos-2026/gravel-pt-2026-10-27.pdf" : "/regulamentos-2026/gravel-es-2026-10-26.pdf"} target="_blank" rel="noopener noreferrer">{t.rulesDownload} ↗</a></p>{t.rules.map(([title, text]) => <section key={title}><h4>{title}</h4><p>{text}</p></section>)}</div>;
+    if (key === "rules") return <UruguayRulebooks event="gravel" language={language} />;
     return <div className="official-copy"><LodgingDirectory language={language} /></div>;
   };
 

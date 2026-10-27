@@ -8,6 +8,7 @@ import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 import UruguayStages from "./stages";
 import UruguaySchedule from "./schedule";
+import UruguayRulebooks, { getRulebookUrl } from "../uruguay-rulebooks";
 
 type Language = "es" | "pt" | "en";
 
@@ -513,173 +514,6 @@ DUPLAS FEMENINAS
 • Dupla Femenina Libre
 
 En las categorías de duplas, la categoría es determinada por la suma de las edades de los dos atletas. En caso de que una categoría no posea un mínimo de tres atletas, será incorporada a la categoría anterior, conforme al reglamento.`,
-  regulation: `REGLAMENTO THREERACE BIKE ULTRAMARATHON URUGUAY 2026
-
-1. CICLISTAS
-1.1 El atleta deberá presentar documento oficial de identificación con foto al retirar el kit o cuando sea solicitado.
-1.2 La edad mínima de participación es de 19 años, cumplidos hasta el 31 de diciembre del año del evento.
-
-2. CERTIFICADOS Y TÉRMINOS
-2.1 La inscripción solo será confirmada después de recibido el certificado médico firmado y sellado. El documento original deberá ser entregado al retirar el kit; sin él, la inscripción será cancelada sin costo u obligación para el organizador.
-2.2 Los ciclistas deben firmar y entregar el Término de Responsabilidad y de uso de imagen.
-2.3 La organización podrá impedir la continuidad de un atleta por recomendación médica.
-2.4 La prueba es una competencia de MTB de larga distancia organizada por Threerace Sports y Azimut Extremo.
-2.5 El evento se realizará en Rocha, Uruguay, los días 30 y 31 de octubre y 01 de noviembre de 2026.
-2.6 El evento es deportivo, competitivo y de resistencia, integrando atletas amateurs y profesionales.
-2.7 La lectura y el cumplimiento de este reglamento son obligatorios.
-
-3. BICICLETAS
-3.1 Solo se permitirán bicicletas MTB en buenas condiciones y listas para competir.
-3.2 La placa frontal deberá estar firmemente colocada y visible.
-3.3 La placa no puede ser alterada.
-3.4 La bicicleta debe estar en perfectas condiciones de seguridad.
-3.5 Solo se permite propulsión por pedales, sin asistencia eléctrica o de otro tipo.
-3.6 Cada piloto es responsable por el mantenimiento de su bicicleta y solo podrá recibir auxilio en puntos oficiales.
-3.7 Reparaciones no generan prórroga del tiempo máximo.
-3.8 No se permite cambiar el cuadro de la bicicleta durante los tres días.
-
-4. CASCOS Y VESTIMENTA
-4.1 El casco es obligatorio durante toda la conducción.
-4.2 Los cascos deben cumplir las normas ANSI.
-4.3 Es obligatorio usar vestimenta adecuada; no se permiten camisetas sin mangas tipo cavada.
-4.4 Los dos integrantes de una dupla deben usar jerseys con características principales iguales.
-
-5. DUPLAS PARTICIPANTES
-5.1 Los integrantes deben permanecer juntos, con separación máxima de 2 minutos.
-5.2 y 5.3 La separación podrá ser medida en cualquier punto y generar penalizaciones.
-5.4 Se permite asistencia física entre compañeros: compartir agua, alimentación, piezas, mantenimiento, empujar o remolcar por contacto físico.
-5.5 No se permite remolque mediante dispositivos mecánicos.
-5.6 El atleta puede regresar por la ruta para reunirse con su compañero o alcanzar soporte técnico, sin poner otros atletas en riesgo.
-5.7 Ninguna dupla puede recibir ayuda física de otro ciclista.
-5.8 El tiempo considerado será el del segundo atleta en cruzar la llegada.
-
-6. IDENTIFICACIÓN DEL CICLISTA
-6.1 a 6.4 Los números deben permanecer visibles, fijados al frente, sin cortes, adhesivos o alteraciones y sin ocultar patrocinadores oficiales.
-
-7. CATEGORÍAS
-Las categorías oficiales son las publicadas en la pestaña Categorías. En duplas, la suma de las edades determina la categoría. Categorías con menos de tres atletas podrán ser incorporadas a la categoría anterior.
-
-8. ETAPAS Y RECORRIDOS
-8.1 Stage 01 - XCC, 30/10/2026: una única vuelta de 5,3 km, con largada en Casa Bahia, La Paloma. Primera largada a las 13:30 y última a las 15:20.
-8.2 Stage 02 - Etapa Reina XCM, 31/10/2026: 81,1 km y 1.370 m de elevación acumulada. Largada a las 08:00 en el Centro Polideportivo Rocha, L. A. De Herrera, 27000 Rocha, Departamento de Rocha, Uruguay.
-8.3 Stage 03 - Etapa Final XCM, 01/11/2026: 64 km y 670 m de elevación acumulada. Largada a las 08:30 en Mirador La Pedrera, La Pedrera, Rocha, Uruguay.
-8.4 La organización podrá modificar recorridos, distancias o altimetrías por clima, seguridad o logística.
-8.5 Solo serán FINISHER los atletas que completen al menos 75% de las etapas dentro del tiempo límite.
-
-9. REGLAMENTO XCC – STAGE 1
-9.1 El Stage 01 se disputará en formato XCC - Short Track Cross Country, en circuito cerrado de 5,3 km.
-9.2 Máximo de 15 atletas por batería.
-9.3 Las baterías serán formadas por atletas de la misma categoría.
-9.4 Cada atleta deberá completar una única vuelta en el recorrido oficial definido por la organización.
-9.5 La distancia total del Stage 01 será de 5,3 km, sujeta a ajustes técnicos, operativos o de seguridad realizados por la organización.
-9.6 El orden de largada de las categorías, la composición de las baterías y los horarios individuales serán publicados el 29/10/2026 en los canales oficiales del evento.
-9.7 El 30/10/2026, la primera batería largará a las 13:30 y la última a las 15:20, en Casa Bahia, La Paloma. Cada batería seguirá el cronograma oficial publicado por la organización.
-9.8 La participación en el Stage 1 es obligatoria, salvo excepción aprobada.
-9.9 El tiempo individual de cada atleta será registrado desde la largada de su respectiva batería hasta la conclusión de la vuelta única.
-9.10 En duplas, vale el tiempo del integrante más lento.
-9.11 El resultado podrá definir el orden de largada de las etapas siguientes.
-9.12 El tiempo integrará la clasificación general acumulada.
-
-10. INICIO DE LAS ETAPAS
-10.1 En el Stage 02, los portones de alineación abren a las 07:45 y la largada es a las 08:00. En el Stage 03, los portones abren a las 08:15 y la largada es a las 08:30. Para el XCC, los atletas deberán seguir la llamada de su batería y los horarios publicados el 29/10/2026.
-10.2 Las zonas de largada serán asignadas conforme a la clasificación general.
-10.3 Las zonas cierran 5 minutos antes; atletas atrasados largarán al final.
-10.4 Las duplas deben ingresar juntas y permanecer en la zona.
-La arena abre el 29/10 a las 16:00 y el 30/10 a las 09:00 en Casa Bahia, La Paloma; el 31/10 a las 07:00 en el Centro Polideportivo Rocha; y el 01/11 a las 07:00 en Mirador La Pedrera. Cierre de la arena el 30/10 y el 31/10 a las 18:30. Todos los horarios son locales de Uruguay.
-
-11. RECORRIDOS Y ETAPAS
-11.1 a 11.7 Los atletas deben completar todo el recorrido oficial, seguir las instrucciones, retornar al punto exato si salieran de la ruta, no tomar atajos, no invadir propiedades cerradas y no divulgar coordenadas GPS durante la prueba.
-
-12. EQUIPAMIENTO PROHIBIDO
-12.1 La organización podrá prohibir equipos no esenciales a su criterio.
-
-13. TIEMPO DE CARRERA
-13.1 a 13.8 El tiempo de la dupla será el del segundo integrante. Cada atleta tendrá un único chip. El conteo empieza en el horario oficial; largadas tardías requieren autorización y no alteran el tiempo máximo. Quien no largue será DNS.
-
-14. TIEMPO MÁXIMO
-14.1 Los tiempos máximos serán definidos según distancia y terreno y comunicados en el briefing.
-14.2 El límite será el mayor entre el tiempo anunciado y dos veces el tiempo del vencedor.
-14.3 Se permite cruzar la llegada a pie llevando la bicicleta.
-14.4 e 14.5 Podrán existir puntos de corte intermediarios e adicionais por seguridad.
-14.6 Atletas que no puedan continuar serán transportados con sus bicicletas cuando sea posible.
-
-15. PLACA DSQ
-15.1 e 15.2 Quien no complete una etapa dentro del límite será DSQ, recibirá identificación diferenciada e poderá continuar, sin clasificación oficial en aquella etapa.
-
-16. CANCELACIÓN DE ETAPA
-16.1 a 16.4 La organización podrá cancelar una etapa por seguridad. La validez de resultados dependerá de cuántos atletas hayan finalizado; quienes abandonen antes de la cancelación serán DNF.
-
-17. PREMIACIONES
-17.1 Por etapa: medallas para las 3 duplas masculinas más rápidas, la dupla mixta, la dupla femenina, los 3 hombres solo y las 3 mujeres solo más rápidas.
-17.2 General: trofeos del 1º al 5º de todas las categorías y medalla de participación para quienes concluyan.
-17.3 Para subir al podio es obligatorio usar uniforme de ciclismo, mínimo jersey.
-Los resultados oficiales se publicarán a las 17:00 el 30/10 y el 31/10, y a las 14:00 el 01/11. La premiación del Stage 01 será el 30/10 a las 17:00; la del Stage 02 el 31/10 a las 17:00; la del Stage 03, de las etapas y de la general Ultra el 01/11 a las 14:30. Cierre del evento a las 15:00 el 01/11/2026.
-
-18. REGLAS DE TRÁNSITO
-18.1 a 18.3 Las vías podrán permanecer abiertas. Las reglas de tránsito y las instrucciones de los staffs deben ser respetadas.
-
-19. CHECK POINTS
-19.1 a 19.3 Habrá puestos de control, inclusive ocultos. La falta de registro de paso podrá causar descalificación.
-
-20. REGISTRO Y BRIEFING
-20.1 a 20.4 El registro se realizará en lugar y horario divulgados. Atletas deben presentar identificación; no habrá cambio de categoría después del cierre. Habrá reunión informativa previa.
-El registro y la entrega de kits de la Ultra serán en Casa Bahia, La Paloma: jueves 29/10/2026 de 16:00 a 21:00; viernes 30/10/2026 de 09:00 a 12:00. Los briefings serán online: Stage 02 / Etapa Reina el 30/10/2026 a las 18:30; Stage 03 / Etapa Final el 31/10/2026 a las 18:00. El acceso se informará por los canales oficiales.
-
-21. NUTRICIÓN E HIDRATACIÓN
-21.1 El atleta es responsable por llevar agua y nutrición suficientes.
-21.2 La organización proveerá agua en puntos oficiales exclusivamente para hidratación.
-Puntos de apoyo: Stage 02 en los km 25, 43 y 63; Stage 03 en los km 18 y 44.
-
-22. APOYO EXTERNO
-22.1 No se permite asistencia externa.
-22.2 Se permite drafting entre competidores.
-22.3 No se permite drafting detrás de vehículos.
-22.4 Vehículos no autorizados no pueden acompañar el recorrido.
-22.5 No se permite acceso a áreas restringidas.
-22.6 No se permite auxilio mecánico de terceros, empujar o remolcar, bajo pena de descalificación.
-La atención por el personal oficial en los puntos acreditados permanece autorizada, conforme a los artículos 3, 21 y 23.
-
-23. ASISTENCIA MÉDICA Y TÉCNICA
-23.1 Habrá asistencia médica en puntos oficiales.
-23.2 La asistencia técnica podrá ser ofrecida en zonas neutras; piezas podrán ser cobradas.
-Apoyo mecánico en el recorrido: Stage 02 en el km 43; Stage 03 en el km 44. En la arena de Casa Bahia, La Paloma, la mecánica funciona el 30/10 de 11:00 a 18:00 y el 31/10 de 07:00 a 18:00. Bike Wash en La Paloma: 30/10 de 14:00 a 17:00 y 31/10 de 11:00 a 18:00.
-
-24. DESISTENCIAS
-24.1 El atleta o dupla debe comunicar inmediatamente su desistência.
-24.2 Operaciones de búsqueda causadas por falta de comunicación podrán ser cobradas al atleta.
-
-25. MEDIO AMBIENTE Y ÉTICA
-25.1 a 25.4 Es obligatorio respetar el medio ambiente. Está prohibido arrojar basura, atravesar áreas preservadas o fumar en la ruta.
-
-26. RECLAMOS
-26.1 a 26.5 Reclamos deben ser escritos, presentados hasta 30 minutos después de la llegada o de los resultados preliminares y acompañados de depósito de R$ 200,00, reembolsable si proceden.
-
-27. DOPING
-27.1 La organización podrá realizar controles antidoping y de sustancias ilegales.
-
-28. PENALIDADES
-28.1 y 28.2 Violaciones estarán sujetas a penalidades definidas por el comisario. Penalidades de tiempo serán añadidas al resultado de la etapa.
-
-29. DISCRECIÓN DEL COMISARIO
-29.1 La decisión del comisario es final en casos no previstos.
-29.2 La prueba seguirá este reglamento y los reglamentos CBC y UCI.
-29.3 El reglamento podrá ser alterado por el Director de Prueba o comisario cuando sea necesario.
-
-30. QUINCE MINUTOS ANTES DE LA PRUEBA
-30.1 Las zonas de largada serán asignadas conforme a la clasificación general.
-30.2 Gestores y apoyadores no podrán permanecer en la zona después de la llamada de los equipos.
-
-31. INSCRIPCIÓN, TRANSFERENCIA Y REEMBOLSO
-31.1 La inscripción vale exclusivamente para esta edición y no puede ser transferida a otro año.
-31.2 Transferencia por lesión comprobada será permitida hasta 60 días antes.
-31.3 Transferencia a otro atleta tendrá multa de 20% sobre el lote vigente.
-31.4 El consumidor podrá desistir dentro de 7 días del pago.
-31.5 Cancelación por lesión comprobada podrá recibir reembolso de 50% si solicitada hasta 30 días después de confirmada la inscripción.
-31.6 La tasa de conveniencia no es reembolsable.
-31.7 Si un integrante de dupla cancela, el atleta remanente debe encontrar sustituto dentro de los plazos.
-31.8 Después de 10/10/2026 no serán aceptados cambios de categoría o equipo.
-
-Actualizado el 26/10/2026. El reglamento oficial publicado y disponible en la Secretaría de Carrera es el documento final.`,
   lodging: `ALOJAMIENTO EN LA PALOMA
 
 La Paloma ofrece hoteles, posadas, hostels, apartamentos y casas para diferentes perfiles de atletas y acompañantes. Recomendamos realizar la reserva con anticipación debido al movimiento del evento.
@@ -781,112 +615,6 @@ DUPLAS FEMININAS
 • Dupla Feminina Livre
 
 Nas categorias de duplas, a categoria é determinada pela soma das idades dos dois atletas. Caso uma categoria não tenha o mínimo de três atletas, será incorporada à categoria anterior, conforme o regulamento.`,
-  regulation: `REGULAMENTO THREERACE BIKE ULTRAMARATHON URUGUAY 2026
-
-1. CICLISTAS
-O atleta deverá apresentar documento oficial com foto. A idade mínima é de 19 anos, completos até 31 de dezembro do ano do evento.
-
-2. CERTIFICADOS E TERMOS
-A inscrição somente será confirmada após o recebimento do atestado médico assinado e carimbado. O original deverá ser entregue na retirada do kit. Os atletas deverão assinar o Termo de Responsabilidade e de uso de imagem. A organização poderá interromper a participação por recomendação médica. A prova é uma competição de MTB de longa distância organizada pela Threerace Sports e Azimut Extremo em Rocha, Uruguai, de 30 de outubro a 1º de novembro de 2026.
-
-3. BICICLETAS
-Somente bicicletas MTB em boas condições serão permitidas. A placa frontal deverá permanecer visível e sem alterações. A bicicleta deve ser movida exclusivamente por pedais, sem assistência elétrica. Cada atleta é responsável pela manutenção e somente poderá receber ajuda nos pontos oficiais. Não é permitido trocar o quadro durante os três dias.
-
-4. CAPACETES E VESTUÁRIO
-O capacete é obrigatório durante toda a condução e deve atender às normas ANSI. É obrigatório o uso de vestuário adequado. Integrantes de uma dupla devem usar jerseys com as mesmas características principais.
-
-5. DUPLAS PARTICIPANTES
-Os integrantes devem permanecer juntos, com separação máxima de 2 minutos. É permitida assistência física entre companheiros, mas não o reboque por dispositivos mecânicos nem ajuda física de outros ciclistas. O tempo considerado será o do segundo atleta a cruzar a chegada.
-
-6. IDENTIFICAÇÃO DO CICLISTA
-Os números devem permanecer visíveis e fixados na frente, sem cortes, adesivos, alterações ou ocultação de patrocinadores oficiais.
-
-7. CATEGORIAS
-As categorias oficiais são as publicadas na aba Categorias. Nas duplas, a soma das idades determina a categoria. Categorias com menos de três atletas poderão ser incorporadas à anterior.
-
-8. ETAPAS E PERCURSOS
-Stage 01 - XCC, 30/10/2026: uma única volta de 5,3 km, com largada na Casa Bahia, La Paloma. Primeira largada às 13:30 e última às 15:20.
-Stage 02 - Etapa Rainha XCM, 31/10/2026: 81,1 km e 1.370 m de elevação acumulada. Largada às 08:00 no Centro Polideportivo Rocha, L. A. De Herrera, 27000 Rocha, Departamento de Rocha, Uruguai.
-Stage 03 - Etapa Final XCM, 01/11/2026: 64 km e 670 m de elevação acumulada. Largada às 08:30 no Mirador La Pedrera, La Pedrera, Rocha, Uruguai.
-A organização poderá modificar percursos por clima, segurança ou logística. Somente será FINISHER quem completar pelo menos 75% das etapas dentro do limite.
-
-9. REGULAMENTO XCC – STAGE 1
-Circuito fechado, máximo de 15 atletas por bateria e uma única volta de 5,3 km por atleta. A participação é obrigatória, salvo exceção autorizada. O tempo integra a classificação geral e, nas duplas, vale o tempo do integrante mais lento.
-A ordem de largada das categorias, a composição das baterias e os horários individuais serão divulgados em 29/10/2026 nos canais oficiais do evento. Primeira largada às 13:30 e última às 15:20, em 30/10/2026.
-
-10. INÍCIO DAS ETAPAS
-No Stage 02, os portões de alinhamento abrem às 07:45 e a largada ocorre às 08:00. No Stage 03, os portões abrem às 08:15 e a largada ocorre às 08:30. Para o XCC, os atletas deverão seguir a chamada de sua bateria e os horários divulgados em 29/10/2026. As zonas serão definidas pela classificação geral e fecham 5 minutos antes. Atletas atrasados largarão ao final; duplas devem entrar juntas.
-A arena abre em 29/10 às 16:00 e em 30/10 às 09:00 na Casa Bahia, La Paloma; em 31/10 às 07:00 no Centro Polideportivo Rocha; e em 01/11 às 07:00 no Mirador La Pedrera. Fechamento da arena em 30/10 e 31/10 às 18:30. Todos os horários são locais do Uruguai.
-
-11. PERCURSOS E ETAPAS
-Os atletas devem completar todo o percurso oficial, seguir as instruções, retornar ao ponto exato se saírem da rota, não cortar caminho, não invadir propriedades fechadas e não divulgar coordenadas GPS durante a prova.
-
-12. EQUIPAMENTO PROIBIDO
-A organização poderá proibir equipamentos não essenciais a seu critério.
-
-13. TEMPO DE PROVA
-O tempo da dupla será o do segundo integrante. Cada atleta terá um chip. A contagem começa no horário oficial; largadas tardias exigem autorização e não alteram o tempo máximo. Quem não largar será DNS.
-
-14. TEMPO MÁXIMO
-Os limites serão definidos conforme distância e terreno e informados no briefing. Poderão existir pontos de corte. É permitido cruzar a chegada a pé conduzindo a bicicleta. Atletas sem condições de continuar serão transportados com suas bicicletas quando possível.
-
-15. PLACA DSQ
-Quem não completar uma etapa no limite será DSQ, receberá identificação diferenciada e poderá continuar, sem classificação oficial naquela etapa.
-
-16. CANCELAMENTO DE ETAPA
-A organização poderá cancelar uma etapa por segurança. A validade do resultado dependerá da quantidade de atletas que já tiver concluído; abandonos anteriores à interrupção serão DNF.
-
-17. PREMIAÇÕES
-Haverá premiação por etapa e na classificação geral conforme as categorias do regulamento. Para subir ao pódio é obrigatório utilizar uniforme de ciclismo, no mínimo jersey.
-Os resultados oficiais serão publicados às 17:00 em 30/10 e 31/10, e às 14:00 em 01/11. A premiação do Stage 01 será em 30/10 às 17:00; a do Stage 02 em 31/10 às 17:00; a do Stage 03, das etapas e da classificação geral Ultra em 01/11 às 14:30. Encerramento do evento às 15:00 em 01/11/2026.
-
-18. REGRAS DE TRÂNSITO
-As vias poderão permanecer abertas. As leis de trânsito e as orientações da equipe devem ser respeitadas.
-
-19. CHECK POINTS
-Haverá postos de controle, inclusive ocultos. A ausência do registro de passagem poderá causar desclassificação.
-
-20. REGISTRO E BRIEFING
-O registro ocorrerá no local e horário divulgados. O atleta deverá apresentar identificação. Não haverá mudança de categoria após o encerramento. Haverá reunião informativa prévia.
-O cadastramento e a entrega de kits da Ultra ocorrerão na Casa Bahia, La Paloma: quinta-feira, 29/10/2026, das 16:00 às 21:00; sexta-feira, 30/10/2026, das 09:00 às 12:00. Os briefings serão online: Stage 02 / Etapa Rainha em 30/10/2026 às 18:30; Stage 03 / Etapa Final em 31/10/2026 às 18:00. O acesso será informado pelos canais oficiais.
-
-21. NUTRIÇÃO E HIDRATAÇÃO
-O atleta é responsável por levar água e nutrição suficientes. A organização fornecerá água nos pontos oficiais exclusivamente para hidratação.
-Pontos de apoio: Stage 02 nos km 25, 43 e 63; Stage 03 nos km 18 e 44.
-
-22. APOIO EXTERNO
-Não é permitida assistência externa, acompanhamento por veículos, drafting atrás de veículos ou ajuda mecânica de terceiros. O drafting entre competidores é permitido.
-O atendimento pela equipe oficial nos pontos credenciados permanece autorizado, conforme os artigos 3, 21 e 23.
-
-23. ASSISTÊNCIA MÉDICA E TÉCNICA
-Haverá assistência médica em pontos oficiais. A assistência técnica poderá ser oferecida em zonas neutras; peças poderão ser cobradas.
-Apoio mecânico no percurso: Stage 02 no km 43; Stage 03 no km 44. Na arena da Casa Bahia, La Paloma, a mecânica funciona em 30/10 das 11:00 às 18:00 e em 31/10 das 07:00 às 18:00. Bike Wash em La Paloma: 30/10 das 14:00 às 17:00 e 31/10 das 11:00 às 18:00.
-
-24. DESISTÊNCIAS
-O atleta ou dupla deve comunicar imediatamente a desistência. Operações de busca causadas pela falta de comunicação poderão ser cobradas.
-
-25. MEIO AMBIENTE E ÉTICA
-É obrigatório respeitar o meio ambiente. É proibido jogar lixo, atravessar áreas preservadas ou fumar no percurso.
-
-26. RECLAMAÇÕES
-Reclamações devem ser feitas por escrito em até 30 minutos após a chegada ou a publicação dos resultados preliminares e acompanhadas de depósito de R$ 200,00, reembolsável se forem aceitas.
-
-27. DOPING
-A organização poderá realizar controles antidoping e de substâncias ilegais.
-
-28. PENALIDADES
-As violações estarão sujeitas às penalidades definidas pelo comissário. Penalidades de tempo serão acrescentadas ao resultado da etapa.
-
-29. DECISÃO DO COMISSÁRIO
-A decisão do comissário é final nos casos não previstos. A prova seguirá este regulamento e os regulamentos CBC e UCI. O regulamento poderá ser alterado quando necessário.
-
-30. QUINZE MINUTOS ANTES DA PROVA
-As zonas de largada serão definidas pela classificação geral. Gestores e apoiadores deverão deixar a zona após a chamada das equipes.
-
-31. INSCRIÇÃO, TRANSFERÊNCIA E REEMBOLSO
-A inscrição vale somente para esta edição. Transferência por lesão comprovada será permitida até 60 dias antes. Transferência para outro atleta terá multa de 20% sobre o lote vigente. O consumidor poderá desistir em até 7 dias do pagamento. Cancelamento por lesão comprovada poderá receber reembolso de 50% nas condições previstas. A taxa de conveniência não é reembolsável. Após 10/10/2026 não serão aceitas mudanças de categoria ou equipe.
-
-Atualizado em 26/10/2026. O regulamento oficial publicado e disponível na Secretaria de Prova é o documento final.`,
   lodging: `HOSPEDAGEM EM LA PALOMA
 
 La Paloma oferece hotéis, pousadas, hostels, apartamentos e casas para diferentes perfis de atletas e acompanhantes. Recomendamos reservar com antecedência devido ao movimento do evento.
@@ -988,112 +716,6 @@ WOMEN'S PAIRS
 • Women's Pair Open
 
 For pair categories, the category is determined by the sum of both riders' ages. A category with fewer than three athletes may be merged into the preceding category, as defined in the rulebook.`,
-  regulation: `THREERACE BIKE ULTRAMARATHON URUGUAY 2026 RULEBOOK
-
-1. RIDERS
-Athletes must present official photo identification. Minimum age is 19, reached by December 31 of the event year.
-
-2. CERTIFICATES AND WAIVERS
-Registration is confirmed only after receipt of a signed and stamped medical certificate. The original must be delivered at kit collection. Riders must sign the Liability and Image Use Waiver. The organization may stop a rider on medical advice. The event is a long-distance MTB competition organized by Threerace Sports and Azimut Extremo in Rocha, Uruguay, from October 30 to November 1, 2026.
-
-3. BICYCLES
-Only race-ready MTB bicycles are allowed. The front plate must remain visible and unchanged. Bicycles must be pedal-powered, without electric assistance. Each rider is responsible for maintenance and may receive help only at official points. Frame changes are not allowed during the three days.
-
-4. HELMETS AND CLOTHING
-An ANSI-compliant helmet is mandatory while riding. Appropriate clothing is required. Pair partners must wear jerseys with the same main characteristics.
-
-5. PAIRS
-Partners must remain together, no more than 2 minutes apart. Physical assistance between partners is allowed, but mechanical towing and physical help from other riders are not. The pair's time is recorded when the second rider crosses the finish.
-
-6. RIDER IDENTIFICATION
-Numbers must remain visible and attached to the front, without cuts, stickers, alterations or covered official sponsors.
-
-7. CATEGORIES
-Official categories are listed under Categories. Pair categories are based on combined ages. Categories with fewer than three athletes may be merged into the preceding category.
-
-8. STAGES AND COURSES
-Stage 01 - XCC, October 30, 2026: a single 5.3 km lap, starting at Casa Bahia, La Paloma. First start at 13:30 and last start at 15:20.
-Stage 02 - Queen Stage XCM, October 31, 2026: 81.1 km and 1,370 m elevation gain. Start at 08:00 at Centro Polideportivo Rocha, L. A. De Herrera, 27000 Rocha, Departamento de Rocha, Uruguay.
-Stage 03 - Final Stage XCM, November 1, 2026: 64 km and 670 m elevation gain. Start at 08:30 at Mirador La Pedrera, La Pedrera, Rocha, Uruguay.
-Routes may change for weather, safety or logistics. FINISHER status requires at least 75% of stages within the time limit.
-
-9. XCC – STAGE 1
-Closed circuit, maximum 15 riders per heat and a single 5.3 km lap per athlete. Participation is mandatory unless expressly authorized. Time counts toward the overall result; for pairs, the slower rider's time applies.
-Category start order, heat composition and individual start times will be published on October 29, 2026 through official event channels. First start at 13:30 and last start at 15:20 on October 30, 2026.
-
-10. STAGE STARTS
-Stage 02 corrals open at 07:45 for the 08:00 start. Stage 03 corrals open at 08:15 for the 08:30 start. XCC riders must follow their heat call and the schedule published on October 29, 2026. Corrals are assigned by overall classification and close 5 minutes before the start. Late riders start at the back. Pair riders must enter together.
-The arena opens on October 29 at 16:00 and October 30 at 09:00 at Casa Bahia, La Paloma; October 31 at 07:00 at Centro Polideportivo Rocha; and November 1 at 07:00 at Mirador La Pedrera. Arena closing on October 30 and 31: 18:30. All times are local to Uruguay.
-
-11. COURSES
-Athletes must complete the full official course, follow instructions, return to the exact point if they leave the route, avoid shortcuts and closed property, and not publish GPS coordinates during the race.
-
-12. PROHIBITED EQUIPMENT
-The organization may prohibit non-essential equipment at its discretion.
-
-13. RACE TIME
-Pair time is recorded from the second partner. Each athlete has one chip. Timing starts at the official time; late starts require authorization and do not extend the limit. Failure to start is DNS.
-
-14. MAXIMUM TIME
-Limits are based on distance and terrain and announced at briefing. Intermediate cut-offs may apply. Riders may cross the finish on foot while carrying or pushing the bike. When possible, withdrawn riders and bicycles will be transported.
-
-15. DSQ PLATE
-A rider who misses a stage limit is DSQ, receives a different identification and may continue without an official result for that stage.
-
-16. STAGE CANCELLATION
-A stage may be cancelled for safety. Result validity depends on how many riders have finished; riders who withdrew before cancellation remain DNF.
-
-17. AWARDS
-Stage and overall awards follow the official categories and rulebook. Cycling clothing, at least a jersey, is mandatory on the podium.
-Official results will be published at 17:00 on October 30 and 31, and at 14:00 on November 1. Stage 01 awards: October 30 at 17:00; Stage 02 awards: October 31 at 17:00; Stage 03, stage and overall Ultra awards: November 1 at 14:30. The event closes on November 1, 2026 at 15:00.
-
-18. TRAFFIC RULES
-Roads may remain open. Traffic laws and staff instructions must be followed.
-
-19. CHECK POINTS
-Official and hidden checkpoints may be used. A missing passage record may result in disqualification.
-
-20. REGISTRATION AND BRIEFING
-Registration takes place at the announced location and time. Identification is required. Category changes are not allowed after closing. A pre-race briefing will be held.
-Ultra registration and kit pickup take place at Casa Bahia, La Paloma: Thursday, October 29, 2026, from 16:00 to 21:00; Friday, October 30, from 09:00 to 12:00. Online briefings: Stage 02 / Queen Stage on October 30 at 18:30; Stage 03 / Final Stage on October 31 at 18:00. Access details will be shared through official channels.
-
-21. NUTRITION AND HYDRATION
-Athletes are responsible for carrying sufficient water and nutrition. The organization supplies water at official points for hydration only.
-Aid stations: Stage 02 at km 25, 43 and 63; Stage 03 at km 18 and 44.
-
-22. EXTERNAL SUPPORT
-External assistance, accompanying vehicles, drafting behind vehicles and third-party mechanical aid are prohibited. Drafting between competitors is permitted.
-Support from official staff at accredited stations remains authorized under sections 3, 21 and 23.
-
-23. MEDICAL AND TECHNICAL ASSISTANCE
-Medical assistance is available at official points. Neutral technical support may be provided; parts may be charged.
-On-course mechanical support: Stage 02 at km 43; Stage 03 at km 44. Mechanical service at the Casa Bahia arena, La Paloma: October 30 from 11:00 to 18:00 and October 31 from 07:00 to 18:00. Bike Wash in La Paloma: October 30 from 14:00 to 17:00 and October 31 from 11:00 to 18:00.
-
-24. WITHDRAWALS
-The athlete or pair must immediately report withdrawal. Search operations caused by failure to report may be charged to the athlete.
-
-25. ENVIRONMENT AND ETHICS
-Athletes must respect the environment. Littering, crossing protected areas and smoking on course are prohibited.
-
-26. PROTESTS
-Protests must be submitted in writing within 30 minutes of finishing or preliminary results and accompanied by a BRL 200 deposit, refunded if upheld.
-
-27. DOPING
-The organization may conduct anti-doping and illegal-substance controls.
-
-28. PENALTIES
-Violations are subject to penalties decided by the commissaire. Time penalties are added to the stage result.
-
-29. COMMISSAIRE'S DISCRETION
-The commissaire's decision is final in unforeseen cases. The race follows this rulebook and CBC/UCI rules. Rules may be amended when necessary.
-
-30. FIFTEEN MINUTES BEFORE THE RACE
-Starting zones are assigned by overall classification. Managers and supporters must leave after team call-up.
-
-31. REGISTRATION, TRANSFER AND REFUND
-Registration applies only to this edition. Transfer due to documented injury is allowed up to 60 days before. Transfer to another athlete incurs a 20% fee based on the current lot. Consumers may cancel within 7 days of payment. Documented injury may qualify for a 50% refund under the stated conditions. Convenience fees are non-refundable. No category or team changes are accepted after October 10, 2026.
-
-Updated October 26, 2026. The official rulebook published and available at Race Office is the final document.`,
   lodging: `ACCOMMODATION IN LA PALOMA
 
 La Paloma offers hotels, inns, hostels, apartments and houses for different athlete and companion profiles. We recommend booking early due to event demand.
@@ -1166,7 +788,7 @@ export function ThreeraceUruguayPage({
   const [now, setNow] = useState(() => Date.now());
   const t = copy[language];
   const info = officialInfoByLanguage[language];
-  const rulebookUrl = `/regulamentos-2026/ultra-${language === "pt" ? "pt" : "es"}-2026-10-26.pdf`;
+  const rulebookUrl = getRulebookUrl("ultra", language);
   const countdown = useMemo(() => {
     const target = new Date("2026-10-30T07:00:00-03:00").getTime();
     const remaining = Math.max(0, target - now);
@@ -1313,7 +935,7 @@ export function ThreeraceUruguayPage({
               { title: labels.categories, text: info.categories, icon: "categories" as const },
               { title: labels.stages, text: "", icon: "stages" as const },
               { title: labels.program, text: "", icon: "schedule" as const },
-              { title: labels.rulebook, text: info.regulation, href: rulebookUrl, action: labels.rulebook, icon: "rulebook" as const },
+              { title: labels.rulebook, text: "", icon: "rulebook" as const },
               { title: labels.stay, text: info.lodging, href: lodgingUrl, action: labels.stay, icon: "lodging" as const },
             ].map(({ title, text, href, action, icon }, index) => {
               const isOpen = openInfo === index;
@@ -1328,7 +950,7 @@ export function ThreeraceUruguayPage({
                   </div>
                   <div className="original-accordion-content" id={`event-info-${index}`}>
                     <div className="accordion-panel-inner">
-                      {icon === "lodging" ? <LodgingDirectory language={language} /> : icon === "stages" ? <UruguayStages language={language} /> : icon === "schedule" ? <UruguaySchedule language={language} /> : <OfficialText text={text} />}
+                      {icon === "rulebook" ? <UruguayRulebooks event="ultra" language={language} /> : icon === "lodging" ? <LodgingDirectory language={language} /> : icon === "stages" ? <UruguayStages language={language} /> : icon === "schedule" ? <UruguaySchedule language={language} /> : <OfficialText text={text} />}
                       {href && icon !== "lodging" && <a className="accordion-action" href={href} target="_blank" rel="noreferrer">{action} ↗</a>}
                     </div>
                   </div>
