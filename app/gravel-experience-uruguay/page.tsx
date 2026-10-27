@@ -156,7 +156,7 @@ const copy = {
     profileAlts: ["Perfil da etapa 01: 101 km e 1.280 m de desnível positivo. Apoio e suporte mecânico no km 63.", "Perfil da etapa 02: 73 km e 670 m de desnível positivo. Apoio nos km 18 e 55; suporte mecânico no km 55."],
     schedule: [["QUINTA · 29/10", ["16:00 · Abertura da Arena", "16:00–21:00 · Entrega de kits"]], ["SEXTA · 30/10", ["09:00 · Abertura da Arena", "15:00–19:00 · Entrega de kits Gravel"]], ["SÁBADO · 31/10", ["06:30 · Abertura da Arena em Rocha", "07:40 · Alinhamento", "07:45 · Largada Stage 01"]], ["DOMINGO · 01/11", ["07:00 · Abertura da Arena", "08:10 · Alinhamento", "08:20 · Largada Stage 02", "14:00 · Resultados oficiais", "14:30 · Premiação Gravel Experience", "15:00 · Encerramento"]]],
     rulesTitle: "REGULAMENTO OFICIAL · GRAVEL EXPERIENCE 2026",
-    rulesRevision: "Atualizado em 26/10/2026", rulesDownload: "REGULAMENTO COMPLETO (PDF · ESPAÑOL)",
+    rulesRevision: "Atualizado em 27/10/2026", rulesDownload: "REGULAMENTO COMPLETO (PDF · PORTUGUÊS)",
     rules: [
       ["1. APRESENTAÇÃO", "Duas etapas, totalizando 174 km: Stage 01 em 31/10/2026, 101 km e 1.280 m de elevação, largada às 07:45 no Centro Polideportivo Rocha (L. A. De Herrera, 27000 Rocha, Uruguai), limite de 7 horas; Stage 02 em 01/11/2026, 73 km e 670 m de elevação, largada às 08:20 no Mirador La Pedrera, La Pedrera, limite de 4h30. Classificação masculina e feminina por tempo acumulado."],
       ["2. PARTICIPAÇÃO", "Inscrição implica aceitar o regulamento e os riscos. Idade mínima 18 anos; menor só com autorização. Bicicleta gravel segura, autonomia e drafting permitido. Proibidos apoio móvel, reboque, vácuo de veículos, troca de bicicleta e abastecimento irregular."],
@@ -345,7 +345,7 @@ export function GravelExperienceUruguayPage({
         })}
       </div>
     );
-    if (key === "rules") return <div className="official-copy gravel-rules"><h4>{t.rulesTitle}</h4><p>{t.rulesRevision}</p><p><a className="button button-dark" href="/regulamentos-2026/gravel-es-2026-10-26.pdf" target="_blank" rel="noopener noreferrer">{t.rulesDownload} ↗</a></p>{t.rules.map(([title, text]) => <section key={title}><h4>{title}</h4><p>{text}</p></section>)}</div>;
+    if (key === "rules") return <div className="official-copy gravel-rules"><h4>{t.rulesTitle}</h4><p>{t.rulesRevision}</p><p><a className="button button-dark" href={language === "pt" ? "/regulamentos-2026/gravel-pt-2026-10-27.pdf" : "/regulamentos-2026/gravel-es-2026-10-26.pdf"} target="_blank" rel="noopener noreferrer">{t.rulesDownload} ↗</a></p>{t.rules.map(([title, text]) => <section key={title}><h4>{title}</h4><p>{text}</p></section>)}</div>;
     return <div className="official-copy"><LodgingDirectory language={language} /></div>;
   };
 
