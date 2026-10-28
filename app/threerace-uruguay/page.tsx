@@ -7,6 +7,7 @@ import { getSavedLanguage, saveLanguage } from "../site-language";
 import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 import UruguayStages from "./stages";
+import StartOrder from "./start-order";
 import UruguayGpsFiles from "../uruguay-gps-files";
 import navigationStyles from "../uruguay-event-navigation.module.css";
 import UruguaySchedule from "./schedule";
@@ -934,6 +935,9 @@ export function ThreeraceUruguayPage({
       </section>
 
       <section className="countdown-section" aria-label="Countdown">
+        <div className="section-frame">
+          <StartOrder language={language} featured />
+        </div>
         <div className="section-frame countdown-grid">
           {countdown.map((value, index) => (
             <div className="countdown-unit" key={t.countdown[index]}>

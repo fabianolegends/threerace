@@ -3,6 +3,7 @@ import styles from "./stages.module.css";
 import { locations } from "./locations";
 import UruguayCutoff from "../uruguay-cutoff";
 import UruguayBriefing from "../uruguay-briefing";
+import StartOrder from "./start-order";
 
 type Language = "pt" | "es" | "en";
 
@@ -11,7 +12,7 @@ const copy = {
     date: "Data", start: "Local da largada", address: "Endereço",
     distance: "Distância", elevation: "Desnível positivo", firstStart: "Primeira largada",
     map: "Ver local da largada no Google Maps", enlarge: "Ampliar perfil",
-    notice: "Os horários de largada por bateria serão divulgados em 29/10/2026.",
+    notice: "Consulte a ordem de largada no PDF abaixo para conferir sua bateria e seu horário.",
     generalTitle: "INFORMAÇÕES GERAIS SOBRE OS PERCURSOS",
     general: "Percursos, horários e pontos de apoio poderão sofrer ajustes por razões técnicas, climáticas, de segurança ou por determinação das autoridades competentes.",
     stages: [
@@ -24,7 +25,7 @@ const copy = {
     date: "Fecha", start: "Lugar de salida", address: "Dirección",
     distance: "Distancia", elevation: "Desnivel positivo", firstStart: "Primera salida",
     map: "Ver lugar de salida en Google Maps", enlarge: "Ampliar perfil",
-    notice: "Los horarios de salida de cada tanda se publicarán el 29/10/2026.",
+    notice: "Consultá el orden de salida en el PDF de abajo para verificar tu tanda y tu horario.",
     generalTitle: "INFORMACIÓN GENERAL SOBRE LOS RECORRIDOS",
     general: "Los recorridos, horarios y puntos de apoyo podrán modificarse por razones técnicas, climáticas, de seguridad o por decisión de las autoridades competentes.",
     stages: [
@@ -37,7 +38,7 @@ const copy = {
     date: "Date", start: "Start location", address: "Address",
     distance: "Distance", elevation: "Elevation gain", firstStart: "First start",
     map: "View start location on Google Maps", enlarge: "Enlarge profile",
-    notice: "Start times for each heat will be published on October 29, 2026.",
+    notice: "Check the start order in the PDF below for your heat and start time.",
     generalTitle: "GENERAL COURSE INFORMATION",
     general: "Courses, schedules and aid stations may change for technical, weather or safety reasons, or at the direction of the relevant authorities.",
     stages: [
@@ -71,6 +72,7 @@ export default function UruguayStages({ language }: { language: Language }) {
               </div>
             )}
             <div className={styles.description}><p>{stage.description}</p></div>
+            {index === 0 && <StartOrder language={language} />}
             <UruguayBriefing language={language} video={index === 0 ? "xcc" : index === 1 ? "rainha" : "final"} />
             {index === 1 && <UruguayCutoff language={language} stage={2} />}
             {index === 2 && <UruguayCutoff language={language} stage={3} />}
