@@ -762,7 +762,7 @@ export function ThreeraceShortUruguayPage({
         </div>
       </section>
 
-      <a className="mobile-register" href={whatsappUrl} target="_blank" rel="noreferrer">{t.contactCta} <span aria-hidden="true">↗</span></a>
+      <a className="mobile-register" href={resultsUrl} target="_blank" rel="noopener noreferrer">{t.actions[0][0]} <span aria-hidden="true">↗</span></a>
     </main>
   );
 }

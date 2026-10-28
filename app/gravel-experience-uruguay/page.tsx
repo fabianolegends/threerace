@@ -442,8 +442,8 @@ export function GravelExperienceUruguayPage({
         </div>
       </section>
 
-      <a className="mobile-register" href={registrationUrl} target="_blank" rel="noreferrer">
-        {t.finalCta} <span aria-hidden="true">↗</span>
+      <a className="mobile-register" href={resultsUrl} target="_blank" rel="noopener noreferrer">
+        {t.actions[0][0]} <span aria-hidden="true">↗</span>
       </a>
     </main>
   );
