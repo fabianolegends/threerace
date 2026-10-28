@@ -442,7 +442,7 @@ export function ThreeraceShortUruguayPage({
 }: ThreeraceShortUruguayPageProps) {
   const router = useRouter();
   const [language, setLanguage] = useState<Language>(initialLanguage);
-  const [openPanel, setOpenPanel] = useState<PanelKey | null>("event");
+  const [openPanel, setOpenPanel] = useState<PanelKey | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [galleryVisible, setGalleryVisible] = useState(3);
@@ -478,6 +478,7 @@ export function ThreeraceShortUruguayPage({
     const openLinkedPanel = () => {
       const key = window.location.hash.slice(1) as PanelKey;
       if (panelKeys.includes(key)) setOpenPanel(key);
+      else if (!window.location.hash) setOpenPanel("event");
     };
     openLinkedPanel();
     window.addEventListener("hashchange", openLinkedPanel);
