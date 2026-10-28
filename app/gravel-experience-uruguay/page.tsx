@@ -12,6 +12,7 @@ import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 import UruguayRulebooks from "../uruguay-rulebooks";
 import UruguayBriefing from "../uruguay-briefing";
+import navigationStyles from "../uruguay-event-navigation.module.css";
 
 type Language = "es" | "pt" | "en";
 type GravelExperienceUruguayPageProps = {
@@ -209,12 +210,13 @@ export function GravelExperienceUruguayPage({
   }, [initialLanguage, localized]);
 
   useEffect(() => {
-    const openRulebooks = () => {
+    const openLinkedPanel = () => {
       if (window.location.hash === "#rules") setOpen("rules");
+      if (window.location.hash === "#stages") setOpen("stages");
     };
-    openRulebooks();
-    window.addEventListener("hashchange", openRulebooks);
-    return () => window.removeEventListener("hashchange", openRulebooks);
+    openLinkedPanel();
+    window.addEventListener("hashchange", openLinkedPanel);
+    return () => window.removeEventListener("hashchange", openLinkedPanel);
   }, []);
 
   useEffect(() => {
@@ -312,8 +314,8 @@ export function GravelExperienceUruguayPage({
             <img className="header-tr3-logo" src={tr3HeaderLogo} alt="Threerace Sports" />
             <img className="header-azimut-logo" src={azimutHeaderLogo} alt="Azimut Extremo" />
           </Link>
-          <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Main navigation">
-            <Link href="/">{t.nav[0]}</Link><a href="#stages">{t.nav[1]}</a><a href={registrationUrl} target="_blank" rel="noreferrer">{t.nav[2]}</a><a href="#information">{t.nav[3]}</a>
+          <nav className={`${navigationStyles.navigation} main-nav${menuOpen ? " is-open" : ""}`} aria-label="Main navigation">
+            <Link href="/">{t.nav[0]}</Link><a href="#stages" onClick={() => { setOpen("stages"); setMenuOpen(false); }}>{t.nav[1]}</a><a href="#stages" onClick={() => { setOpen("stages"); setMenuOpen(false); }}>Briefing</a><a href={registrationUrl} target="_blank" rel="noreferrer">{t.nav[2]}</a><a href="#information">{t.nav[3]}</a>
           </nav>
           <div className="header-actions"><div className="language-switcher" aria-label="Language selector">{(["es", "pt", "en"] as Language[]).map((code) => <button key={code} className={language === code ? "active" : ""} type="button" onClick={() => selectLanguage(code)} aria-label={code} aria-pressed={language === code}>{{ es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" }[code]}</button>)}</div><button className="menu-toggle" type="button" aria-label={menuOpen ? t.close : t.menu} onClick={() => setMenuOpen(!menuOpen)}><span/><span/></button></div>
         </header>

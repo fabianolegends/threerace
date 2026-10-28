@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import LodgingDirectory from "../lodging-directory";
 import UruguayCutoff from "../uruguay-cutoff";
 import UruguayBriefing from "../uruguay-briefing";
+import navigationStyles from "../uruguay-event-navigation.module.css";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 
 type Language = "es" | "pt" | "en";
@@ -599,9 +600,10 @@ export function ThreeraceShortUruguayPage({
             <Image className="header-azimut-logo" src={azimutHeaderLogo} alt="Azimut Extremo" width={160} height={90} priority unoptimized />
           </Link>
 
-          <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label={t.navigationLabel}>
+          <nav className={`${navigationStyles.navigation} main-nav${menuOpen ? " is-open" : ""}`} aria-label={t.navigationLabel}>
             <Link href="/" onClick={() => setMenuOpen(false)}>{t.nav[0]}</Link>
             <a href="#course" onClick={() => openInformationPanel("course")}>{t.nav[1]}</a>
+            <a href="#course" onClick={() => openInformationPanel("course")}>Briefing</a>
             <a href="#schedule" onClick={() => openInformationPanel("schedule")}>{t.nav[2]}</a>
             <a href="#information" onClick={() => setMenuOpen(false)}>{t.nav[3]}</a>
           </nav>

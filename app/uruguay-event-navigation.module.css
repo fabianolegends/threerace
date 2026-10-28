@@ -1,0 +1,14 @@
+@media (min-width: 901px) {
+  .navigation.navigation:global(.main-nav) {
+    position: static;
+    transform: none;
+    min-width: 0;
+    gap: clamp(12px, 1.8vw, 24px);
+    margin: 0 clamp(12px, 2vw, 24px) 0 auto;
+  }
+  .navigation.navigation:global(.main-nav) a {
+    font-size: clamp(.72rem, 1.15vw, .9rem);
+    letter-spacing: .07em;
+    white-space: nowrap;
+  }
+}

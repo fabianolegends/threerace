@@ -7,6 +7,7 @@ import { getSavedLanguage, saveLanguage } from "../site-language";
 import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 import UruguayStages from "./stages";
+import navigationStyles from "../uruguay-event-navigation.module.css";
 import UruguaySchedule from "./schedule";
 import UruguayRulebooks, { getRulebookUrl } from "../uruguay-rulebooks";
 
@@ -29,7 +30,7 @@ const azimutUrl = "https://www.azimutextremo.com/";
 
 const copy = {
   es: {
-    nav: ["Home", "Etapas", "Inscripción", "Información"],
+    nav: ["Home", "Etapas", "Briefing", "Inscripción", "Información"],
     menu: "Abrir menú",
     close: "Cerrar menú",
     featured: "INSCRIPCIONES ABIERTAS · URUGUAY 2026",
@@ -149,7 +150,7 @@ const copy = {
     official: "Sitio oficial · Threerace Bike Ultramarathon Uruguay 2026",
   },
   pt: {
-    nav: ["Home", "Etapas", "Inscrição", "Informações"],
+    nav: ["Home", "Etapas", "Briefing", "Inscrição", "Informações"],
     menu: "Abrir menu",
     close: "Fechar menu",
     featured: "INSCRIÇÕES ABERTAS · URUGUAI 2026",
@@ -269,7 +270,7 @@ const copy = {
     official: "Site oficial · Threerace Bike Ultramarathon Uruguay 2026",
   },
   en: {
-    nav: ["Home", "Stages", "Registration", "Information"],
+    nav: ["Home", "Stages", "Briefing", "Registration", "Information"],
     menu: "Open menu",
     close: "Close menu",
     featured: "REGISTRATION OPEN · URUGUAY 2026",
@@ -804,7 +805,7 @@ export function ThreeraceUruguayPage({
     en: { register: "REGISTRATION", registerNote: "WINDFIT PLATFORM", certificate: "CERTIFICATES", certificateNote: "REQUIRED DOCUMENTATION", rulebook: "RULEBOOK", rulebookNote: "2026 RULEBOOK", stay: "ACCOMMODATION", info: "EVENT INFORMATION", program: "SCHEDULE", event: "THE EVENT", stages: "STAGE / CUTOFF POINTS", categories: "CATEGORIES", open: "Open", close: "Close" },
   }[language];
 
-  const navTargets = ["/", "#stages", registrationUrl, "#information"];
+  const navTargets = ["/", "#stages", "#stages", registrationUrl, "#information"];
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -818,12 +819,13 @@ export function ThreeraceUruguayPage({
   }, [initialLanguage, localized]);
 
   useEffect(() => {
-    const openRulebooks = () => {
+    const openLinkedPanel = () => {
       if (window.location.hash === "#rules") setOpenInfo(5);
+      if (window.location.hash === "#stages") setOpenInfo(3);
     };
-    openRulebooks();
-    window.addEventListener("hashchange", openRulebooks);
-    return () => window.removeEventListener("hashchange", openRulebooks);
+    openLinkedPanel();
+    window.addEventListener("hashchange", openLinkedPanel);
+    return () => window.removeEventListener("hashchange", openLinkedPanel);
   }, []);
 
   useEffect(() => {
@@ -859,9 +861,9 @@ export function ThreeraceUruguayPage({
             <img className="header-azimut-logo" src={azimutHeaderLogo} alt="Azimut Extremo" />
           </a>
 
-          <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Main navigation">
+          <nav className={`${navigationStyles.navigation} main-nav${menuOpen ? " is-open" : ""}`} aria-label="Main navigation">
             {t.nav.map((item, index) => (
-              <a key={item} href={navTargets[index]} onClick={closeMenu} target={index === 2 ? "_blank" : undefined} rel={index === 2 ? "noreferrer" : undefined}>
+              <a key={item} href={navTargets[index]} onClick={() => { if (index === 1 || index === 2) setOpenInfo(3); closeMenu(); }} target={index === 3 ? "_blank" : undefined} rel={index === 3 ? "noreferrer" : undefined}>
                 {item}
               </a>
             ))}
@@ -949,7 +951,7 @@ export function ThreeraceUruguayPage({
             ].map(({ title, text, href, action, icon }, index) => {
               const isOpen = openInfo === index;
               return (
-                <article id={icon === "rulebook" ? "rules" : undefined} className={isOpen ? "open" : ""} key={title}>
+                <article id={icon === "stages" ? "stages" : icon === "rulebook" ? "rules" : undefined} className={isOpen ? "open" : ""} key={title}>
                   <div className="accordion-trigger">
                     <AccordionIcon type={icon} />
                     <b>{title}</b>
