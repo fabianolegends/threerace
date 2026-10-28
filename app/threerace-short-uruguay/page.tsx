@@ -6,6 +6,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import LodgingDirectory from "../lodging-directory";
 import UruguayCutoff from "../uruguay-cutoff";
+import UruguayBriefing from "../uruguay-briefing";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 
 type Language = "es" | "pt" | "en";
@@ -502,6 +503,7 @@ export function ThreeraceShortUruguayPage({
             ))}
           </div>
           <p className="short-information-note">{t.courseNote}</p>
+          <UruguayBriefing language={language} video="final" />
           <UruguayCutoff language={language} stage={3} short />
         </div>
       );

@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./stages.module.css";
 import { locations } from "./locations";
 import UruguayCutoff from "../uruguay-cutoff";
+import UruguayBriefing from "../uruguay-briefing";
 
 type Language = "pt" | "es" | "en";
 
@@ -70,6 +71,7 @@ export default function UruguayStages({ language }: { language: Language }) {
               </div>
             )}
             <div className={styles.description}><p>{stage.description}</p></div>
+            <UruguayBriefing language={language} video={index === 0 ? "xcc" : index === 1 ? "rainha" : "final"} />
             {index === 1 && <UruguayCutoff language={language} stage={2} />}
             {index === 2 && <UruguayCutoff language={language} stage={3} />}
             {stage.alt && (

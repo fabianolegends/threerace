@@ -11,6 +11,7 @@ import { getSavedLanguage, saveLanguage } from "../site-language";
 import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 import UruguayRulebooks from "../uruguay-rulebooks";
+import UruguayBriefing from "../uruguay-briefing";
 
 type Language = "es" | "pt" | "en";
 type GravelExperienceUruguayPageProps = {
@@ -250,6 +251,7 @@ export function GravelExperienceUruguayPage({
     if (key === "categories") return <div className="official-copy"><p>{t.categoriesIntro}</p><div className="gravel-category-grid"><article><b>{t.male}</b><p>{t.maleText}</p></article><article><b>{t.female}</b><p>{t.femaleText}</p></article></div><List>{t.categoryRules.map((item) => <li key={item}>{item}</li>)}</List></div>;
     if (key === "stages") return (
       <div className={`official-copy ${styles.stages}`}>
+        <UruguayBriefing language={language} video="gravel" />
         {t.stages.map((stage, stageIndex) => {
           const location = locations[stageIndex + 1];
           const profile = `/gravel-2026/perfil-etapa-0${stageIndex + 1}.png`;
