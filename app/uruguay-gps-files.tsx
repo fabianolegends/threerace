@@ -4,7 +4,7 @@ type Language = "pt" | "es" | "en";
 type Event = "ultra" | "gravel" | "short";
 
 const ultraRoutes = [
-  { stage: 1, rideWithGps: "https://ridewithgps.com/routes/57709895?via=XHp6hUxfocr2OC2wHcQZuQ" },
+  { stage: 1, rideWithGps: "https://ridewithgps.com/routes/57709790?via=9QHLged8UThlLeLuZB5ddg" },
   { stage: 2, rideWithGps: "https://ridewithgps.com/routes/57709804?via=kUuvFqj6qYac2Oyy9gBy2g" },
   { stage: 3, rideWithGps: "https://ridewithgps.com/routes/57709823?via=kDJoeWkINIbUAAy35D8ong" },
 ];
