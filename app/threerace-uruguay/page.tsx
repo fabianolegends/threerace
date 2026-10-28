@@ -7,6 +7,7 @@ import { getSavedLanguage, saveLanguage } from "../site-language";
 import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 import UruguayStages from "./stages";
+import UruguayGpsFiles from "../uruguay-gps-files";
 import navigationStyles from "../uruguay-event-navigation.module.css";
 import UruguaySchedule from "./schedule";
 import UruguayRulebooks, { getRulebookUrl } from "../uruguay-rulebooks";
@@ -17,6 +18,8 @@ type ThreeraceUruguayPageProps = {
   initialLanguage?: Language;
   localized?: boolean;
 };
+
+const resultsUrl = "https://apuracrono.com.br/resultados/g-live.html?f=eventos/2026/tr3/threeracebike-uy-26.clax";
 
 const registrationUrl = "https://event.windfit.app/threerace-uruguay-2026";
 const whatsappUrl = "https://wa.me/5554992476721";
@@ -740,9 +743,12 @@ function ActionArrow({ direction }: { direction: "external" | "down" }) {
     : <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 5v22M8 19l8 8 8-8" /></svg>;
 }
 
-function QuickIcon({ type }: { type: "registration" | "certificate" | "rulebook" }) {
+function QuickIcon({ type }: { type: "registration" | "certificate" | "rulebook" | "gps" }) {
   if (type === "registration") {
     return <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="11" y="8" width="42" height="48" rx="5"/><circle cx="26" cy="25" r="7"/><path d="M16 45c2-7 7-10 10-10s8 3 10 10M40 20h7M40 29h7M40 38h7"/></svg>;
+  }
+  if (type === "gps") {
+    return <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M49 26c0 13-17 30-17 30S15 39 15 26a17 17 0 1 1 34 0Z"/><circle cx="32" cy="26" r="6"/></svg>;
   }
   if (type === "certificate") {
     return <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M19 12h26a5 5 0 0 1 5 5v35H14V17a5 5 0 0 1 5-5Z"/><path d="M25 12V8h14v4M32 25v16M24 33h16"/></svg>;
@@ -750,7 +756,7 @@ function QuickIcon({ type }: { type: "registration" | "certificate" | "rulebook"
   return <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 7h23l9 9v41H17Z"/><path d="M40 7v10h9M24 29h18M24 38h18M24 47h12"/></svg>;
 }
 
-type AccordionIconType = "event" | "registration" | "categories" | "stages" | "schedule" | "rulebook" | "lodging";
+type AccordionIconType = "event" | "registration" | "categories" | "stages" | "schedule" | "gps" | "rulebook" | "lodging";
 
 function AccordionIcon({ type }: { type: AccordionIconType }) {
   const paths: Record<AccordionIconType, ReactNode> = {
@@ -760,6 +766,7 @@ function AccordionIcon({ type }: { type: AccordionIconType }) {
     stages: <><path d="M10 49h44M15 44l9-22 8 13 7-20 10 29"/><circle cx="24" cy="22" r="2"/><circle cx="39" cy="15" r="2"/></>,
     schedule: <><circle cx="32" cy="32" r="21"/><path d="M32 19v14l10 6M32 7v5M32 52v5M7 32h5M52 32h5"/></>,
     rulebook: <><path d="M16 8h24l9 9v39H16Z"/><path d="M40 8v10h9M23 29h19M23 38h19M23 47h12"/></>,
+    gps: <><path d="M49 26c0 13-17 30-17 30S15 39 15 26a17 17 0 1 1 34 0Z"/><circle cx="32" cy="26" r="6"/></>,
     lodging: <><path d="M10 49h44M14 49V22h36v27M20 22v-8h24v8M21 33h8v8h-8M35 33h8v8h-8"/></>,
   };
   return <span className="accordion-field-icon" aria-hidden="true"><svg viewBox="0 0 64 64">{paths[type]}</svg></span>;
@@ -800,9 +807,9 @@ export function ThreeraceUruguayPage({
     ];
   }, [now]);
   const labels = {
-    es: { register: "INSCRIPCIONES", registerNote: "PLATAFORMA WINDFIT", certificate: "CERTIFICADOS", certificateNote: "DOCUMENTACIÓN OBLIGATORIA", rulebook: "REGLAMENTO", rulebookNote: "REGLAMENTO 2026", stay: "ALOJAMIENTO", info: "INFORMACIÓN COMPLETA", program: "PROGRAMACIÓN", event: "EL EVENTO", stages: "ETAPA / PUNTOS DE CORTE", categories: "CATEGORÍAS", open: "Abrir", close: "Cerrar" },
-    pt: { register: "INSCRIÇÕES", registerNote: "PLATAFORMA WINDFIT", certificate: "CERTIFICADOS", certificateNote: "DOCUMENTAÇÃO OBRIGATÓRIA", rulebook: "REGULAMENTO", rulebookNote: "REGULAMENTO 2026", stay: "HOSPEDAGEM", info: "INFORMAÇÕES COMPLETAS", program: "PROGRAMAÇÃO", event: "O EVENTO", stages: "ETAPA / PONTOS DE CORTE", categories: "CATEGORIAS", open: "Abrir", close: "Fechar" },
-    en: { register: "REGISTRATION", registerNote: "WINDFIT PLATFORM", certificate: "CERTIFICATES", certificateNote: "REQUIRED DOCUMENTATION", rulebook: "RULEBOOK", rulebookNote: "2026 RULEBOOK", stay: "ACCOMMODATION", info: "EVENT INFORMATION", program: "SCHEDULE", event: "THE EVENT", stages: "STAGE / CUTOFF POINTS", categories: "CATEGORIES", open: "Open", close: "Close" },
+    es: { results: "ATLETAS / RESULTADOS", resultsNote: "PLATAFORMA APURACRONO", gps: "ARCHIVOS GPS", gpsNote: "FORMATO GPX / Ride with GPS", register: "INSCRIPCIONES", registerNote: "PLATAFORMA WINDFIT", certificate: "CERTIFICADOS", certificateNote: "DOCUMENTACIÓN OBLIGATORIA", rulebook: "REGLAMENTO", rulebookNote: "REGLAMENTO 2026", stay: "ALOJAMIENTO", info: "INFORMACIÓN COMPLETA", program: "PROGRAMACIÓN", event: "EL EVENTO", stages: "ETAPA / PUNTOS DE CORTE", categories: "CATEGORÍAS", open: "Abrir", close: "Cerrar" },
+    pt: { results: "ATLETAS / RESULTADOS", resultsNote: "PLATAFORMA APURACRONO", gps: "ARQUIVOS DE GPS", gpsNote: "FORMATO GPX / Ride with GPS", register: "INSCRIÇÕES", registerNote: "PLATAFORMA WINDFIT", certificate: "CERTIFICADOS", certificateNote: "DOCUMENTAÇÃO OBRIGATÓRIA", rulebook: "REGULAMENTO", rulebookNote: "REGULAMENTO 2026", stay: "HOSPEDAGEM", info: "INFORMAÇÕES COMPLETAS", program: "PROGRAMAÇÃO", event: "O EVENTO", stages: "ETAPA / PONTOS DE CORTE", categories: "CATEGORIAS", open: "Abrir", close: "Fechar" },
+    en: { results: "ATHLETES / RESULTS", resultsNote: "APURACRONO PLATFORM", gps: "GPS FILES", gpsNote: "GPX FORMAT / Ride with GPS", register: "REGISTRATION", registerNote: "WINDFIT PLATFORM", certificate: "CERTIFICATES", certificateNote: "REQUIRED DOCUMENTATION", rulebook: "RULEBOOK", rulebookNote: "2026 RULEBOOK", stay: "ACCOMMODATION", info: "EVENT INFORMATION", program: "SCHEDULE", event: "THE EVENT", stages: "STAGE / CUTOFF POINTS", categories: "CATEGORIES", open: "Open", close: "Close" },
   }[language];
 
   const navTargets = ["/", "#stages", "#stages", registrationUrl, "#information"];
@@ -820,7 +827,8 @@ export function ThreeraceUruguayPage({
 
   useEffect(() => {
     const openLinkedPanel = () => {
-      if (window.location.hash === "#rules") setOpenInfo(5);
+      if (window.location.hash === "#rules") setOpenInfo(6);
+      if (window.location.hash === "#gps") setOpenInfo(5);
       if (window.location.hash === "#stages") setOpenInfo(3);
     };
     openLinkedPanel();
@@ -909,8 +917,8 @@ export function ThreeraceUruguayPage({
         </div>
 
         <section className="original-action-cards section-frame" aria-label="Quick access">
-        <a href={registrationUrl} target="_blank" rel="noreferrer">
-          <QuickIcon type="registration"/><b>{labels.register}</b><small>{labels.registerNote}</small><i><ActionArrow direction="external" /></i>
+        <a href={resultsUrl} target="_blank" rel="noopener noreferrer">
+          <QuickIcon type="registration"/><b>{labels.results}</b><small>{labels.resultsNote}</small><i><ActionArrow direction="external" /></i>
         </a>
         <a
           href={language === "pt" ? certificatePtUrl : certificateEsEnUrl}
@@ -919,8 +927,8 @@ export function ThreeraceUruguayPage({
         >
           <QuickIcon type="certificate"/><b>{labels.certificate}</b><small>{labels.certificateNote}</small><i><ActionArrow direction="external" /></i>
         </a>
-        <a href="#rules" onClick={() => setOpenInfo(5)}>
-          <QuickIcon type="rulebook"/><b>{labels.rulebook}</b><small>{labels.rulebookNote}</small><i><ActionArrow direction="down" /></i>
+        <a href="#gps" onClick={() => setOpenInfo(5)}>
+          <QuickIcon type="gps"/><b>{labels.gps}</b><small>{labels.gpsNote}</small><i><ActionArrow direction="down" /></i>
         </a>
         </section>
       </section>
@@ -946,12 +954,13 @@ export function ThreeraceUruguayPage({
               { title: labels.categories, text: info.categories, icon: "categories" as const },
               { title: labels.stages, text: "", icon: "stages" as const },
               { title: labels.program, text: "", icon: "schedule" as const },
+              { title: labels.gps, text: "", icon: "gps" as const },
               { title: labels.rulebook, text: "", icon: "rulebook" as const },
               { title: labels.stay, text: info.lodging, href: lodgingUrl, action: labels.stay, icon: "lodging" as const },
             ].map(({ title, text, href, action, icon }, index) => {
               const isOpen = openInfo === index;
               return (
-                <article id={icon === "stages" ? "stages" : icon === "rulebook" ? "rules" : undefined} className={isOpen ? "open" : ""} key={title}>
+                <article id={icon === "stages" ? "stages" : icon === "gps" ? "gps" : icon === "rulebook" ? "rules" : undefined} className={isOpen ? "open" : ""} key={title}>
                   <div className="accordion-trigger">
                     <AccordionIcon type={icon} />
                     <b>{title}</b>
@@ -961,7 +970,7 @@ export function ThreeraceUruguayPage({
                   </div>
                   <div className="original-accordion-content" id={`event-info-${index}`}>
                     <div className="accordion-panel-inner">
-                      {icon === "rulebook" ? <UruguayRulebooks event="ultra" language={language} /> : icon === "lodging" ? <LodgingDirectory language={language} /> : icon === "stages" ? <UruguayStages language={language} /> : icon === "schedule" ? <UruguaySchedule language={language} /> : <OfficialText text={text} />}
+                      {icon === "gps" ? <UruguayGpsFiles language={language} /> : icon === "rulebook" ? <UruguayRulebooks event="ultra" language={language} /> : icon === "lodging" ? <LodgingDirectory language={language} /> : icon === "stages" ? <UruguayStages language={language} /> : icon === "schedule" ? <UruguaySchedule language={language} /> : <OfficialText text={text} />}
                       {href && icon !== "lodging" && <a className="accordion-action" href={href} target="_blank" rel="noreferrer">{action} ↗</a>}
                     </div>
                   </div>
