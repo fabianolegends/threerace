@@ -7,12 +7,13 @@ import { useRouter } from "next/navigation";
 import LodgingDirectory from "../lodging-directory";
 import UruguayCutoff from "../uruguay-cutoff";
 import UruguayBriefing from "../uruguay-briefing";
+import UruguayGpsFiles from "../uruguay-gps-files";
 import navigationStyles from "../uruguay-event-navigation.module.css";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 
 type Language = "es" | "pt" | "en";
-type PanelKey = "event" | "registration" | "course" | "schedule" | "categories" | "kit" | "stay";
-type IconKind = "event" | "registration" | "course" | "elevation" | "start" | "schedule" | "categories" | "kit" | "stay";
+type PanelKey = "event" | "registration" | "course" | "gps" | "schedule" | "categories" | "kit" | "stay";
+type IconKind = "event" | "registration" | "course" | "gps" | "elevation" | "start" | "schedule" | "categories" | "kit" | "stay";
 
 type ThreeraceShortUruguayPageProps = {
   initialLanguage?: Language;
@@ -24,7 +25,7 @@ const tr3HeaderLogo = "/tr3-logo-display.webp";
 const azimutHeaderLogo = "/azimut-extremo-logo-white.svg";
 const tr3Logo = "/tr3-logo-display.webp";
 const azimutUrl = "https://www.azimutextremo.com/";
-const registrationUrl = "https://lolograste.uy/threerace-short-uruguay";
+const resultsUrl = "https://apuracrono.com.br/resultados/g-live.html?f=eventos/2026/tr3/threeracebike-uy-26.clax";
 const whatsappUrl = "https://wa.me/5554992476721";
 const eventStartTime = "2026-11-01T08:30:00-03:00";
 const galleryImages = [
@@ -52,8 +53,9 @@ const copy = {
     heroTitle: "THREERACE",
     heroSubtitle: "SHORT URUGUAY",
     actions: [
-      ["INSCRIPCIONES", "LOTE 01 · USD 49"],
-      ["RECORRIDO + DESNIVEL", "63 KM · +630 M"],
+      ["ATLETAS / RESULTADOS", "PLATAFORMA APURACRONO"],
+      ["RECORRIDO + DESNIVEL", "64 KM · +670 M"],
+      ["ARCHIVOS GPS", "FORMATO GPX / Ride with GPS"],
     ],
     countdown: ["DÍAS", "HORAS", "MINUTOS"],
     information: "INFORMACIÓN COMPLETA",
@@ -61,6 +63,7 @@ const copy = {
       event: "EL EVENTO",
       registration: "INSCRIPCIONES",
       course: "ETAPA / PUNTOS DE CORTE",
+      gps: "ARCHIVOS GPS",
       schedule: "PROGRAMACIÓN",
       categories: "CATEGORÍAS Y PREMIACIÓN",
       kit: "KIT Y SERVICIOS",
@@ -70,21 +73,21 @@ const copy = {
     eventParagraphs: [
       "Threerace Short Uruguay es una carrera de mountain bike de etapa única para quienes quieren vivir la experiencia Threerace en un solo día.",
       "La prueba se realizará el domingo 1.º de noviembre de 2026, junto a la programación de la tercera y última etapa de Threerace Bike Ultramarathon Uruguay, con salida en La Pedrera.",
-      "Serán 63 kilómetros y 630 metros de desnivel positivo por los paisajes del departamento de Rocha. La Short tiene distancia, recorrido y salida propios dentro de la gran jornada final del evento.",
+      "Serán 64 kilómetros y 670 metros de desnivel positivo por los paisajes del departamento de Rocha. La Short comparte el recorrido y la salida de la Stage 3 de la Ultra.",
       "La salida y la llegada de la Stage 03 fueron trasladadas a La Pedrera para ofrecer un recorrido 100% mountain bike, sin pasar por arena. La Pedrera está a solo 8 km de la Arena Threerace, en La Paloma, y quienes lo deseen podrán ir pedaleando hasta la salida por una ciclovía que cubre todo el trayecto.",
     ],
     registrationTitle: "INSCRIPCIONES",
     registrationLot: "LOTE 01",
     registrationPrice: "USD 49",
     factLabels: ["FECHA", "FORMATO", "DISTANCIA", "DESNIVEL"],
-    factValues: ["01 NOV 2026", "MTB · ETAPA ÚNICA", "63 KM", "630 M+"],
+    factValues: ["01 NOV 2026", "MTB · ETAPA ÚNICA", "64 KM", "670 M+"],
     courseTitle: "UNA JORNADA. TODA LA EXPERIENCIA THREERACE.",
     courseText:
       "Un desafío de MTB con salida en La Pedrera, creado para combinar resistencia, aventura y los paisajes de Rocha en un recorrido de un solo día.",
     courseLabels: ["FECHA", "SALIDA", "DISTANCIA", "DESNIVEL", "FORMATO"],
-    courseValues: ["Domingo · 01/11/2026", "La Pedrera · Rocha", "63 km", "630 m de desnivel positivo", "MTB · etapa única"],
+    courseValues: ["Domingo · 01/11/2026", "La Pedrera · Rocha", "64 km", "670 m de desnivel positivo", "MTB · etapa única"],
     courseNote:
-      "El trazado detallado, la superficie y los demás puntos de hidratación se incorporarán en una próxima actualización.",
+      "El recorrido es el mismo que la Stage 3 de la Ultra. Descargá el track en la sección ARCHIVOS GPS.",
     scheduleTitle: "ENTREGA DE KIT Y SALIDA",
     scheduleItems: [
       "Sábado · 31 de octubre · 16:00–19:00 · Entrega de kits en la Arena Threerace, en La Paloma.",
@@ -126,7 +129,7 @@ const copy = {
     historyText:
       "La Short abre la jornada final a ciclistas que prefieren concentrar el desafío en un solo día, sin renunciar a la estructura, al territorio y a la atmósfera internacional de Threerace.",
     historyDetail:
-      "La prueba comparte el domingo del evento con la Stage 03 de la Ultramarathon, pero tendrá su propia salida en La Pedrera y un recorrido de 63 km con 630 m de desnivel positivo.",
+      "La prueba comparte el domingo del evento con la Stage 03 de la Ultramarathon, con la misma salida en La Pedrera y el mismo recorrido de 64 km con 670 m de desnivel positivo.",
     discoverMore: "CONOCE THREERACE",
     partnerLabel: "PARTNER URUGUAY",
     partnerTitle: "CONOCE A LA EMPRESA ALIADA QUE ORGANIZA THREERACE EN URUGUAY",
@@ -156,8 +159,9 @@ const copy = {
     heroTitle: "THREERACE",
     heroSubtitle: "SHORT URUGUAY",
     actions: [
-      ["INSCRIÇÕES", "LOTE 01 · USD 49"],
-      ["PERCURSO + ELEVAÇÃO", "63 KM · +630 M"],
+      ["ATLETAS / RESULTADOS", "PLATAFORMA APURACRONO"],
+      ["PERCURSO + ELEVAÇÃO", "64 KM · +670 M"],
+      ["ARQUIVOS DE GPS", "FORMATO GPX / Ride with GPS"],
     ],
     countdown: ["DIAS", "HORAS", "MINUTOS"],
     information: "INFORMAÇÕES COMPLETAS",
@@ -165,6 +169,7 @@ const copy = {
       event: "O EVENTO",
       registration: "INSCRIÇÕES",
       course: "ETAPA / PONTOS DE CORTE",
+      gps: "ARQUIVOS DE GPS",
       schedule: "PROGRAMAÇÃO",
       categories: "CATEGORIAS E PREMIAÇÃO",
       kit: "KIT E SERVIÇOS",
@@ -174,21 +179,21 @@ const copy = {
     eventParagraphs: [
       "A Threerace Short Uruguay é uma prova de mountain bike em etapa única para quem quer viver a experiência Threerace em um único dia.",
       "A prova acontecerá no domingo, 1º de novembro de 2026, junto à programação da terceira e última etapa da Threerace Bike Ultramarathon Uruguay, com largada em La Pedrera.",
-      "Serão 63 quilômetros e 630 metros de elevação acumulada pelos cenários do departamento de Rocha. A Short terá distância, percurso e largada próprios dentro do grande dia final do evento.",
+      "Serão 64 quilômetros e 670 metros de elevação acumulada pelos cenários do departamento de Rocha. A Short compartilha o percurso e a largada da Stage 3 da Ultra.",
       "A largada e a chegada da Stage 03 foram transferidas para La Pedrera para proporcionar um percurso 100% mountain bike, sem passagem pela areia. La Pedrera fica a apenas 8 km da Arena Threerace, em La Paloma, e quem preferir poderá seguir pedalando até a largada por uma ciclovia que acompanha todo o trajeto.",
     ],
     registrationTitle: "INSCRIÇÕES",
     registrationLot: "LOTE 01",
     registrationPrice: "USD 49",
     factLabels: ["DATA", "FORMATO", "DISTÂNCIA", "ELEVAÇÃO"],
-    factValues: ["01 NOV 2026", "MTB · ETAPA ÚNICA", "63 KM", "630 M+"],
+    factValues: ["01 NOV 2026", "MTB · ETAPA ÚNICA", "64 KM", "670 M+"],
     courseTitle: "UM DIA. TODA A EXPERIÊNCIA THREERACE.",
     courseText:
       "Um desafio de MTB com largada em La Pedrera, criado para reunir resistência, aventura e os cenários de Rocha em um percurso de um único dia.",
     courseLabels: ["DATA", "LARGADA", "DISTÂNCIA", "ELEVAÇÃO", "FORMATO"],
-    courseValues: ["Domingo · 01/11/2026", "La Pedrera · Rocha", "63 km", "630 m de elevação acumulada", "MTB · etapa única"],
+    courseValues: ["Domingo · 01/11/2026", "La Pedrera · Rocha", "64 km", "670 m de elevação acumulada", "MTB · etapa única"],
     courseNote:
-      "O traçado detalhado, o tipo de piso e os demais pontos de hidratação serão incluídos em uma próxima atualização.",
+      "O percurso é o mesmo da Stage 3 da Ultra. Baixe o track na seção ARQUIVOS DE GPS.",
     scheduleTitle: "ENTREGA DE KIT E LARGADA",
     scheduleItems: [
       "Sábado · 31 de outubro · 16:00–19:00 · Entrega de kits na Arena Threerace, em La Paloma.",
@@ -230,7 +235,7 @@ const copy = {
     historyText:
       "A Short abre o dia final para ciclistas que preferem concentrar o desafio em uma única etapa, sem abrir mão da estrutura, do território e da atmosfera internacional da Threerace.",
     historyDetail:
-      "A prova compartilha o domingo do evento com a Stage 03 da Ultramarathon, mas terá largada própria em La Pedrera e um percurso de 63 km com 630 m de elevação acumulada.",
+      "A prova compartilha o domingo do evento com a Stage 03 da Ultramarathon, com a mesma largada em La Pedrera e o mesmo percurso de 64 km com 670 m de elevação acumulada.",
     discoverMore: "CONHEÇA A THREERACE",
     partnerLabel: "PARCEIRO URUGUAY",
     partnerTitle: "CONHEÇA A EMPRESA PARCEIRA QUE ORGANIZA A THREERACE NO URUGUAI",
@@ -260,8 +265,9 @@ const copy = {
     heroTitle: "THREERACE",
     heroSubtitle: "SHORT URUGUAY",
     actions: [
-      ["REGISTRATION", "LOT 01 · USD 49"],
-      ["COURSE + ELEVATION", "63 KM · +630 M"],
+      ["ATHLETES / RESULTS", "APURACRONO PLATFORM"],
+      ["COURSE + ELEVATION", "64 KM · +670 M"],
+      ["GPS FILES", "GPX FORMAT / Ride with GPS"],
     ],
     countdown: ["DAYS", "HOURS", "MINUTES"],
     information: "COMPLETE INFORMATION",
@@ -269,6 +275,7 @@ const copy = {
       event: "THE EVENT",
       registration: "REGISTRATION",
       course: "STAGE / CUTOFF POINTS",
+      gps: "GPS FILES",
       schedule: "SCHEDULE",
       categories: "CATEGORIES AND AWARDS",
       kit: "KIT AND SERVICES",
@@ -278,21 +285,21 @@ const copy = {
     eventParagraphs: [
       "Threerace Short Uruguay is a single-stage mountain bike race for riders who want to experience Threerace in one day.",
       "The race takes place on Sunday, November 1, 2026, alongside the third and final stage of Threerace Bike Ultramarathon Uruguay, starting in La Pedrera.",
-      "The route covers 63 kilometres with 630 metres of elevation gain across the landscapes of Rocha. The Short has its own distance, course and start within the event's final day.",
+      "The route covers 64 kilometres with 670 metres of elevation gain across the landscapes of Rocha. The Short shares the course and start with Ultra Stage 3.",
       "The Stage 03 start and finish were moved to La Pedrera to provide a 100% mountain bike course with no sand sections. La Pedrera is only 8 km from the Threerace Arena in La Paloma, and riders may cycle to the start using the bike path that runs along the entire route.",
     ],
     registrationTitle: "REGISTRATION",
     registrationLot: "BATCH 01",
     registrationPrice: "USD 49",
     factLabels: ["DATE", "FORMAT", "DISTANCE", "ELEVATION"],
-    factValues: ["01 NOV 2026", "MTB · SINGLE STAGE", "63 KM", "630 M+"],
+    factValues: ["01 NOV 2026", "MTB · SINGLE STAGE", "64 KM", "670 M+"],
     courseTitle: "ONE DAY. THE FULL THREERACE EXPERIENCE.",
     courseText:
       "A one-day MTB challenge starting in La Pedrera, combining endurance, adventure and the landscapes of Rocha.",
     courseLabels: ["DATE", "START", "DISTANCE", "ELEVATION", "FORMAT"],
-    courseValues: ["Sunday · Nov 1, 2026", "La Pedrera · Rocha", "63 km", "630 m elevation gain", "MTB · single-stage race"],
+    courseValues: ["Sunday · Nov 1, 2026", "La Pedrera · Rocha", "64 km", "670 m elevation gain", "MTB · single-stage race"],
     courseNote:
-      "Detailed routing, surface information and the remaining hydration points will be added in a future update.",
+      "The course is the same as Ultra Stage 3. Download the track in the GPS FILES section.",
     scheduleTitle: "KIT PICKUP AND START",
     scheduleItems: [
       "Saturday · October 31 · 16:00–19:00 · Kit pickup at the Threerace Arena in La Paloma.",
@@ -334,7 +341,7 @@ const copy = {
     historyText:
       "The Short opens the final day to riders who prefer a single-stage challenge without giving up Threerace's structure, territory and international atmosphere.",
     historyDetail:
-      "It takes place on the same Sunday as Ultramarathon Stage 03, with its own start in La Pedrera and a 63 km course with 630 m of elevation gain.",
+      "It takes place on the same Sunday as Ultramarathon Stage 03, sharing the start in La Pedrera and the same 64 km course with 670 m of elevation gain.",
     discoverMore: "DISCOVER THREERACE",
     partnerLabel: "URUGUAY PARTNER",
     partnerTitle: "MEET THE PARTNER BEHIND THREERACE IN URUGUAY",
@@ -360,13 +367,14 @@ const copy = {
   },
 } as const;
 
-const panelKeys: PanelKey[] = ["event", "registration", "course", "schedule", "categories", "kit", "stay"];
-const actionIcons: IconKind[] = ["registration", "course"];
+const panelKeys: PanelKey[] = ["event", "registration", "course", "gps", "schedule", "categories", "kit", "stay"];
+const actionIcons: IconKind[] = ["registration", "course", "gps"];
 
 function Icon({ kind }: { kind: IconKind }) {
   const paths: Record<IconKind, ReactNode> = {
     event: <><circle cx="24" cy="24" r="15" /><path d="M15 29c4-1 6-3 9-8 3 5 6 7 10 8M19 16l3-6M29 16l-3-6" /></>,
     registration: <><path d="M10 12h28v24H10zM16 18h16M16 24h10M16 30h7" /><path d="M14 8h20M14 40h20" /></>,
+    gps: <><path d="M37 20c0 10-13 23-13 23S11 30 11 20a13 13 0 1 1 26 0Z"/><circle cx="24" cy="20" r="5"/></>,
     course: <><path d="M8 35 17 9l9 26 6-18 8 18" /><circle cx="17" cy="9" r="3" /><circle cx="40" cy="35" r="3" /></>,
     elevation: <><path d="M6 38h36M10 34l9-15 7 9 8-17 6 23" /><path d="m33 9 2-5 4 4" /></>,
     start: <><path d="M10 41V8M10 10h25l-5 8 5 8H10" /><circle cx="10" cy="41" r="3" /></>,
@@ -379,7 +387,8 @@ function Icon({ kind }: { kind: IconKind }) {
   return <svg viewBox="0 0 48 48" aria-hidden="true">{paths[kind]}</svg>;
 }
 
-function ActionArrow() {
+function ActionArrow({ external = false }: { external?: boolean }) {
+  if (external) return <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>;
   return <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 5v22M8 19l8 8 8-8" /></svg>;
 }
 
@@ -465,6 +474,16 @@ export function ThreeraceShortUruguayPage({
     };
   }, []);
 
+  useEffect(() => {
+    const openLinkedPanel = () => {
+      const key = window.location.hash.slice(1) as PanelKey;
+      if (panelKeys.includes(key)) setOpenPanel(key);
+    };
+    openLinkedPanel();
+    window.addEventListener("hashchange", openLinkedPanel);
+    return () => window.removeEventListener("hashchange", openLinkedPanel);
+  }, []);
+
   const selectLanguage = (code: Language) => {
     setLanguage(code);
     saveLanguage(code);
@@ -492,6 +511,8 @@ export function ThreeraceShortUruguayPage({
         </div>
       );
     }
+
+    if (key === "gps") return <UruguayGpsFiles event="short" language={language} />;
 
     if (key === "course") {
       return (
@@ -630,15 +651,15 @@ export function ThreeraceShortUruguayPage({
           {t.actions.map(([title, note], index) => (
             <a
               key={title}
-              href={index === 0 ? registrationUrl : "#course"}
+              href={index === 0 ? resultsUrl : index === 1 ? "#course" : "#gps"}
               target={index === 0 ? "_blank" : undefined}
-              rel={index === 0 ? "noreferrer" : undefined}
-              onClick={index === 0 ? undefined : () => openInformationPanel("course")}
+              rel={index === 0 ? "noopener noreferrer" : undefined}
+              onClick={index === 0 ? undefined : () => openInformationPanel(index === 1 ? "course" : "gps")}
             >
               <Icon kind={actionIcons[index]} />
               <b>{title}</b>
               <small>{note}</small>
-              <i><ActionArrow /></i>
+              <i><ActionArrow external={index === 0} /></i>
             </a>
           ))}
         </section>

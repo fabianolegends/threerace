@@ -12,6 +12,7 @@ import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 import UruguayRulebooks from "../uruguay-rulebooks";
 import UruguayBriefing from "../uruguay-briefing";
+import UruguayGpsFiles from "../uruguay-gps-files";
 import navigationStyles from "../uruguay-event-navigation.module.css";
 
 type Language = "es" | "pt" | "en";
@@ -19,8 +20,9 @@ type GravelExperienceUruguayPageProps = {
   initialLanguage?: Language;
   localized?: boolean;
 };
-type PanelKey = "event" | "registration" | "categories" | "stages" | "schedule" | "rules" | "stay";
+type PanelKey = "event" | "registration" | "categories" | "stages" | "schedule" | "gps" | "rules" | "stay";
 
+const resultsUrl = "https://apuracrono.com.br/resultados/g-live.html?f=eventos/2026/tr3/threeracebike-uy-26.clax";
 const registrationUrl = "https://event.windfit.app/threerace-gravel-experience-uruguay-2026";
 const lodgingUrl = "https://www.escapatearocha.uy/alojamientos?localidad=4&page=4";
 const heroImage = "/gravel-experience-hero-v2.webp";
@@ -48,13 +50,13 @@ const copy = {
     heroTitle: "GRAVEL",
     heroSubtitle: "EXPERIENCE URUGUAY",
     actions: [
-      ["INSCRIPCIONES", "PLATAFORMA WINDFIT"],
+      ["ATLETAS / RESULTADOS", "PLATAFORMA APURACRONO"],
       ["ETAPAS", "101 KM + 73 KM"],
-      ["REGLAMENTO", "REGLAMENTO 2026"],
+      ["ARCHIVOS GPS", "FORMATO GPX / Ride with GPS"],
     ],
     countdown: ["DÍAS", "HORAS", "MINUTOS"],
     information: "INFORMACIÓN COMPLETA",
-    panels: ["EL EVENTO", "INSCRIPCIONES", "CATEGORÍAS", "ETAPAS", "PROGRAMACIÓN", "REGLAMENTO", "HOSPEDAJE"],
+    panels: ["EL EVENTO", "INSCRIPCIONES", "CATEGORÍAS", "ETAPAS", "PROGRAMACIÓN", "ARCHIVOS GPS", "REGLAMENTO", "HOSPEDAJE"],
     eventTitle: "Gravel Experience – La Paloma, Rocha, Uruguay",
     eventParagraphs: [
       "Gravel Experience es una experiencia de ciclismo creada para quienes buscan mucho más que simplemente completar una distancia. El evento combina aventura, desafío, naturaleza y la verdadera esencia del gravel: pedalear por caminos variados, explorar nuevos territorios y vivir cada kilómetro con intensidad.",
@@ -110,9 +112,9 @@ const copy = {
   pt: {
     nav: ["HOME", "ETAPAS", "INSCRIÇÃO", "INFORMAÇÕES"],
     heroPlace: "ROCHA + LA PALOMA · URUGUAI", heroTitle: "GRAVEL", heroSubtitle: "EXPERIENCE URUGUAY",
-    actions: [["INSCRIÇÕES", "PLATAFORMA WINDFIT"], ["ETAPAS", "101 KM + 73 KM"], ["REGULAMENTO", "REGULAMENTO 2026"]],
+    actions: [["ATLETAS / RESULTADOS", "PLATAFORMA APURACRONO"], ["ETAPAS", "101 KM + 73 KM"], ["ARQUIVOS DE GPS", "FORMATO GPX / Ride with GPS"]],
     countdown: ["DIAS", "HORAS", "MINUTOS"], information: "INFORMAÇÕES COMPLETAS",
-    panels: ["O EVENTO", "INSCRIÇÕES", "CATEGORIAS", "ETAPAS", "PROGRAMAÇÃO", "REGULAMENTO", "HOSPEDAGEM"],
+    panels: ["O EVENTO", "INSCRIÇÕES", "CATEGORIAS", "ETAPAS", "PROGRAMAÇÃO", "ARQUIVOS DE GPS", "REGULAMENTO", "HOSPEDAGEM"],
     eventTitle: "Gravel Experience – La Paloma, Rocha, Uruguai",
     eventParagraphs: [
       "A Gravel Experience foi criada para quem busca muito mais do que completar uma distância. O evento combina aventura, desafio, natureza e a essência do gravel: pedalar por terrenos variados, explorar novos territórios e viver cada quilômetro intensamente.",
@@ -143,9 +145,9 @@ const copy = {
   en: {
     nav: ["HOME", "STAGES", "REGISTRATION", "INFORMATION"],
     heroPlace: "ROCHA + LA PALOMA · URUGUAY", heroTitle: "GRAVEL", heroSubtitle: "EXPERIENCE URUGUAY",
-    actions: [["REGISTRATION", "WINDFIT PLATFORM"], ["STAGES", "101 KM + 73 KM"], ["RULEBOOK", "2026 RULEBOOK"]],
+    actions: [["ATHLETES / RESULTS", "APURACRONO PLATFORM"], ["STAGES", "101 KM + 73 KM"], ["GPS FILES", "GPX FORMAT / Ride with GPS"]],
     countdown: ["DAYS", "HOURS", "MINUTES"], information: "COMPLETE INFORMATION",
-    panels: ["THE EVENT", "REGISTRATION", "CATEGORIES", "STAGES", "SCHEDULE", "RULEBOOK", "ACCOMMODATION"],
+    panels: ["THE EVENT", "REGISTRATION", "CATEGORIES", "STAGES", "SCHEDULE", "GPS FILES", "RULEBOOK", "ACCOMMODATION"],
     eventTitle: "Gravel Experience – La Paloma, Rocha, Uruguay",
     eventParagraphs: ["Gravel Experience is for riders seeking more than a finish line. It combines adventure, challenge, nature and the true essence of gravel.", "Part of Threerace Bike Ultramarathon Uruguay, it takes place on October 31 and November 1, 2026, across rural roads, dirt, open fields and Rocha's coastline.", "The course blends wind, distance, strategy, resilience, performance and contemplation.", "La Paloma is the event hub, known for its lighthouse, beaches, rural roads and unique scenery.", "More than a race, it is an invitation to discover Uruguay on two wheels: not only to compete, but to live the road."],
     format: "EVENT FORMAT", formatText: "Two stages combining physical challenge, navigation, endurance and direct contact with nature.",
@@ -166,8 +168,9 @@ const copy = {
   },
 } as const;
 
-function Icon({ kind }: { kind: "register" | "stages" | "rules" }) {
+function Icon({ kind }: { kind: "register" | "stages" | "gps" | "rules" }) {
   if (kind === "register") return <svg viewBox="0 0 48 48"><rect x="9" y="6" width="30" height="36" rx="3"/><circle cx="20" cy="19" r="5"/><path d="M13 34c1-6 4-9 7-9s6 3 7 9M30 17h5M30 23h5M30 29h5"/></svg>;
+  if (kind === "gps") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M37 20c0 10-13 23-13 23S11 30 11 20a13 13 0 1 1 26 0Z"/><circle cx="24" cy="20" r="5"/></svg>;
   if (kind === "stages") return <svg viewBox="0 0 48 48"><path d="M8 35 17 9l9 26 6-18 8 18"/><circle cx="17" cy="9" r="3"/><circle cx="40" cy="35" r="3"/></svg>;
   return <svg viewBox="0 0 48 48"><path d="M13 5h17l7 7v31H13zM30 5v9h7M19 23h13M19 29h13M19 35h9"/></svg>;
 }
@@ -212,6 +215,7 @@ export function GravelExperienceUruguayPage({
   useEffect(() => {
     const openLinkedPanel = () => {
       if (window.location.hash === "#rules") setOpen("rules");
+      if (window.location.hash === "#gps") setOpen("gps");
       if (window.location.hash === "#stages") setOpen("stages");
     };
     openLinkedPanel();
@@ -244,8 +248,8 @@ export function GravelExperienceUruguayPage({
     galleryImages.length - galleryVisible
   );
 
-  const panelKeys: PanelKey[] = ["event", "registration", "categories", "stages", "schedule", "rules", "stay"];
-  const actionTargets = [registrationUrl, "#stages", "#rules"];
+  const panelKeys: PanelKey[] = ["event", "registration", "categories", "stages", "schedule", "gps", "rules", "stay"];
+  const actionTargets = [resultsUrl, "#stages", "#gps"];
 
   const panelContent = (key: PanelKey) => {
     if (key === "event") return <div className="official-copy"><h4>{t.eventTitle}</h4>{t.eventParagraphs.map((p) => <p key={p}>{p}</p>)}<h4>{t.format}</h4><p>{t.formatText}</p><div className="gravel-distance-strip"><b>STAGE 01</b><span>31.10.2026 · 101 KM</span><b>STAGE 02</b><span>01.11.2026 · 73 KM</span></div></div>;
@@ -299,6 +303,7 @@ export function GravelExperienceUruguayPage({
         })}
       </div>
     );
+    if (key === "gps") return <UruguayGpsFiles event="gravel" language={language} />;
     if (key === "rules") return <UruguayRulebooks event="gravel" language={language} />;
     return <div className="official-copy"><LodgingDirectory language={language} /></div>;
   };
@@ -320,12 +325,12 @@ export function GravelExperienceUruguayPage({
           <div className="header-actions"><div className="language-switcher" aria-label="Language selector">{(["es", "pt", "en"] as Language[]).map((code) => <button key={code} className={language === code ? "active" : ""} type="button" onClick={() => selectLanguage(code)} aria-label={code} aria-pressed={language === code}>{{ es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" }[code]}</button>)}</div><button className="menu-toggle" type="button" aria-label={menuOpen ? t.close : t.menu} onClick={() => setMenuOpen(!menuOpen)}><span/><span/></button></div>
         </header>
         <div className="uruguay-title-block gravel-title-block"><p className="location">{t.heroPlace}</p><h1>{t.heroTitle}<small>{t.heroSubtitle}</small></h1></div>
-        <section className="original-action-cards section-frame" aria-label="Quick access">{t.actions.map(([title, note], index) => <a key={title} href={actionTargets[index]} onClick={index === 2 ? () => setOpen("rules") : undefined} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}><Icon kind={(["register", "stages", "rules"] as const)[index]} /><b>{title}</b><small>{note}</small><i><ActionArrow direction={index === 0 ? "external" : "down"} /></i></a>)}</section>
+        <section className="original-action-cards section-frame" aria-label="Quick access">{t.actions.map(([title, note], index) => <a key={title} href={actionTargets[index]} onClick={index === 1 ? () => setOpen("stages") : index === 2 ? () => setOpen("gps") : undefined} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noopener noreferrer" : undefined}><Icon kind={(["register", "stages", "gps"] as const)[index]} /><b>{title}</b><small>{note}</small><i><ActionArrow direction={index === 0 ? "external" : "down"} /></i></a>)}</section>
       </section>
 
       <section className="countdown-section" aria-label="Countdown"><div className="section-frame countdown-grid">{countdown.map((value, index) => <div className="countdown-unit" key={t.countdown[index]}><b>{String(value).padStart(2, "0")}</b><span>{t.countdown[index]}</span></div>)}</div></section>
 
-      <section className="original-information" id="information"><div className="section-frame"><h2>{t.information}</h2><div className="original-accordion">{panelKeys.map((key, index) => <article id={key === "stages" ? "stages" : key === "rules" ? "rules" : undefined} className={open === key ? "open" : ""} key={key}><div className="accordion-trigger"><span className="accordion-field-icon"><Icon kind={index === 1 ? "register" : index === 3 ? "stages" : "rules"} /></span><b>{t.panels[index]}</b><button type="button" onClick={() => setOpen(open === key ? null : key)} aria-expanded={open === key} aria-label={open === key ? t.close : t.menu}><i>{open === key ? "−" : "+"}</i></button></div>{open === key && <div className="accordion-panel-inner">{panelContent(key)}</div>}</article>)}</div></div></section>
+      <section className="original-information" id="information"><div className="section-frame"><h2>{t.information}</h2><div className="original-accordion">{panelKeys.map((key, index) => <article id={key === "stages" ? "stages" : key === "rules" ? "rules" : key === "gps" ? "gps" : undefined} className={open === key ? "open" : ""} key={key}><div className="accordion-trigger"><span className="accordion-field-icon"><Icon kind={key === "registration" ? "register" : key === "stages" ? "stages" : key === "gps" ? "gps" : "rules"} /></span><b>{t.panels[index]}</b><button type="button" onClick={() => setOpen(open === key ? null : key)} aria-expanded={open === key} aria-label={open === key ? t.close : t.menu}><i>{open === key ? "−" : "+"}</i></button></div>{open === key && <div className="accordion-panel-inner">{panelContent(key)}</div>}</article>)}</div></div></section>
 
       <section className="original-about section-frame">
         <div className="original-about-copy">
