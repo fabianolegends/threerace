@@ -25,7 +25,7 @@ const homeCopy = {
     heroKicker: "THREERACE SPORTS · DESDE 2017", hero: ["UMA MARCA.", "DIFERENTES TERRITÓRIOS.", "EXPERIÊNCIAS QUE DEIXAM HISTÓRIAS."],
     heroText: "Esporte, território e experiência conectados em projetos autorais no Brasil e na América do Sul.",
     eventsCta: "CONHEÇA NOSSOS EVENTOS ↓", aboutCta: "CONHEÇA A THREERACE",
-    next: "PRÓXIMOS DESAFIOS", open: "INSCRIÇÕES ABERTAS", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRASIL · 2027", brasilDate: "02 — 04 ABR · 2027", brasilLink: "Conhecer Threerace São Francisco de Paula",
+    next: "PRÓXIMOS DESAFIOS", open: "INSCRIÇÕES ABERTAS", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRASIL · 2027", brasilDate: "02 — 04 ABR · 2027", brasilLink: "Conhecer Threerace São Francisco de Paula", legendsLink: "Conhecer Legends Bike Race",
     mtbDays: "MOUNTAIN BIKE · 3 DIAS", gravelStages: "GRAVEL · 2 ETAPAS",
     mtbDate: "30 OUT — 01 NOV · 2026", gravelDate: "31 OUT — 01 NOV · 2026",
     countdown: ["DIAS", "HORAS", "MIN"], sharedBy: "Organização compartilhada por Threerace Sports e Azimut Extremo",
@@ -64,7 +64,7 @@ const homeCopy = {
     heroKicker: "THREERACE SPORTS · DESDE 2017", hero: ["UNA MARCA.", "DIFERENTES TERRITORIOS.", "EXPERIENCIAS QUE DEJAN HISTORIAS."],
     heroText: "Deporte, territorio y experiencia conectados en proyectos propios en Brasil y América del Sur.",
     eventsCta: "CONOCE NUESTROS EVENTOS ↓", aboutCta: "CONOCE THREERACE",
-    next: "PRÓXIMOS DESAFÍOS", open: "INSCRIPCIONES ABIERTAS", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRASIL · 2027", brasilDate: "02 — 04 ABR · 2027", brasilLink: "Conocer Threerace São Francisco de Paula",
+    next: "PRÓXIMOS DESAFÍOS", open: "INSCRIPCIONES ABIERTAS", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRASIL · 2027", brasilDate: "02 — 04 ABR · 2027", brasilLink: "Conocer Threerace São Francisco de Paula", legendsLink: "Conocer Legends Bike Race",
     mtbDays: "MOUNTAIN BIKE · 3 DÍAS", gravelStages: "GRAVEL · 2 ETAPAS",
     mtbDate: "30 OCT — 01 NOV · 2026", gravelDate: "31 OCT — 01 NOV · 2026",
     countdown: ["DÍAS", "HORAS", "MIN"], sharedBy: "Organización compartida por Threerace Sports y Azimut Extremo",
@@ -103,7 +103,7 @@ const homeCopy = {
     heroKicker: "THREERACE SPORTS · SINCE 2017", hero: ["ONE BRAND.", "DIFFERENT TERRITORIES.", "EXPERIENCES THAT LEAVE STORIES."],
     heroText: "Sport, territory and experience connected through original projects in Brazil and South America.",
     eventsCta: "DISCOVER OUR EVENTS ↓", aboutCta: "DISCOVER THREERACE",
-    next: "NEXT CHALLENGES", open: "REGISTRATION OPEN", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRAZIL · 2027", brasilDate: "02 — 04 APR · 2027", brasilLink: "Explore Threerace São Francisco de Paula",
+    next: "NEXT CHALLENGES", open: "REGISTRATION OPEN", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRAZIL · 2027", brasilDate: "02 — 04 APR · 2027", brasilLink: "Explore Threerace São Francisco de Paula", legendsLink: "Explore Legends Bike Race",
     mtbDays: "MOUNTAIN BIKE · 3 DAYS", gravelStages: "GRAVEL · 2 STAGES",
     mtbDate: "30 OCT — 01 NOV · 2026", gravelDate: "31 OCT — 01 NOV · 2026",
     countdown: ["DAYS", "HOURS", "MIN"], sharedBy: "Jointly organized by Threerace Sports and Azimut Extremo",
@@ -291,6 +291,7 @@ export default function Home() {
   const [menu, setMenu] = useState(false);
   const language = useSiteLanguage("pt");
   const brasilCountdown = useCountdown(`${brasilEvent.startDate}T00:00:00-03:00`);
+  const legendsCountdown = useCountdown("2027-04-29T00:00:00-03:00");
   const t = homeCopy[language];
   const localizedEvents = events.map((event, index) => ({
     ...event,
@@ -357,9 +358,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="next-event next-event-brasil">
+      <section className="next-event next-event-brasil" id="inscricoes-abertas">
         <div className="section-frame next-events-shell">
-          <div className="next-event-label"><span>{t.next}</span><b>{t.open}</b><small>{t.placeBrasil}<br />{t.countryBrasil}</small></div>
+          <div className="next-event-label"><span>{t.next}</span><b>{t.open}</b><small>{t.countryBrasil}</small></div>
           <div className="next-event-list">
             <article className="next-event-row">
               <div className="next-event-main">
@@ -369,7 +370,7 @@ export default function Home() {
                   <div className="next-event-organizers-mobile" aria-hidden="true">
                     <img src={logo} width="512" height="512" alt="" />
                   </div>
-                  <div className="next-event-meta"><span>{t.brasilDate}</span></div>
+                  <div className="next-event-meta"><span>{t.brasilDate}</span><span>{t.placeBrasil}</span></div>
                 </div>
               </div>
               <div className="next-event-organizers" aria-label="Threerace Sports">
@@ -381,6 +382,29 @@ export default function Home() {
                 <div><b>{String(brasilCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
               </div>
               <a className="next-event-link" href={brasilPath(language)} aria-label={t.brasilLink}>
+                <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
+              </a>
+            </article>
+            <article className="next-event-row">
+              <div className="next-event-main">
+                <p>GRAVEL STAGE RACE</p>
+                <h2>LEGENDS<br />BIKE RACE</h2>
+                <div className="next-event-info-line">
+                  <div className="next-event-organizers-mobile" aria-hidden="true">
+                    <img src={legendsLogo} width="96" height="137" alt="" />
+                  </div>
+                  <div className="next-event-meta"><span>{t.eventDates[2]}</span><span>{t.eventPlaces[2]}</span></div>
+                </div>
+              </div>
+              <div className="next-event-organizers" aria-label="Legends Bike Race">
+                <img src={legendsLogo} width="96" height="137" alt="Legends Bike Race" />
+              </div>
+              <div className="next-countdown" aria-label={t.eventDates[2]}>
+                <div><b>{legendsCountdown.days}</b><span>{t.countdown[0]}</span></div>
+                <div><b>{String(legendsCountdown.hours).padStart(2, "0")}</b><span>{t.countdown[1]}</span></div>
+                <div><b>{String(legendsCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
+              </div>
+              <a className="next-event-link" href="https://www.legendsbikerace.com.br" target="_blank" rel="noopener noreferrer" aria-label={t.legendsLink}>
                 <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
               </a>
             </article>
