@@ -960,7 +960,7 @@ export function ThreeraceUruguayPage({
             ].map(({ title, text, href, action, icon }, index) => {
               const isOpen = openInfo === index;
               return (
-                <article id={icon === "stages" ? "stages" : icon === "gps" ? "gps" : icon === "rulebook" ? "rules" : undefined} className={isOpen ? "open" : ""} key={title}>
+                <article id={icon === "stages" ? "stages" : icon === "rulebook" ? "rules" : undefined} className={isOpen ? "open" : ""} key={title}>
                   <div className="accordion-trigger">
                     <AccordionIcon type={icon} />
                     <b>{title}</b>
