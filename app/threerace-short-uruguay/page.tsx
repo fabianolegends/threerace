@@ -7,13 +7,12 @@ import { useRouter } from "next/navigation";
 import LodgingDirectory from "../lodging-directory";
 import UruguayCutoff from "../uruguay-cutoff";
 import UruguayBriefing from "../uruguay-briefing";
-import UruguayGpsFiles from "../uruguay-gps-files";
 import navigationStyles from "../uruguay-event-navigation.module.css";
 import { getSavedLanguage, saveLanguage } from "../site-language";
 
 type Language = "es" | "pt" | "en";
-type PanelKey = "event" | "registration" | "course" | "gps" | "schedule" | "categories" | "kit" | "stay";
-type IconKind = "event" | "registration" | "course" | "gps" | "elevation" | "start" | "schedule" | "categories" | "kit" | "stay";
+type PanelKey = "event" | "registration" | "course" | "schedule" | "categories" | "kit" | "stay";
+type IconKind = "event" | "registration" | "course" | "elevation" | "start" | "schedule" | "categories" | "kit" | "stay";
 
 type ThreeraceShortUruguayPageProps = {
   initialLanguage?: Language;
@@ -55,7 +54,6 @@ const copy = {
     actions: [
       ["ATLETAS / RESULTADOS", "PLATAFORMA APURACRONO"],
       ["RECORRIDO + DESNIVEL", "64 KM · +670 M"],
-      ["ARCHIVOS GPS", "FORMATO GPX / Ride with GPS"],
     ],
     countdown: ["DÍAS", "HORAS", "MINUTOS"],
     information: "INFORMACIÓN COMPLETA",
@@ -63,7 +61,6 @@ const copy = {
       event: "EL EVENTO",
       registration: "INSCRIPCIONES",
       course: "ETAPA / PUNTOS DE CORTE",
-      gps: "ARCHIVOS GPS",
       schedule: "PROGRAMACIÓN",
       categories: "CATEGORÍAS Y PREMIACIÓN",
       kit: "KIT Y SERVICIOS",
@@ -87,7 +84,7 @@ const copy = {
     courseLabels: ["FECHA", "SALIDA", "DISTANCIA", "DESNIVEL", "FORMATO"],
     courseValues: ["Domingo · 01/11/2026", "La Pedrera · Rocha", "64 km", "670 m de desnivel positivo", "MTB · etapa única"],
     courseNote:
-      "El recorrido es el mismo que la Stage 3 de la Ultra. Descargá el track en la sección ARCHIVOS GPS.",
+      "El recorrido es el mismo que la Stage 3 de la Ultra.",
     scheduleTitle: "ENTREGA DE KIT Y SALIDA",
     scheduleItems: [
       "Sábado · 31 de octubre · 16:00–19:00 · Entrega de kits en la Arena Threerace, en La Paloma.",
@@ -161,7 +158,6 @@ const copy = {
     actions: [
       ["ATLETAS / RESULTADOS", "PLATAFORMA APURACRONO"],
       ["PERCURSO + ELEVAÇÃO", "64 KM · +670 M"],
-      ["ARQUIVOS DE GPS", "FORMATO GPX / Ride with GPS"],
     ],
     countdown: ["DIAS", "HORAS", "MINUTOS"],
     information: "INFORMAÇÕES COMPLETAS",
@@ -169,7 +165,6 @@ const copy = {
       event: "O EVENTO",
       registration: "INSCRIÇÕES",
       course: "ETAPA / PONTOS DE CORTE",
-      gps: "ARQUIVOS DE GPS",
       schedule: "PROGRAMAÇÃO",
       categories: "CATEGORIAS E PREMIAÇÃO",
       kit: "KIT E SERVIÇOS",
@@ -193,7 +188,7 @@ const copy = {
     courseLabels: ["DATA", "LARGADA", "DISTÂNCIA", "ELEVAÇÃO", "FORMATO"],
     courseValues: ["Domingo · 01/11/2026", "La Pedrera · Rocha", "64 km", "670 m de elevação acumulada", "MTB · etapa única"],
     courseNote:
-      "O percurso é o mesmo da Stage 3 da Ultra. Baixe o track na seção ARQUIVOS DE GPS.",
+      "O percurso é o mesmo da Stage 3 da Ultra.",
     scheduleTitle: "ENTREGA DE KIT E LARGADA",
     scheduleItems: [
       "Sábado · 31 de outubro · 16:00–19:00 · Entrega de kits na Arena Threerace, em La Paloma.",
@@ -267,7 +262,6 @@ const copy = {
     actions: [
       ["ATHLETES / RESULTS", "APURACRONO PLATFORM"],
       ["COURSE + ELEVATION", "64 KM · +670 M"],
-      ["GPS FILES", "GPX FORMAT / Ride with GPS"],
     ],
     countdown: ["DAYS", "HOURS", "MINUTES"],
     information: "COMPLETE INFORMATION",
@@ -275,7 +269,6 @@ const copy = {
       event: "THE EVENT",
       registration: "REGISTRATION",
       course: "STAGE / CUTOFF POINTS",
-      gps: "GPS FILES",
       schedule: "SCHEDULE",
       categories: "CATEGORIES AND AWARDS",
       kit: "KIT AND SERVICES",
@@ -299,7 +292,7 @@ const copy = {
     courseLabels: ["DATE", "START", "DISTANCE", "ELEVATION", "FORMAT"],
     courseValues: ["Sunday · Nov 1, 2026", "La Pedrera · Rocha", "64 km", "670 m elevation gain", "MTB · single-stage race"],
     courseNote:
-      "The course is the same as Ultra Stage 3. Download the track in the GPS FILES section.",
+      "The course is the same as Ultra Stage 3.",
     scheduleTitle: "KIT PICKUP AND START",
     scheduleItems: [
       "Saturday · October 31 · 16:00–19:00 · Kit pickup at the Threerace Arena in La Paloma.",
@@ -367,14 +360,13 @@ const copy = {
   },
 } as const;
 
-const panelKeys: PanelKey[] = ["event", "registration", "course", "gps", "schedule", "categories", "kit", "stay"];
-const actionIcons: IconKind[] = ["registration", "course", "gps"];
+const panelKeys: PanelKey[] = ["event", "registration", "course", "schedule", "categories", "kit", "stay"];
+const actionIcons: IconKind[] = ["registration", "course"];
 
 function Icon({ kind }: { kind: IconKind }) {
   const paths: Record<IconKind, ReactNode> = {
     event: <><circle cx="24" cy="24" r="15" /><path d="M15 29c4-1 6-3 9-8 3 5 6 7 10 8M19 16l3-6M29 16l-3-6" /></>,
     registration: <><path d="M10 12h28v24H10zM16 18h16M16 24h10M16 30h7" /><path d="M14 8h20M14 40h20" /></>,
-    gps: <><path d="M37 20c0 10-13 23-13 23S11 30 11 20a13 13 0 1 1 26 0Z"/><circle cx="24" cy="20" r="5"/></>,
     course: <><path d="M8 35 17 9l9 26 6-18 8 18" /><circle cx="17" cy="9" r="3" /><circle cx="40" cy="35" r="3" /></>,
     elevation: <><path d="M6 38h36M10 34l9-15 7 9 8-17 6 23" /><path d="m33 9 2-5 4 4" /></>,
     start: <><path d="M10 41V8M10 10h25l-5 8 5 8H10" /><circle cx="10" cy="41" r="3" /></>,
@@ -513,8 +505,6 @@ export function ThreeraceShortUruguayPage({
       );
     }
 
-    if (key === "gps") return <UruguayGpsFiles event="short" language={language} />;
-
     if (key === "course") {
       return (
         <div className="official-copy">
@@ -652,10 +642,10 @@ export function ThreeraceShortUruguayPage({
           {t.actions.map(([title, note], index) => (
             <a
               key={title}
-              href={index === 0 ? resultsUrl : index === 1 ? "#course" : "#gps"}
+              href={index === 0 ? resultsUrl : "#course"}
               target={index === 0 ? "_blank" : undefined}
               rel={index === 0 ? "noopener noreferrer" : undefined}
-              onClick={index === 0 ? undefined : () => openInformationPanel(index === 1 ? "course" : "gps")}
+              onClick={index === 0 ? undefined : () => openInformationPanel("course")}
             >
               <Icon kind={actionIcons[index]} />
               <b>{title}</b>
