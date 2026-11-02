@@ -7,8 +7,6 @@ import { getSavedLanguage, saveLanguage } from "../site-language";
 import { useSiteLanguage } from "../use-site-language";
 import LodgingDirectory from "../lodging-directory";
 import UruguayStages from "./stages";
-import StartOrder from "./start-order";
-import UruguayGpsFiles from "../uruguay-gps-files";
 import navigationStyles from "../uruguay-event-navigation.module.css";
 import UruguaySchedule from "./schedule";
 import UruguayRulebooks, { getRulebookUrl } from "../uruguay-rulebooks";
@@ -829,7 +827,7 @@ export function ThreeraceUruguayPage({
   useEffect(() => {
     const openLinkedPanel = () => {
       if (window.location.hash === "#rules") setOpenInfo(6);
-      if (window.location.hash === "#gps") setOpenInfo(5);
+      
       if (window.location.hash === "#stages") setOpenInfo(3);
     };
     openLinkedPanel();
@@ -928,15 +926,13 @@ export function ThreeraceUruguayPage({
         >
           <QuickIcon type="certificate"/><b>{labels.certificate}</b><small>{labels.certificateNote}</small><i><ActionArrow direction="external" /></i>
         </a>
-        <a href="#gps" onClick={() => setOpenInfo(5)}>
-          <QuickIcon type="gps"/><b>{labels.gps}</b><small>{labels.gpsNote}</small><i><ActionArrow direction="down" /></i>
-        </a>
+
         </section>
       </section>
 
       <section className="countdown-section" aria-label="Countdown">
         <div className="section-frame">
-          <StartOrder language={language} featured />
+
         </div>
         <div className="section-frame countdown-grid">
           {countdown.map((value, index) => (
@@ -958,7 +954,7 @@ export function ThreeraceUruguayPage({
               { title: labels.categories, text: info.categories, icon: "categories" as const },
               { title: labels.stages, text: "", icon: "stages" as const },
               { title: labels.program, text: "", icon: "schedule" as const },
-              { title: labels.gps, text: "", icon: "gps" as const },
+
               { title: labels.rulebook, text: "", icon: "rulebook" as const },
               { title: labels.stay, text: info.lodging, href: lodgingUrl, action: labels.stay, icon: "lodging" as const },
             ].map(({ title, text, href, action, icon }, index) => {
@@ -974,7 +970,7 @@ export function ThreeraceUruguayPage({
                   </div>
                   <div className="original-accordion-content" id={`event-info-${index}`}>
                     <div className="accordion-panel-inner">
-                      {icon === "gps" ? <UruguayGpsFiles language={language} /> : icon === "rulebook" ? <UruguayRulebooks event="ultra" language={language} /> : icon === "lodging" ? <LodgingDirectory language={language} /> : icon === "stages" ? <UruguayStages language={language} /> : icon === "schedule" ? <UruguaySchedule language={language} /> : <OfficialText text={text} />}
+                      {icon === "rulebook" ? <UruguayRulebooks event="ultra" language={language} /> : icon === "lodging" ? <LodgingDirectory language={language} /> : icon === "stages" ? <UruguayStages language={language} /> : icon === "schedule" ? <UruguaySchedule language={language} /> : <OfficialText text={text} />}
                       {href && icon !== "lodging" && <a className="accordion-action" href={href} target="_blank" rel="noreferrer">{action} ↗</a>}
                     </div>
                   </div>
