@@ -1418,3 +1418,7 @@ body.save-date-open{overflow:hidden}
   grid-template-columns:1fr;
  }
 }
+
+/* Featured registration: Threerace São Francisco de Paula. */
+@media(min-width:701px){.next-event-brasil .next-event-label{min-height:280px}.next-event-brasil .next-event-row{grid-template-columns:minmax(0,1fr) 64px minmax(150px,.5fr) 54px;gap:18px}.next-event-brasil .next-event-main h2{font-size:clamp(1.8rem,2.6vw,2.8rem)}}
+@media(min-width:701px) and (max-width:1150px){.next-event-brasil .next-event-row{grid-template-columns:minmax(0,1fr) 54px}.next-event-brasil .next-countdown{max-width:300px}}

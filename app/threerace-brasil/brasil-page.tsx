@@ -6,14 +6,14 @@ import Image from "next/image";
 import KitCollection from "./kit-collection";
 import AccordionIcon from "./accordion-icon";
 import CategoryTables from "./category-tables";
-import PrioritySignup, { PrioritySignupButton, PrioritySignupProvider } from "./priority-signup";
+import PrioritySignup from "./priority-signup";
 import RaceCountdown from "./race-countdown";
 import RaceSchedule from "./race-schedule";
 import RaceGallery from "./race-gallery";
 import RegistrationInclusions from "./registration-inclusions";
 import useSectionNavigation from "./use-section-navigation";
 import { EventVenue, RegulationDocument } from "./event-resources";
-import { information } from "./content";
+import { brasilRegistrationUrl, information } from "./content";
 import { getBrasilContent } from "./content-i18n";
 import { brasilPageCopy } from "./page-copy";
 import { brasilLanguageTags, brasilPath } from "./localization";
@@ -106,7 +106,6 @@ export default function BrasilPage({ locale = "pt" }: { locale?: SiteLanguage })
   const { openInfo, onSectionLinkClick, toggleSection } = useSectionNavigation(informationIds, closeMenu);
 
   return <main className="uruguay-event-page brasil-event-page" lang={brasilLanguageTags[locale]} onClick={onSectionLinkClick}>
-    <PrioritySignupProvider locale={locale}>
     <section className="hero uruguay-event-hero" style={{ backgroundImage: "url(/brasil-2027/hero-pdl0485-sem-logo.webp)" }}>
       <header className="site-header">
         <Link className="brand" href="/" aria-label="Threerace Sports"><img className="header-tr3-logo" src="/tr3-logo-display.webp" alt="Threerace Sports" /></Link>
@@ -182,7 +181,6 @@ export default function BrasilPage({ locale = "pt" }: { locale?: SiteLanguage })
       </div>
     </section>
     <section className="brasil-faq section-frame" id="duvidas"><div><p className="section-label">{t("PERGUNTAS FREQUENTES")}</p><h2>{t("ANTES DA LARGADA.")}</h2><a className="button button-dark" href={brasilEvent.whatsapp} target="_blank" rel="noreferrer">{t("FALAR COM A THREERACE ↗")}</a></div><div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
-    <section className="brasil-closing" id="encerramento"><div className="section-frame"><p className="section-label">SÃO FRANCISCO DE PAULA · RS</p><h2>{t("O PRÓXIMO CAPÍTULO")}<br />{t("COMEÇA AQUI.")}</h2><p>{brasilEvent.date}</p><PrioritySignupButton className="button button-primary">{t("ENTRAR NA LISTA PRIORITÁRIA ↗")}</PrioritySignupButton></div></section>
-    </PrioritySignupProvider>
+    <section className="brasil-closing" id="encerramento"><div className="section-frame"><p className="section-label">SÃO FRANCISCO DE PAULA · RS</p><h2>{t("O PRÓXIMO CAPÍTULO")}<br />{t("COMEÇA AQUI.")}</h2><p>{brasilEvent.date}</p><a className="button button-primary" href={brasilRegistrationUrl} target="_blank" rel="noopener noreferrer">{t("INSCREVA-SE ↗")}</a></div></section>
   </main>;
 }

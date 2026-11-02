@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { preload } from "react-dom";
 import { getSavedLanguage, saveLanguage, SiteLanguage } from "./site-language";
 import { useSiteLanguage } from "./use-site-language";
+import { brasilPath } from "./threerace-brasil/localization";
+import { brasilEvent } from "./threerace-brasil/content";
 
 const logo = "/tr3-logo-display.webp";
 const azimutMenuLogo = "/azimut-extremo-logo-white.svg";
@@ -22,13 +24,13 @@ const homeCopy = {
     heroKicker: "THREERACE SPORTS · DESDE 2017", hero: ["UMA MARCA.", "DIFERENTES TERRITÓRIOS.", "EXPERIÊNCIAS QUE DEIXAM HISTÓRIAS."],
     heroText: "Esporte, território e experiência conectados em projetos autorais no Brasil e na América do Sul.",
     eventsCta: "CONHEÇA NOSSOS EVENTOS ↓", aboutCta: "CONHEÇA A THREERACE",
-    next: "PRÓXIMOS DESAFIOS", open: "INSCRIÇÕES ENCERRADAS", placeUy: "ROCHA + LA PALOMA", countryUy: "URUGUAI · 2026",
+    next: "PRÓXIMOS DESAFIOS", open: "INSCRIÇÕES ABERTAS", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRASIL · 2027", brasilDate: "02 — 04 ABR · 2027", brasilLink: "Conhecer Threerace São Francisco de Paula",
     mtbDays: "MOUNTAIN BIKE · 3 DIAS", gravelStages: "GRAVEL · 2 ETAPAS", shortDay: "MOUNTAIN BIKE · 1 DIA",
     mtbDate: "30 OUT — 01 NOV · 2026", gravelDate: "31 OUT — 01 NOV · 2026", shortDate: "01 NOV · 2026",
     countdown: ["DIAS", "HORAS", "MIN"], sharedBy: "Organização compartilhada por Threerace Sports e Azimut Extremo",
     ecosystem: "ECOSSISTEMA THREERACE", calendar: ["UM CALENDÁRIO.", "DIFERENTES TERRITÓRIOS."],
     calendarText: "Projetos com identidades próprias, unidos pela mesma forma de criar esporte, comunidade e experiência.",
-    eventStatus: ["INSCRIÇÕES ENCERRADAS", "INSCRIÇÕES ENCERRADAS", "INSCRIÇÕES ENCERRADAS", "ABERTURA INSCRIÇÕES 02/11"],
+    eventStatus: ["INSCRIÇÕES ENCERRADAS", "INSCRIÇÕES ENCERRADAS", "INSCRIÇÕES ENCERRADAS", "INSCRIÇÕES ABERTAS"],
     eventDates: ["30 OUT — 01 NOV · 2026", "31 OUT — 01 NOV · 2026", "01 NOV · 2026", "02 — 04 ABR · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguai", "Rocha + La Paloma · Uruguai", "La Paloma · Rocha · Uruguai", "São Francisco de Paula · Brasil"],
     eventTexts: [
@@ -61,13 +63,13 @@ const homeCopy = {
     heroKicker: "THREERACE SPORTS · DESDE 2017", hero: ["UNA MARCA.", "DIFERENTES TERRITORIOS.", "EXPERIENCIAS QUE DEJAN HISTORIAS."],
     heroText: "Deporte, territorio y experiencia conectados en proyectos propios en Brasil y América del Sur.",
     eventsCta: "CONOCE NUESTROS EVENTOS ↓", aboutCta: "CONOCE THREERACE",
-    next: "PRÓXIMOS DESAFÍOS", open: "INSCRIPCIONES CERRADAS", placeUy: "ROCHA + LA PALOMA", countryUy: "URUGUAY · 2026",
+    next: "PRÓXIMOS DESAFÍOS", open: "INSCRIPCIONES ABIERTAS", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRASIL · 2027", brasilDate: "02 — 04 ABR · 2027", brasilLink: "Conocer Threerace São Francisco de Paula",
     mtbDays: "MOUNTAIN BIKE · 3 DÍAS", gravelStages: "GRAVEL · 2 ETAPAS", shortDay: "MOUNTAIN BIKE · 1 DÍA",
     mtbDate: "30 OCT — 01 NOV · 2026", gravelDate: "31 OCT — 01 NOV · 2026", shortDate: "01 NOV · 2026",
     countdown: ["DÍAS", "HORAS", "MIN"], sharedBy: "Organización compartida por Threerace Sports y Azimut Extremo",
     ecosystem: "ECOSISTEMA THREERACE", calendar: ["UN CALENDARIO.", "DIFERENTES TERRITORIOS."],
     calendarText: "Proyectos con identidades propias, unidos por una misma forma de crear deporte, comunidad y experiencia.",
-    eventStatus: ["INSCRIPCIONES CERRADAS", "INSCRIPCIONES CERRADAS", "INSCRIPCIONES CERRADAS", "APERTURA INSCRIPCIONES 02/11"],
+    eventStatus: ["INSCRIPCIONES CERRADAS", "INSCRIPCIONES CERRADAS", "INSCRIPCIONES CERRADAS", "INSCRIPCIONES ABIERTAS"],
     eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "02 — 04 ABR · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "São Francisco de Paula · Brasil"],
     eventTexts: [
@@ -100,13 +102,13 @@ const homeCopy = {
     heroKicker: "THREERACE SPORTS · SINCE 2017", hero: ["ONE BRAND.", "DIFFERENT TERRITORIES.", "EXPERIENCES THAT LEAVE STORIES."],
     heroText: "Sport, territory and experience connected through original projects in Brazil and South America.",
     eventsCta: "DISCOVER OUR EVENTS ↓", aboutCta: "DISCOVER THREERACE",
-    next: "NEXT CHALLENGES", open: "REGISTRATION CLOSED", placeUy: "ROCHA + LA PALOMA", countryUy: "URUGUAY · 2026",
+    next: "NEXT CHALLENGES", open: "REGISTRATION OPEN", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRAZIL · 2027", brasilDate: "02 — 04 APR · 2027", brasilLink: "Explore Threerace São Francisco de Paula",
     mtbDays: "MOUNTAIN BIKE · 3 DAYS", gravelStages: "GRAVEL · 2 STAGES", shortDay: "MOUNTAIN BIKE · 1 DAY",
     mtbDate: "30 OCT — 01 NOV · 2026", gravelDate: "31 OCT — 01 NOV · 2026", shortDate: "01 NOV · 2026",
     countdown: ["DAYS", "HOURS", "MIN"], sharedBy: "Jointly organized by Threerace Sports and Azimut Extremo",
     ecosystem: "THREERACE ECOSYSTEM", calendar: ["ONE CALENDAR.", "DIFFERENT TERRITORIES."],
     calendarText: "Projects with their own identities, united by the same way of creating sport, community and experience.",
-    eventStatus: ["REGISTRATION CLOSED", "REGISTRATION CLOSED", "REGISTRATION CLOSED", "REGISTRATION OPENS 02/11"],
+    eventStatus: ["REGISTRATION CLOSED", "REGISTRATION CLOSED", "REGISTRATION CLOSED", "REGISTRATION OPEN"],
     eventDates: ["30 OCT — 01 NOV · 2026", "31 OCT — 01 NOV · 2026", "01 NOV · 2026", "02 — 04 APR · 2027"],
     eventPlaces: ["Rocha + La Paloma · Uruguay", "Rocha + La Paloma · Uruguay", "La Paloma · Rocha · Uruguay", "São Francisco de Paula · Brazil"],
     eventTexts: [
@@ -198,7 +200,7 @@ const events = [
     place: "São Francisco de Paula · Brasil",
     date: "02 — 04 ABR · 2027",
     sport: "MTB STAGE RACE",
-    status: "ABERTURA INSCRIÇÕES 02/11",
+    status: "INSCRIÇÕES ABERTAS",
     text: "A edição de 10 anos retorna a São Francisco de Paula com Ultra em três dias e Sport em dois dias.",
     href: "/threerace-brasil",
     img: "/event-threerace-brasil-card.webp",
@@ -286,9 +288,7 @@ export default function Home() {
   });
   const [menu, setMenu] = useState(false);
   const language = useSiteLanguage("pt");
-  const mtbCountdown = useCountdown("2026-10-30T08:00:00-03:00");
-  const gravelCountdown = useCountdown("2026-10-31T08:00:00-03:00");
-  const shortCountdown = useCountdown("2026-11-01T08:30:00-03:00");
+  const brasilCountdown = useCountdown(`${brasilEvent.startDate}T00:00:00-03:00`);
   const t = homeCopy[language];
   const localizedEvents = events.map((event, index) => ({
     ...event,
@@ -296,7 +296,8 @@ export default function Home() {
     date: t.eventDates[index],
     status: t.eventStatus[index],
     text: t.eventTexts[index],
-  }));
+    href: event.href === "/threerace-brasil" ? brasilPath(language) : event.href,
+  })).sort((a, b) => Number(b.name.endsWith("Brasil")) - Number(a.name.endsWith("Brasil")));
   const localizedNews = news.map((item, index) => ({
     ...item,
     date: t.newsDates[index],
@@ -354,82 +355,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="next-event">
+      <section className="next-event next-event-brasil">
         <div className="section-frame next-events-shell">
-          <div className="next-event-label"><span>{t.next}</span><b>{t.open}</b><small>{t.placeUy}<br />{t.countryUy}</small></div>
+          <div className="next-event-label"><span>{t.next}</span><b>{t.open}</b><small>{t.placeBrasil}<br />{t.countryBrasil}</small></div>
           <div className="next-event-list">
             <article className="next-event-row">
               <div className="next-event-main">
-                <p>{t.mtbDays}</p>
-                <h2>THREERACE BIKE<br />ULTRAMARATHON URUGUAY</h2>
+                <p>MTB STAGE RACE · ULTRA + SPORT</p>
+                <h2>THREERACE BIKE<br />ULTRAMARATHON BRASIL</h2>
                 <div className="next-event-info-line">
                   <div className="next-event-organizers-mobile" aria-hidden="true">
-                    <img src={logo} width="512" height="512" alt="" /><span>+</span><img src={azimutMenuLogo} width="363" height="354" alt="" />
+                    <img src={logo} width="512" height="512" alt="" />
                   </div>
-                  <div className="next-event-meta"><span>{t.mtbDate}</span><span>MTB STAGE RACE</span></div>
+                  <div className="next-event-meta"><span>{t.brasilDate}</span></div>
                 </div>
               </div>
-              <div className="next-event-organizers" aria-label={t.sharedBy}>
+              <div className="next-event-organizers" aria-label="Threerace Sports">
                 <img src={logo} width="512" height="512" alt="TR3" />
-                <span>+</span>
-                <img src={azimutMenuLogo} width="363" height="354" alt="Azimut Extremo" />
               </div>
-              <div className="next-countdown" aria-label="Contagem regressiva Threerace Uruguay">
-                <div><b>{mtbCountdown.days}</b><span>{t.countdown[0]}</span></div>
-                <div><b>{String(mtbCountdown.hours).padStart(2, "0")}</b><span>{t.countdown[1]}</span></div>
-                <div><b>{String(mtbCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
+              <div className="next-countdown" aria-label={t.brasilDate}>
+                <div><b>{brasilCountdown.days}</b><span>{t.countdown[0]}</span></div>
+                <div><b>{String(brasilCountdown.hours).padStart(2, "0")}</b><span>{t.countdown[1]}</span></div>
+                <div><b>{String(brasilCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
               </div>
-              <a className="next-event-link" href="/threerace-uruguay" aria-label="Conhecer Threerace Uruguay">
-                <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
-              </a>
-            </article>
-            <article className="next-event-row">
-              <div className="next-event-main">
-                <p>{t.gravelStages}</p>
-                <h2>GRAVEL<br />EXPERIENCE URUGUAY</h2>
-                <div className="next-event-info-line">
-                  <div className="next-event-organizers-mobile" aria-hidden="true">
-                    <img src={logo} width="512" height="512" alt="" /><span>+</span><img src={azimutMenuLogo} width="363" height="354" alt="" />
-                  </div>
-                  <div className="next-event-meta"><span>{t.gravelDate}</span><span>174 KM</span></div>
-                </div>
-              </div>
-              <div className="next-event-organizers" aria-label={t.sharedBy}>
-                <img src={logo} width="512" height="512" alt="TR3" />
-                <span>+</span>
-                <img src={azimutMenuLogo} width="363" height="354" alt="Azimut Extremo" />
-              </div>
-              <div className="next-countdown" aria-label="Contagem regressiva Gravel Experience Uruguay">
-                <div><b>{gravelCountdown.days}</b><span>{t.countdown[0]}</span></div>
-                <div><b>{String(gravelCountdown.hours).padStart(2, "0")}</b><span>{t.countdown[1]}</span></div>
-                <div><b>{String(gravelCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
-              </div>
-              <a className="next-event-link" href="/gravel-experience-uruguay" aria-label="Conhecer Gravel Experience Uruguay">
-                <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
-              </a>
-            </article>
-            <article className="next-event-row">
-              <div className="next-event-main">
-                <p>{t.shortDay}</p>
-                <h2>THREERACE<br />SHORT URUGUAY</h2>
-                <div className="next-event-info-line">
-                  <div className="next-event-organizers-mobile" aria-hidden="true">
-                    <img src={logo} width="512" height="512" alt="" /><span>+</span><img src={azimutMenuLogo} width="363" height="354" alt="" />
-                  </div>
-                  <div className="next-event-meta"><span>{t.shortDate}</span><span>63 KM · +630 M</span></div>
-                </div>
-              </div>
-              <div className="next-event-organizers" aria-label={t.sharedBy}>
-                <img src={logo} width="512" height="512" alt="TR3" />
-                <span>+</span>
-                <img src={azimutMenuLogo} width="363" height="354" alt="Azimut Extremo" />
-              </div>
-              <div className="next-countdown" aria-label="Contagem regressiva Threerace Short Uruguay">
-                <div><b>{shortCountdown.days}</b><span>{t.countdown[0]}</span></div>
-                <div><b>{String(shortCountdown.hours).padStart(2, "0")}</b><span>{t.countdown[1]}</span></div>
-                <div><b>{String(shortCountdown.minutes).padStart(2, "0")}</b><span>{t.countdown[2]}</span></div>
-              </div>
-              <a className="next-event-link" href="/threerace-short-uruguay" aria-label="Conhecer Threerace Short Uruguay">
+              <a className="next-event-link" href={brasilPath(language)} aria-label={t.brasilLink}>
                 <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M7 25 25 7M12 7h13v13" /></svg>
               </a>
             </article>
@@ -444,7 +393,7 @@ export default function Home() {
           <p>{t.calendarText}</p>
         </div>
         <div className="event-directory">
-          {localizedEvents.map((event) => (
+          {localizedEvents.map((event, index) => (
             <a
               className="directory-card"
               href={event.href}
@@ -452,7 +401,7 @@ export default function Home() {
             >
               <img src={event.img} width={event.width} height={event.height} alt="" loading="lazy" decoding="async" style={{ objectPosition: event.position }} />
               <div className="directory-overlay" />
-              <span className="directory-number">{event.n}</span>
+              <span className="directory-number">{String(index + 1).padStart(2, "0")}</span>
               <span className="directory-status">{event.status}</span>
               <div className="directory-copy">
                 <p>{event.place}</p>

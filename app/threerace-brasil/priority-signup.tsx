@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useRef, useState, type FormEven
 import { PRIORITY_CATEGORIES, validatePriorityRegistration } from "../../lib/priority-list-schema";
 import type { SiteLanguage } from "../site-language";
 import { getBrasilContent } from "./content-i18n";
+import { brasilRegistrationUrl } from "./content";
 import { componentText, translatePriorityError } from "./components-i18n";
 import "./priority-signup.css";
 
@@ -20,11 +21,11 @@ export default function PrioritySignup({ placement = "hero", locale = "pt" }: { 
   const titleId = `priority-callout-title-${placement}`;
   return <aside className={`brasil-priority-callout${placement === "prices" ? " brasil-priority-callout-prices" : ""}`} id={placement === "hero" ? "lista-prioritaria" : undefined} aria-labelledby={titleId}>
     <div>
-      {placement === "hero" ? <h2 id={titleId}>{t("Lista prioritária")}</h2> : <h4 id={titleId}>{t("Garanta seu acesso ao lote prioritário")}</h4>}
+      {placement === "hero" ? <h2 id={titleId}>{t("Inscrições abertas")}</h2> : <h4 id={titleId}>{t("Inscrições abertas")}</h4>}
       <p><strong>{t("DE {opening} A {closing}", { opening: priorityCampaign.openingDate, closing: priorityCampaign.closingDate })}</strong> — {t("valor diferenciado, até o limite de {vacancies}.", { vacancies: priorityCampaign.vacancyLabel })}</p>
-      {placement === "prices" && <p className="brasil-priority-callout-disclaimer">{t("Cadastre seu interesse para receber as informações de acesso. O cadastro não confirma a inscrição na prova.")}</p>}
+      <p className="brasil-priority-callout-disclaimer">{t("48 horas exclusivas para a lista prioritária. Confira seu e-mail e garanta sua inscrição.")}</p>
     </div>
-    <PrioritySignupButton>{t("QUERO ME CADASTRAR")} <span aria-hidden="true">↗</span></PrioritySignupButton>
+    <a className="brasil-priority-open" href={brasilRegistrationUrl} target="_blank" rel="noopener noreferrer">{t("INSCREVA-SE")} <span aria-hidden="true">↗</span></a>
   </aside>;
 }
 

@@ -263,6 +263,7 @@ const translations = {
     "EMPIEZA AQUÍ.",
     "STARTS HERE."
   ],
+  "INSCREVA-SE ↗": ["INSCRÍBETE ↗", "REGISTER NOW ↗"],
   "ENTRAR NA LISTA PRIORITÁRIA ↗": [
     "UNIRME A LA LISTA PRIORITARIA ↗",
     "JOIN THE PRIORITY LIST ↗"

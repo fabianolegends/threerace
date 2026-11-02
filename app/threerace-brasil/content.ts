@@ -16,6 +16,8 @@ export const priorityCampaign = {
   vacancyLabel: "100 vagas Ultra e 50 vagas Sport",
 };
 
+export const brasilRegistrationUrl = "https://event.windfit.app/threerace-bikeultramarathon-brasil";
+
 // Localização conferida na ficha do Google Maps (CID 5942198016919702).
 // Logradouro/bairro: Prefeitura de São Francisco de Paula, notícia 2536, 09/06/2026.
 // O número diverge entre as duas fontes; o mapa e as rotas apontam para o mesmo local.
