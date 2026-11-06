@@ -11,9 +11,9 @@ const translations = {
     "Precios de inscripción",
     "Registration fees"
   ],
-  "Inscrição por atleta, sem a jersey opcional. Taxas já consideradas nos valores abaixo.": [
-    "Inscripción por atleta, sin el jersey opcional. Los valores de abajo ya incluyen las tasas.",
-    "Registration per rider, excluding the optional jersey. The amounts below already include fees."
+  "Inscrição por atleta, sem a jersey opcional. Confira os valores vigentes abaixo.": [
+    "Inscripción por atleta, sin el jersey opcional. Consulta los precios vigentes a continuación.",
+    "Registration per rider, excluding the optional jersey. See the current prices below."
   ],
   "Modalidade e lote": [
     "Modalidad y lote",
@@ -23,13 +23,9 @@ const translations = {
     "Período o límite",
     "Period or limit"
   ],
-  "Taxa": [
-    "Tasa",
-    "Fee"
-  ],
-  "taxa": [
-    "tasa",
-    "fee"
+  "Valor": [
+    "Valor",
+    "Price"
   ],
   "LOTE VIGENTE": [
     "LOTE VIGENTE",
