@@ -6,7 +6,6 @@ import Image from "next/image";
 import KitCollection from "./kit-collection";
 import AccordionIcon from "./accordion-icon";
 import CategoryTables from "./category-tables";
-import PrioritySignup from "./priority-signup";
 import RaceCountdown from "./race-countdown";
 import RaceSchedule from "./race-schedule";
 import RaceGallery from "./race-gallery";
@@ -37,24 +36,21 @@ function RaceMetricIcon({ kind }: { kind: "distance" | "ascent" }) {
 
 function PricesTable({ locale }: { locale: SiteLanguage }) {
   const t = brasilPageCopy(locale);
-  const { registrationPrices, registrationPayment, registrationNotice, registrationBenefits, jerseyOption } = getBrasilContent(locale);
+  const { registrationPrices, registrationNotice, registrationBenefits, jerseyOption } = getBrasilContent(locale);
   return <div className="brasil-panel-extra">
     <div className="brasil-table-scroll" role="region" aria-label={t("Valores das inscrições")} tabIndex={0}>
       <table className="brasil-data-table brasil-price-table">
-        <caption>{t("Inscrição por atleta, sem a jersey opcional. Taxas já consideradas nos valores abaixo.")}</caption>
-        <thead><tr><th scope="col">{t("Modalidade e lote")}</th><th scope="col">{t("Período ou limite")}</th><th scope="col">Pix <span>{t("Taxa")} {registrationPayment.pixFeePercent}%</span></th><th scope="col">{registrationPayment.cardLabel} <span>{t("Taxa")} {registrationPayment.feePercent}%</span></th></tr></thead>
+        <caption>{t("Inscrição por atleta, sem a jersey opcional. Confira os valores vigentes abaixo.")}</caption>
+        <thead><tr><th scope="col">{t("Modalidade e lote")}</th><th scope="col">{t("Período ou limite")}</th><th scope="col">{t("Valor")}</th></tr></thead>
         <tbody>{registrationPrices.map((price) => <tr key={`${price.format}-${price.lot}`} className={price.active ? "brasil-price-current" : undefined}>
           <th scope="row"><strong>{price.format}</strong><span>{price.lot}</span>{price.active ? <span className="brasil-price-current-badge">{t("LOTE VIGENTE")}</span> : null}</th>
           <td className="brasil-price-period"><time dateTime={price.startDate}>{lotDate(price.startDate)}</time>{t(" a ")}<time dateTime={price.endDate}>{lotDate(price.endDate)}</time><span>{t("ou")} {price.vacancies} {t("vagas")}</span></td>
-          <td className="brasil-price-amount"><span className="brasil-price-mobile-label" aria-hidden="true">Pix · {t("taxa")} 0%</span>{currency(price.price, locale)}</td>
-          <td className="brasil-price-amount"><span className="brasil-price-mobile-label" aria-hidden="true">{registrationPayment.cardLabel} · {t("taxa")} {registrationPayment.feePercent}%</span>{currency(Math.round(price.price * (100 + registrationPayment.feePercent)) / 100, locale)}</td>
+          <td className="brasil-price-amount">{currency(price.price, locale)}</td>
         </tr>)}</tbody>
       </table>
     </div>
-    <p className="brasil-payment-note">{registrationPayment.description}</p>
     <p className="brasil-content-note">{registrationNotice}</p>
     <p className="brasil-jersey-note">{jerseyOption.description}</p>
-    <PrioritySignup locale={locale} placement="prices" />
     <div className="brasil-registration-benefits">
       {registrationBenefits.map((group) => <section key={group.id} aria-labelledby={group.id}>
         <h4 id={group.id}>{group.title}</h4>
@@ -124,7 +120,6 @@ export default function BrasilPage({ locale = "pt" }: { locale?: SiteLanguage })
         <h1>THREERACE<small>BIKE ULTRAMARATHON BRASIL</small></h1>
         <p className="brasil-hero-date">{brasilEvent.date}</p>
         <p className="brasil-hero-motto">{t("MONTANHAS, PESSOAS, HISTÓRIAS.")}</p>
-        <PrioritySignup locale={locale} />
       </div>
     </section>
     <section className="brasil-modalities" id="modalidades" aria-label={t("Modalidades da Threerace Brasil")}>
