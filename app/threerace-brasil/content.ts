@@ -12,7 +12,7 @@ export const brasilEvent = {
 
 export const priorityCampaign = {
   openingDate: "02/11/2026",
-  closingDate: "04/11/2026",
+  closingDate: "05/12/2026",
   vacancyLabel: "100 vagas Ultra e 50 vagas Sport",
 };
 
@@ -128,24 +128,18 @@ export const competitionCategories: CompetitionFormat[] = [
 
 // Destaque editorial solicitado pela organização para a prévia; não abre vendas.
 export const registrationPrices = [
-  { format: "Ultra", lot: "Lote prioritário", active: true, price: 599, startDate: "2026-11-02", endDate: "2026-11-04", vacancies: 100 },
-  { format: "Ultra", lot: "Lote 2", active: false, price: 699, startDate: "2026-11-05", endDate: "2026-12-10", vacancies: 100 },
+  { format: "Ultra", lot: "Lote Promo", active: true, price: 599, startDate: "2026-11-02", endDate: "2026-12-05", vacancies: 100 },
+  { format: "Ultra", lot: "Lote 2", active: false, price: 699, startDate: "2026-12-06", endDate: "2026-12-10", vacancies: 100 },
   { format: "Ultra", lot: "Lote 3", active: false, price: 829, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
-  { format: "Sport", lot: "Lote prioritário", active: true, price: 499, startDate: "2026-11-02", endDate: "2026-11-04", vacancies: 50 },
-  { format: "Sport", lot: "Lote 2", active: false, price: 599, startDate: "2026-11-05", endDate: "2026-12-10", vacancies: 50 },
+  { format: "Sport", lot: "Lote Promo", active: true, price: 499, startDate: "2026-11-02", endDate: "2026-12-05", vacancies: 50 },
+  { format: "Sport", lot: "Lote 2", active: false, price: 599, startDate: "2026-12-06", endDate: "2026-12-10", vacancies: 50 },
   { format: "Sport", lot: "Lote 3", active: false, price: 729, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
 ];
-export const registrationPayment = {
-  cardLabel: "Pagamento cartão de crédito",
-  feePercent: 10,
-  pixFeePercent: 0,
-  description: "Pagamento com cartão de crédito tem taxa de 10% em todos os lotes. No Pix, a taxa é de 0%.",
-};
 export const jerseyOption = {
   price: 100,
   description: "A jersey de ciclismo é opcional e pode ser comprada por R$ 100 adicionais, junto com a inscrição, no momento de realizá-la. Disponível para Ultra e Sport, em todos os lotes.",
 };
-export const registrationNotice = "Cada lote encerra na data final indicada ou ao atingir seu limite de vagas, o que ocorrer primeiro. O lote prioritário é exclusivo para a lista prioritária. Os horários de abertura e encerramento serão informados no canal oficial de inscrição.";
+export const registrationNotice = "Cada lote encerra na data final indicada ou ao atingir seu limite de vagas, o que ocorrer primeiro. Os horários de abertura e encerramento serão informados no canal oficial de inscrição.";
 export const registrationIncludedItems = [
   { icon: "shirt", title: "Camiseta casual", detail: "Alusiva ao evento.", text: "Camiseta casual alusiva ao evento." },
   { icon: "socks", title: "Meias Threerace", detail: "", text: "Meias Threerace." },
@@ -236,7 +230,7 @@ export const information = [
     "O planejamento também inclui uma expo para aproximar ciclistas, acompanhantes e visitantes de lojas e empresas do segmento, com atendimento, apresentação de produtos e venda direta ao público.",
     "Com trajetória desde 2017, a Threerace prepara a edição de 2027 com 400 vagas: 250 na Ultra e 150 na Sport, distribuídas em três lotes por modalidade.",
   ] },
-  { id: "inscricoes", title: "INSCRIÇÕES E VALORES", icon: "document", heading: "LOTES E VALORES POR ATLETA", paragraphs: ["O lote prioritário é destinado à lista prioritária. Camiseta casual dry, meia de ciclismo, placa personalizada e sacochila estão incluídas em todas as modalidades e lotes."] },
+  { id: "inscricoes", title: "INSCRIÇÕES E VALORES", icon: "document", heading: "LOTES E VALORES POR ATLETA", paragraphs: ["Camiseta casual dry, meia de ciclismo, placa personalizada e sacochila estão incluídas em todas as modalidades e lotes."] },
   { id: "categorias", title: "CATEGORIAS", icon: "document", heading: "ULTRA E SPORT", paragraphs: ["Confira as categorias e escolha sua disputa. A E-bike é exclusiva da Ultra, com categorias masculina e feminina separadas. A idade esportiva é a idade completada até 31 de dezembro de 2027. A idade mínima geral é de 19 anos esportivos, com a exceção da Open feminina Sport indicada abaixo."] },
   { id: "etapas", title: "ETAPAS E PERCURSOS", icon: "stages", heading: "DOIS FORMATOS PARA ESCOLHER SEU DESAFIO", paragraphs: [courseNotice] },
   { id: "programacao", title: "PROGRAMAÇÃO", icon: "event", heading: "PROGRAMAÇÃO DIA A DIA · 2 A 4 DE ABRIL", paragraphs: [scheduleNotice] },
