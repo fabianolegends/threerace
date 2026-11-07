@@ -52,3 +52,63 @@
   .corporate-header .site-music-toggle { min-height: 36px; min-width: 36px; padding: 7px; }
   .site-music-floating { bottom: 18px; left: 12px; }
 }
+
+
+/* Official anthem: directly below and right-aligned to the home page navigation. */
+.corporate-header .site-music-placement {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 11;
+}
+.corporate-header .site-music-placement.is-menu-open {
+  visibility: hidden;
+  pointer-events: none;
+}
+.corporate-header .site-music-placement .site-music-toggle {
+  display: inline-flex;
+  gap: 10px;
+  min-height: 45px;
+  padding: 7px 12px;
+  border-color: rgba(255,255,255,.38);
+  background: rgba(8,22,28,.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.corporate-header .site-music-placement .site-music-toggle-text { display: inline; }
+.site-music-toggle-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  text-align: left;
+}
+.site-music-track-title {
+  color: rgba(255,255,255,.75);
+  font-size: .58rem;
+  font-weight: 500;
+  letter-spacing: .015em;
+  text-transform: none;
+}
+.site-music-toggle-action {
+  color: #edac83;
+  font-size: .56rem;
+  font-weight: 850;
+  letter-spacing: .09em;
+  margin-left: 6px;
+}
+@media (max-width: 580px) {
+  .corporate-header .site-music-placement { top: calc(100% + 7px); }
+  .corporate-header .site-music-placement .site-music-toggle {
+    min-height: 40px;
+    gap: 8px;
+    padding: 6px 10px;
+  }
+  .corporate-header .site-music-placement .site-music-toggle-text { font-size: .57rem; }
+  .corporate-header .site-music-placement .site-music-track-title { font-size: .53rem; }
+  .corporate-header .site-music-placement .site-music-toggle-action { font-size: .5rem; margin-left: 0; }
+}
+@media (max-width: 370px) {
+  .corporate-header .site-music-placement .site-music-track-title { display: none; }
+  .corporate-header .site-music-placement .site-music-toggle { min-height: 37px; }
+}

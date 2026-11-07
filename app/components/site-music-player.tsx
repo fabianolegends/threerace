@@ -42,18 +42,24 @@ export function SiteMusicProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    audio.volume = 0.45;
+    audio.volume = 0.35;
 
-    // Browsers may permit autoplay for returning visitors, but not for first visits.
-    // Never attempt audible autoplay until a visitor has explicitly opted in.
+    // Attempt playback on entry when the browser permits it; honor an
+    // explicit prior choice to disable music.
+    let preference: string | null = null;
     try {
-      if (window.localStorage.getItem(PREFERENCE_KEY) === "on") {
-        void audio.play().catch(() => {
-          // Autoplay may be blocked. The play button remains available.
-        });
-      }
+      preference = window.localStorage.getItem(PREFERENCE_KEY);
     } catch {
-      // Private browsing may block localStorage; explicit play still works.
+      // Private browsing can restrict storage.
+    }
+    if (preference !== "off") {
+      void audio.play().catch((reason: unknown) => {
+        // Autoplay rejection is normal for first-time visitors.
+        // Keep the click-to-play button instead of displaying an error.
+        if (reason instanceof DOMException &&
+          (reason.name === "NotAllowedError" || reason.name === "AbortError")) return;
+        setError(true);
+      });
     }
   }, []);
 
@@ -99,7 +105,7 @@ export function SiteMusicProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function SiteMusicControl({ locale = "pt" }: { locale?: Language }) {
+export function SiteMusicControl({ locale = "pt", compact = false }: { locale?: Language; compact?: boolean }) {
   const state = useContext(MusicContext);
   if (!state) return null;
   const label = labels[locale];
@@ -110,9 +116,10 @@ export function SiteMusicControl({ locale = "pt" }: { locale?: Language }) {
       type="button"
       className={state.playing ? "site-music-toggle is-playing" : "site-music-toggle"}
       onClick={() => void state.toggle()}
-      aria-label={state.error ? `${buttonText}. ${label.error}` : buttonText}
+      aria-label={state.error ? `${buttonText}. ${label.error}` : `${buttonText}: música oficial TR3, Ninguém Volta Igual`}
       aria-pressed={state.playing}
       disabled={state.loading}
+      aria-busy={state.loading}
       title={state.error ? label.error : `${buttonText}: Ninguém Volta Igual`}
     >
       <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -129,7 +136,19 @@ export function SiteMusicControl({ locale = "pt" }: { locale?: Language }) {
           </>
         )}
       </svg>
-      <span className="site-music-toggle-text">{buttonText}</span>
+      {compact ? (
+        <span className="site-music-toggle-text">{buttonText}</span>
+      ) : (
+        <>
+          <span className="site-music-toggle-copy">
+            <span className="site-music-toggle-text">{locale === "en" ? "TR3 OFFICIAL MUSIC" : "MÚSICA OFICIAL TR3"}</span>
+            <span className="site-music-track-title">Ninguém Volta Igual</span>
+          </span>
+          <span className="site-music-toggle-action">
+            {state.playing ? (locale === "en" ? "PAUSE" : "PAUSAR") : (locale === "en" ? "PLAY" : locale === "es" ? "ESCUCHAR" : "OUVIR")}
+          </span>
+        </>
+      )}
       {state.playing && <span className="site-music-playing-dot" aria-hidden="true" />}
     </button>
   );
@@ -142,7 +161,7 @@ export function SiteMusicFloatingControl() {
 
   return (
     <div className="site-music-floating">
-      <SiteMusicControl locale={locale} />
+      <SiteMusicControl locale={locale} compact />
     </div>
   );
 }

@@ -330,7 +330,6 @@ export default function Home() {
                 <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} onClick={() => setMenu(false)} key={href}>{homeNavigation[language][index]}</a>
               ))}
             </nav>
-            <SiteMusicControl locale={language} />
             <div className="corporate-socials" aria-label="Social media">
               <a href="https://www.instagram.com/threerace_sports/" target="_blank" rel="noreferrer" aria-label="Instagram"><SocialIcon network="instagram" /></a>
               <a href="https://www.facebook.com/threerace/" target="_blank" rel="noreferrer" aria-label="Facebook"><SocialIcon network="facebook" /></a>
@@ -347,6 +346,9 @@ export default function Home() {
             <button className="menu-toggle" type="button" aria-label={menu ? t.menuClose : t.menuOpen} aria-expanded={menu} onClick={() => setMenu(!menu)}>
               <span /><span />
             </button>
+          </div>
+          <div className={menu ? "site-music-placement is-menu-open" : "site-music-placement"}>
+            <SiteMusicControl locale={language} />
           </div>
         </header>
         <div className="corporate-hero-content section-frame" id="top">
