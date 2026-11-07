@@ -514,7 +514,7 @@ export default function Home() {
           <p>{t.journalText}</p>
         </div>
         <div className="section-frame journal-grid">
-          {localizedNews.map((item, index) => (
+          {localizedNews.slice(0, 3).map((item, index) => (
             <a className={index === 0 ? "journal-card journal-feature" : "journal-card"} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noreferrer" : undefined} key={item.title}>
               <div className="journal-image"><img src={item.img} width={item.width} height={item.height} alt="" loading="lazy" decoding="async" /></div>
               <div className="journal-copy"><p>{item.category}<span>{item.date}</span></p><h3>{item.title}</h3><small>{item.text}</small><b>{t.readStory}</b></div>
