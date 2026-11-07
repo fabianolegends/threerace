@@ -137,7 +137,9 @@ export function SiteMusicControl({ locale = "pt", compact = false }: { locale?: 
         )}
       </svg>
       {compact ? (
-        <span className="site-music-toggle-text">{buttonText}</span>
+        <span className="site-music-toggle-text">
+          {locale === "en" ? "TR3 OFFICIAL MUSIC" : "MÚSICA OFICIAL TR3"}
+        </span>
       ) : (
         <>
           <span className="site-music-toggle-copy">

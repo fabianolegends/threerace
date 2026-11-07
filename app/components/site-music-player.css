@@ -50,7 +50,15 @@
 }
 @media (max-width: 580px) {
   .corporate-header .site-music-toggle { min-height: 36px; min-width: 36px; padding: 7px; }
-  .site-music-floating { bottom: 18px; left: 12px; }
+  /* Place the music button directly below the fixed "TOPO" button on mobile. */
+  .site-music-floating { right: 14px; left: auto; bottom: 18px; }
+  .site-music-floating .site-music-toggle {
+    min-height: 38px;
+    padding: 0 12px;
+    font-size: .58rem;
+    letter-spacing: .075em;
+    background: rgba(7,17,22,.93);
+  }
 }
 
 
