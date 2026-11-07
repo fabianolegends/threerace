@@ -120,3 +120,32 @@
   .corporate-header .site-music-placement .site-music-track-title { display: none; }
   .corporate-header .site-music-placement .site-music-toggle { min-height: 37px; }
 }
+
+/*
+ * Mobile: show the same compact floating music control on EVERY route,
+ * including the homepage, directly below the fixed back-to-top button.
+ * Desktop retains the home menu-positioned player.
+ */
+.site-music-floating.is-home {
+  display: none;
+}
+@media (max-width: 900px) {
+  .corporate-header .site-music-placement {
+    display: none;
+  }
+  .site-music-floating,
+  .site-music-floating.is-home {
+    display: block;
+    right: 14px;
+    left: auto;
+    bottom: 18px;
+    z-index: 899;
+  }
+  .site-music-floating .site-music-toggle {
+    min-height: 38px;
+    padding: 0 12px;
+    font-size: .58rem;
+    letter-spacing: .075em;
+    background: rgba(7,17,22,.93);
+  }
+}

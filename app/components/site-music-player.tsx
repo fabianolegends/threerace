@@ -158,11 +158,12 @@ export function SiteMusicControl({ locale = "pt", compact = false }: { locale?: 
 
 export function SiteMusicFloatingControl() {
   const pathname = usePathname();
-  if (!pathname || pathname === "/") return null;
+  if (!pathname) return null;
   const locale: Language = pathname.startsWith("/es/") ? "es" : pathname.startsWith("/en/") ? "en" : "pt";
+  const isHome = pathname === "/";
 
   return (
-    <div className="site-music-floating">
+    <div className={isHome ? "site-music-floating is-home" : "site-music-floating"}>
       <SiteMusicControl locale={locale} compact />
     </div>
   );
