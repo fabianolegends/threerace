@@ -133,7 +133,7 @@ export const registrationPrices = [
   { format: "Ultra", lot: "Lote 3", active: false, price: 829, startDate: "2027-01-11", endDate: "2027-03-15", vacancies: 50 },
   { format: "Sport", lot: "Lote Promo", active: true, price: 499, startDate: "2026-11-02", endDate: "2026-12-05", vacancies: 50 },
   { format: "Sport", lot: "Lote 2", active: false, price: 599, startDate: "2026-12-06", endDate: "2027-01-10", vacancies: 50 },
-  { format: "Sport", lot: "Lote 3", active: false, price: 729, startDate: "2026-12-11", endDate: "2027-03-15", vacancies: 50 },
+  { format: "Sport", lot: "Lote 3", active: false, price: 729, startDate: "2027-01-11", endDate: "2027-03-15", vacancies: 50 },
 ];
 export const jerseyOption = {
   price: 100,
