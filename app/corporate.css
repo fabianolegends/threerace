@@ -1493,3 +1493,15 @@ body.save-date-open{overflow:hidden}
   .news-music-player-panel .site-music-toggle { max-width: 100%; }
   .news-lyrics-block { padding: 22px; }
 }
+
+/* Keep the fourth Journal story balanced after the featured release card. */
+@media (min-width: 901px) {
+  .journal-grid .journal-card:nth-child(4) {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, .6fr) minmax(0, 1fr);
+    min-height: 275px;
+  }
+  .journal-grid .journal-card:nth-child(4) .journal-image {
+    min-height: 275px;
+  }
+}
