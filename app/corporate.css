@@ -1422,3 +1422,74 @@ body.save-date-open{overflow:hidden}
 /* Featured registration: Threerace São Francisco de Paula. */
 @media(min-width:701px){.next-event-brasil .next-event-label{min-height:280px}.next-event-brasil .next-event-row{grid-template-columns:minmax(0,1fr) 64px minmax(150px,.5fr) 54px;gap:18px}.next-event-brasil .next-event-main h2{font-size:clamp(1.8rem,2.6vw,2.8rem)}}
 @media(min-width:701px) and (max-width:1150px){.next-event-brasil .next-event-row{grid-template-columns:minmax(0,1fr) 54px}.next-event-brasil .next-countdown{max-width:300px}}
+
+
+/* TR3 official music announcement: listening panel and original lyric sheet. */
+.news-music-player-panel {
+  background: #101d22;
+  border: 1px solid #b47e65;
+  border-radius: 12px;
+  padding: clamp(24px, 4.5vw, 40px);
+}
+.news-music-eyebrow {
+  display: block;
+  color: #a65f4c;
+  font-weight: 850;
+  letter-spacing: .18em;
+  font-size: .63rem;
+  margin-bottom: 20px;
+}
+.news-article-copy .news-music-player-panel .news-music-eyebrow { color: #e0a181; }
+.news-article-copy .news-music-player-panel h2 { color: #fff; font-size: clamp(2rem, 3.7vw, 3.5rem); }
+.news-article-copy .news-music-player-panel p {
+  color: rgba(255,255,255,.75);
+  max-width: 550px;
+  line-height: 1.65;
+}
+.news-music-player-panel .site-music-toggle {
+  min-height: 50px;
+  padding: 10px 16px;
+  margin-top: 10px;
+  border-color: #e3b19b;
+  background: #8c4f3d;
+}
+.news-music-player-panel .site-music-toggle:hover { background: #a65d46; }
+.news-music-player-panel .site-music-toggle-text { display: inline; }
+.news-lyrics-jump {
+  display: block;
+  width: fit-content;
+  margin-top: 20px;
+  color: #e3b19b;
+  letter-spacing: .11em;
+  font-size: .67rem;
+  font-weight: 800;
+}
+.news-lyrics-jump:hover { color: #fff; }
+.news-song-lyrics { scroll-margin-top: 28px; }
+.news-lyrics-block {
+  background: #fff;
+  border: 1px solid #ded1c7;
+  padding: clamp(23px, 4vw, 45px);
+  max-width: 700px;
+}
+.news-lyrics-stanza { margin-bottom: 30px; }
+.news-lyrics-stanza:last-child { margin-bottom: 0; }
+.news-lyrics-stanza h3 {
+  color: #9a5644;
+  font-size: .62rem;
+  letter-spacing: .16em;
+  font-weight: 850;
+  margin: 0 0 12px;
+}
+.news-article-copy .news-lyrics-stanza p {
+  color: #302b28;
+  white-space: pre-line;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.7;
+  margin: 0;
+}
+@media (max-width: 580px) {
+  .news-music-player-panel { padding: 23px; }
+  .news-music-player-panel .site-music-toggle { max-width: 100%; }
+  .news-lyrics-block { padding: 22px; }
+}

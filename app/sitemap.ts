@@ -66,6 +66,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${siteUrl}/noticias/musica-oficial-threerace-2027`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/noticias/threerace-uruguay-la-paloma`,
       changeFrequency: "monthly",
       priority: 0.7,

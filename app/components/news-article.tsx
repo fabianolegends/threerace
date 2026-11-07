@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { detectInitialLanguage, saveLanguage, SiteLanguage } from "../site-language";
+import { SiteMusicControl } from "./site-music-player";
 
 const logo = "/tr3-logo-display.webp";
 const flags: Record<SiteLanguage, string> = { es: "🇪🇸", pt: "🇧🇷", en: "🇬🇧" };
@@ -24,10 +25,251 @@ type Article = {
   image: string;
   imagePosition: string;
   eventHref: string;
+  hasSongLyrics?: boolean;
   translations: Record<SiteLanguage, ArticleTranslation>;
 };
 
+const officialSongLyrics = [
+  {
+    "label": "VERSO 1",
+    "lines": [
+      "Um último olhar pro relógio,",
+      "A mão firme no guidão.",
+      "Alguém me chama pelo nome",
+      "E some no meio do pelotão."
+    ]
+  },
+  {
+    "label": "PRÉ-REFRÃO",
+    "lines": [
+      "O barulho das rodas aumenta,",
+      "E o resto fica pra depois."
+    ]
+  },
+  {
+    "label": "REFRÃO",
+    "lines": [
+      "Pessoas, montanhas e histórias!",
+      "Um mundo inteiro pra atravessar.",
+      "Na chuva, no vento e no sol,",
+      "Há sempre uma razão pra continuar.",
+      "",
+      "Não é só vencer a distância,",
+      "Nem ser o primeiro a chegar.",
+      "O que vivemos pelo caminho",
+      "Muda nosso jeito de olhar."
+    ]
+  },
+  {
+    "label": "VERSO 2",
+    "lines": [
+      "Mais uma curva, outra subida,",
+      "E a chuva chega sem avisar.",
+      "Quem era estranho há meia hora",
+      "Já tem história pra compartilhar."
+    ]
+  },
+  {
+    "label": "PONTE",
+    "lines": [
+      "Na chegada, o abraço demora,",
+      "Ninguém tem pressa de ir embora.",
+      "O dia passa, a gente fica",
+      "Querendo viver tudo outra vez."
+    ]
+  },
+  {
+    "label": "REFRÃO FINAL",
+    "lines": [
+      "Pessoas, montanhas e histórias!",
+      "Um mundo inteiro pra atravessar.",
+      "Na chuva, no vento e no sol,",
+      "Há sempre uma razão pra continuar.",
+      "",
+      "Não é só vencer a distância,",
+      "Nem ser o primeiro a chegar.",
+      "O que vivemos pelo caminho",
+      "Muda nosso jeito de olhar."
+    ]
+  },
+  {
+    "label": "FINAL",
+    "lines": [
+      "A estrada fica pra trás,",
+      "Mas ninguém volta igual."
+    ]
+  }
+] as const;
+
+const musicPageCopy: Record<SiteLanguage, { label: string; listen: string; lyrics: string; original: string }> = {
+  pt: { label: "ESCUTE A MÚSICA OFICIAL", listen: "Dê o play e acompanhe a letra de Ninguém Volta Igual.", lyrics: "LETRA COMPLETA", original: "Letra original em português" },
+  es: { label: "ESCUCHA LA CANCIÓN OFICIAL", listen: "Reproduce la canción y acompaña la letra de Ninguém Volta Igual.", lyrics: "LETRA COMPLETA", original: "Letra original en portugués" },
+  en: { label: "LISTEN TO THE OFFICIAL SONG", listen: "Play the song and follow the lyrics of Ninguém Volta Igual.", lyrics: "FULL LYRICS", original: "Original lyrics in Portuguese" },
+};
+
 const articles: Record<string, Article> = {
+  "musica-oficial-threerace-2027": {
+  "image": "/brasil-2027/hero-pdl0485-sem-logo.webp",
+  "imagePosition": "center 44%",
+  "eventHref": "/threerace-brasil",
+  "hasSongLyrics": true,
+  "translations": {
+    "pt": {
+      "category": "THREERACE BRASIL · MÚSICA OFICIAL",
+      "date": "NOV · 2026",
+      "title": "“Ninguém Volta Igual”: a música oficial da edição de 10 anos da Threerace",
+      "lead": "Pessoas, montanhas e histórias agora também têm trilha sonora. A canção oficial da Threerace Bike Ultramarathon Brasil 2027 fala de tudo o que acontece entre a largada e a chegada — e do que permanece depois.",
+      "sections": [
+        {
+          "title": "Uma canção que começa antes da largada",
+          "paragraphs": [
+            "Um olhar para o relógio. A mão no guidão. Alguém chama pelo nome e desaparece no meio do pelotão. São cenas simples, que qualquer ciclista conhece, e que abrem “Ninguém Volta Igual”, a música oficial da edição comemorativa de 10 anos da Threerace Bike Ultramarathon Brasil.",
+            "Com a energia do rock, guitarras e uma interpretação vocal marcante, a música acompanha o movimento da prova sem tentar explicar cada sensação. Ela deixa que os sons, os encontros e os quilômetros contem a história."
+          ]
+        },
+        {
+          "title": "Pessoas, montanhas e histórias",
+          "paragraphs": [
+            "O conceito desta edição está no centro do refrão. As montanhas representam o desafio. As pessoas fazem a experiência ganhar sentido. E as histórias são o que levamos para casa: uma conversa no caminho, a chuva inesperada, uma mão estendida, a companhia que surge sem aviso.",
+            "A letra não é sobre chegar em primeiro lugar. É sobre aquilo que acontece enquanto pedalamos. Há quem dispute cada segundo, há quem busque completar a jornada — e há lembranças que pertencem a todos."
+          ]
+        },
+        {
+          "title": "Por que ninguém volta igual",
+          "paragraphs": [
+            "“O que vivemos pelo caminho muda nosso jeito de olhar.” Esse é o ponto de encontro entre a canção e a história da Threerace. Quando a linha de chegada fica para trás, permanecem os rostos, os abraços e a sensação de ter vivido algo que não cabe no resultado da prova.",
+            "Criada para acompanhar os momentos da edição de 2027, a música já pode ser ouvida no site. Abaixo, disponibilizamos a letra completa para que cada atleta encontre nela um pouco da própria história."
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "label": "MÚSICA",
+          "value": "NINGUÉM VOLTA IGUAL"
+        },
+        {
+          "label": "EDIÇÃO",
+          "value": "THREERACE BRASIL · 2027"
+        },
+        {
+          "label": "CONCEITO",
+          "value": "PESSOAS, MONTANHAS E HISTÓRIAS"
+        },
+        {
+          "label": "ESTILO",
+          "value": "ROCK"
+        }
+      ],
+      "back": "VOLTAR ÀS NOTÍCIAS",
+      "factsTitle": "SOBRE O LANÇAMENTO",
+      "cta": "CONHEÇA A EDIÇÃO 2027 ↗",
+      "related": "PESSOAS · MONTANHAS · HISTÓRIAS"
+    },
+    "es": {
+      "category": "THREERACE BRASIL · CANCIÓN OFICIAL",
+      "date": "NOV · 2026",
+      "title": "“Ninguém Volta Igual”: la canción oficial de los 10 años de Threerace",
+      "lead": "Personas, montañas e historias ahora también tienen banda sonora. La canción oficial de Threerace Bike Ultramarathon Brasil 2027 cuenta lo que sucede entre la largada y la llegada, y lo que permanece después.",
+      "sections": [
+        {
+          "title": "Una canción que comienza antes de la largada",
+          "paragraphs": [
+            "Una mirada al reloj. La mano en el manillar. Alguien te llama por tu nombre y se pierde entre el pelotón. Son imágenes familiares para cualquier ciclista, y así comienza “Ninguém Volta Igual”, la canción oficial de la edición de 10 años de Threerace.",
+            "Con guitarras, ritmo de rock y una voz llena de personalidad, la música sigue el movimiento de la prueba sin convertirlo en un discurso. Son las escenas y los encuentros los que cuentan la historia."
+          ]
+        },
+        {
+          "title": "Personas, montañas e historias",
+          "paragraphs": [
+            "El concepto de la edición vive en el estribillo. Las montañas son el desafío. Las personas dan sentido a la experiencia. Las historias son lo que nos llevamos a casa: una conversación, una lluvia inesperada, una mano tendida o la compañía que aparece en el camino.",
+            "La letra no habla solamente del primer puesto. Habla de lo que sucede mientras pedaleamos, tanto para quien compite por segundos como para quien busca completar su propia travesía."
+          ]
+        },
+        {
+          "title": "Por qué nadie vuelve igual",
+          "paragraphs": [
+            "“O que vivemos pelo caminho muda nosso jeito de olhar” — lo que vivimos en el camino cambia nuestra forma de mirar. Ese es el vínculo entre la canción y el espíritu de Threerace. Después de la meta quedan los rostros, los abrazos y recuerdos que no caben en una clasificación.",
+            "Creada para acompañar los momentos de 2027, la canción ya se puede escuchar en el sitio. Compartimos aquí la letra original completa, en portugués."
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "label": "CANCIÓN",
+          "value": "NINGUÉM VOLTA IGUAL"
+        },
+        {
+          "label": "EDICIÓN",
+          "value": "THREERACE BRASIL · 2027"
+        },
+        {
+          "label": "CONCEPTO",
+          "value": "PERSONAS, MONTAÑAS E HISTORIAS"
+        },
+        {
+          "label": "ESTILO",
+          "value": "ROCK"
+        }
+      ],
+      "back": "VOLVER A NOTICIAS",
+      "factsTitle": "SOBRE EL LANZAMIENTO",
+      "cta": "CONOCE LA EDICIÓN 2027 ↗",
+      "related": "PERSONAS · MONTAÑAS · HISTORIAS"
+    },
+    "en": {
+      "category": "THREERACE BRAZIL · OFFICIAL SONG",
+      "date": "NOV · 2026",
+      "title": "“Ninguém Volta Igual”: the official song of Threerace's 10-year edition",
+      "lead": "People, mountains and stories now have a soundtrack. The official song for Threerace Bike Ultramarathon Brazil 2027 is about everything that happens between the start and the finish — and what stays with us afterwards.",
+      "sections": [
+        {
+          "title": "A song that begins before the start",
+          "paragraphs": [
+            "A glance at the clock. A hand on the handlebars. Someone calls your name before disappearing into the peloton. These familiar cycling moments open “Ninguém Volta Igual”, the official song for Threerace's 10-year edition.",
+            "With rock guitars, a driving rhythm and an expressive vocal performance, the music follows the race without turning it into a motivational speech. Ordinary details and shared experiences do the storytelling."
+          ]
+        },
+        {
+          "title": "People, mountains and stories",
+          "paragraphs": [
+            "The edition's guiding idea takes center stage in the chorus. Mountains represent the challenge. People give the experience meaning. Stories are what we take home: a conversation, sudden rain, a helping hand, a friendship we did not expect.",
+            "The lyrics are not only about coming first. They reflect what happens while we ride, whether we are racing for every second or working towards a personal finish."
+          ]
+        },
+        {
+          "title": "Why no one returns the same",
+          "paragraphs": [
+            "“O que vivemos pelo caminho muda nosso jeito de olhar” — what we experience along the way changes how we see the world. That is the connection between the song and the spirit of Threerace. Beyond the finish line, people, embraces and memories remain long after the results are posted.",
+            "Created for the 2027 edition, the song is now available to listen to on the website. Its complete original Portuguese lyrics are below."
+          ]
+        }
+      ],
+      "facts": [
+        {
+          "label": "SONG",
+          "value": "NINGUÉM VOLTA IGUAL"
+        },
+        {
+          "label": "EDITION",
+          "value": "THREERACE BRAZIL · 2027"
+        },
+        {
+          "label": "CONCEPT",
+          "value": "PEOPLE, MOUNTAINS AND STORIES"
+        },
+        {
+          "label": "STYLE",
+          "value": "ROCK"
+        }
+      ],
+      "back": "BACK TO NEWS",
+      "factsTitle": "ABOUT THE RELEASE",
+      "cta": "EXPLORE THE 2027 EDITION ↗",
+      "related": "PEOPLE · MOUNTAINS · STORIES"
+    }
+  }
+},
+
   "threerace-uruguay-la-paloma": {
     image: "/home-hero-peloton.webp",
     imagePosition: "center 42%",
@@ -166,6 +408,7 @@ export default function NewsArticle({ slug }: { slug: keyof typeof articles }) {
   const [language, setLanguage] = useState<SiteLanguage>("pt");
   const article = articles[slug];
   const t = article.translations[language];
+  const musicCopy = musicPageCopy[language];
 
   useEffect(() => {
     let active = true;
@@ -203,7 +446,30 @@ export default function NewsArticle({ slug }: { slug: keyof typeof articles }) {
 
       <article className="section-frame news-article-body">
         <div className="news-article-copy">
+          {article.hasSongLyrics && (
+            <section className="news-music-player-panel" aria-label={musicCopy.label}>
+              <span className="news-music-eyebrow">{musicCopy.label}</span>
+              <h2>Ninguém Volta Igual</h2>
+              <p>{musicCopy.listen}</p>
+              <SiteMusicControl locale={language} />
+              <a href="#letra-oficial" className="news-lyrics-jump">{musicCopy.lyrics} ↓</a>
+            </section>
+          )}
           {t.sections.map((section) => <section key={section.title}><h2>{section.title}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</section>)}
+          {article.hasSongLyrics && (
+            <section className="news-song-lyrics" id="letra-oficial">
+              <span className="news-music-eyebrow">{musicCopy.original}</span>
+              <h2>Ninguém Volta Igual</h2>
+              <div className="news-lyrics-block">
+                {officialSongLyrics.map((stanza, index) => (
+                  <div className="news-lyrics-stanza" key={`${stanza.label}-${index}`}>
+                    <h3>{stanza.label}</h3>
+                    <p>{stanza.lines.join("\n")}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
         <aside>
           <p>{t.factsTitle}</p>
