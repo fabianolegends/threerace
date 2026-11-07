@@ -4,6 +4,7 @@ import { SiteHtml } from "./components/site-html";
 import { CookieConsent } from "./components/cookie-consent";
 import { GlobalTopButton } from "./components/global-top-button";
 import { GlobalSiteFooter } from "./components/global-site-footer";
+import { SiteMusicProvider, SiteMusicFloatingControl } from "./components/site-music-player";
 import "./globals.css";
 import "./corporate.css";
 
@@ -124,8 +125,11 @@ export default function RootLayout({
             __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
           }}
         />
-        {children}
-        <GlobalSiteFooter />
+        <SiteMusicProvider>
+          {children}
+          <SiteMusicFloatingControl />
+          <GlobalSiteFooter />
+        </SiteMusicProvider>
         <CookieConsent />
         <GlobalTopButton />
       </body>

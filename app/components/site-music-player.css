@@ -1,0 +1,54 @@
+.site-music-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  min-width: 39px;
+  min-height: 36px;
+  padding: 7px 11px;
+  border: 1px solid rgba(255,255,255,.36);
+  border-radius: 999px;
+  background: rgba(13,23,27,.42);
+  color: #fff;
+  cursor: pointer;
+  font-size: .62rem;
+  font-weight: 750;
+  letter-spacing: .07em;
+  line-height: 1.1;
+  white-space: nowrap;
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+}
+.site-music-toggle:hover {
+  background: rgba(255,255,255,.16);
+  border-color: rgba(255,255,255,.72);
+}
+.site-music-toggle:focus-visible { outline: 3px solid #c97c59; outline-offset: 3px; }
+.site-music-toggle:disabled { opacity: .65; cursor: progress; }
+.site-music-toggle svg { display: block; flex: 0 0 auto; }
+.site-music-toggle.is-playing { border-color: #c97c59; }
+.site-music-playing-dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: #e7a270;
+}
+.site-music-floating {
+  position: fixed;
+  bottom: 24px;
+  left: 20px;
+  z-index: 45;
+}
+.site-music-floating .site-music-toggle {
+  background: #132128;
+  box-shadow: 0 6px 22px rgba(0,0,0,.23);
+}
+@media (max-width: 1190px) {
+  .corporate-header .site-music-toggle { padding: 7px 9px; }
+  .corporate-header .site-music-toggle-text { display: none; }
+}
+@media (max-width: 580px) {
+  .corporate-header .site-music-toggle { min-height: 36px; min-width: 36px; padding: 7px; }
+  .site-music-floating { bottom: 18px; left: 12px; }
+}

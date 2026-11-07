@@ -6,6 +6,7 @@ import { getSavedLanguage, saveLanguage, SiteLanguage } from "./site-language";
 import { useSiteLanguage } from "./use-site-language";
 import { brasilPath } from "./threerace-brasil/localization";
 import { brasilEvent } from "./threerace-brasil/content";
+import { SiteMusicControl } from "./components/site-music-player";
 
 const logo = "/tr3-logo-display.webp";
 const azimutMenuLogo = "/azimut-extremo-logo-white.svg";
@@ -329,6 +330,7 @@ export default function Home() {
                 <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} onClick={() => setMenu(false)} key={href}>{homeNavigation[language][index]}</a>
               ))}
             </nav>
+            <SiteMusicControl locale={language} />
             <div className="corporate-socials" aria-label="Social media">
               <a href="https://www.instagram.com/threerace_sports/" target="_blank" rel="noreferrer" aria-label="Instagram"><SocialIcon network="instagram" /></a>
               <a href="https://www.facebook.com/threerace/" target="_blank" rel="noreferrer" aria-label="Facebook"><SocialIcon network="facebook" /></a>
