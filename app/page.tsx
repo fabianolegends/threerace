@@ -5,7 +5,7 @@ import { preload } from "react-dom";
 import { getSavedLanguage, saveLanguage, SiteLanguage } from "./site-language";
 import { useSiteLanguage } from "./use-site-language";
 import { brasilPath } from "./threerace-brasil/localization";
-import { brasilEvent } from "./threerace-brasil/content";
+import { brasilEvent, brasilRegistrationUrl } from "./threerace-brasil/content";
 import { SiteMusicControl } from "./components/site-music-player";
 
 const logo = "/tr3-logo-display.webp";
@@ -25,6 +25,7 @@ const homeCopy = {
     menuOpen: "Abrir menu", menuClose: "Fechar menu", language: "Selecionar idioma",
     heroKicker: "THREERACE SPORTS · DESDE 2017", hero: ["UMA MARCA.", "DIFERENTES TERRITÓRIOS.", "EXPERIÊNCIAS QUE DEIXAM HISTÓRIAS."],
     heroText: "Esporte, território e experiência conectados em projetos autorais no Brasil e na América do Sul.",
+    brasilCta: "INSCREVA-SE NA THREERACE BRASIL ↗", windfitCta: "INSCREVA-SE NA WINDFIT ↗",
     eventsCta: "CONHEÇA NOSSOS EVENTOS ↓", aboutCta: "CONHEÇA A THREERACE",
     next: "PRÓXIMOS DESAFIOS", open: "INSCRIÇÕES ABERTAS", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRASIL · 2027", brasilDate: "02 — 04 ABR · 2027", brasilLink: "Conhecer Threerace São Francisco de Paula", legendsLink: "Conhecer Legends Bike Race",
     mtbDays: "MOUNTAIN BIKE · 3 DIAS", gravelStages: "GRAVEL · 2 ETAPAS",
@@ -64,6 +65,7 @@ const homeCopy = {
     menuOpen: "Abrir menú", menuClose: "Cerrar menú", language: "Seleccionar idioma",
     heroKicker: "THREERACE SPORTS · DESDE 2017", hero: ["UNA MARCA.", "DIFERENTES TERRITORIOS.", "EXPERIENCIAS QUE DEJAN HISTORIAS."],
     heroText: "Deporte, territorio y experiencia conectados en proyectos propios en Brasil y América del Sur.",
+    brasilCta: "INSCRÍBETE EN THREERACE BRASIL ↗", windfitCta: "INSCRÍBETE EN WINDFIT ↗",
     eventsCta: "CONOCE NUESTROS EVENTOS ↓", aboutCta: "CONOCE THREERACE",
     next: "PRÓXIMOS DESAFÍOS", open: "INSCRIPCIONES ABIERTAS", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRASIL · 2027", brasilDate: "02 — 04 ABR · 2027", brasilLink: "Conocer Threerace São Francisco de Paula", legendsLink: "Conocer Legends Bike Race",
     mtbDays: "MOUNTAIN BIKE · 3 DÍAS", gravelStages: "GRAVEL · 2 ETAPAS",
@@ -103,6 +105,7 @@ const homeCopy = {
     menuOpen: "Open menu", menuClose: "Close menu", language: "Select language",
     heroKicker: "THREERACE SPORTS · SINCE 2017", hero: ["ONE BRAND.", "DIFFERENT TERRITORIES.", "EXPERIENCES THAT LEAVE STORIES."],
     heroText: "Sport, territory and experience connected through original projects in Brazil and South America.",
+    brasilCta: "REGISTER FOR THREERACE BRASIL ↗", windfitCta: "REGISTER ON WINDFIT ↗",
     eventsCta: "DISCOVER OUR EVENTS ↓", aboutCta: "DISCOVER THREERACE",
     next: "NEXT CHALLENGES", open: "REGISTRATION OPEN", placeBrasil: "SÃO FRANCISCO DE PAULA · RS", countryBrasil: "BRAZIL · 2027", brasilDate: "02 — 04 APR · 2027", brasilLink: "Explore Threerace São Francisco de Paula", legendsLink: "Explore Legends Bike Race",
     mtbDays: "MOUNTAIN BIKE · 3 DAYS", gravelStages: "GRAVEL · 2 STAGES",
@@ -366,7 +369,8 @@ export default function Home() {
           <h1 className="corporate-title">{t.hero[0]}<br />{t.hero[1]}<br /><span>{t.hero[2]}</span></h1>
           <p className="hero-subtitle">{t.heroText}</p>
           <div className="corporate-hero-actions">
-            <a className="button button-primary" href="#eventos">{t.eventsCta}</a>
+            <a className="button button-primary" href={brasilRegistrationUrl} target="_blank" rel="noopener noreferrer">{t.brasilCta}</a>
+            <a className="button button-ghost" href="#eventos">{t.eventsCta}</a>
             <a className="button button-ghost" href="#sobre">{t.aboutCta}</a>
           </div>
         </div>
@@ -386,6 +390,7 @@ export default function Home() {
                   </div>
                   <div className="next-event-meta"><span>{t.brasilDate}</span><span>{t.placeBrasil}</span></div>
                 </div>
+                <a className="button button-primary next-event-register" href={brasilRegistrationUrl} target="_blank" rel="noopener noreferrer">{t.windfitCta}</a>
               </div>
               <div className="next-event-organizers" aria-label="Threerace Sports">
                 <img src={logo} width="512" height="512" alt="TR3" />

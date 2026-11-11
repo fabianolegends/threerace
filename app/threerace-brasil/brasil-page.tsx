@@ -51,6 +51,7 @@ function PricesTable({ locale }: { locale: SiteLanguage }) {
     </div>
     <p className="brasil-content-note">{registrationNotice}</p>
     <p className="brasil-jersey-note">{jerseyOption.description}</p>
+    <a className="button button-dark brasil-register" href={brasilRegistrationUrl} target="_blank" rel="noopener noreferrer">{t("INSCREVA-SE NA WINDFIT ↗")}</a>
     <div className="brasil-registration-benefits">
       {registrationBenefits.map((group) => <section key={group.id} aria-labelledby={group.id}>
         <h4 id={group.id}>{group.title}</h4>
@@ -120,6 +121,7 @@ export default function BrasilPage({ locale = "pt" }: { locale?: SiteLanguage })
         <h1>THREERACE<small>BIKE ULTRAMARATHON BRASIL</small></h1>
         <p className="brasil-hero-date">{brasilEvent.date}</p>
         <p className="brasil-hero-motto">{t("MONTANHAS, PESSOAS, HISTÓRIAS.")}</p>
+        <a className="button button-dark brasil-register" href={brasilRegistrationUrl} target="_blank" rel="noopener noreferrer">{t("INSCREVA-SE NA WINDFIT ↗")}</a>
       </div>
     </section>
     <section className="brasil-modalities" id="modalidades" aria-label={t("Modalidades da Threerace Brasil")}>
@@ -129,6 +131,7 @@ export default function BrasilPage({ locale = "pt" }: { locale?: SiteLanguage })
           <div className="brasil-choice-heading"><h2 id={`modalidade-${format.id}`}>{format.name}</h2><span>{format.stages.length} {t("DIAS")}</span></div>
           <p className="brasil-choice-description">{format.id === "ultra" ? t("3 etapas com percurso completo") : t("2 etapas e percurso reduzido")}</p>
           <div className="brasil-choice-metrics"><div className="brasil-choice-value" role="group" aria-label={t("Distância prevista")}><RaceMetricIcon kind="distance" /><strong>{format.stages.reduce((total, stage) => total + stage.distance, 0)}<small> km</small></strong></div><div className="brasil-choice-value" role="group" aria-label={t("Subida acumulada prevista")}><RaceMetricIcon kind="ascent" />{totalAscent(format.stages) === null ? <strong className="brasil-choice-pending">{t("A confirmar")}</strong> : <strong>{number(totalAscent(format.stages)!, locale)}<small> m</small></strong>}</div></div>
+          <a className="button button-dark brasil-register" href={brasilRegistrationUrl} target="_blank" rel="noopener noreferrer">{t("INSCREVA-SE NA WINDFIT ↗")}</a>
           <div className="brasil-choice-actions"><a href="#etapas" aria-label={`${t("Ver etapas da")} ${format.name}`}>{t("VER ETAPAS")} <span aria-hidden="true">↗</span></a><a href="#inscricoes" aria-label={`${t("Valores e lotes da")} ${format.name}`}>{t("VALORES E LOTES")} <span aria-hidden="true">↗</span></a></div>
         </article>)}</div>
         <p className="brasil-content-note">{courseNotice}</p>
